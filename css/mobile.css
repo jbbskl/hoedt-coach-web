@@ -1,0 +1,51 @@
+/* mobile.css — minimale fixes voor klant-portaal op telefoon.
+   Bewust conservatief: dashboard heeft al een eigen bottom-bar nav
+   onder 640px, dus geen brede !important die dat overschrijft.
+   Focus: iOS zoom-bug, tap-targets, overflow-safety, modal-fit. */
+
+/* Native app (Capacitor WKWebView): geen dubbel-tik/pinch-zoom op knoppen of
+   de pagina. Viewport lockt de schaal al (maximum-scale=1, user-scalable=no);
+   dit dekt de dubbel-tik-zoom vertraging op alle breedtes af. */
+html, body { touch-action: manipulation; }
+
+@media (max-width: 768px) {
+  html, body { max-width: 100vw; overflow-x: hidden; }
+
+  /* iOS zoomt automatisch in op inputs <16px bij focus. */
+  input, textarea, select {
+    font-size: 16px;
+  }
+
+  /* Tap-target floor (Apple HIG = 44px). */
+  button, .btn, input[type="submit"], input[type="button"], a.cta-big {
+    min-height: 44px;
+  }
+
+  /* Navigatie- en dag-pillen ook ≥44px voor duim-bediening (klant-dashboard). */
+  .nav-item, .day-pill, .vo2-daypill, .tr2-daypill {
+    min-height: 44px;
+  }
+
+  /* Tabellen die te breed zijn worden scrollbaar i.p.v. body-overflow. */
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+
+  /* Modals/popups passen op kleine viewport. */
+  .modal, .popup, .dialog, .modal-card, .wiz-card {
+    max-width: 95vw;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* Iframes (welkomstvideo etc.) niet breder dan viewport. */
+  iframe { max-width: 100%; }
+
+  /* SVG/canvas charts schaalbaar. */
+  canvas, svg.chart { max-width: 100%; height: auto; }
+}
+
+/* Native number-spinners overal verbergen (touch-first app): de pijltjes
+   botsen met unit-labels zoals kg/cm en ogen rommelig. Dashboard deed dit al
+   per-veld; dit dekt intake + alle entry-pagina's in één keer. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }

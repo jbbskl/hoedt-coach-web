@@ -1,0 +1,665 @@
+/* ============================================================================
+   HOEDT COACHING — iOS DESIGN PACK
+   Capacitor WebView (iOS + Android) · vanilla HTML/CSS · mobile-first
+   Baseline iPhone 15/16 (393×852) · SE (375) → 16 Pro Max · Android safe
+   ----------------------------------------------------------------------------
+   Prefix `bc-` (brand coaching) keeps every class collision-free so this file
+   drops in alongside the existing styles.css without overriding it. Brand
+   identity is kept: green = action, gold = brand accent, warm-white body.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. DESIGN TOKENS  (CSS custom properties)
+   ------------------------------------------------------------------------- */
+:root {
+  /* — Brand / surface — */
+  --bc-bg:            #f5f0e8;   /* warm white app body            */
+  --bc-surface:       #ffffff;   /* plain card / sheet             */
+  --bc-surface-warm:  #fffdf6;   /* premium card                  */
+  --bc-surface-2:     #faf3e0;   /* card gradient tail / fills     */
+  --bc-dark:          #0f0f1a;   /* login + hero + sidebar         */
+  --bc-dark-2:        #1a1a2e;
+
+  /* — Ink — */
+  --bc-ink:           #1a1a2e;   /* primary text                   */
+  --bc-ink-2:         #6b7280;   /* muted / secondary text         */
+  --bc-ink-3:         #9ca3af;   /* tertiary / captions            */
+  --bc-line:          #e5e7eb;   /* hairline border                */
+  --bc-line-2:        #f0ece2;   /* softer divider on warm bg      */
+
+  /* — Brand accent (gold) — */
+  --bc-gold:          #c9a84c;
+  --bc-gold-deep:     #b8932f;
+  --bc-gold-grad:     linear-gradient(135deg, #d9b75a 0%, #b8932f 100%);
+  --bc-gold-tint:     rgba(201,168,76,.12);
+
+  /* — Action / status — */
+  --bc-primary:       #16a34a;   /* action green (as shipped)      */
+  --bc-primary-press: #15803d;
+  --bc-primary-tint:  rgba(22,163,74,.12);
+  --bc-success:       #22c55e;
+  --bc-danger:        #ef4444;
+  --bc-danger-tint:   rgba(239,68,68,.10);
+  --bc-warning:       #f59e0b;
+
+  /* — Data / macros — */
+  --bc-protein:       #3b82f6;   /* eiwit  */
+  --bc-carbs:         #8b5cf6;   /* koolhydraten */
+  --bc-fat:           #f97316;   /* vet    */
+  --bc-water:         #3b82f6;
+  --bc-steps:         #f97316;
+
+  /* — Spacing (4 / 8 grid) — */
+  --bc-sp-1: 4px;  --bc-sp-2: 8px;  --bc-sp-3: 12px; --bc-sp-4: 16px;
+  --bc-sp-5: 20px; --bc-sp-6: 24px; --bc-sp-8: 32px; --bc-sp-10: 40px;
+  --bc-sp-12: 48px;
+  --bc-gutter: 16px;             /* screen edge gutter             */
+
+  /* — Type scale (size / line-height) — DM Sans — */
+  --bc-font: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bc-fs-caption:  12px; --bc-lh-caption:  1.35;
+  --bc-fs-footnote: 13px; --bc-lh-footnote: 1.4;
+  --bc-fs-body:     15px; --bc-lh-body:     1.5;
+  --bc-fs-input:    16px; --bc-lh-input:    1.4;   /* ≥16 → no iOS zoom */
+  --bc-fs-callout:  16px; --bc-lh-callout:  1.45;
+  --bc-fs-headline: 17px; --bc-lh-headline: 1.3;
+  --bc-fs-title3:   20px; --bc-lh-title3:   1.25;
+  --bc-fs-title2:   24px; --bc-lh-title2:   1.2;
+  --bc-fs-title1:   28px; --bc-lh-title1:   1.15;
+  --bc-fs-large:    34px; --bc-lh-large:    1.08;
+
+  /* — Radii — */
+  --bc-r-sm:  8px;
+  --bc-r-md:  12px;   /* base */
+  --bc-r-lg:  16px;   /* cards */
+  --bc-r-xl:  20px;
+  --bc-r-2xl: 24px;   /* sheets */
+  --bc-r-pill: 999px;
+
+  /* — Elevation — */
+  --bc-sh-1: 0 1px 3px rgba(26,26,46,.06);
+  --bc-sh-2: 0 2px 8px rgba(26,26,46,.08);
+  --bc-sh-3: 0 8px 24px rgba(26,26,46,.12);
+  --bc-sh-4: 0 16px 40px rgba(26,26,46,.16);
+  --bc-sh-tabbar: 0 6px 24px rgba(15,15,26,.16);
+  --bc-sh-sheet:  0 -8px 40px rgba(15,15,26,.20);
+  --bc-sh-gold:   0 0 24px rgba(201,168,76,.35), 0 4px 16px rgba(184,147,47,.20);
+
+  /* — Motion — */
+  --bc-dur-1: 120ms;   /* taps, tints            */
+  --bc-dur-2: 180ms;   /* toggles, buttons       */
+  --bc-dur-3: 240ms;   /* cards, toasts          */
+  --bc-dur-sheet: 320ms;
+  --bc-ease:     cubic-bezier(.2,.8,.2,1);      /* standard ease-out */
+  --bc-ease-io:  cubic-bezier(.4,0,.2,1);
+  --bc-ease-spring: cubic-bezier(.34,1.4,.5,1); /* sheets, pop-ins    */
+
+  /* — Safe areas (Capacitor / notch / Dynamic Island / home indicator) — */
+  --bc-safe-top:    env(safe-area-inset-top, 0px);
+  --bc-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --bc-safe-left:   env(safe-area-inset-left, 0px);
+  --bc-safe-right:  env(safe-area-inset-right, 0px);
+
+  /* semantic surface aliases (flip in dark mode) */
+  --bc-page:   var(--bc-bg);
+  --bc-card:   var(--bc-surface);
+  --bc-elev:   var(--bc-surface);
+  --bc-text:   var(--bc-ink);
+  --bc-text-2: var(--bc-ink-2);
+  --bc-border: var(--bc-line);
+}
+
+/* ---------------------------------------------------------------------------
+   1b. DARK MODE  — matches shipped `body.dark`, + auto via prefers-color-scheme
+   ------------------------------------------------------------------------- */
+body.dark {
+  --bc-page:   #0d0d1a;
+  --bc-card:   #1f2937;
+  --bc-elev:   #1f2937;
+  --bc-text:   #f9fafb;
+  --bc-text-2: #9ca3af;
+  --bc-border: #374151;
+  --bc-line:   #374151;
+  --bc-line-2: #2a2a3e;
+  --bc-surface-warm: #1f2937;
+  --bc-surface-2:    #111827;
+  --bc-primary-tint: rgba(22,163,74,.18);
+  --bc-gold-tint:    rgba(201,168,76,.18);
+  --bc-sh-1: 0 1px 3px rgba(0,0,0,.4);
+  --bc-sh-2: 0 2px 8px rgba(0,0,0,.4);
+  --bc-sh-3: 0 8px 24px rgba(0,0,0,.5);
+}
+@media (prefers-color-scheme: dark) {
+  body.bc-auto-theme {
+    --bc-page:#0d0d1a; --bc-card:#1f2937; --bc-elev:#1f2937;
+    --bc-text:#f9fafb; --bc-text-2:#9ca3af; --bc-border:#374151;
+    --bc-line:#374151; --bc-line-2:#2a2a3e; --bc-surface-warm:#1f2937;
+    --bc-surface-2:#111827; --bc-primary-tint:rgba(22,163,74,.18);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   2. LAYOUT RULES  — native-clean, everything fits the frame, zero H-scroll
+   ------------------------------------------------------------------------- */
+
+/* Kill the double-tap / pinch zoom lag in the WebView, keep the page locked. */
+html, body { touch-action: manipulation; }
+
+/* Hard stop on horizontal scroll at the root. */
+.bc-app {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--bc-page);
+  color: var(--bc-text);
+  font-family: var(--bc-font);
+  font-size: var(--bc-fs-body);
+  line-height: var(--bc-lh-body);
+  overflow-x: hidden;                 /* never scroll sideways */
+  -webkit-text-size-adjust: 100%;
+}
+.bc-app *, .bc-app *::before, .bc-app *::after { box-sizing: border-box; }
+
+/* Content column: 16px gutter that grows with the safe-area on landscape. */
+.bc-content {
+  box-sizing: border-box;              /* self-contained: robust without a .bc-app wrapper */
+  width: 100%;
+  max-width: 100%;
+  padding-left:  calc(var(--bc-gutter) + var(--bc-safe-left));
+  padding-right: calc(var(--bc-gutter) + var(--bc-safe-right));
+  /* leave room for the floating tab bar + home indicator */
+  padding-bottom: calc(84px + var(--bc-safe-bottom));
+}
+
+/* Flex children never blow out the frame — the min-width:0 rule is the fix
+   for the classic "long word / wide chart pushes the row wider than screen". */
+.bc-row-flex { display: flex; gap: var(--bc-sp-3); align-items: center; }
+.bc-row-flex > * { min-width: 0; }        /* allow shrink below content size */
+
+.bc-fit  { max-width: 100%; }
+.bc-fit img, .bc-fit svg, .bc-fit canvas, .bc-fit iframe,
+.bc-app img, .bc-app svg, .bc-app canvas { max-width: 100%; height: auto; }
+.bc-truncate { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bc-wrap { overflow-wrap: anywhere; word-break: break-word; }        /* long tokens */
+.bc-scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+
+/* Reduced-motion respect (accessibility). */
+@media (prefers-reduced-motion: reduce) {
+  .bc-app *, .bc-app *::before, .bc-app *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   3. COMPONENTS
+   ------------------------------------------------------------------------- */
+
+/* 3.1 — TOP HEADER (sticky, safe-area, compact) --------------------------- */
+.bc-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--bc-sp-3);
+  padding: calc(var(--bc-safe-top) + var(--bc-sp-3)) var(--bc-gutter) var(--bc-sp-3);
+  background: color-mix(in srgb, var(--bc-page) 78%, transparent);
+  -webkit-backdrop-filter: saturate(190%) blur(24px);
+  backdrop-filter: saturate(190%) blur(24px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--bc-dur-2) var(--bc-ease);
+}
+.bc-header.is-scrolled { border-bottom-color: var(--bc-border); }
+.bc-header__titles { min-width: 0; flex: 1; }
+.bc-header__title {
+  margin: 0;
+  font-size: var(--bc-fs-title3);
+  line-height: var(--bc-lh-title3);
+  font-weight: 700;
+  color: var(--bc-text);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.bc-header__sub {
+  margin: 2px 0 0;
+  font-size: var(--bc-fs-footnote);
+  color: var(--bc-text-2);
+  font-weight: 500;
+}
+.bc-header__action {
+  flex: 0 0 auto;
+  width: 40px; height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: none; border-radius: var(--bc-r-pill);
+  background: var(--bc-gold-tint);
+  color: var(--bc-gold-deep);
+  cursor: pointer;
+}
+/* profile avatar = entry point to Instellingen (settings live here, not in a tab) */
+.bc-avatar {
+  flex: 0 0 auto;
+  width: 40px; height: 40px; padding: 0;
+  border-radius: var(--bc-r-pill);
+  border: 1.5px solid var(--bc-gold);
+  background: var(--bc-gold-tint);
+  color: var(--bc-gold-deep);
+  font-family: var(--bc-font); font-weight: 700; font-size: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; overflow: hidden;
+  transition: transform var(--bc-dur-1) var(--bc-ease);
+}
+.bc-avatar:active { transform: scale(.94); }
+.bc-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 3.2 — FLOATING BOTTOM TAB BAR ------------------------------------------- */
+.bc-tabbar {
+  position: fixed;
+  left:  calc(var(--bc-gutter) + var(--bc-safe-left));
+  right: calc(var(--bc-gutter) + var(--bc-safe-right));
+  bottom: calc(var(--bc-sp-2) + var(--bc-safe-bottom));   /* above home bar */
+  z-index: 30;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: var(--bc-sp-1);
+  padding: var(--bc-sp-2);
+  /* Liquid-glass material. Uses rgba() (universally supported) — NOT color-mix,
+     which older Android WebView / iOS can't parse (that makes the bar render
+     fully solid). Fallback below is a legible dark navy; the @supports block
+     turns it into real frosted glass wherever backdrop-filter is available. */
+  background:
+    linear-gradient(180deg,
+      rgba(15, 15, 26, 0.82) 0%,
+      rgba(15, 15, 26, 0.74) 100%);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--bc-r-2xl);
+  box-shadow:
+    0 8px 28px rgba(15,15,26,.34),
+    inset 0 1px 0 rgba(255,255,255,.35),
+    inset 1.6px 2.4px 0 -2px rgba(255,255,255,.55),
+    inset -2px -2px 0 -2px rgba(255,255,255,.30),
+    inset 0 -3px 8px -4px rgba(0,0,0,.45),
+    inset 0 2px 6px -3px rgba(0,0,0,.30);
+}
+/* Real frosted glass only where the WebView actually supports it — otherwise
+   the opaque-ish fallback above keeps labels legible instead of muddy. */
+@supports ((-webkit-backdrop-filter: blur(2px)) or (backdrop-filter: blur(2px))) {
+  .bc-tabbar {
+    /* Brand navy #0f0f1a kept high-opacity so the COLOR matches the rest of the
+       app exactly — the blur still frosts the edge for the glass feel, but the
+       tint no longer lets warm/green content bleed through and tint it. */
+    background:
+      linear-gradient(180deg,
+        rgba(15, 15, 26, 0.90) 0%,
+        rgba(15, 15, 26, 0.84) 100%);
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+  }
+}
+/* when a bottom-sheet / modal is open the tab bar drops away (iOS: a sheet
+   covers the tab bar rather than floating over it) */
+.bc-tabbar.is-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  pointer-events: none;
+  transition: opacity var(--bc-dur-2) var(--bc-ease),
+              transform var(--bc-dur-2) var(--bc-ease);
+}
+.bc-tab {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 48px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 3px;
+  padding: 4px 2px;
+  border: none; background: none; cursor: pointer;
+  color: rgba(255,255,255,.55);   /* inactive on dark bar */
+  font-family: var(--bc-font);
+  border-radius: var(--bc-r-md);
+  transition: color var(--bc-dur-1) var(--bc-ease), background var(--bc-dur-1);
+}
+.bc-tab__icon { width: 24px; height: 24px; display: block; }
+.bc-tab__label {
+  font-size: 10px; font-weight: 600; line-height: 1.3;   /* 1.3 so descenders (g/j/y) aren't clipped */
+  padding-bottom: 1px;
+  max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.bc-tab:active { background: rgba(255,255,255,.08); }
+.bc-tab.is-active { color: var(--bc-gold); }   /* gold accent pops on dark navy */
+.bc-tab.is-active .bc-tab__icon { transform: translateY(-1px); }
+.bc-tab__badge {
+  position: absolute; transform: translate(14px,-14px);
+  min-width: 16px; height: 16px; padding: 0 4px;
+  border-radius: var(--bc-r-pill);
+  background: var(--bc-danger); color: #fff;
+  font-size: 10px; font-weight: 700; line-height: 16px; text-align: center;
+  box-shadow: 0 0 0 2px var(--bc-dark);
+}
+
+/* 3.3 — BUTTONS ----------------------------------------------------------- */
+.bc-btn {
+  --_bg: var(--bc-primary);
+  --_fg: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--bc-sp-2);
+  min-height: 48px;                 /* ≥44 tap target */
+  padding: 0 var(--bc-sp-5);
+  border: none; border-radius: var(--bc-r-md);
+  background: var(--_bg); color: var(--_fg);
+  font-family: var(--bc-font);
+  font-size: var(--bc-fs-callout); font-weight: 600; line-height: 1;
+  cursor: pointer; user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--bc-dur-1) var(--bc-ease),
+              background var(--bc-dur-2) var(--bc-ease),
+              box-shadow var(--bc-dur-2) var(--bc-ease),
+              opacity var(--bc-dur-2);
+}
+.bc-btn--block { display: flex; width: 100%; }
+.bc-btn:active { transform: scale(.97); }
+.bc-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--bc-primary-tint); }
+
+.bc-btn--primary { --_bg: var(--bc-primary); }
+.bc-btn--primary:hover  { background: var(--bc-primary-press); }
+.bc-btn--primary:active { background: var(--bc-primary-press); }
+
+/* gold = brand / premium CTA (upgrade, hero) */
+.bc-btn--gold { background: var(--bc-gold-grad); color: #241c05; box-shadow: var(--bc-sh-gold); }
+.bc-btn--gold:focus-visible { box-shadow: var(--bc-sh-gold), 0 0 0 3px var(--bc-gold-tint); }
+
+.bc-btn--secondary {
+  --_bg: transparent; --_fg: var(--bc-primary);
+  border: 1.5px solid var(--bc-primary);
+}
+.bc-btn--secondary:hover  { background: var(--bc-primary-tint); }
+.bc-btn--secondary:focus-visible { box-shadow: 0 0 0 3px var(--bc-primary-tint); }
+
+.bc-btn--ghost { --_bg: transparent; --_fg: var(--bc-text-2); }
+.bc-btn--ghost:hover { background: color-mix(in srgb, var(--bc-text) 6%, transparent); }
+
+.bc-btn--danger { --_bg: var(--bc-danger); }
+.bc-btn--danger:focus-visible { box-shadow: 0 0 0 3px var(--bc-danger-tint); }
+
+.bc-btn:disabled, .bc-btn[aria-disabled="true"] {
+  opacity: .45; cursor: not-allowed; transform: none; box-shadow: none;
+}
+.bc-btn--sm { min-height: 40px; padding: 0 var(--bc-sp-4); font-size: var(--bc-fs-footnote); }
+
+/* 3.4 — TEXT INPUTS (16px → no iOS zoom) ---------------------------------- */
+.bc-field { display: block; margin-bottom: var(--bc-sp-4); }
+.bc-label {
+  display: block; margin-bottom: var(--bc-sp-2);
+  font-size: var(--bc-fs-footnote); font-weight: 600; color: var(--bc-text);
+}
+.bc-label .bc-hint { font-weight: 400; color: var(--bc-text-2); margin-left: 6px; }
+.bc-input, .bc-select, .bc-textarea {
+  width: 100%; max-width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--bc-border);
+  border-radius: var(--bc-r-md);
+  background: var(--bc-card);
+  color: var(--bc-text);
+  font-family: var(--bc-font);
+  font-size: var(--bc-fs-input);           /* 16px — critical */
+  line-height: var(--bc-lh-input);
+  transition: border-color var(--bc-dur-2) var(--bc-ease),
+              box-shadow var(--bc-dur-2) var(--bc-ease);
+}
+.bc-textarea { min-height: 96px; resize: vertical; padding-top: 12px; }
+.bc-input::placeholder, .bc-textarea::placeholder { color: var(--bc-ink-3); }
+.bc-input:focus, .bc-select:focus, .bc-textarea:focus {
+  outline: none;
+  border-color: var(--bc-primary);
+  box-shadow: 0 0 0 3px var(--bc-primary-tint);
+}
+.bc-input:disabled { opacity: .55; }
+.bc-input.is-invalid { border-color: var(--bc-danger); }
+.bc-input.is-invalid:focus { box-shadow: 0 0 0 3px var(--bc-danger-tint); }
+.bc-error { margin-top: 6px; font-size: var(--bc-fs-footnote); color: var(--bc-danger); }
+/* hide number spinners (touch-first) */
+.bc-input[type="number"]::-webkit-inner-spin-button,
+.bc-input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.bc-input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+
+/* 3.5 — CARD -------------------------------------------------------------- */
+.bc-card {
+  background: var(--bc-card);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-r-lg);
+  padding: var(--bc-sp-5);
+  box-shadow: var(--bc-sh-2);
+}
+.bc-card--warm { background: var(--bc-surface-warm); border-color: var(--bc-gold-tint); }
+.bc-card--flush { padding: 0; overflow: hidden; }
+.bc-card__head { display: flex; align-items: center; gap: var(--bc-sp-2); margin-bottom: var(--bc-sp-3); }
+.bc-card__title { margin: 0; font-size: var(--bc-fs-headline); font-weight: 700; color: var(--bc-text); }
+.bc-card__icon { flex: 0 0 auto; width: 22px; height: 22px; color: var(--bc-gold); }
+.bc-stack { display: flex; flex-direction: column; gap: var(--bc-sp-4); }
+.bc-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--bc-sp-4); }
+.bc-grid-2 > * { min-width: 0; }
+@media (max-width: 380px) { .bc-grid-2 { grid-template-columns: 1fr; } }
+
+/* 3.6 — MACRO PROGRESS BARS ----------------------------------------------- */
+.bc-macros { display: flex; flex-direction: column; gap: var(--bc-sp-3); }
+.bc-macro { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.bc-macro__head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: var(--bc-sp-2);
+  font-size: var(--bc-fs-footnote); font-weight: 700;
+}
+.bc-macro__head .bc-macro__val { color: var(--bc-text-2); font-weight: 500; }
+.bc-macro__track {
+  height: 8px; border-radius: var(--bc-r-pill);
+  background: color-mix(in srgb, var(--bc-text) 8%, transparent);
+  overflow: hidden;
+}
+.bc-macro__fill {
+  height: 100%; border-radius: var(--bc-r-pill);
+  background: var(--bc-primary);
+  transition: width var(--bc-dur-3) var(--bc-ease);
+}
+.bc-macro--protein .bc-macro__label { color: var(--bc-protein); }
+.bc-macro--protein .bc-macro__fill  { background: var(--bc-protein); }
+.bc-macro--carbs   .bc-macro__label { color: var(--bc-carbs); }
+.bc-macro--carbs   .bc-macro__fill  { background: var(--bc-carbs); }
+.bc-macro--fat     .bc-macro__label { color: var(--bc-fat); }
+.bc-macro--fat     .bc-macro__fill  { background: var(--bc-fat); }
+.bc-macro.is-over .bc-macro__fill   { background: var(--bc-danger); }
+
+/* 3.7 — LIST ROWS --------------------------------------------------------- */
+.bc-list {
+  list-style: none; margin: 0; padding: 0;
+  background: var(--bc-card);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-r-lg);
+  overflow: hidden;
+}
+.bc-row {
+  display: flex; align-items: center; gap: var(--bc-sp-3);
+  min-height: 56px; padding: var(--bc-sp-3) var(--bc-sp-4);
+  background: none; border: none; width: 100%; text-align: left;
+  color: var(--bc-text); font-family: var(--bc-font); font-size: var(--bc-fs-callout);
+  cursor: pointer;
+  box-shadow: inset 0 -1px 0 var(--bc-line);
+  transition: background var(--bc-dur-1) var(--bc-ease);
+}
+.bc-list .bc-row:last-child { box-shadow: none; }
+.bc-row:active { background: color-mix(in srgb, var(--bc-text) 5%, transparent); }
+.bc-row__lead {
+  flex: 0 0 auto; width: 38px; height: 38px; border-radius: var(--bc-r-sm);
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bc-primary-tint); color: var(--bc-primary);
+}
+.bc-row__body { flex: 1; min-width: 0; }
+.bc-row__title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bc-row__sub { font-size: var(--bc-fs-footnote); color: var(--bc-text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bc-row__meta { flex: 0 0 auto; color: var(--bc-text-2); font-size: var(--bc-fs-footnote); }
+.bc-row__chevron { flex: 0 0 auto; color: var(--bc-ink-3); }
+
+/* 3.8 — SEGMENTED CONTROL  /  PHASE SELECTOR ------------------------------ */
+.bc-seg {
+  display: flex; gap: 2px; padding: 3px;
+  background: color-mix(in srgb, var(--bc-text) 7%, transparent);
+  border-radius: var(--bc-r-md);
+}
+.bc-seg__item {
+  flex: 1 1 0; min-width: 0; min-height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: none; background: none; cursor: pointer;
+  font-family: var(--bc-font); font-size: var(--bc-fs-footnote); font-weight: 600;
+  color: var(--bc-text-2); border-radius: calc(var(--bc-r-md) - 3px);
+  padding: 0 var(--bc-sp-3);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  transition: color var(--bc-dur-2) var(--bc-ease);
+}
+.bc-seg__item.is-active {
+  background: var(--bc-card); color: var(--bc-text);
+  box-shadow: var(--bc-sh-1);
+}
+
+/* phase selector = pills with progress dots */
+.bc-phase { display: flex; gap: var(--bc-sp-2); }
+.bc-phase__step {
+  flex: 1 1 0; min-width: 0;
+  padding: var(--bc-sp-2) var(--bc-sp-2);
+  border-radius: var(--bc-r-sm);
+  background: color-mix(in srgb, var(--bc-text) 6%, transparent);
+  text-align: center; color: var(--bc-text-2);
+  border: 1.5px solid transparent;
+}
+.bc-phase__step.is-done { color: var(--bc-primary); }
+.bc-phase__step.is-active { background: var(--bc-primary); color: #fff; }
+.bc-phase__name { font-size: var(--bc-fs-footnote); font-weight: 700; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bc-phase__weeks { font-size: 10px; letter-spacing: .04em; margin-top: 2px; opacity: .85; }
+
+/* 3.9 — BOTTOM SHEET ------------------------------------------------------ */
+.bc-backdrop {
+  position: fixed; inset: 0; z-index: 40;
+  background: rgba(15,15,26,.5);
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--bc-dur-3) var(--bc-ease);
+}
+.bc-backdrop.is-open { opacity: 1; pointer-events: auto; }
+.bc-sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 41;
+  max-height: 90dvh;
+  display: flex; flex-direction: column;
+  padding: var(--bc-sp-3) var(--bc-gutter) calc(var(--bc-sp-5) + var(--bc-safe-bottom));
+  background: var(--bc-card); color: var(--bc-text);
+  border-radius: var(--bc-r-2xl) var(--bc-r-2xl) 0 0;
+  box-shadow: var(--bc-sh-sheet);
+  transform: translateY(100%);
+  transition: transform var(--bc-dur-sheet) var(--bc-ease-spring);
+}
+.bc-sheet.is-open { transform: translateY(0); }
+.bc-sheet__grabber {
+  width: 40px; height: 5px; border-radius: var(--bc-r-pill);
+  background: var(--bc-border); margin: 2px auto var(--bc-sp-4);
+  flex: 0 0 auto;
+}
+.bc-sheet__title { margin: 0 0 var(--bc-sp-4); font-size: var(--bc-fs-title3); font-weight: 700; }
+.bc-sheet__body { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+/* 3.10 — MODAL (centred dialog) ------------------------------------------- */
+.bc-modal {
+  position: fixed; z-index: 41; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: calc(var(--bc-gutter) + var(--bc-safe-top)) var(--bc-gutter)
+           calc(var(--bc-gutter) + var(--bc-safe-bottom));
+  pointer-events: none;
+}
+.bc-modal__card {
+  width: 100%; max-width: 400px; max-height: 88dvh; overflow-y: auto;
+  background: var(--bc-card); color: var(--bc-text);
+  border-radius: var(--bc-r-xl);
+  padding: var(--bc-sp-6) var(--bc-sp-5) var(--bc-sp-5);
+  box-shadow: var(--bc-sh-4);
+  transform: scale(.94); opacity: 0;
+  transition: transform var(--bc-dur-3) var(--bc-ease-spring), opacity var(--bc-dur-3);
+}
+.bc-modal.is-open { pointer-events: auto; }
+.bc-modal.is-open .bc-modal__card { transform: scale(1); opacity: 1; }
+.bc-modal__title { margin: 0 0 var(--bc-sp-2); font-size: var(--bc-fs-title3); font-weight: 700; }
+.bc-modal__sub { margin: 0 0 var(--bc-sp-5); color: var(--bc-text-2); font-size: var(--bc-fs-body); }
+.bc-modal__close {
+  position: absolute; top: var(--bc-sp-3); right: var(--bc-sp-3);
+  width: 32px; height: 32px; border-radius: var(--bc-r-pill);
+  border: none; background: color-mix(in srgb, var(--bc-text) 6%, transparent);
+  color: var(--bc-text-2); font-size: 20px; line-height: 1; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* 3.11 — TOAST ------------------------------------------------------------ */
+.bc-toast-host {
+  position: fixed; left: var(--bc-gutter); right: var(--bc-gutter);
+  bottom: calc(96px + var(--bc-safe-bottom));    /* above the tab bar */
+  z-index: 50; display: flex; flex-direction: column; gap: var(--bc-sp-2);
+  pointer-events: none;
+}
+.bc-toast {
+  display: flex; align-items: center; gap: var(--bc-sp-3);
+  padding: var(--bc-sp-3) var(--bc-sp-4);
+  background: var(--bc-dark); color: #fff;
+  border-radius: var(--bc-r-md);
+  box-shadow: var(--bc-sh-3);
+  font-size: var(--bc-fs-footnote); font-weight: 500;
+  transform: translateY(8px); opacity: 0;
+  animation: bc-toast-in var(--bc-dur-3) var(--bc-ease-spring) forwards;
+}
+.bc-toast__dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; background: var(--bc-success); }
+.bc-toast--danger  .bc-toast__dot { background: var(--bc-danger); }
+.bc-toast--warning .bc-toast__dot { background: var(--bc-warning); }
+@keyframes bc-toast-in { to { transform: translateY(0); opacity: 1; } }
+
+/* 3.12 — EMPTY STATE ------------------------------------------------------ */
+.bc-empty {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: var(--bc-sp-3); padding: var(--bc-sp-10) var(--bc-sp-5);
+  color: var(--bc-text-2);
+}
+.bc-empty__icon {
+  width: 64px; height: 64px; border-radius: var(--bc-r-xl);
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bc-gold-tint); color: var(--bc-gold-deep);
+}
+.bc-empty__title { font-size: var(--bc-fs-headline); font-weight: 700; color: var(--bc-text); }
+.bc-empty__text { font-size: var(--bc-fs-footnote); max-width: 36ch; }
+
+/* 3.13 — CHAT ------------------------------------------------------------- */
+.bc-chat { display: flex; flex-direction: column; gap: var(--bc-sp-3); }
+.bc-bubble {
+  max-width: 82%; padding: 10px 14px; border-radius: var(--bc-r-lg);
+  font-size: var(--bc-fs-callout); line-height: 1.4; word-wrap: break-word;
+}
+.bc-bubble--in  { align-self: flex-start; background: var(--bc-card); border: 1px solid var(--bc-border); color: var(--bc-text); border-bottom-left-radius: var(--bc-r-sm); }
+.bc-bubble--out { align-self: flex-end; background: var(--bc-primary); color: #fff; border-bottom-right-radius: var(--bc-r-sm); }
+.bc-bubble__time { display: block; margin-top: 4px; font-size: 11px; opacity: .7; }
+.bc-chat-input {
+  display: flex; align-items: flex-end; gap: var(--bc-sp-2);
+  padding: var(--bc-sp-2);
+  background: var(--bc-card); border: 1px solid var(--bc-border);
+  border-radius: var(--bc-r-xl);
+}
+.bc-chat-input .bc-input { min-height: 40px; border: none; box-shadow: none; padding: 8px 10px; }
+.bc-chat-input .bc-input:focus { box-shadow: none; }
+.bc-chat-send {
+  flex: 0 0 auto; width: 40px; height: 40px; border-radius: var(--bc-r-pill);
+  border: none; background: var(--bc-primary); color: #fff; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.bc-chat-send:disabled { opacity: .4; }
+
+/* 3.14 — misc helpers ----------------------------------------------------- */
+.bc-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: var(--bc-r-pill);
+  font-size: var(--bc-fs-caption); font-weight: 700;
+  background: var(--bc-gold-tint); color: var(--bc-gold-deep);
+}
+.bc-badge--green { background: var(--bc-primary-tint); color: var(--bc-primary); }
+.bc-divider { height: 1px; background: var(--bc-line); border: none; margin: var(--bc-sp-4) 0; }

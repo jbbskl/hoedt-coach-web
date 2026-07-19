@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+  <html lang="nl"><head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat — Hoedt Coaching</title>
+  <link rel="stylesheet" href="/css/fonts.css">
+  </head><body>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:#f5f0e8;display:flex;min-height:100vh;color:#1a1a2e;}
+  .coach-sidebar{width:220px;min-height:100vh;background:#0f0f1a;display:flex;flex-direction:column;position:fixed;top:0;left:0;z-index:100;}
+  .sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .logo-text{font-size:17px;color:#c9a84c;font-weight:700;letter-spacing:0.3px;}
+  .logo-sub{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+  .sidebar-nav{padding:12px 0;flex:1;overflow-y:auto;}
+  .nav-label{font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px 4px;}
+  .nav-item{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;}
+  .nav-item:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .nav-item.active{background:rgba(201,168,76,0.15);color:#c9a84c;border-left-color:#c9a84c;font-weight:600;}
+  .nav-icon{font-size:14px;width:16px;text-align:center;flex-shrink:0;}
+  .nav-badge{margin-left:auto;background:#e05454;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;min-width:18px;text-align:center;}
+  .nav-badge-amber{margin-left:auto;background:#d4871a;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;}
+  .nav-item.nav-sub-item{padding:7px 20px 7px 32px;font-size:12.5px;color:rgba(255,255,255,0.45);}
+  .sidebar-footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,0.06);}
+  .coach-av{width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,0.15);border:1.5px solid #c9a84c;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#c9a84c;flex-shrink:0;}
+
+  .coach-main{margin-left:220px;flex:1;padding:26px 28px;min-width:0;display:flex;flex-direction:column;max-height:100vh;}
+  .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+  .page-title{font-size:22px;color:#1a1a2e;font-weight:700;}
+  .page-date{font-size:12px;color:#6b6b80;margin-top:2px;}
+
+  .chat-layout{flex:1;display:grid;grid-template-columns:320px minmax(0,1fr);gap:16px;min-height:0;}
+  .chat-list-card{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:0;}
+  .chat-list-head{padding:14px 16px;border-bottom:1px solid rgba(26,26,46,0.07);display:flex;justify-content:space-between;align-items:center;}
+  .chat-list-title{font-size:13px;font-weight:700;color:#1a1a2e;}
+  .chat-list-count{font-size:11px;color:#9b9baa;font-weight:500;}
+  .chat-list{flex:1;overflow-y:auto;}
+  .chat-list-empty{padding:40px 18px;text-align:center;color:#9b9baa;font-size:12.5px;}
+  .cli{display:flex;align-items:flex-start;gap:11px;padding:12px 16px;cursor:pointer;border-bottom:1px solid rgba(26,26,46,0.04);transition:background 0.12s;}
+  .cli:hover{background:#fafaf8;}
+  .cli.active{background:rgba(201,168,76,0.08);border-left:3px solid #c9a84c;padding-left:13px;}
+  .cli-av{width:38px;height:38px;border-radius:50%;background:rgba(201,168,76,0.15);color:#8a6a1a;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+  .cli-main{flex:1;min-width:0;}
+  .cli-top{display:flex;justify-content:space-between;align-items:baseline;gap:6px;}
+  .cli-naam{font-size:13px;font-weight:600;color:#1a1a2e;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .cli-time{font-size:10.5px;color:#9b9baa;flex-shrink:0;}
+  .cli-preview{font-size:11.5px;color:#6b6b80;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .cli-preview em{color:#9b9baa;font-style:normal;}
+  .cli-badge{background:#e05454;color:white;font-size:10px;font-weight:700;padding:1px 7px;border-radius:10px;margin-left:6px;flex-shrink:0;}
+
+  .chat-thread-card{background:#0f0f1a;border:1px solid rgba(201,168,76,0.18);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:0;color:rgba(255,255,255,0.9);}
+  .thread-head{padding:14px 18px;background:#1a1a2a;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:12px;}
+  .thread-head .cli-av{background:rgba(201,168,76,0.18);color:#c9a84c;}
+  .thread-head-naam{font-size:15px;font-weight:700;color:#c9a84c;}
+  .thread-head-sub{font-size:10.5px;color:rgba(255,255,255,0.4);letter-spacing:1.6px;text-transform:uppercase;font-weight:600;margin-top:2px;}
+  .thread-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:10px;background:#0f0f1a;}
+  .thread-empty{padding:60px 20px;text-align:center;color:rgba(255,255,255,0.35);font-size:13px;}
+  .tmsg{max-width:72%;display:flex;flex-direction:column;gap:3px;}
+  .tmsg.me{align-self:flex-end;align-items:flex-end;}
+  .tmsg.them{align-self:flex-start;align-items:flex-start;}
+  .tbub{padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.45;white-space:pre-wrap;word-break:break-word;}
+  .tmsg.them .tbub{background:#1a1a2a;color:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.08);border-bottom-left-radius:4px;}
+  .tmsg.me .tbub{background:#c9a84c;color:#0f0f1a;border-bottom-right-radius:4px;font-weight:600;}
+  .ttime{font-size:10.5px;color:rgba(255,255,255,0.35);}
+  .thread-foot{padding:13px 16px;border-top:1px solid rgba(255,255,255,0.06);background:#1a1a2a;display:flex;gap:10px;align-items:flex-end;}
+  .thread-input{flex:1;padding:10px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:20px;font-size:13.5px;font-family:inherit;background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.92);min-height:40px;max-height:120px;resize:none;line-height:1.4;}
+  .thread-input::placeholder{color:rgba(255,255,255,0.35);}
+  .thread-input:focus{outline:none;border-color:#c9a84c;background:rgba(255,255,255,0.06);}
+  .thread-send{padding:10px 18px;background:#c9a84c;color:#0f0f1a;border:none;border-radius:999px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap;}
+  .thread-send:hover{background:#d4b75c;}
+  .thread-send:disabled{opacity:0.5;cursor:not-allowed;}
+  .thread-placeholder{flex:1;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);font-size:14px;padding:40px 20px;text-align:center;}
+
+  @media(max-width:880px){
+    .chat-layout{grid-template-columns:1fr;}
+    .coach-main{max-height:none;}
+    .chat-list-card,.chat-thread-card{min-height:420px;}
+  }
+  @media(max-width:768px){
+    .coach-main{margin-left:0;padding:16px;}
+  }
+</style>
+
+<div class="coach-sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">Hoedt Coaching</div>
+      <div class="logo-sub">Coach Dashboard</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-label">Overzicht</div>
+      <a class="nav-item" href="/coach">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>Dashboard
+        
+      </a>
+      <a class="nav-item" href="/coach/analytics">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>Analytics
+      </a>
+      <a class="nav-item" href="/coach/aandacht">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Aandacht nodig
+      </a>
+      <a class="nav-item" href="/coach/taken">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span>Taken
+      </a>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/klanten">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="nav-group-label">Klanten</span>
+          <span class="nav-badge">3</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/intakes">
+            Intakes
+            <span class="nav-badge-amber">8</span>
+          </a>
+          <a class="nav-item nav-sub-item" href="/coach/checkins">
+            Check-ins
+            <span class="nav-badge">11</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav-item active" href="/coach/chat">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Chat
+        <span class="nav-badge" id="coachChatNavBadge" style="display:none;"></span>
+      </a>
+
+      <a class="nav-item" href="/coach/eind-vragenlijsten">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>Eind-vragenlijsten
+      </a>
+
+      <a class="nav-item" href="/coach/feedback-stats">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>AI-feedback
+      </a>
+
+      <a class="nav-item" href="/coach/instellingen">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Instellingen
+      </a>
+
+      <div class="nav-label">Schema Builder</div>
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+          <span class="nav-group-label">Voeding</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding?tab=producten">Producten</a>
+        </div>
+      </div>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/training?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
+          <span class="nav-group-label">Training</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="coach-av">DH</div>
+        <div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:500;">Daniel Hoedt</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);">Head Coach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<style>
+  .toast-success{position:fixed;top:20px;right:20px;background:#2e9e6b;color:white;padding:12px 18px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.18);z-index:9999;transition:opacity 0.4s ease,transform 0.3s ease;max-width:340px;}
+  .breadcrumbs{font-size:11.5px;color:#9b9baa;margin-top:3px;}
+  .breadcrumbs a{color:#6b6b80;text-decoration:none;}
+  .breadcrumbs a:hover{color:#c9a84c;}
+  .breadcrumbs .crumb-sep{margin:0 6px;opacity:0.5;}
+  button[type="submit"]:disabled,.sb-btn:disabled{opacity:0.6;cursor:wait !important;}
+  /* Sidebar-iconen: SVG-set op maat (overschrijft de oude emoji font-size regel) */
+  .coach-sidebar .nav-icon{width:16px;height:16px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;}
+  .coach-sidebar .nav-icon svg{width:16px;height:16px;stroke-width:1.9;opacity:0.9;}
+  .coach-sidebar .nav-item.active .nav-icon svg,.coach-sidebar .nav-group-head.active .nav-icon svg{opacity:1;}
+  /* Sidebar accordeon-groepen — data-open attribute drives visibility */
+  .coach-sidebar .nav-group{display:block;}
+  .coach-sidebar .nav-group-head{display:flex;align-items:center;gap:9px;padding:10px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;cursor:pointer;}
+  .coach-sidebar .nav-group-head:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .coach-sidebar .nav-group-head.active{background:rgba(201,168,76,0.08);color:#c9a84c;border-left-color:#c9a84c;}
+  .coach-sidebar .nav-group-label{flex:1;}
+  .coach-sidebar .nav-chevron{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;color:#c9a84c;font-size:18px;line-height:1;font-weight:700;transition:transform 0.2s ease,color 0.15s ease,background 0.15s ease;border-radius:4px;cursor:pointer;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
+  .coach-sidebar .nav-chevron:hover{color:#ffffff;background:rgba(201,168,76,0.18);}
+  .coach-sidebar .nav-group[data-open="true"] > .nav-group-head .nav-chevron{transform:rotate(180deg);color:#ffffff;}
+  .coach-sidebar .nav-group[data-open="false"] .nav-group-body{display:none !important;}
+  @media (max-width:768px){
+    body{display:block !important;}
+    .coach-sidebar{position:static !important;width:100% !important;min-height:0 !important;flex-direction:row !important;overflow-x:auto;padding:8px 12px !important;z-index:10;}
+    .coach-sidebar .sidebar-logo,.coach-sidebar .sidebar-footer,.coach-sidebar .nav-label{display:none;}
+    .coach-sidebar .sidebar-nav{display:flex;flex-direction:row;padding:0;gap:2px;overflow-x:auto;flex:1;}
+    .coach-sidebar .nav-item,.coach-sidebar .nav-sub-item{flex:0 0 auto;white-space:nowrap;padding:8px 14px !important;font-size:12px !important;border-left:none !important;border-bottom:2px solid transparent;}
+    .coach-sidebar .nav-item.active{background:transparent !important;border-bottom-color:#c9a84c !important;}
+    .coach-main{margin-left:0 !important;padding:16px !important;}
+    .main-col,.two-col,.three-col,.kp-grid,.kp-targets-row,.aanp-current-grid,.gen-grid-3,.gen-grid-4,.kl-toolbar,.clients-grid,.sb-dv-layout,.sb-koppel-split{grid-template-columns:1fr !important;display:block !important;}
+    .main-col > *,.two-col > *,.three-col > *,.kp-grid > *,.sb-koppel-split > *{margin-bottom:12px;}
+    .kl-table{display:block;}
+    .kl-table thead{display:none;}
+    .kl-table tbody,.kl-table tr,.kl-table td{display:block;width:100%;}
+    .kl-table tr{border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 14px;margin-bottom:8px;background:white;}
+    .kl-table td{border:none !important;padding:4px 0 !important;}
+    .kl-table td:before{content:attr(data-label);display:inline-block;font-size:10px;text-transform:uppercase;color:#9b9baa;min-width:120px;font-weight:600;}
+    button,.sb-btn,.coc-btn,input[type="submit"]{min-height:40px;}
+    .page-header{flex-direction:column;align-items:flex-start !important;gap:10px;}
+  }
+  @media print{
+    .coach-sidebar,.sb-subtabs,.sb-tabs-nav,button,.sb-btn,.page-actions,.res-actions,.sb-actions-cell,.task-form,.kd-log-form,.task-tabs,.filter-tabs,.sb-cat-tabs,.client-actions,.kl-toolbar,.aanp-actions,.toast-success,.breadcrumbs{display:none !important;}
+    .coach-main{margin-left:0 !important;padding:0 !important;}
+    body{background:white !important;color:black !important;}
+    .card,.sb-card,.kp-card,.kd-section,.res-day-panel,.gen-section,.aanp-panel{box-shadow:none !important;border:1px solid #ddd !important;break-inside:avoid;page-break-inside:avoid;}
+    .res-day-panel{display:block !important;page-break-before:always;}
+    .res-day-panel:first-child{page-break-before:auto;}
+    .res-day-tabs{display:none !important;}
+    a{text-decoration:none;color:black !important;}
+  }
+</style>
+<script>
+  (function(){
+    // Loading states: disable submit buttons during form submission
+    document.addEventListener('submit',function(ev){
+      var f=ev.target;if(!(f instanceof HTMLFormElement))return;
+      var btns=f.querySelectorAll('button[type="submit"],input[type="submit"]');
+      setTimeout(function(){
+        btns.forEach(function(b){
+          if(b.disabled)return;
+          b.dataset.origText=b.textContent;
+          b.disabled=true;
+          if(b.tagName==='BUTTON'&&b.textContent.trim())b.textContent='Opslaan...';
+        });
+      },0);
+      // Re-enable after 20s as safety net
+      setTimeout(function(){
+        btns.forEach(function(b){
+          b.disabled=false;
+          if(b.dataset.origText){b.textContent=b.dataset.origText;}
+        });
+      },20000);
+    });
+    // Flash toast via cookie
+    var m=document.cookie.match(/(?:^|;\s*)flash_success=([^;]+)/);
+    if(m){
+      document.cookie='flash_success=; Path=/; Max-Age=0';
+      var msg=decodeURIComponent(m[1])||'Opgeslagen ✓';
+      var t=document.createElement('div');
+      t.className='toast-success';
+      t.textContent=msg;
+      document.body.appendChild(t);
+      setTimeout(function(){t.style.opacity='0';t.style.transform='translateY(-8px)';},2500);
+      setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},3000);
+    }
+    // Chat-badge: aantal ongelezen klant-berichten, poll elke 15s
+    async function updateCoachChatBadge(){
+      try{
+        var r=await fetch('/api/coach/berichten/overzicht',{credentials:'same-origin'});
+        if(!r.ok)return;
+        var data=await r.json();
+        var totaal=(data.klanten||[]).reduce(function(a,k){return a+(Number(k.ongelezen_klant_antwoord)||0);},0);
+        var badge=document.getElementById('coachChatNavBadge');
+        if(!badge)return;
+        if(totaal>0){badge.style.display='';badge.textContent=String(totaal);}
+        else{badge.style.display='none';}
+      }catch(e){}
+    }
+    if(document.getElementById('coachChatNavBadge')){
+      updateCoachChatBadge();
+      setInterval(function(){if(!document.hidden)updateCoachChatBadge();},15000);
+    }
+    // Sidebar-accordeon: chevron-klik toggelt data-open zonder navigatie
+    document.addEventListener('click',function(ev){
+      var chev=ev.target.closest && ev.target.closest('.coach-sidebar .nav-chevron');
+      if(!chev)return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      var group=chev.closest('.nav-group');
+      if(!group)return;
+      group.setAttribute('data-open', group.getAttribute('data-open') === 'true' ? 'false' : 'true');
+    });
+  })();
+</script>
+
+<div class="coach-main">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Chat</div>
+      <div class="page-date">zondag 19 juli 2026</div>
+    </div>
+  </div>
+
+  <div class="chat-layout">
+    <div class="chat-list-card">
+      <div class="chat-list-head">
+        <div class="chat-list-title">Klanten</div>
+        <div class="chat-list-count" id="clCount">—</div>
+      </div>
+      <div class="chat-list" id="clList"><div class="chat-list-empty">Laden…</div></div>
+    </div>
+    <div class="chat-thread-card" id="threadCard">
+      <div class="thread-placeholder" id="threadPlaceholder">Kies een klant links om het gesprek te openen</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+  var MAAND=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+  function fmtTime(iso){
+    if(!iso) return '';
+    var d=new Date(iso);if(isNaN(d))return '';
+    var today=new Date().toISOString().slice(0,10);
+    var tt=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
+    if(d.toISOString().slice(0,10)===today) return tt;
+    var diffDays=Math.floor((Date.now()-d.getTime())/86400000);
+    if(diffDays===1) return 'gisteren';
+    if(diffDays<7) return diffDays+' dagen';
+    return d.getDate()+' '+MAAND[d.getMonth()];
+  }
+  function fmtFullTime(iso){
+    var d=new Date(iso);if(isNaN(d))return '';
+    var today=new Date().toISOString().slice(0,10);
+    var tt=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
+    if(d.toISOString().slice(0,10)===today) return tt;
+    return d.getDate()+' '+MAAND[d.getMonth()]+' · '+tt;
+  }
+
+  var ACT_KLANT=null;
+  var POLL=null;
+
+  async function laadOverzicht(){
+    var list=document.getElementById('clList');
+    try {
+      var r=await fetch('/api/coach/berichten/overzicht',{credentials:'same-origin'});
+      if(!r.ok){list.innerHTML='<div class="chat-list-empty">Kon niet laden ('+r.status+').</div>';return;}
+      var d=await r.json();
+      document.getElementById('clCount').textContent=d.klanten.length;
+      if(!d.klanten.length){list.innerHTML='<div class="chat-list-empty">Nog geen klanten.</div>';return;}
+      list.innerHTML=d.klanten.map(function(k){
+        var lb=k.laatste_bericht;
+        var preview=lb
+          ? (lb.richting==='klant_naar_coach'?'':'<em>Jij: </em>')+esc((lb.bericht||'').slice(0,60))
+          : '<em>Nog geen berichten</em>';
+        var time=lb?fmtTime(lb.verzonden_op):'';
+        var badge=k.ongelezen_klant_antwoord>0?'<span class="cli-badge">'+k.ongelezen_klant_antwoord+'</span>':'';
+        return '<div class="cli'+(ACT_KLANT===k.klant_id?' active':'')+'" data-id="'+esc(k.klant_id)+'" data-naam="'+esc(k.naam)+'" data-init="'+esc(k.initials||'?')+'">'+
+          '<div class="cli-av">'+esc(k.initials||'?')+'</div>'+
+          '<div class="cli-main">'+
+            '<div class="cli-top"><span class="cli-naam">'+esc(k.naam)+'</span><span class="cli-time">'+esc(time)+'</span></div>'+
+            '<div class="cli-preview">'+preview+badge+'</div>'+
+          '</div>'+
+          '</div>';
+      }).join('');
+      list.querySelectorAll('.cli').forEach(function(el){
+        el.addEventListener('click',function(){ openThread(el.dataset.id, el.dataset.naam, el.dataset.init); });
+      });
+      // Deep-link: /coach/chat?klant=<id> → auto-open de thread van die klant
+      // bij eerste laad van overzicht. Daarna URL opschonen zodat refresh
+      // niet opnieuw forceert.
+      try {
+        var qsKlant = new URLSearchParams(window.location.search).get('klant');
+        if (qsKlant && !ACT_KLANT) {
+          var match = list.querySelector('.cli[data-id="' + qsKlant.replace(/"/g, '') + '"]');
+          if (match) {
+            openThread(match.dataset.id, match.dataset.naam, match.dataset.init);
+            history.replaceState({}, '', '/coach/chat');
+          }
+        }
+      } catch (_) {}
+    } catch(e){ list.innerHTML='<div class="chat-list-empty">Laden mislukt.</div>'; }
+  }
+
+  function renderThreadShell(naam,initials){
+    document.getElementById('threadCard').innerHTML =
+      '<div class="thread-head">'+
+        '<div class="cli-av">'+esc(initials||'?')+'</div>'+
+        '<div><div class="thread-head-naam">'+esc(naam)+'</div><div class="thread-head-sub">Chat</div></div>'+
+      '</div>'+
+      '<div class="thread-body" id="threadBody"><div class="thread-empty">Laden…</div></div>'+
+      '<div class="thread-foot">'+
+        '<textarea class="thread-input" id="threadInput" placeholder="Typ een bericht…" rows="1"></textarea>'+
+        '<button type="button" class="thread-send" id="threadSend">Verstuur</button>'+
+      '</div>';
+    document.getElementById('threadSend').addEventListener('click',verstuurBericht);
+    document.getElementById('threadInput').addEventListener('keydown',function(e){
+      if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();verstuurBericht();}
+    });
+  }
+  function renderBerichten(msgs){
+    var body=document.getElementById('threadBody');
+    if(!msgs.length){body.innerHTML='<div class="thread-empty">Nog geen berichten — schrijf als eerste.</div>';return;}
+    body.innerHTML=msgs.map(function(m){
+      var me=(m.richting==='coach_naar_klant');
+      var label=m.bron==='checkin_week'?' · <em style="color:rgba(255,255,255,0.4);">bijstuur</em>':'';
+      return '<div class="tmsg '+(me?'me':'them')+'"><div class="tbub">'+esc(m.bericht)+'</div><div class="ttime">'+esc(fmtFullTime(m.verzonden_op))+label+'</div></div>';
+    }).join('');
+    body.scrollTop=body.scrollHeight;
+  }
+  async function openThread(klantId, naam, initials){
+    ACT_KLANT=klantId;
+    document.querySelectorAll('.cli').forEach(function(el){
+      el.classList.toggle('active', el.dataset.id===klantId);
+    });
+    renderThreadShell(naam, initials);
+    try {
+      var r=await fetch('/api/coach/berichten/'+encodeURIComponent(klantId),{credentials:'same-origin'});
+      if(!r.ok){document.getElementById('threadBody').innerHTML='<div class="thread-empty">Kon niet laden.</div>';return;}
+      var d=await r.json();
+      renderBerichten(d.berichten||[]);
+      // Mark as read
+      fetch('/api/coach/berichten/gelezen',{
+        method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',
+        body:JSON.stringify({klant_id:klantId})
+      }).then(function(){ laadOverzicht(); });
+    } catch(e){ document.getElementById('threadBody').innerHTML='<div class="thread-empty">Verbinding mislukt.</div>'; }
+  }
+  async function verstuurBericht(){
+    if(!ACT_KLANT) return;
+    var ip=document.getElementById('threadInput');
+    var tekst=(ip.value||'').trim();
+    if(!tekst) return;
+    var btn=document.getElementById('threadSend');
+    btn.disabled=true;
+    try {
+      var r=await fetch('/api/coach/bericht',{
+        method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',
+        body:JSON.stringify({klant_id:ACT_KLANT,bericht:tekst})
+      });
+      if(r.ok){ ip.value=''; await openThread(ACT_KLANT, document.querySelector('.cli.active .cli-naam').textContent, document.querySelector('.cli.active .cli-av').textContent); laadOverzicht(); }
+      else { alert('Versturen mislukt.'); }
+    } catch(e){ alert('Verbinding mislukt.'); }
+    finally { btn.disabled=false; }
+  }
+
+  laadOverzicht();
+  POLL=setInterval(function(){
+    if(document.hidden) return;
+    laadOverzicht();
+    if(ACT_KLANT){
+      fetch('/api/coach/berichten/'+encodeURIComponent(ACT_KLANT),{credentials:'same-origin'})
+        .then(function(r){return r.ok?r.json():null;})
+        .then(function(d){ if(d) renderBerichten(d.berichten||[]); }).catch(function(){});
+    }
+  },5000);
+})();
+</script></body></html>

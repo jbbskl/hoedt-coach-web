@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="nl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aandacht nodig — Hoedt Coaching</title>
+<link rel="stylesheet" href="/css/fonts.css">
+<style>
+  /* === Coach-shell (gedupliceerd uit routes/coach.js — DRY-refactor follow-up) === */
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:#f5f0e8;display:flex;min-height:100vh;color:#1a1a2e;}
+  .coach-sidebar{width:220px;min-height:100vh;background:linear-gradient(180deg,#0a0a14 0%,#14141f 100%);display:flex;flex-direction:column;position:fixed;top:0;left:0;z-index:100;}
+  .sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .logo-text{font-size:17px;color:#c9a84c;font-weight:700;letter-spacing:0.3px;text-shadow:0 0 12px rgba(201,168,76,0.3);}
+  .logo-sub{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+  .sidebar-nav{padding:12px 0;flex:1;overflow-y:auto;}
+  .nav-label{font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px 4px;}
+  .nav-item{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;}
+  .nav-item:hover{background:rgba(201,168,76,0.05);color:rgba(255,255,255,0.85);}
+  .nav-item.active{background:rgba(201,168,76,0.1);color:#c9a84c;border-left-color:#c9a84c;font-weight:600;}
+  .nav-icon{font-size:14px;width:16px;text-align:center;flex-shrink:0;}
+  .nav-badge{margin-left:auto;background:#e05454;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;min-width:18px;text-align:center;}
+  .nav-badge-amber{margin-left:auto;background:#d4871a;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;}
+  .nav-item.nav-sub-item{padding:7px 20px 7px 32px;font-size:12.5px;color:rgba(255,255,255,0.45);}
+  .nav-item.nav-sub-item.active{background:transparent;color:#c9a84c;border-left:2px solid #c9a84c;}
+  .nav-group-head{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;cursor:pointer;}
+  .nav-group-head:hover{color:rgba(255,255,255,0.85);}
+  .nav-group-head.active{color:#c9a84c;font-weight:600;}
+  .nav-chevron{margin-left:auto;font-size:11px;transition:transform 0.15s;}
+  .nav-group[data-open="false"] .nav-group-body{display:none;}
+  .nav-group[data-open="false"] .nav-chevron{transform:rotate(-90deg);}
+  .nav-group-label{flex:1;}
+  .sidebar-footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,0.06);}
+  .coach-av{width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,0.15);border:1.5px solid #c9a84c;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#c9a84c;flex-shrink:0;}
+  .coach-main{margin-left:220px;flex:1;padding:26px 28px;min-width:0;}
+  /* === Aandacht-pagina specifiek === */
+  .aa-content{max-width:1100px;}
+  .kd-back{display:inline-block;font-size:12px;color:#6b6b80;text-decoration:none;margin-bottom:10px;transition:color 0.12s;}
+  .kd-back:hover{color:#1a1a2e;}
+  h1{font-size:28px;font-weight:700;margin-bottom:6px;}
+  .sub{color:#6b6b80;font-size:14px;margin-bottom:24px;}
+  .aa-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+  .aa-tab{display:flex;align-items:center;gap:6px;padding:10px 14px;background:white;border:1px solid rgba(26,26,46,0.08);border-radius:10px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;transition:all 0.15s;}
+  .aa-tab-badge{display:inline-block;min-width:22px;padding:2px 7px;background:rgba(26,26,46,0.08);border-radius:99px;font-size:11px;font-weight:700;color:#1a1a2e;text-align:center;}
+  .aa-tab-badge.is-urg{background:#A32D2D;color:white;}
+  .aa-tab.is-active .aa-tab-badge.is-urg{background:#A32D2D;color:white;}
+  .pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;border:1px solid transparent;}
+.pill-rood{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FCEBEB;border:1px solid #A32D2D;color:#791F1F;}
+.pill-oranje{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#854F0B;}
+.pill-paars{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#EEEDFE;border:1px solid #7F77DD;color:#534AB7;}
+.pill-blauw{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #378ADD;color:#185FA5;}
+.pill-blauw-donker{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #185FA5;color:#0F3D6E;}
+.pill-grijs{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#F1EFE8;border:1px solid #888780;color:#444441;}
+.pill-groen-teal{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E1F5EE;border:1px solid #1D9E75;color:#0F6E56;}
+.pill-amber{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#633806;}
+.pill-roze{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FBEAF0;border:1px solid #D4537E;color:#993556;}
+.aa-tab[data-tab="voeding"]{color:#854F0B;border-color:#BA751733;}
+.aa-tab[data-tab="voeding"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active{background:#FAEEDA;color:#854F0B;border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="training"]{color:#534AB7;border-color:#7F77DD33;}
+.aa-tab[data-tab="training"]:hover{border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active{background:#EEEDFE;color:#534AB7;border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active .aa-tab-badge{background:#7F77DD;color:#fff;}
+.aa-tab[data-tab="stappen"]{color:#185FA5;border-color:#378ADD33;}
+.aa-tab[data-tab="stappen"]:hover{border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active{background:#E6F1FB;color:#185FA5;border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active .aa-tab-badge{background:#378ADD;color:#fff;}
+.aa-tab[data-tab="checkins"]{color:#0F3D6E;border-color:#185FA533;}
+.aa-tab[data-tab="checkins"]:hover{border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active{background:#E6F1FB;color:#0F3D6E;border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active .aa-tab-badge{background:#185FA5;color:#fff;}
+.aa-tab[data-tab="login"]{color:#444441;border-color:#88878033;}
+.aa-tab[data-tab="login"]:hover{border-color:#888780;}
+.aa-tab[data-tab="login"].is-active{background:#F1EFE8;color:#444441;border-color:#888780;}
+.aa-tab[data-tab="login"].is-active .aa-tab-badge{background:#888780;color:#fff;}
+.aa-tab[data-tab="fase_aankomend"]{color:#0F6E56;border-color:#1D9E7533;}
+.aa-tab[data-tab="fase_aankomend"]:hover{border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active{background:#E1F5EE;color:#0F6E56;border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active .aa-tab-badge{background:#1D9E75;color:#fff;}
+.aa-tab[data-tab="fase_geblokkeerd"]{color:#791F1F;border-color:#A32D2D33;}
+.aa-tab[data-tab="fase_geblokkeerd"]:hover{border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active{background:#FCEBEB;color:#791F1F;border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active .aa-tab-badge{background:#A32D2D;color:#fff;}
+.aa-tab[data-tab="tussenbericht"]{color:#633806;border-color:#BA751733;}
+.aa-tab[data-tab="tussenbericht"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active{background:#FAEEDA;color:#633806;border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="verlenging"]{color:#993556;border-color:#D4537E33;}
+.aa-tab[data-tab="verlenging"]:hover{border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active{background:#FBEAF0;color:#993556;border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active .aa-tab-badge{background:#D4537E;color:#fff;}
+  .aa-list{display:flex;flex-direction:column;gap:10px;}
+  .aa-leeg{padding:42px 24px;text-align:center;color:#6b6b80;background:white;border-radius:12px;border:1px dashed rgba(26,26,46,0.12);font-size:13.5px;}
+  .aa-row{background:linear-gradient(180deg,#fffdf6 0%,#faf3e0 100%);border:1px solid rgba(201,168,76,0.25);border-radius:12px;border-left:3px solid #6b6b80;padding:14px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(15,15,26,0.04),0 1px 2px rgba(15,15,26,0.02);transition:box-shadow 0.15s;}
+  .aa-row:hover{box-shadow:0 3px 14px rgba(15,15,26,0.05);}
+  .aa-row[data-urg="3"]{border-left-color:#ef4444;}
+  .aa-row[data-urg="2"]{border-left-color:#f59e0b;}
+  .aa-row[data-urg="1"]{border-left-color:#9b9baa;}
+  .aa-row-head{display:flex;align-items:center;gap:12px;}
+  .aa-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:white;background:#c9a84c;flex-shrink:0;}
+  .aa-row-info{flex:1;min-width:0;}
+  .aa-row-naam{font-size:14.5px;font-weight:700;color:#1a1a2e;}
+  .aa-row-meta{font-size:12px;color:#6b6b80;margin-top:2px;}
+  /* aa-pill is leeg-stub — concrete kleur komt uit pill-<categorie> classes */
+  .aa-pill{display:inline-block;}
+  .aa-detail{margin-top:14px;padding-top:14px;border-top:1px solid rgba(26,26,46,0.06);display:none;}
+  .aa-row.is-open .aa-detail{display:block;}
+  .aa-context{background:rgba(245,240,232,0.7);border-radius:8px;padding:11px 14px;font-size:13px;color:#3a3a4a;line-height:1.5;margin-bottom:12px;}
+  .aa-leer-label{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:#8b5cf6;margin-bottom:6px;}
+  .aa-msg{width:100%;min-height:120px;padding:11px 14px;font-family:inherit;font-size:13.5px;line-height:1.55;color:#1a1a2e;background:#fafaf7;border:1px solid rgba(26,26,46,0.1);border-radius:8px;resize:vertical;}
+  .aa-msg[readonly]{background:#fafaf7;cursor:default;}
+  .aa-msg:not([readonly]){background:white;border-color:rgba(139,92,246,0.4);}
+  .aa-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px;}
+  .aa-btn{padding:9px 14px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:all 0.12s;}
+  .aa-btn-primary{background:#0f0f1a;color:white;}
+  .aa-btn-primary:hover{background:#1a1a2e;}
+  .aa-btn-edit{background:white;border-color:rgba(26,26,46,0.18);color:#1a1a2e;}
+  .aa-btn-save{background:#8b5cf6;color:white;}
+  .aa-btn-cancel{background:white;border-color:rgba(26,26,46,0.18);color:#6b6b80;}
+  .aa-btn-akkoord{background:#14b8a6;color:white;}
+  .aa-btn-block{background:#ef4444;color:white;}
+  .aa-saved{display:inline-block;margin-left:8px;padding:4px 10px;background:rgba(20,184,166,0.18);color:#0d6862;border-radius:99px;font-size:11px;font-weight:700;}
+  @media(max-width:760px){
+    .main{padding:20px 16px;}
+    .aa-tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;}
+    .aa-tab{flex-shrink:0;}
+    .aa-btn{min-height:44px;padding:11px 16px;}
+  }
+</style>
+</head><body>
+<div class="coach-sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">Hoedt Coaching</div>
+      <div class="logo-sub">Coach Dashboard</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-label">Overzicht</div>
+      <a class="nav-item" href="/coach">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>Dashboard
+        
+      </a>
+      <a class="nav-item" href="/coach/analytics">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>Analytics
+      </a>
+      <a class="nav-item active" href="/coach/aandacht">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Aandacht nodig
+      </a>
+      <a class="nav-item" href="/coach/taken">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span>Taken
+      </a>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/klanten">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="nav-group-label">Klanten</span>
+          <span class="nav-badge">3</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/intakes">
+            Intakes
+            <span class="nav-badge-amber">8</span>
+          </a>
+          <a class="nav-item nav-sub-item" href="/coach/checkins">
+            Check-ins
+            <span class="nav-badge">11</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav-item" href="/coach/chat">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Chat
+        <span class="nav-badge" id="coachChatNavBadge" style="display:none;"></span>
+      </a>
+
+      <a class="nav-item" href="/coach/eind-vragenlijsten">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>Eind-vragenlijsten
+      </a>
+
+      <a class="nav-item" href="/coach/feedback-stats">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>AI-feedback
+      </a>
+
+      <a class="nav-item" href="/coach/instellingen">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Instellingen
+      </a>
+
+      <div class="nav-label">Schema Builder</div>
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+          <span class="nav-group-label">Voeding</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding?tab=producten">Producten</a>
+        </div>
+      </div>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/training?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
+          <span class="nav-group-label">Training</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="coach-av">DH</div>
+        <div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:500;">Daniel Hoedt</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);">Head Coach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<style>
+  .toast-success{position:fixed;top:20px;right:20px;background:#2e9e6b;color:white;padding:12px 18px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.18);z-index:9999;transition:opacity 0.4s ease,transform 0.3s ease;max-width:340px;}
+  .breadcrumbs{font-size:11.5px;color:#9b9baa;margin-top:3px;}
+  .breadcrumbs a{color:#6b6b80;text-decoration:none;}
+  .breadcrumbs a:hover{color:#c9a84c;}
+  .breadcrumbs .crumb-sep{margin:0 6px;opacity:0.5;}
+  button[type="submit"]:disabled,.sb-btn:disabled{opacity:0.6;cursor:wait !important;}
+  /* Sidebar-iconen: SVG-set op maat (overschrijft de oude emoji font-size regel) */
+  .coach-sidebar .nav-icon{width:16px;height:16px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;}
+  .coach-sidebar .nav-icon svg{width:16px;height:16px;stroke-width:1.9;opacity:0.9;}
+  .coach-sidebar .nav-item.active .nav-icon svg,.coach-sidebar .nav-group-head.active .nav-icon svg{opacity:1;}
+  /* Sidebar accordeon-groepen — data-open attribute drives visibility */
+  .coach-sidebar .nav-group{display:block;}
+  .coach-sidebar .nav-group-head{display:flex;align-items:center;gap:9px;padding:10px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;cursor:pointer;}
+  .coach-sidebar .nav-group-head:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .coach-sidebar .nav-group-head.active{background:rgba(201,168,76,0.08);color:#c9a84c;border-left-color:#c9a84c;}
+  .coach-sidebar .nav-group-label{flex:1;}
+  .coach-sidebar .nav-chevron{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;color:#c9a84c;font-size:18px;line-height:1;font-weight:700;transition:transform 0.2s ease,color 0.15s ease,background 0.15s ease;border-radius:4px;cursor:pointer;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
+  .coach-sidebar .nav-chevron:hover{color:#ffffff;background:rgba(201,168,76,0.18);}
+  .coach-sidebar .nav-group[data-open="true"] > .nav-group-head .nav-chevron{transform:rotate(180deg);color:#ffffff;}
+  .coach-sidebar .nav-group[data-open="false"] .nav-group-body{display:none !important;}
+  @media (max-width:768px){
+    body{display:block !important;}
+    .coach-sidebar{position:static !important;width:100% !important;min-height:0 !important;flex-direction:row !important;overflow-x:auto;padding:8px 12px !important;z-index:10;}
+    .coach-sidebar .sidebar-logo,.coach-sidebar .sidebar-footer,.coach-sidebar .nav-label{display:none;}
+    .coach-sidebar .sidebar-nav{display:flex;flex-direction:row;padding:0;gap:2px;overflow-x:auto;flex:1;}
+    .coach-sidebar .nav-item,.coach-sidebar .nav-sub-item{flex:0 0 auto;white-space:nowrap;padding:8px 14px !important;font-size:12px !important;border-left:none !important;border-bottom:2px solid transparent;}
+    .coach-sidebar .nav-item.active{background:transparent !important;border-bottom-color:#c9a84c !important;}
+    .coach-main{margin-left:0 !important;padding:16px !important;}
+    .main-col,.two-col,.three-col,.kp-grid,.kp-targets-row,.aanp-current-grid,.gen-grid-3,.gen-grid-4,.kl-toolbar,.clients-grid,.sb-dv-layout,.sb-koppel-split{grid-template-columns:1fr !important;display:block !important;}
+    .main-col > *,.two-col > *,.three-col > *,.kp-grid > *,.sb-koppel-split > *{margin-bottom:12px;}
+    .kl-table{display:block;}
+    .kl-table thead{display:none;}
+    .kl-table tbody,.kl-table tr,.kl-table td{display:block;width:100%;}
+    .kl-table tr{border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 14px;margin-bottom:8px;background:white;}
+    .kl-table td{border:none !important;padding:4px 0 !important;}
+    .kl-table td:before{content:attr(data-label);display:inline-block;font-size:10px;text-transform:uppercase;color:#9b9baa;min-width:120px;font-weight:600;}
+    button,.sb-btn,.coc-btn,input[type="submit"]{min-height:40px;}
+    .page-header{flex-direction:column;align-items:flex-start !important;gap:10px;}
+  }
+  @media print{
+    .coach-sidebar,.sb-subtabs,.sb-tabs-nav,button,.sb-btn,.page-actions,.res-actions,.sb-actions-cell,.task-form,.kd-log-form,.task-tabs,.filter-tabs,.sb-cat-tabs,.client-actions,.kl-toolbar,.aanp-actions,.toast-success,.breadcrumbs{display:none !important;}
+    .coach-main{margin-left:0 !important;padding:0 !important;}
+    body{background:white !important;color:black !important;}
+    .card,.sb-card,.kp-card,.kd-section,.res-day-panel,.gen-section,.aanp-panel{box-shadow:none !important;border:1px solid #ddd !important;break-inside:avoid;page-break-inside:avoid;}
+    .res-day-panel{display:block !important;page-break-before:always;}
+    .res-day-panel:first-child{page-break-before:auto;}
+    .res-day-tabs{display:none !important;}
+    a{text-decoration:none;color:black !important;}
+  }
+</style>
+<script>
+  (function(){
+    // Loading states: disable submit buttons during form submission
+    document.addEventListener('submit',function(ev){
+      var f=ev.target;if(!(f instanceof HTMLFormElement))return;
+      var btns=f.querySelectorAll('button[type="submit"],input[type="submit"]');
+      setTimeout(function(){
+        btns.forEach(function(b){
+          if(b.disabled)return;
+          b.dataset.origText=b.textContent;
+          b.disabled=true;
+          if(b.tagName==='BUTTON'&&b.textContent.trim())b.textContent='Opslaan...';
+        });
+      },0);
+      // Re-enable after 20s as safety net
+      setTimeout(function(){
+        btns.forEach(function(b){
+          b.disabled=false;
+          if(b.dataset.origText){b.textContent=b.dataset.origText;}
+        });
+      },20000);
+    });
+    // Flash toast via cookie
+    var m=document.cookie.match(/(?:^|;\s*)flash_success=([^;]+)/);
+    if(m){
+      document.cookie='flash_success=; Path=/; Max-Age=0';
+      var msg=decodeURIComponent(m[1])||'Opgeslagen ✓';
+      var t=document.createElement('div');
+      t.className='toast-success';
+      t.textContent=msg;
+      document.body.appendChild(t);
+      setTimeout(function(){t.style.opacity='0';t.style.transform='translateY(-8px)';},2500);
+      setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},3000);
+    }
+    // Chat-badge: aantal ongelezen klant-berichten, poll elke 15s
+    async function updateCoachChatBadge(){
+      try{
+        var r=await fetch('/api/coach/berichten/overzicht',{credentials:'same-origin'});
+        if(!r.ok)return;
+        var data=await r.json();
+        var totaal=(data.klanten||[]).reduce(function(a,k){return a+(Number(k.ongelezen_klant_antwoord)||0);},0);
+        var badge=document.getElementById('coachChatNavBadge');
+        if(!badge)return;
+        if(totaal>0){badge.style.display='';badge.textContent=String(totaal);}
+        else{badge.style.display='none';}
+      }catch(e){}
+    }
+    if(document.getElementById('coachChatNavBadge')){
+      updateCoachChatBadge();
+      setInterval(function(){if(!document.hidden)updateCoachChatBadge();},15000);
+    }
+    // Sidebar-accordeon: chevron-klik toggelt data-open zonder navigatie
+    document.addEventListener('click',function(ev){
+      var chev=ev.target.closest && ev.target.closest('.coach-sidebar .nav-chevron');
+      if(!chev)return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      var group=chev.closest('.nav-group');
+      if(!group)return;
+      group.setAttribute('data-open', group.getAttribute('data-open') === 'true' ? 'false' : 'true');
+    });
+  })();
+</script>
+<div class="coach-main">
+  <div class="aa-content">
+    <a class="kd-back" href="/coach">&larr; Dashboard</a>
+    <h1>Aandacht nodig</h1>
+    <p class="sub">Control room — alle klant-signalen op één plek. Klik een rij voor het voorgestelde bericht.</p>
+    <div class="aa-tabs"><button type="button" class="aa-tab" data-tab="voeding" data-kleur="#f59e0b">
+        <span class="aa-tab-icoon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+        <span class="aa-tab-label">Voeding</span>
+        <span class="aa-tab-badge" data-cat="voeding">0</span>
+      </button><button type="button" class="aa-tab" data-tab="training" data-kleur="#8b5cf6">
+        <span class="aa-tab-icoon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
+        <span class="aa-tab-label">Training</span>
+        <span class="aa-tab-badge" data-cat="training">0</span>
+      </button><button type="button" class="aa-tab" data-tab="stappen" data-kleur="#3b82f6">
+        <span class="aa-tab-icoon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/></svg></span>
+        <span class="aa-tab-label">Stappen</span>
+        <span class="aa-tab-badge" data-cat="stappen">0</span>
+      </button><button type="button" class="aa-tab" data-tab="checkins" data-kleur="#1e40af">
+        <span class="aa-tab-icoon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></span>
+        <span class="aa-tab-label">Check-ins</span>
+        <span class="aa-tab-badge" data-cat="checkins">0</span>
+      </button><button type="button" class="aa-tab" data-tab="login" data-kleur="#6b6b80">
+        <span class="aa-tab-icoon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        <span class="aa-tab-label">Login</span>
+        <span class="aa-tab-badge" data-cat="login">0</span>
+      </button><button type="button" class="aa-tab" data-tab="fase_aankomend" data-kleur="#14b8a6">
+        <span class="aa-tab-icoon">↗</span>
+        <span class="aa-tab-label">Fase-overgang aankomend</span>
+        <span class="aa-tab-badge" data-cat="fase_aankomend">0</span>
+      </button><button type="button" class="aa-tab" data-tab="fase_geblokkeerd" data-kleur="#ef4444">
+        <span class="aa-tab-icoon">⚠</span>
+        <span class="aa-tab-label">Fase-overgang geblokkeerd</span>
+        <span class="aa-tab-badge" data-cat="fase_geblokkeerd">0</span>
+      </button><button type="button" class="aa-tab" data-tab="tussenbericht" data-kleur="#c9a84c">
+        <span class="aa-tab-icoon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span class="aa-tab-label">Tussenbericht</span>
+        <span class="aa-tab-badge" data-cat="tussenbericht">0</span>
+      </button><button type="button" class="aa-tab" data-tab="verlenging" data-kleur="#ec4899">
+        <span class="aa-tab-icoon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></span>
+        <span class="aa-tab-label">Verlenging week 10</span>
+        <span class="aa-tab-badge" data-cat="verlenging">0</span>
+      </button></div>
+    <div class="aa-list" id="aaList"><div class="aa-leeg">Laden…</div></div>
+  </div>
+</div>
+<script>
+  var STATE = { categorieen: [], items: {}, meta: {}, actieveTab: 'voeding' };
+
+  function esc(s){var d=document.createElement('div');d.textContent=String(s||'');return d.innerHTML;}
+
+  // Mirror van lib/kleuren-pills.js SIGNAAL_KLEUR — moet in sync blijven.
+  var PILL_MAP = {
+    'voeding-niet-gelogd':'oranje','voeding-boven-kcal':'oranje','voeding-niet-afgevinkt-laat':'oranje',
+    'training-niets-deze-week':'paars','training-achterstand-weekend':'paars','training-achterstand-zondag':'paars',
+    'stappen-onder-norm':'blauw','stappen-onder-doel-mild':'blauw',
+    'wekelijks-2-op-rij':'blauw-donker','wekelijks-open':'blauw-donker','dagelijks-5plus':'blauw-donker','dagelijks-3plus':'blauw-donker',
+    'login-acute-dropoff':'rood','login-7plus':'grijs','login-3plus':'grijs',
+    'fase-aankomend':'groen-teal','fase-geblokkeerd':'rood',
+    'tussenbericht-positief':'groen-teal','tussenbericht-waarschuwend':'rood',
+    'verlenging-week-10':'roze',
+  };
+  function pillKleur(type){ return PILL_MAP[type] || 'grijs'; }
+
+  async function laadData(){
+    try {
+      var r = await fetch('/coach/api/aandacht', { credentials:'same-origin' });
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      var d = await r.json();
+      STATE.categorieen = d.categorieen || [];
+      STATE.items = d.items || {};
+      STATE.meta = d.meta || {};
+      renderTabs();
+      renderLijst();
+    } catch (e) {
+      document.getElementById('aaList').innerHTML = '<div class="aa-leeg" style="color:#c0392b;">Laden mislukt: '+esc(e.message)+'</div>';
+    }
+  }
+
+  function renderTabs(){
+    document.querySelectorAll('.aa-tab').forEach(function(btn){
+      var slug = btn.dataset.tab;
+      var meta = STATE.meta[slug] || { count:0, heeft_urg3:false };
+      var b = btn.querySelector('.aa-tab-badge');
+      b.textContent = meta.count;
+      b.classList.toggle('is-urg', meta.heeft_urg3);
+      btn.classList.toggle('is-active', slug === STATE.actieveTab);
+    });
+  }
+
+  function rijHtml(it){
+    var initials = (it.naam||'?').split(/\s+/).map(function(s){return s[0]||'';}).slice(0,2).join('').toUpperCase();
+    var weekTxt = it.week ? ('week '+it.week+' · fase '+it.huidige_fase) : ('fase '+it.huidige_fase);
+    var contextNice = beschrijfContext(it);
+    return ''
+      + '<div class="aa-row" data-urg="'+it.urg+'" data-id="'+esc(it.klant_id)+'">'
+      +   '<div class="aa-row-head" onclick="toggleRij(this.parentElement)">'
+      +     '<div class="aa-av">'+esc(initials)+'</div>'
+      +     '<div class="aa-row-info">'
+      +       '<div class="aa-row-naam">'+esc(it.naam)+'</div>'
+      +       '<div class="aa-row-meta">'+esc(weekTxt)+'</div>'
+      +     '</div>'
+      +     '<span class="pill pill-'+pillKleur(it.type)+'">'+esc(typeLabel(it.type))+'</span>'
+      +   '</div>'
+      +   '<div class="aa-detail">'
+      +     '<div class="aa-context">'+esc(contextNice)+'</div>'
+      +     '<div class="aa-leer-label">🧠 Voorgesteld bericht (systeem onthoudt je aanpassingen)</div>'
+      +     '<textarea class="aa-msg" readonly>'+esc(it.bericht)+'</textarea>'
+      +     '<div class="aa-actions" data-mode="lezen">'
+      +       '<button class="aa-btn aa-btn-primary" onclick="event.stopPropagation();verstuur(this)">Versturen</button>'
+      +       '<button class="aa-btn aa-btn-edit" onclick="event.stopPropagation();bewerk(this)">Bewerken</button>'
+      +       '<a class="aa-btn aa-btn-edit" href="/coach/klanten/'+encodeURIComponent(it.klant_id)+'" onclick="event.stopPropagation()">Open dossier</a>'
+      +       '<button class="aa-btn aa-btn-edit" onclick="event.stopPropagation();snooze(this)">Snooz</button>'
+      +       '<button class="aa-btn aa-btn-edit" onclick="event.stopPropagation();afgehandeld(this)">Afgehandeld</button>'
+      +       extraKnopHtml(it)
+      +     '</div>'
+      +   '</div>'
+      + '</div>';
+  }
+
+  function extraKnopHtml(it){
+    if (it.type === 'fase-aankomend') return '<button class="aa-btn aa-btn-akkoord" onclick="event.stopPropagation();akkoordOvergang(this)">Akkoord overgang</button>';
+    if (it.type === 'fase-geblokkeerd') return '<button class="aa-btn aa-btn-block" onclick="event.stopPropagation();bevestigBlokkade(this)">Bevestig blokkade</button>';
+    return '';
+  }
+
+  function typeLabel(t){
+    var map = {
+      'voeding-niet-gelogd':'niet gelogd',
+      'voeding-boven-kcal':'boven kcal-doel',
+      'voeding-niet-afgevinkt-laat':'niet afgevinkt',
+      'training-niets-deze-week':'0 trainingen',
+      'training-achterstand-weekend':'achterstand',
+      'training-achterstand-zondag':'achterstand',
+      'stappen-onder-norm':'onder fase-norm',
+      'stappen-onder-doel-mild':'onder doel',
+      'wekelijks-2-op-rij':'2× weekcheck gemist',
+      'wekelijks-open':'weekcheck open',
+      'dagelijks-5plus':'5+ dagen geen daily',
+      'dagelijks-3plus':'3 dagen geen daily',
+      'login-acute-dropoff':'acute drop-off',
+      'login-7plus':'7+ dagen offline',
+      'login-3plus':'3 dagen offline',
+      'fase-aankomend':'klaar voor overgang',
+      'fase-geblokkeerd':'overgang geblokkeerd',
+      'tussenbericht-positief':'tussenbericht +',
+      'tussenbericht-waarschuwend':'tussenbericht ⚠',
+      'verlenging-week-10':'verlenging gesprek',
+    };
+    return map[t] || t;
+  }
+
+  function beschrijfContext(it){
+    var c = it.context || {};
+    var t = it.type;
+    if (t === 'voeding-niet-gelogd') return 'Voeding ' + c.dagen_niet_gelogd + ' dagen niet afgevinkt in afgelopen 7 dagen.';
+    if (t === 'voeding-boven-kcal') return c.dagen + ' dagen boven kcal-doel, piek tot ' + c.max_pct + '% over.';
+    if (t === 'voeding-niet-afgevinkt-laat') return 'Vandaag na 21:00 nog niet afgevinkt.';
+    if (t && t.indexOf('training') === 0) return c.gedaan + ' van ' + c.gepland + ' trainingen deze week (vandaag dag ' + c.dag_van_week + ' van 7).';
+    if (t === 'stappen-onder-norm') return c.dagen_onder + ' van ' + c.dagen_geteld + ' dagen onder ' + c.doel + ' stappen (fase ' + c.fase + ').';
+    if (t === 'stappen-onder-doel-mild') return c.dagen_onder + ' dagen onder doel deze week, maar binnen weeknorm.';
+    if (t === 'wekelijks-2-op-rij') return 'Twee weken op rij geen wekelijkse check-in.';
+    if (t === 'wekelijks-open') return 'Wekelijkse check-in (vrijdag) staat nog open.';
+    if (t === 'dagelijks-5plus' || t === 'dagelijks-3plus') return c.dagen_zonder_daily + ' dagen geen dagelijkse check-in.';
+    if (t === 'login-acute-dropoff' || t === 'login-7plus' || t === 'login-3plus') return c.dagen_niet_ingelogd + ' dagen niet ingelogd.';
+    if (t === 'fase-aankomend') return '2 weken op rij groen op alle 4 criteria. Klaar voor fase ' + c.volgende_fase + ' op maandag.';
+    if (t === 'fase-geblokkeerd') return 'Einde fase ' + c.huidige_fase + ': niet 2 weken groen. Rood op: ' + (c.rood_criteria || []).join(', ') + '.';
+    if (t === 'tussenbericht-positief') return 'Halverwege fase ' + c.fase + '. Op koers.';
+    if (t === 'tussenbericht-waarschuwend') return 'Halverwege fase ' + c.fase + '. Niet op koers, rood op: ' + (c.rood_criteria || []).join(', ') + '.';
+    if (t === 'verlenging-week-10') return 'Week ' + c.week_nr + ': verlengings-gesprek inplannen.';
+    return JSON.stringify(c);
+  }
+
+  function renderLijst(){
+    var lijst = STATE.items[STATE.actieveTab] || [];
+    var el = document.getElementById('aaList');
+    if (!lijst.length) {
+      el.innerHTML = '<div class="aa-leeg">Geen klanten in deze categorie. 👍</div>';
+      return;
+    }
+    el.innerHTML = lijst.map(rijHtml).join('');
+    // bind data-context op elke row voor latere acties
+    el.querySelectorAll('.aa-row').forEach(function(row, i){
+      row._item = lijst[i];
+    });
+  }
+
+  function toggleRij(row){
+    var open = row.classList.contains('is-open');
+    document.querySelectorAll('.aa-row.is-open').forEach(function(r){r.classList.remove('is-open');});
+    if (!open) row.classList.add('is-open');
+  }
+
+  document.querySelectorAll('.aa-tab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      STATE.actieveTab = btn.dataset.tab;
+      renderTabs();
+      renderLijst();
+    });
+  });
+
+  // ===== Acties =====
+  function getRowItem(btn){var row=btn.closest('.aa-row');return row && row._item;}
+  function getRowMsg(btn){return btn.closest('.aa-row').querySelector('.aa-msg');}
+
+  function bewerk(btn){
+    var msg = getRowMsg(btn);
+    msg.removeAttribute('readonly');
+    msg.focus();
+    var act = btn.parentElement;
+    act.dataset.mode = 'bewerk';
+    act.innerHTML =
+      '<button class="aa-btn aa-btn-save" onclick="event.stopPropagation();opslaan(this)">Opslaan</button>'
+    + '<button class="aa-btn aa-btn-cancel" onclick="event.stopPropagation();annuleer(this)">Annuleren</button>';
+  }
+
+  async function opslaan(btn){
+    var item = getRowItem(btn);
+    var msg = getRowMsg(btn);
+    var nieuwe = msg.value;
+    try {
+      await fetch('/coach/api/aandacht/edit-log', {
+        method:'POST', credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          klant_id: item.klant_id,
+          categorie: STATE.actieveTab,
+          trigger_signaal: { type: item.type, context: item.context },
+          voorgesteld_bericht: item.bericht,
+          verstuurd_bericht: nieuwe,
+          edit_actie: 'opgeslagen',
+        })
+      });
+    } catch(_){}
+    item.bericht = nieuwe;
+    msg.setAttribute('readonly','');
+    var act = btn.parentElement;
+    act.dataset.mode = 'lezen';
+    act.innerHTML = oorspronkelijkeKnoppen(item) + '<span class="aa-saved">✓ Opgeslagen, systeem onthoudt dit</span>';
+  }
+
+  function annuleer(btn){
+    var item = getRowItem(btn);
+    var msg = getRowMsg(btn);
+    msg.value = item.bericht;
+    msg.setAttribute('readonly','');
+    var act = btn.parentElement;
+    act.dataset.mode = 'lezen';
+    act.innerHTML = oorspronkelijkeKnoppen(item);
+  }
+
+  function oorspronkelijkeKnoppen(item){
+    return ''
+      + '<button class="aa-btn aa-btn-primary" onclick="event.stopPropagation();verstuur(this)">Versturen</button>'
+      + '<button class="aa-btn aa-btn-edit" onclick="event.stopPropagation();bewerk(this)">Bewerken</button>'
+      + '<a class="aa-btn aa-btn-edit" href="/coach/klanten/'+encodeURIComponent(item.klant_id)+'" onclick="event.stopPropagation()">Open dossier</a>'
+      + '<button class="aa-btn aa-btn-edit" onclick="event.stopPropagation();snooze(this)">Snooz</button>'
+      + '<button class="aa-btn aa-btn-edit" onclick="event.stopPropagation();afgehandeld(this)">Afgehandeld</button>'
+      + extraKnopHtml(item);
+  }
+
+  async function verstuur(btn){
+    var item = getRowItem(btn);
+    var msg = getRowMsg(btn);
+    var tekst = msg.value;
+    btn.disabled = true; btn.textContent = 'Bezig…';
+    try {
+      // Log eerst de verstuur-edit (kan diff zijn als coach inline edit zonder Bewerken)
+      await fetch('/coach/api/aandacht/edit-log', {
+        method:'POST', credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          klant_id: item.klant_id, categorie: STATE.actieveTab,
+          trigger_signaal: { type: item.type, context: item.context },
+          voorgesteld_bericht: item.bericht, verstuurd_bericht: tekst,
+          edit_actie: 'verstuurd',
+        })
+      });
+      var r = await fetch('/coach/api/client/'+encodeURIComponent(item.klant_id)+'/send-message', {
+        method:'POST', credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ text: tekst })
+      });
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      // Markeer afgehandeld + tussenbericht-sleutel als nodig
+      await fetch('/coach/api/aandacht/afgehandeld', {
+        method:'POST', credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ klant_id: item.klant_id, urg: item.urg })
+      });
+      if (item.context && item.context.sleutel) {
+        await fetch('/coach/api/aandacht/tussenbericht-afgehandeld', {
+          method:'POST', credentials:'same-origin',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ sleutel: item.context.sleutel })
+        });
+      }
+      laadData();
+    } catch(e) {
+      btn.disabled = false; btn.textContent = 'Versturen';
+      alert('Versturen mislukt: ' + (e.message || 'onbekend'));
+    }
+  }
+
+  async function snooze(btn){
+    var item = getRowItem(btn);
+    var wie = (item && (item.voornaam || item.naam)) || 'deze klant';
+    if (!confirm('Snooze ' + wie + ' voor 24 uur? Je ziet deze klant dan pas morgen weer, en dat is niet handmatig terug te draaien.')) return;
+    btn.disabled = true;
+    try {
+      await fetch('/coach/api/aandacht/snooze', {
+        method:'POST', credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ klant_id: item.klant_id })
+      });
+      laadData();
+    } catch(_) { btn.disabled = false; }
+  }
+
+  async function afgehandeld(btn){
+    var item = getRowItem(btn);
+    btn.disabled = true;
+    try {
+      await fetch('/coach/api/aandacht/afgehandeld', {
+        method:'POST', credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ klant_id: item.klant_id, urg: item.urg })
+      });
+      laadData();
+    } catch(_) { btn.disabled = false; }
+  }
+
+  async function akkoordOvergang(btn){
+    var item = getRowItem(btn);
+    btn.disabled = true; btn.textContent = 'Bezig…';
+    try {
+      var r = await fetch('/coach/api/klant/'+encodeURIComponent(item.klant_id)+'/fase-verhogen', {
+        method:'POST', credentials:'same-origin'
+      });
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      laadData();
+    } catch(e) {
+      btn.disabled = false; btn.textContent = 'Akkoord overgang';
+      alert('Mislukt: ' + e.message);
+    }
+  }
+
+  async function bevestigBlokkade(btn){
+    var item = getRowItem(btn);
+    btn.disabled = true;
+    try {
+      // Zelfde mechanisme als afgehandeld: markeer 24u done, klant blijft fase-X
+      await fetch('/coach/api/aandacht/afgehandeld', {
+        method:'POST', credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ klant_id: item.klant_id, urg: item.urg })
+      });
+      laadData();
+    } catch(_) { btn.disabled = false; }
+  }
+
+  laadData();
+</script>
+</body></html>

@@ -1,0 +1,17 @@
+:root {
+  --color-bg-main: #f5f0e8;
+  --color-bg-sidebar: #0a0a14;
+  --color-bg-sidebar-gradient: linear-gradient(180deg, #0a0a14 0%, #14141f 100%);
+  --color-card-bg: #fffdf6;
+  --color-card-gradient: linear-gradient(180deg, #fffdf6 0%, #faf3e0 100%);
+  --color-card-border: rgba(201, 168, 76, 0.25);
+  --color-gold-base: #c9a84c;
+  --color-gold-gradient: linear-gradient(135deg, #d9b75a 0%, #b8932f 100%);
+  --color-gold-gradient-deep: linear-gradient(135deg, #e6c76a 0%, #a8821f 100%);
+  --color-gold-glow: 0 0 24px rgba(201, 168, 76, 0.35), 0 4px 16px rgba(184, 147, 47, 0.2);
+  --color-gold-glow-hover: 0 0 32px rgba(201, 168, 76, 0.5), 0 6px 20px rgba(184, 147, 47, 0.3);
+  --color-dark-hero: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%);
+  --color-dark-hero-glow: radial-gradient(circle at top right, rgba(201, 168, 76, 0.15), transparent 60%);
+  --color-success-gradient: linear-gradient(180deg, #8ed16a 0%, #5fa830 100%);
+  --color-success-bg-subtle: rgba(143, 209, 106, 0.08);
+}

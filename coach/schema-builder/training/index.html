@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training — Hoedt Coaching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;padding:0;background:#f5f0e8;font-family:'DM Sans',sans-serif;">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:#f5f0e8;display:flex;min-height:100vh;}
+  .coach-sidebar{width:220px;min-height:100vh;background:linear-gradient(180deg,#0a0a14 0%,#14141f 100%);display:flex;flex-direction:column;position:fixed;top:0;left:0;z-index:100;}
+  .sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .logo-text{font-size:17px;color:#c9a84c;font-weight:700;letter-spacing:0.3px;text-shadow:0 0 12px rgba(201,168,76,0.3);}
+  .logo-sub{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+  .sidebar-nav{padding:12px 0;flex:1;overflow-y:auto;}
+  .nav-label{font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px 4px;}
+  .nav-item{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;}
+  .nav-item:hover{background:rgba(201,168,76,0.05);color:rgba(255,255,255,0.85);}
+  .nav-item.active{background:rgba(201,168,76,0.1);color:#c9a84c;border-left-color:#c9a84c;font-weight:600;}
+  .nav-icon{font-size:14px;width:16px;text-align:center;flex-shrink:0;}
+  .nav-badge{margin-left:auto;background:#e05454;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;min-width:18px;text-align:center;}
+  .nav-badge-amber{margin-left:auto;background:#d4871a;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;}
+  .nav-sublabel{font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:1.2px;text-transform:uppercase;padding:8px 20px 3px 26px;font-weight:500;}
+  .nav-item.nav-sub-item{padding:7px 20px 7px 32px;font-size:12.5px;color:rgba(255,255,255,0.45);}
+  .nav-item.nav-sub-item.active{background:transparent;color:#c9a84c;border-left:2px solid #c9a84c;}
+  .sb-group-toggle{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);font-size:13px;font-weight:500;background:transparent;border:none;border-left:2px solid transparent;cursor:pointer;width:100%;text-align:left;font-family:inherit;transition:color 0.12s,background 0.12s;}
+  .sb-group-toggle:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .sb-group-toggle.expanded{color:rgba(255,255,255,0.85);}
+  .sb-group-arrow{font-size:10px;color:rgba(255,255,255,0.4);width:10px;display:inline-flex;justify-content:center;transition:transform 0.18s ease,color 0.18s ease;}
+  .sb-group-toggle.expanded .sb-group-arrow{transform:rotate(90deg);color:#c9a84c;}
+  .sb-group-items{display:none;}
+  .sb-group-items.expanded{display:block;}
+  .sidebar-footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,0.06);}
+  .coach-av{width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,0.15);border:1.5px solid #c9a84c;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#c9a84c;flex-shrink:0;}
+  .coach-main{margin-left:220px;flex:1;padding:24px 28px;min-width:0;}
+  .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+  .page-title{font-size:24px;color:#1a1a2e;font-weight:700;}
+  .page-date{font-size:12.5px;color:#6b6b80;margin-top:3px;}
+
+  .sb-tabs-nav{display:flex;gap:2px;border-bottom:1px solid rgba(26,26,46,0.08);margin-bottom:18px;}
+  .sb-tab{padding:10px 18px;font-size:13px;font-weight:500;color:#6b6b80;text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.12s;}
+  .sb-tab:hover{color:#1a1a2e;}
+  .sb-tab.active{color:#1a1a2e;border-bottom-color:#c9a84c;font-weight:600;}
+
+  .sb-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .sb-search{flex:1;padding:8px 12px 8px 34px;border:1px solid rgba(26,26,46,0.12);border-radius:8px;font-size:13px;font-family:inherit;color:#1a1a2e;background-color:white;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239b9baa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><path d='m21 21-4.3-4.3'/></svg>");background-repeat:no-repeat;background-position:11px center;}
+  .sb-search:focus{outline:none;border-color:#c9a84c;}
+  .sb-btn{padding:8px 14px;font-size:12.5px;font-weight:500;border-radius:7px;border:1px solid rgba(26,26,46,0.12);background:white;color:#6b6b80;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:all 0.12s;}
+  .sb-btn:hover{border-color:#c9a84c;color:#c9a84c;}
+  .sb-btn-primary{background:#0f0f1a;color:#c9a84c;border-color:#0f0f1a;}
+  .sb-btn-primary:hover{background:#1a1a2e;color:#c9a84c;border-color:#1a1a2e;}
+  .sb-btn-secondary{background:white;color:#6b6b80;}
+  .sb-btn-disabled,.sb-btn:disabled{opacity:0.4;pointer-events:none;cursor:not-allowed;}
+
+  .sb-cat-tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;}
+  .sb-cat-tab{padding:5px 12px;font-size:12px;font-weight:500;border-radius:20px;border:1px solid rgba(26,26,46,0.1);background:white;color:#6b6b80;cursor:pointer;font-family:inherit;transition:all 0.12s;}
+  .sb-cat-tab:hover{border-color:#c9a84c;}
+  .sb-cat-tab.active{background:#0f0f1a;color:#c9a84c;border-color:#0f0f1a;}
+
+  .sb-card{background:white;border-radius:12px;border:1px solid rgba(26,26,46,0.08);overflow:hidden;}
+  .sb-table{width:100%;border-collapse:collapse;}
+  .sb-table thead th{font-size:10.5px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.8px;font-weight:600;text-align:left;padding:13px 16px;border-bottom:1px solid rgba(26,26,46,0.08);background:#fafaf8;}
+  .sb-table tbody td{padding:12px 16px;font-size:13px;color:#1a1a2e;border-bottom:0.5px solid rgba(26,26,46,0.06);vertical-align:middle;}
+  .sb-table tbody tr:last-child td{border-bottom:none;}
+  .sb-table tbody tr:hover td{background:#fafaf8;}
+  .sb-actions-cell{text-align:right;white-space:nowrap;}
+  .sb-icon-btn{width:28px;height:28px;border-radius:6px;border:1px solid rgba(26,26,46,0.1);background:white;color:#6b6b80;cursor:pointer;font-size:13px;display:inline-flex;align-items:center;justify-content:center;font-family:inherit;text-decoration:none;padding:0;margin-left:4px;transition:all 0.12s;}
+  .sb-icon-btn:hover{border-color:#c9a84c;color:#c9a84c;}
+  .sb-cat-pill{font-size:11px;font-weight:500;background:#fafaf8;color:#6b6b80;padding:2px 8px;border-radius:20px;border:1px solid rgba(26,26,46,0.08);}
+
+  .sb-inline-form{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 14px;background:#fafaf8;}
+  .sb-inline-form input,.sb-inline-form select{padding:7px 10px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:12.5px;font-family:inherit;color:#1a1a2e;background:white;}
+  .sb-inline-form input[type="number"]{width:88px;}
+  .sb-inline-form input[name="naam"]{flex:1;min-width:160px;}
+  .sb-inline-form select{min-width:130px;}
+  .sb-inline-form input:focus,.sb-inline-form select:focus{outline:none;border-color:#c9a84c;}
+  .sb-full-form{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:12px;padding:14px 16px;margin-bottom:14px;}
+
+  .sb-recipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .sb-recipe-card{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;}
+  .sb-recipe-head{display:flex;justify-content:space-between;align-items:center;}
+  .sb-recipe-cat{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;background:rgba(201,168,76,0.15);color:#8a6a1a;}
+  .sb-recipe-actions form{display:inline;}
+  .sb-recipe-name{font-size:14px;font-weight:700;color:#1a1a2e;margin-top:4px;}
+  .sb-recipe-kcal{font-size:16px;font-weight:700;color:#8a6a1a;}
+  .sb-recipe-macros{display:flex;gap:5px;flex-wrap:wrap;}
+  .sb-macro-chip{font-size:10.5px;font-weight:500;padding:2px 7px;border-radius:20px;}
+  .sb-macro-e{background:#ebf4ff;color:#2b6cb0;}
+  .sb-macro-kh{background:#fdf5e8;color:#d4871a;}
+  .sb-macro-v{background:#fbebf3;color:#b04681;}
+  .sb-recipe-meta{font-size:11px;color:#9b9baa;margin-top:auto;}
+
+  .sb-form-card{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:12px;padding:16px 18px;margin-bottom:14px;}
+  .sb-form-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .sb-form-row label{font-size:11px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;min-width:110px;}
+  .sb-form-row input,.sb-form-row select,.sb-form-row textarea{flex:1;padding:8px 11px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:13px;font-family:inherit;color:#1a1a2e;background:white;}
+  .sb-form-row textarea{min-height:70px;resize:vertical;}
+  .sb-form-row input:focus,.sb-form-row select:focus,.sb-form-row textarea:focus{outline:none;border-color:#c9a84c;}
+  .sb-form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px;}
+
+  .sb-ing-list{display:flex;flex-direction:column;gap:6px;margin-bottom:8px;}
+  .sb-ing-row{display:flex;gap:6px;align-items:center;}
+  .sb-ing-row select{flex:1;padding:7px 10px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:12.5px;font-family:inherit;background:white;}
+  .sb-ing-row input{width:90px;padding:7px 10px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:12.5px;font-family:inherit;background:white;}
+  .sb-ing-add{background:transparent;border:1px dashed rgba(201,168,76,0.5);color:#8a6a1a;font-size:12px;padding:6px 12px;border-radius:7px;cursor:pointer;font-family:inherit;}
+  .sb-ing-add:hover{background:rgba(201,168,76,0.08);}
+  .sb-macro-preview{background:#fafaf8;border:1px solid rgba(26,26,46,0.06);border-radius:8px;padding:10px 14px;font-size:13px;color:#1a1a2e;margin:10px 0;}
+
+  .sb-dv-layout{display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:start;}
+  .sb-dv-left{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:12px;padding:14px;position:sticky;top:18px;}
+  .sb-dv-create-form{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid rgba(26,26,46,0.06);}
+  .sb-dv-create-form input{padding:8px 11px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:12.5px;font-family:inherit;}
+  .sb-dv-create-form input:focus{outline:none;border-color:#c9a84c;}
+  .sb-dv-list{display:flex;flex-direction:column;gap:4px;}
+  .sb-dv-item{display:block;padding:10px 12px;border-radius:8px;text-decoration:none;color:#1a1a2e;transition:background 0.1s,color 0.1s;border:1px solid transparent;}
+  .sb-dv-item:hover{background:#fafaf8;}
+  .sb-dv-item.active{background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.35);color:#8a6a1a;}
+  .sb-dv-name{font-size:13px;font-weight:600;}
+  .sb-dv-kcal{font-size:11px;color:#9b9baa;margin-top:2px;}
+  .sb-dv-item.active .sb-dv-kcal{color:#8a6a1a;}
+  .sb-dv-right{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:12px;padding:18px 20px;}
+  .sb-dv-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+  .sb-dv-header h2{font-size:16px;color:#1a1a2e;font-weight:700;}
+  .sb-totals-bar{display:flex;gap:16px;padding:12px 14px;background:#fafaf8;border-radius:8px;font-size:12.5px;color:#6b6b80;margin-bottom:16px;flex-wrap:wrap;}
+  .sb-totals-bar strong{color:#1a1a2e;font-weight:700;}
+  .sb-eetmomenten{display:flex;flex-direction:column;gap:10px;}
+  .sb-eetmoment{border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:12px 14px;}
+  .sb-eetmoment-empty{border-style:dashed;background:#fafaf8;}
+  .sb-eetmoment-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  .sb-eetmoment-label{font-size:10.5px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;}
+  .sb-eetmoment-macros{font-size:11px;color:#6b6b80;}
+  .sb-eetmoment-body{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .sb-eetmoment-body .sb-recipe-name{font-size:13px;margin-top:0;}
+  .sb-eetmoment-form{display:flex;gap:6px;align-items:center;}
+  .sb-eetmoment-form select{flex:1;padding:7px 10px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:12.5px;background:white;font-family:inherit;}
+  .sb-eetmoment-form select:focus{outline:none;border-color:#c9a84c;}
+
+  .sb-wt-days-form{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:12px 0;}
+  .sb-wt-day-form{display:flex;flex-direction:column;gap:4px;}
+  .sb-wt-day-form label{font-size:10px;font-weight:600;color:#6b6b80;text-align:center;text-transform:uppercase;letter-spacing:0.6px;}
+  .sb-wt-day-form select{padding:6px 8px;border:1px solid rgba(26,26,46,0.12);border-radius:6px;font-size:11.5px;font-family:inherit;background:white;}
+  .sb-wt-desc{font-size:11.5px;color:#9b9baa;margin-top:2px;}
+
+  .sb-empty{padding:48px 24px;text-align:center;color:#9b9baa;font-size:13px;}
+
+  .sb-koppel-stepper{display:flex;gap:10px;margin-bottom:18px;padding:12px 16px;background:white;border:1px solid rgba(26,26,46,0.08);border-radius:10px;}
+  .sb-step{font-size:12.5px;color:#9b9baa;font-weight:500;padding:4px 10px;}
+  .sb-step.active{color:#8a6a1a;background:rgba(201,168,76,0.12);border-radius:6px;font-weight:600;}
+  .sb-client-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:10px;}
+  .sb-client-card{cursor:pointer;}
+  .sb-client-card input{display:none;}
+  .sb-client-inner{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1.5px solid rgba(26,26,46,0.08);border-radius:12px;background:white;transition:all 0.12s;}
+  .sb-client-card:hover .sb-client-inner{border-color:#c9a84c;}
+  .sb-client-card.selected .sb-client-inner{border-color:#c9a84c;background:rgba(201,168,76,0.08);}
+  .sb-client-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0;}
+  .sb-client-avatar.avatar-red{background:#fde8e8;color:#c0392b;}
+  .sb-client-avatar.avatar-amber{background:#fef3e2;color:#a0531a;}
+  .sb-client-avatar.avatar-blue{background:#e8f0fe;color:#1a5ba0;}
+  .sb-client-avatar.avatar-green{background:#e8f5ee;color:#1a7a4a;}
+  .sb-client-avatar.avatar-purple{background:#f0e8fe;color:#5a1aa0;}
+  .sb-client-info{flex:1;min-width:0;}
+  .sb-client-name{font-size:14px;font-weight:700;color:#1a1a2e;}
+  .sb-client-meta{font-size:11.5px;color:#6b6b80;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .sb-badge{font-size:10.5px;font-weight:600;padding:3px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;}
+  .sb-badge-good{background:#edf8f2;color:#2e9e6b;}
+  .sb-badge-neutral{background:#f0f0ee;color:#6b6b80;}
+
+  .sb-koppel-split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  .sb-koppel-split h3,.sb-koppel-clients h3,.sb-koppel-wt-list-wrap h3{font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:12px;}
+  .sb-card.sb-koppel-client,.sb-card.sb-koppel-targets,.sb-card.sb-koppel-clients,.sb-card.sb-koppel-summary{padding:16px 18px;}
+  .sb-summary-list{display:grid;grid-template-columns:140px 1fr;gap:7px 14px;font-size:12.5px;}
+  .sb-summary-list dt{color:#9b9baa;text-transform:uppercase;font-size:10.5px;letter-spacing:0.7px;font-weight:600;align-self:center;}
+  .sb-summary-list dd{color:#1a1a2e;font-weight:500;}
+  .sb-target-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .sb-target-fields label{font-size:11px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;display:flex;flex-direction:column;gap:4px;}
+  .sb-target-fields input{padding:8px 11px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:13px;font-family:inherit;background:white;color:#1a1a2e;text-transform:none;letter-spacing:0;font-weight:500;}
+  .sb-target-fields input:focus{outline:none;border-color:#c9a84c;}
+  .sb-koppel-wt-list{display:flex;flex-direction:column;gap:8px;}
+  .sb-koppel-wt{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1.5px solid rgba(26,26,46,0.08);border-radius:10px;cursor:pointer;transition:all 0.12s;}
+  .sb-koppel-wt:hover{border-color:#c9a84c;}
+  .sb-koppel-wt input{accent-color:#c9a84c;}
+  .sb-koppel-wt input:checked + .sb-koppel-wt-info{color:#8a6a1a;}
+  .sb-koppel-wt:has(input:checked){border-color:#c9a84c;background:rgba(201,168,76,0.08);}
+  .sb-koppel-wt-info{display:flex;justify-content:space-between;flex:1;font-size:13px;}
+  .sb-koppel-wt-info strong{color:#1a1a2e;font-weight:600;}
+  .sb-koppel-wt-info span{color:#6b6b80;}
+
+  .sb-success-banner{background:#edf8f2;border:1px solid rgba(46,158,107,0.3);color:#1a7a4a;padding:14px 18px;border-radius:10px;font-size:14px;font-weight:600;margin-bottom:16px;}
+  .sb-status-active{background:#edf8f2;color:#2e9e6b;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;}
+
+  .sb-prod-form{padding:16px 18px;}
+  .sb-prod-form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 14px;margin-bottom:12px;}
+  .sb-prod-form-grid label{font-size:11px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;display:flex;flex-direction:column;gap:4px;}
+  .sb-prod-form-grid label input,.sb-prod-form-grid label select{padding:8px 11px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:13px;font-family:inherit;color:#1a1a2e;background:white;text-transform:none;letter-spacing:0;font-weight:500;}
+  .sb-prod-form-grid label input:focus,.sb-prod-form-grid label select:focus{outline:none;border-color:#c9a84c;}
+  .sb-radio-row{display:flex;gap:10px;margin-top:2px;}
+  .sb-radio-row label{font-size:12.5px;font-weight:500;color:#1a1a2e;text-transform:none;letter-spacing:0;flex-direction:row;align-items:center;gap:4px;}
+  .sb-radio-row input{width:auto;}
+  .sb-field-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+  .sb-field-label{font-size:11px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;min-width:100px;}
+  .sb-chk-group{display:flex;gap:10px;flex-wrap:wrap;flex:1;}
+  .sb-chk{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:#1a1a2e;cursor:pointer;padding:5px 10px;border:1px solid rgba(26,26,46,0.1);border-radius:20px;background:white;}
+  .sb-chk input{accent-color:#c9a84c;}
+  .sb-chk:has(input:checked){background:rgba(201,168,76,0.12);border-color:#c9a84c;color:#8a6a1a;}
+  .sb-allerg-pill{display:inline-block;font-size:10px;font-weight:500;background:#fdf5e8;color:#8a5a1a;padding:1px 7px;border-radius:20px;margin-right:4px;text-transform:uppercase;letter-spacing:0.3px;}
+  .sb-allerg-row{margin-top:4px;}
+  .sb-unit-hint{font-size:10px;color:#9b9baa;margin-left:2px;}
+  .sb-form-heading{font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:14px;}
+  .sb-section-title{font-size:11px;font-weight:700;color:#6b6b80;text-transform:uppercase;letter-spacing:0.8px;margin:16px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(26,26,46,0.08);}
+  .sb-textarea{width:100%;min-height:90px;padding:10px 12px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:13px;font-family:inherit;color:#1a1a2e;background:white;resize:vertical;}
+  .sb-textarea:focus{outline:none;border-color:#c9a84c;}
+  .sb-full-label{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;font-size:11px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;}
+  .sb-select{padding:8px 11px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:13px;font-family:inherit;color:#1a1a2e;background:white;}
+  .sb-select:focus{outline:none;border-color:#c9a84c;}
+  .sb-macro-preview-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 12px;}
+  .sb-preview-box{background:#fafaf8;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 12px;position:relative;overflow:hidden;}
+  .sb-preview-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+  .sb-preview-gold::before{background:#c9a84c;}
+  .sb-preview-blue::before{background:#2b6cb0;}
+  .sb-preview-amber::before{background:#d4871a;}
+  .sb-preview-pink::before{background:#d26a9e;}
+  .sb-preview-label{font-size:10px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.8px;font-weight:500;margin-bottom:3px;}
+  .sb-preview-val{font-size:18px;font-weight:700;color:#1a1a2e;}
+
+  .sb-meta-form{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .sb-inline-title{font-size:18px;font-weight:700;color:#1a1a2e;padding:6px 10px;border:1px solid transparent;border-radius:7px;background:transparent;font-family:inherit;}
+  .sb-inline-title:hover,.sb-inline-title:focus{border-color:rgba(26,26,46,0.12);background:white;outline:none;}
+  .sb-header-avg{font-size:12px;color:#6b6b80;background:rgba(201,168,76,0.12);color:#8a6a1a;padding:4px 10px;border-radius:20px;font-weight:600;}
+
+  .sb-dagen-grid{display:flex;flex-direction:column;gap:10px;}
+  .sb-dag-card{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
+  .sb-dag-head{display:flex;align-items:center;gap:10px;padding-bottom:8px;border-bottom:1px solid rgba(26,26,46,0.06);flex-wrap:wrap;}
+  .sb-dag-name{font-size:15px;font-weight:700;color:#1a1a2e;min-width:30px;}
+  .sb-dag-totals{font-size:11.5px;color:#6b6b80;margin-left:auto;}
+  .sb-slots{display:flex;flex-direction:column;gap:6px;}
+  .sb-slot-row{display:grid;grid-template-columns:140px 1fr auto;gap:10px;align-items:center;padding:6px 0;}
+  .sb-slot-label{font-size:11px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;}
+  .sb-slot-row select{padding:7px 10px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:12.5px;font-family:inherit;background:white;}
+  .sb-slot-row select:focus{outline:none;border-color:#c9a84c;}
+  .sb-slot-macros{font-size:11px;color:#9b9baa;white-space:nowrap;}
+
+  .sb-koppel-done{text-align:center;padding:20px 0 24px;}
+  .sb-koppel-check{width:64px;height:64px;border-radius:50%;background:#edf8f2;color:#2e9e6b;font-size:32px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+  .sb-koppel-done h2{font-size:20px;color:#1a1a2e;font-weight:700;}
+  .sb-koppel-summary-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(26,26,46,0.06);}
+
+  .sb-oef-list{display:flex;flex-direction:column;gap:8px;}
+  .sb-oef-item{background:#fafaf8;border:1px solid rgba(26,26,46,0.06);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;}
+  .sb-oef-item-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;}
+  .sb-oef-item-form{display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap;}
+  .sb-oef-item-form label{font-size:10px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;display:flex;flex-direction:column;gap:3px;}
+  .sb-oef-item-form input{padding:6px 9px;border:1px solid rgba(26,26,46,0.12);border-radius:6px;font-size:12px;font-family:inherit;background:white;color:#1a1a2e;text-transform:none;letter-spacing:0;width:72px;}
+  .sb-oef-item-form input:focus{outline:none;border-color:#c9a84c;}
+  .sb-oef-add-form{display:flex;gap:8px;align-items:center;margin-top:4px;}
+  .sb-oef-add-form select{flex:1;padding:7px 10px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:12.5px;font-family:inherit;background:white;}
+  .sb-oef-add-form select:focus{outline:none;border-color:#c9a84c;}
+  .sb-rir-info{background:#fafaf8;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 14px;font-size:12px;color:#6b6b80;margin-bottom:14px;}
+
+  .sb-subtabs{display:flex;gap:2px;border-bottom:1px solid rgba(26,26,46,0.08);margin-bottom:18px;}
+  .sb-subtab{padding:10px 18px;font-size:13px;font-weight:500;color:#6b6b80;text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color 0.12s;}
+  .sb-subtab:hover{color:#1a1a2e;}
+  .sb-subtab.active{color:#1a1a2e;border-bottom-color:#c9a84c;font-weight:600;}
+  .sb-coming-soon{background:white;border:1px dashed rgba(26,26,46,0.18);border-radius:12px;padding:48px 40px;text-align:center;max-width:640px;margin:0 auto;}
+  .sb-coming-soon-icon{font-size:42px;color:#d4d4d0;margin-bottom:12px;line-height:1;}
+  .sb-coming-soon-title{font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:8px;}
+  .sb-coming-soon-sub{font-size:13px;color:#6b6b80;margin-bottom:18px;}
+  .sb-coming-soon-list{font-size:13px;color:#1a1a2e;line-height:1.8;padding-left:18px;margin:0;}
+
+  /* Macro-warning banner boven het result-overzicht. Geel/amber, niet rood —
+     coach kan nog steeds opslaan, het is een waarschuwing geen blocker. */
+  .res-macro-warn{background:#fff8e1;border:1px solid #f5d05b;border-left:4px solid #c9a84c;border-radius:10px;padding:14px 18px;margin:14px 0 10px;color:#5b4a14;}
+  .res-macro-warn-titel{font-size:13.5px;font-weight:700;margin-bottom:8px;color:#5b4a14;}
+  .res-macro-warn-lijst{margin:0 0 8px;padding-left:18px;font-size:12.5px;line-height:1.6;}
+  .res-macro-warn-lijst strong{color:#3d3008;}
+  .res-macro-warn-actie{font-size:12px;color:#7a6324;}
+  /* Groene info-banner: alle 7 dagen binnen marge dankzij dual-anker. */
+  .res-macro-ok{background:#e8f7ee;border:1px solid #95d8b0;border-left:4px solid #22c55e;border-radius:10px;padding:12px 18px;margin:14px 0 10px;color:#0f5c2a;font-size:13px;font-weight:600;}
+
+  .gen-form{display:flex;flex-direction:column;gap:18px;}
+  .gen-section{background:white;border-radius:12px;border:1px solid rgba(26,26,46,0.08);padding:20px 22px;position:relative;}
+  .gen-section::before{content:'';position:absolute;left:0;top:16px;bottom:16px;width:3px;background:#c9a84c;border-radius:2px;}
+  .gen-section-title{font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:14px;padding-left:10px;}
+  .gen-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-bottom:10px;}
+  .gen-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px;margin-bottom:10px;}
+  .gen-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 14px;margin-bottom:10px;}
+  .gen-row{margin-bottom:12px;}
+  .gen-full{display:flex;flex-direction:column;gap:4px;margin-bottom:10px;}
+  .gen-field-row{display:flex;gap:12px;align-items:flex-start;margin:12px 0;flex-wrap:wrap;}
+  .gen-field-label{font-size:11px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;min-width:150px;padding-top:7px;}
+  .gen-form label{font-size:11px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;display:flex;flex-direction:column;gap:4px;}
+  .gen-form label input,.gen-form label select{padding:8px 11px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:13px;font-family:inherit;color:#1a1a2e;background:white;text-transform:none;letter-spacing:0;font-weight:500;}
+  .gen-form label input:focus,.gen-form label select:focus{outline:none;border-color:#c9a84c;}
+  .gen-from-intake input,.gen-from-intake select{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.3);}
+  .gen-calc-note{font-size:11.5px;color:#8a6a1a;background:rgba(201,168,76,0.1);padding:6px 10px;border-radius:6px;margin-bottom:10px;display:inline-block;}
+  .sb-intake-banner{background:#edf8f2;border:1px solid rgba(46,158,107,0.3);color:#1a7a4a;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;}
+  .sb-intake-banner strong{font-weight:700;}
+  .gen-from-intake-row .sb-chk:has(input:checked){background:rgba(201,168,76,0.16);border-color:rgba(201,168,76,0.45);color:#8a6a1a;}
+
+  .kp-card{background:white;border-radius:12px;border:1px solid rgba(26,26,46,0.08);padding:20px 22px;margin-bottom:12px;}
+  .kp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;}
+  .kp-col{min-width:0;}
+  .kp-avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;margin-bottom:10px;}
+  .kp-avatar.avatar-red{background:#fde8e8;color:#c0392b;}
+  .kp-avatar.avatar-amber{background:#fef3e2;color:#a0531a;}
+  .kp-avatar.avatar-blue{background:#e8f0fe;color:#1a5ba0;}
+  .kp-avatar.avatar-green{background:#e8f5ee;color:#1a7a4a;}
+  .kp-avatar.avatar-purple{background:#f0e8fe;color:#5a1aa0;}
+  .kp-name{font-size:16px;font-weight:700;color:#1a1a2e;line-height:1.25;}
+  .kp-meta-row{display:flex;gap:5px;font-size:12px;color:#6b6b80;margin-top:4px;flex-wrap:wrap;}
+  .kp-label{font-size:10px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.7px;font-weight:700;margin-bottom:3px;}
+  .kp-metric{margin-top:10px;}
+  .kp-metric-label{font-size:10px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.7px;font-weight:700;margin-bottom:3px;}
+  .kp-metric-value{font-size:12.5px;color:#1a1a2e;font-weight:500;line-height:1.35;}
+  .kp-bar{height:6px;background:#f0f0ee;border-radius:3px;overflow:hidden;margin:4px 0;}
+  .kp-bar-fill{height:100%;border-radius:3px;background:#c9a84c;transition:width 0.3s ease;}
+  .kp-bar-fill.low{background:#e05454;}
+  .kp-bar-fill.mid{background:#d4871a;}
+  .kp-bar-fill.high{background:#2e9e6b;}
+  .kp-hoofddoel{padding:10px 14px;background:rgba(201,168,76,0.1);border-left:3px solid #c9a84c;border-radius:8px;margin-bottom:12px;}
+  .kp-hoofddoel-text{font-size:13.5px;font-weight:600;color:#1a1a2e;line-height:1.35;margin-top:3px;}
+  .kp-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+  .kp-badge{font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:0.4px;}
+  .kp-badge-red{background:#fdf0f0;color:#c43838;}
+  .kp-badge-green{background:#edf8f2;color:#2e9e6b;}
+  .kp-badge-amber{background:#fdf5e8;color:#a0531a;}
+  .kp-badge-yellow{background:#fef9e8;color:#8a6a1a;}
+  .kp-insight{margin-bottom:8px;}
+  .kp-insight-text{font-size:12.5px;color:#1a1a2e;line-height:1.4;}
+  .kp-fact{margin-bottom:10px;}
+  .kp-fact-value{font-size:13px;color:#1a1a2e;font-weight:500;line-height:1.35;margin-top:2px;}
+  .kp-targets-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+  .kp-target-card{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:14px 16px;}
+  .kp-target-card h3{font-size:11px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.8px;font-weight:700;margin-bottom:8px;}
+  .kp-macro-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;}
+  .kp-calc-note{font-size:11px;color:#9b9baa;margin-top:4px;font-style:italic;line-height:1.4;}
+  .kp-split-info strong{color:#1a1a2e;font-size:13.5px;display:block;margin-bottom:3px;}
+  .kp-split-info > div{font-size:11.5px;color:#6b6b80;}
+  .kp-insights-card{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:14px 16px;margin-bottom:16px;border-left:3px solid #c9a84c;}
+  .kp-insights-card h3{font-size:11px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.8px;font-weight:700;margin-bottom:8px;}
+  .kp-insights-list{list-style:none;padding:0;margin:0;}
+  .kp-insights-list li{padding:8px 0;border-bottom:1px dashed rgba(26,26,46,0.06);font-size:12.5px;color:#1a1a2e;line-height:1.4;display:flex;gap:8px;align-items:flex-start;}
+  .kp-insights-list li:last-child{border-bottom:none;}
+  .kp-insight-icon{flex-shrink:0;font-size:15px;}
+
+  /* Hoedt-methode intake-blok */
+  .kp-hoedt-card{margin-bottom:12px;}
+  .kp-hoedt-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .kp-hoedt-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#0f0f1a;color:#c9a84c;font-size:11px;font-weight:700;flex-shrink:0;}
+  .kp-hoedt-titel{font-size:13px;font-weight:700;color:#1a1a2e;letter-spacing:0.2px;}
+  .kp-hoedt-subtitel{font-size:11px;color:#9b9baa;margin-left:4px;font-weight:500;}
+  .kp-hoedt-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin-bottom:18px;}
+  .kp-hoedt-fact{min-width:0;}
+  .kp-hoedt-fact-empty{font-size:11px;color:#c4c4c8;font-style:italic;margin-top:2px;}
+  .kp-hoedt-overrule{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;background:#fef3c7;border:1px solid #fcd34d;color:#92400e;border-radius:6px;font-size:12.5px;font-weight:600;cursor:help;}
+  .kp-hoedt-pal{background:#faf8f3;border:1px solid rgba(26,26,46,0.06);border-radius:10px;padding:14px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.55;color:#1a1a2e;margin-bottom:14px;}
+  .kp-hoedt-pal-row{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+  .kp-hoedt-pal-row.head{font-family:'DM Sans',system-ui,sans-serif;font-size:12.5px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.8px;font-weight:700;margin-bottom:6px;}
+  .kp-hoedt-pal-info{cursor:help;color:#9b9baa;font-size:11px;}
+  .kp-hoedt-pal-val{color:#1a1a2e;font-weight:700;font-variant-numeric:tabular-nums;}
+  .kp-hoedt-pal-formule{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(26,26,46,0.1);}
+  .kp-hoedt-pal-formule-r{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums;}
+  .kp-hoedt-pal-formule-r .lbl{color:#6b6b80;}
+  .kp-hoedt-pal-formule-r .val{color:#1a1a2e;}
+  .kp-hoedt-pal-foot{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(26,26,46,0.1);font-variant-numeric:tabular-nums;color:#1a1a2e;}
+  .kp-hoedt-result{display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#f6f6f9;border-radius:10px;padding:12px 14px;}
+  .kp-hoedt-result-pill{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;background:#fff;border:1px solid rgba(26,26,46,0.08);border-radius:999px;font-size:12px;font-variant-numeric:tabular-nums;color:#1a1a2e;}
+  .kp-hoedt-result-pill .lbl{color:#6b6b80;font-weight:500;}
+  .kp-hoedt-result-pill .val{font-weight:700;}
+  .kp-hoedt-result-pill.kcal{border-color:#c9a84c;background:rgba(201,168,76,0.08);}
+  .kp-hoedt-result-meta{font-size:11.5px;color:#6b6b80;margin-top:8px;width:100%;display:flex;gap:10px;flex-wrap:wrap;}
+  .kp-hoedt-result-meta .floor-warn{color:#a0531a;font-weight:600;}
+  .kp-druktescore-note{font-size:10.5px;color:#c4c4c8;font-style:italic;margin-top:2px;}
+
+  /* Read-only PAL-label vervangt oude Activiteitsniveau-dropdown in voeding-generator */
+  .readonly-pal{display:inline-flex;align-items:center;padding:9px 12px;background:#faf8f3;border:1px solid rgba(201,168,76,0.25);border-radius:8px;font-size:13px;color:#1a1a2e;font-weight:600;font-variant-numeric:tabular-nums;cursor:help;width:100%;box-sizing:border-box;}
+
+  .aanp-step-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .aanp-step-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#0f0f1a;color:#c9a84c;font-size:12px;font-weight:700;}
+  .aanp-step-label{font-size:13px;font-weight:600;color:#1a1a2e;}
+  .aanp-dropdown-row{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 14px;margin-bottom:16px;}
+  .aanp-dropdown-row select{width:100%;padding:8px 11px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:13px;font-family:inherit;background:white;color:#1a1a2e;}
+  .aanp-dropdown-row select:focus{outline:none;border-color:#c9a84c;}
+  .aanp-klant-summary{display:flex;align-items:center;gap:12px;background:white;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:12px 16px;margin-bottom:14px;}
+  .aanp-klant-summary .sb-btn{margin-left:auto;}
+  .aanp-schema-card{display:flex;align-items:center;gap:12px;background:white;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:12px 16px;margin-bottom:8px;}
+  .aanp-sc-main{flex:1;min-width:0;}
+  .aanp-sc-naam{font-size:14px;font-weight:700;color:#1a1a2e;}
+  .aanp-sc-meta{font-size:11.5px;color:#6b6b80;margin-top:2px;}
+
+  .aanp-panel{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+  .aanp-panel-title{font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:12px;}
+  .aanp-sub-title{font-size:12px;font-weight:700;color:#6b6b80;margin:14px 0 8px;text-transform:uppercase;letter-spacing:0.6px;}
+  .aanp-current-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .aanp-cur-box{background:#fafaf8;border:1px solid rgba(26,26,46,0.06);border-radius:10px;padding:12px 14px;text-align:center;}
+  .aanp-cur-box.aanp-cur-flex{background:rgba(212,135,26,0.08);border-color:rgba(212,135,26,0.25);}
+  .aanp-cur-label{font-size:10px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.7px;font-weight:700;margin-bottom:4px;}
+  .aanp-cur-val{font-size:20px;font-weight:700;color:#1a1a2e;}
+  .aanp-lock{font-size:11px;margin-left:2px;}
+  .aanp-flex-tag{font-size:9px;font-weight:600;padding:1px 6px;border-radius:20px;background:rgba(212,135,26,0.18);color:#8a5a1a;margin-left:3px;letter-spacing:0.3px;}
+
+  .aanp-adj-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(26,26,46,0.06);}
+  .aanp-adj-row:last-of-type{border-bottom:none;}
+  .aanp-adj-label{font-size:13px;font-weight:600;color:#1a1a2e;min-width:160px;}
+  .aanp-adj-label small{display:block;color:#9b9baa;font-weight:400;font-size:10.5px;margin-top:2px;text-transform:none;letter-spacing:0;}
+  .aanp-adj-btns{display:flex;gap:5px;flex-wrap:wrap;}
+  .aanp-adj-btn{padding:6px 12px;font-size:12px;font-weight:600;border-radius:6px;border:1px solid rgba(26,26,46,0.12);background:white;color:#1a1a2e;cursor:pointer;font-family:inherit;transition:all 0.12s;}
+  .aanp-adj-btn:hover{border-color:#c9a84c;background:rgba(201,168,76,0.08);color:#8a6a1a;}
+  .aanp-warning{background:#fdf0f0;color:#c43838;border:1px solid rgba(224,84,84,0.3);padding:8px 12px;border-radius:8px;margin-top:10px;font-size:12.5px;}
+
+  .sb-preview-green::before{background:#2e9e6b;}
+  .aanp-diff{font-size:12px;color:#8a6a1a;background:rgba(201,168,76,0.1);padding:8px 12px;border-radius:8px;margin-top:8px;font-weight:500;}
+  .aanp-meal-table{width:100%;border-collapse:collapse;margin-top:6px;}
+  .aanp-meal-table th{font-size:10.5px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.7px;font-weight:700;text-align:left;padding:6px 10px;border-bottom:1px solid rgba(26,26,46,0.08);}
+  .aanp-meal-table td{padding:7px 10px;font-size:12.5px;color:#1a1a2e;border-bottom:0.5px solid rgba(26,26,46,0.05);}
+  .aanp-meal-table tbody tr:last-child td{border-bottom:none;}
+
+  .aanp-fase-row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+  .aanp-fase-option{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1.5px solid rgba(26,26,46,0.12);border-radius:8px;cursor:pointer;font-size:12.5px;background:white;}
+  .aanp-fase-option:has(input:checked){border-color:#c9a84c;background:rgba(201,168,76,0.08);color:#8a6a1a;font-weight:600;}
+  .aanp-fase-note{font-size:11.5px;color:#6b6b80;line-height:1.6;margin-top:6px;}
+  .aanp-fase-note strong{color:#1a1a2e;}
+
+  .aanp-actions{display:flex;gap:10px;justify-content:flex-end;margin:12px 0;flex-wrap:wrap;}
+
+  .aanp-history{display:flex;flex-direction:column;gap:6px;}
+  .aanp-hist-row{display:grid;grid-template-columns:180px 1fr 80px;gap:12px;padding:8px 0;border-bottom:0.5px solid rgba(26,26,46,0.06);font-size:12px;align-items:start;}
+  .aanp-hist-row:last-child{border-bottom:none;}
+  .aanp-hist-time{color:#9b9baa;}
+  .aanp-hist-text{color:#1a1a2e;line-height:1.4;}
+  .aanp-hist-auteur{color:#6b6b80;text-align:right;}
+  .gen-btn{padding:14px 28px;font-size:15px;font-weight:700;border-radius:10px;background:linear-gradient(90deg,#c9a84c,#d4871a);color:white;border:none;cursor:pointer;font-family:inherit;letter-spacing:0.3px;box-shadow:0 4px 14px rgba(201,168,76,0.35);transition:all 0.15s;width:100%;}
+  .gen-btn:hover{box-shadow:0 6px 20px rgba(201,168,76,0.5);transform:translateY(-1px);}
+
+  .res-header{display:flex;align-items:center;justify-content:space-between;background:white;border:1px solid rgba(26,26,46,0.08);border-radius:12px;padding:16px 20px;margin-bottom:16px;flex-wrap:wrap;gap:12px;}
+  .res-header h2{font-size:17px;color:#1a1a2e;font-weight:700;}
+  .res-macro-pills{display:flex;gap:6px;flex-wrap:wrap;}
+  .res-macro-pill{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;}
+  .res-pill-kcal{background:rgba(201,168,76,0.15);color:#8a6a1a;}
+  .res-pill-e{background:#ebf4ff;color:#2b6cb0;}
+  .res-pill-kh{background:#fdf5e8;color:#d4871a;}
+  .res-pill-v{background:#fbebf3;color:#b04681;}
+  .res-day-tabs{display:flex;gap:2px;border-bottom:1px solid rgba(26,26,46,0.08);margin-bottom:14px;}
+  .res-day-tab{padding:8px 14px;font-size:12.5px;font-weight:500;color:#6b6b80;text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;}
+  .res-day-tab.active{color:#1a1a2e;border-bottom-color:#c9a84c;font-weight:600;}
+  .res-day-panel{display:none;}
+  .res-day-panel.active{display:block;}
+  .res-day-totals{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+  .res-meal-card{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:12px 16px;margin-bottom:10px;}
+  .res-meal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px;}
+  .res-meal-slot{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;background:#fafaf8;color:#6b6b80;}
+  .res-meal-name{font-size:14px;font-weight:700;color:#1a1a2e;}
+  .res-meal-time{font-size:11px;color:#9b9baa;margin-left:8px;}
+  .res-meal-macros{font-size:11.5px;color:#6b6b80;}
+  .res-ing-list{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:#1a1a2e;}
+  .res-ing-row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed rgba(26,26,46,0.05);}
+  .res-ing-row:last-child{border-bottom:none;}
+  .res-ing-amount{color:#6b6b80;font-size:11.5px;}
+  .res-rustdag{padding:24px;text-align:center;color:#9b9baa;font-size:13px;font-style:italic;background:#fafaf8;border-radius:10px;}
+  .res-tr-ex{background:white;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+  .res-tr-ex-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:6px;}
+  .res-tr-ex-name{font-size:13.5px;font-weight:700;color:#1a1a2e;}
+  .res-tr-ex-badges{display:flex;gap:5px;flex-wrap:wrap;}
+  .res-tr-ex-detail{font-size:12.5px;color:#1a1a2e;display:flex;gap:14px;flex-wrap:wrap;}
+  .res-tr-ex-detail span strong{color:#8a6a1a;}
+  .res-tr-ex-note{font-size:11.5px;color:#6b6b80;margin-top:6px;font-style:italic;}
+  .res-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap;}
+</style>
+<div class="coach-sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">Hoedt Coaching</div>
+      <div class="logo-sub">Coach Dashboard</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-label">Overzicht</div>
+      <a class="nav-item" href="/coach">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>Dashboard
+        
+      </a>
+      <a class="nav-item" href="/coach/analytics">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>Analytics
+      </a>
+      <a class="nav-item" href="/coach/aandacht">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Aandacht nodig
+      </a>
+      <a class="nav-item" href="/coach/taken">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span>Taken
+      </a>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/klanten">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="nav-group-label">Klanten</span>
+          <span class="nav-badge">3</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/intakes">
+            Intakes
+            <span class="nav-badge-amber">8</span>
+          </a>
+          <a class="nav-item nav-sub-item" href="/coach/checkins">
+            Check-ins
+            <span class="nav-badge">11</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav-item" href="/coach/chat">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Chat
+        <span class="nav-badge" id="coachChatNavBadge" style="display:none;"></span>
+      </a>
+
+      <a class="nav-item" href="/coach/eind-vragenlijsten">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>Eind-vragenlijsten
+      </a>
+
+      <a class="nav-item" href="/coach/feedback-stats">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>AI-feedback
+      </a>
+
+      <a class="nav-item" href="/coach/instellingen">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Instellingen
+      </a>
+
+      <div class="nav-label">Schema Builder</div>
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+          <span class="nav-group-label">Voeding</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding?tab=producten">Producten</a>
+        </div>
+      </div>
+
+      <div class="nav-group" data-open="true">
+        <a class="nav-group-head active" href="/coach/schema-builder/training?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
+          <span class="nav-group-label">Training</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="coach-av">DH</div>
+        <div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:500;">Daniel Hoedt</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);">Head Coach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<style>
+  .toast-success{position:fixed;top:20px;right:20px;background:#2e9e6b;color:white;padding:12px 18px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.18);z-index:9999;transition:opacity 0.4s ease,transform 0.3s ease;max-width:340px;}
+  .breadcrumbs{font-size:11.5px;color:#9b9baa;margin-top:3px;}
+  .breadcrumbs a{color:#6b6b80;text-decoration:none;}
+  .breadcrumbs a:hover{color:#c9a84c;}
+  .breadcrumbs .crumb-sep{margin:0 6px;opacity:0.5;}
+  button[type="submit"]:disabled,.sb-btn:disabled{opacity:0.6;cursor:wait !important;}
+  /* Sidebar-iconen: SVG-set op maat (overschrijft de oude emoji font-size regel) */
+  .coach-sidebar .nav-icon{width:16px;height:16px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;}
+  .coach-sidebar .nav-icon svg{width:16px;height:16px;stroke-width:1.9;opacity:0.9;}
+  .coach-sidebar .nav-item.active .nav-icon svg,.coach-sidebar .nav-group-head.active .nav-icon svg{opacity:1;}
+  /* Sidebar accordeon-groepen — data-open attribute drives visibility */
+  .coach-sidebar .nav-group{display:block;}
+  .coach-sidebar .nav-group-head{display:flex;align-items:center;gap:9px;padding:10px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;cursor:pointer;}
+  .coach-sidebar .nav-group-head:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .coach-sidebar .nav-group-head.active{background:rgba(201,168,76,0.08);color:#c9a84c;border-left-color:#c9a84c;}
+  .coach-sidebar .nav-group-label{flex:1;}
+  .coach-sidebar .nav-chevron{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;color:#c9a84c;font-size:18px;line-height:1;font-weight:700;transition:transform 0.2s ease,color 0.15s ease,background 0.15s ease;border-radius:4px;cursor:pointer;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
+  .coach-sidebar .nav-chevron:hover{color:#ffffff;background:rgba(201,168,76,0.18);}
+  .coach-sidebar .nav-group[data-open="true"] > .nav-group-head .nav-chevron{transform:rotate(180deg);color:#ffffff;}
+  .coach-sidebar .nav-group[data-open="false"] .nav-group-body{display:none !important;}
+  @media (max-width:768px){
+    body{display:block !important;}
+    .coach-sidebar{position:static !important;width:100% !important;min-height:0 !important;flex-direction:row !important;overflow-x:auto;padding:8px 12px !important;z-index:10;}
+    .coach-sidebar .sidebar-logo,.coach-sidebar .sidebar-footer,.coach-sidebar .nav-label{display:none;}
+    .coach-sidebar .sidebar-nav{display:flex;flex-direction:row;padding:0;gap:2px;overflow-x:auto;flex:1;}
+    .coach-sidebar .nav-item,.coach-sidebar .nav-sub-item{flex:0 0 auto;white-space:nowrap;padding:8px 14px !important;font-size:12px !important;border-left:none !important;border-bottom:2px solid transparent;}
+    .coach-sidebar .nav-item.active{background:transparent !important;border-bottom-color:#c9a84c !important;}
+    .coach-main{margin-left:0 !important;padding:16px !important;}
+    .main-col,.two-col,.three-col,.kp-grid,.kp-targets-row,.aanp-current-grid,.gen-grid-3,.gen-grid-4,.kl-toolbar,.clients-grid,.sb-dv-layout,.sb-koppel-split{grid-template-columns:1fr !important;display:block !important;}
+    .main-col > *,.two-col > *,.three-col > *,.kp-grid > *,.sb-koppel-split > *{margin-bottom:12px;}
+    .kl-table{display:block;}
+    .kl-table thead{display:none;}
+    .kl-table tbody,.kl-table tr,.kl-table td{display:block;width:100%;}
+    .kl-table tr{border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 14px;margin-bottom:8px;background:white;}
+    .kl-table td{border:none !important;padding:4px 0 !important;}
+    .kl-table td:before{content:attr(data-label);display:inline-block;font-size:10px;text-transform:uppercase;color:#9b9baa;min-width:120px;font-weight:600;}
+    button,.sb-btn,.coc-btn,input[type="submit"]{min-height:40px;}
+    .page-header{flex-direction:column;align-items:flex-start !important;gap:10px;}
+  }
+  @media print{
+    .coach-sidebar,.sb-subtabs,.sb-tabs-nav,button,.sb-btn,.page-actions,.res-actions,.sb-actions-cell,.task-form,.kd-log-form,.task-tabs,.filter-tabs,.sb-cat-tabs,.client-actions,.kl-toolbar,.aanp-actions,.toast-success,.breadcrumbs{display:none !important;}
+    .coach-main{margin-left:0 !important;padding:0 !important;}
+    body{background:white !important;color:black !important;}
+    .card,.sb-card,.kp-card,.kd-section,.res-day-panel,.gen-section,.aanp-panel{box-shadow:none !important;border:1px solid #ddd !important;break-inside:avoid;page-break-inside:avoid;}
+    .res-day-panel{display:block !important;page-break-before:always;}
+    .res-day-panel:first-child{page-break-before:auto;}
+    .res-day-tabs{display:none !important;}
+    a{text-decoration:none;color:black !important;}
+  }
+</style>
+<script>
+  (function(){
+    // Loading states: disable submit buttons during form submission
+    document.addEventListener('submit',function(ev){
+      var f=ev.target;if(!(f instanceof HTMLFormElement))return;
+      var btns=f.querySelectorAll('button[type="submit"],input[type="submit"]');
+      setTimeout(function(){
+        btns.forEach(function(b){
+          if(b.disabled)return;
+          b.dataset.origText=b.textContent;
+          b.disabled=true;
+          if(b.tagName==='BUTTON'&&b.textContent.trim())b.textContent='Opslaan...';
+        });
+      },0);
+      // Re-enable after 20s as safety net
+      setTimeout(function(){
+        btns.forEach(function(b){
+          b.disabled=false;
+          if(b.dataset.origText){b.textContent=b.dataset.origText;}
+        });
+      },20000);
+    });
+    // Flash toast via cookie
+    var m=document.cookie.match(/(?:^|;\s*)flash_success=([^;]+)/);
+    if(m){
+      document.cookie='flash_success=; Path=/; Max-Age=0';
+      var msg=decodeURIComponent(m[1])||'Opgeslagen ✓';
+      var t=document.createElement('div');
+      t.className='toast-success';
+      t.textContent=msg;
+      document.body.appendChild(t);
+      setTimeout(function(){t.style.opacity='0';t.style.transform='translateY(-8px)';},2500);
+      setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},3000);
+    }
+    // Chat-badge: aantal ongelezen klant-berichten, poll elke 15s
+    async function updateCoachChatBadge(){
+      try{
+        var r=await fetch('/api/coach/berichten/overzicht',{credentials:'same-origin'});
+        if(!r.ok)return;
+        var data=await r.json();
+        var totaal=(data.klanten||[]).reduce(function(a,k){return a+(Number(k.ongelezen_klant_antwoord)||0);},0);
+        var badge=document.getElementById('coachChatNavBadge');
+        if(!badge)return;
+        if(totaal>0){badge.style.display='';badge.textContent=String(totaal);}
+        else{badge.style.display='none';}
+      }catch(e){}
+    }
+    if(document.getElementById('coachChatNavBadge')){
+      updateCoachChatBadge();
+      setInterval(function(){if(!document.hidden)updateCoachChatBadge();},15000);
+    }
+    // Sidebar-accordeon: chevron-klik toggelt data-open zonder navigatie
+    document.addEventListener('click',function(ev){
+      var chev=ev.target.closest && ev.target.closest('.coach-sidebar .nav-chevron');
+      if(!chev)return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      var group=chev.closest('.nav-group');
+      if(!group)return;
+      group.setAttribute('data-open', group.getAttribute('data-open') === 'true' ? 'false' : 'true');
+    });
+  })();
+</script>
+<div class="coach-main">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Training</div>
+      <div class="page-date">AI-gegenereerde trainingsschema’s gebaseerd op klantprofiel.</div>
+    </div>
+  </div>
+  <div class="sb-subtabs"><a class="sb-subtab active" href="/coach/schema-builder/training?tab=genereren">Schema genereren</a><a class="sb-subtab" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a></div>
+    <form method="POST" action="/coach/schema-builder/training/genereer" class="gen-form" id="gen-form-training">
+      <section class="gen-section">
+        <h2 class="gen-section-title">1. Klantprofiel</h2>
+        <div class="gen-row">
+          <label>Selecteer klant
+            <select name="klant_id_select" id="klant-select-training" onchange="fillFromTrainingIntake(this.value)">
+              <option value="">— vul handmatig in —</option><option value="intake_seed_daniel">Daniel Test — 88kg — 10 kg afvallen en weer energie…</option><option value="78dec9b2e444a4c3984164ec60f3d91d">Julian — 80kg — 20 kg afvallen en fittter zijn</option><option value="e5d0225528f9cffc7f76c6e231f20e86">Julian — 80kg — Een gespierd lichaam</option><option value="8a0964b2b6d0cada879fd07034072ae1">Test Onb M — —</option><option value="257a5a5ce4e569a15ac240364107a70f">Test Onb N — —</option><option value="9d9bb3df2dff171e03ad2c947dd655fd">Test Onb O — —</option><option value="f3695ae76eb448a35e0659b00e6e3d55">Test Onb P — —</option><option value="5f83c2105b2288fcac8e82a3a1ae220a">Test Onb Q — —</option><option value="60b74c3dce29ced63bd8f659ba48e1e2">Test Onb R — —</option><option value="026cb83511aa13d81250f5edef3e3b6b">Test Onb V — —</option><option value="097562d4a10020a2b215f55d2141d3b3">Test Onb W — —</option>
+            </select>
+          </label>
+        </div>
+        
+        
+        <input type="hidden" name="klant_id" value="" />
+        <input type="hidden" name="bron" value="" />
+        <input type="hidden" name="week" value="" />
+        <div class="gen-grid-3">
+          <label class="">Naam<input type="text" name="naam" value="" required /></label>
+          <label class="">Leeftijd<input type="number" name="leeftijd" value="" /></label>
+          <label class="">Geslacht
+            <select name="geslacht">
+              <option value="man">Man</option>
+              <option value="vrouw">Vrouw</option>
+            </select>
+          </label>
+          <label class="">Gewicht (kg)<input type="number" step="0.1" name="gewicht" value="" /></label>
+          <label class="">Doel
+            <select name="doel">
+              <option value="afvallen">Afvallen</option>
+              <option value="spiermassa" selected>Spiermassa</option>
+              <option value="kracht">Kracht</option>
+              <option value="conditie">Conditie</option>
+            </select>
+          </label>
+          <label class="">Ervaringsniveau
+            <select name="ervaringsniveau">
+              <option value="beginner">Beginner</option>
+              <option value="gevorderd_beginner" selected>Gevorderd beginner</option>
+              <option value="gevorderd">Gevorderd</option>
+            </select>
+          </label>
+          <label class="">Locatie
+            <select name="locatie">
+              <option value="gym">Gym</option>
+              <option value="thuis">Thuis</option>
+              <option value="beide">Beide</option>
+            </select>
+            <div class="gen-apparatuur-info" id="apparatuur-info" style="display:none;margin-top:6px;font-size:12px;color:rgba(15,15,26,0.6);">Apparatuur thuis: <span id="apparatuur-info-text"></span></div>
+          </label>
+          <label class="">Dagen per week
+            <select name="dagen_per_week">
+              <option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option>
+            </select>
+          </label>
+          <label class="">Tijd per sessie
+            <select name="tijd_per_sessie">
+              <option value="30">30 min</option>
+              <option value="45">45 min</option>
+              <option value="60" selected>60 min</option>
+              <option value="75">75+ min</option>
+            </select>
+          </label>
+        </div>
+        <label class="gen-full">Blessures<input type="text" name="blessures" value="" placeholder="bijv. knie, schouder" /></label>
+      </section>
+
+      <section class="gen-section">
+        <h2 class="gen-section-title">2. Voorkeuren</h2>
+        <div class="gen-field-row">
+          <span class="gen-field-label">Trainingstype</span>
+          <div class="sb-chk-group">
+            <label class="sb-chk"><input type="checkbox" name="voorkeur" value="kracht"/> Kracht</label><label class="sb-chk"><input type="checkbox" name="voorkeur" value="hypertrofie"/> Hypertrofie</label><label class="sb-chk"><input type="checkbox" name="voorkeur" value="full_body"/> Full Body</label><label class="sb-chk"><input type="checkbox" name="voorkeur" value="push_pull_legs"/> Push Pull Legs</label><label class="sb-chk"><input type="checkbox" name="voorkeur" value="upper_lower"/> Upper Lower</label><label class="sb-chk"><input type="checkbox" name="voorkeur" value="cardio"/> Cardio</label>
+          </div>
+        </div>
+        <div class="gen-grid-2">
+          <label class="">Oefeningen vermijden<input type="text" name="vermijden" value="" placeholder="bijv. deadlift, squat" /></label>
+          <label class="">Favoriete oefeningen<input type="text" name="favoriet" value="" placeholder="bijv. bench press" /></label>
+        </div>
+      </section>
+
+      <button type="submit" class="gen-btn">Genereer Trainingsschema met AI ✦</button>
+    </form>
+    <script>
+      var INTAKES_TRAINING = [{"id":"intake_seed_daniel","naam":"Daniel Test","leeftijd":37,"geslacht":"man","gewicht":88,"doel":"afvallen","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"Lichte knieklacht rechts, verder geen actieve blessures.","trainingstype_voorkeur":[],"apparatuur_thuis":["dumbbells","barbell","weerstandsbanden","pullup_bar","geen"],"favoriete_oefeningen":"Bankdrukken, squatten, pull-ups","oefeningen_vermijden":"Zware kniebelastende oefeningen","submittedAt":"2026-06-30T21:04:02.778Z"},{"id":"78dec9b2e444a4c3984164ec60f3d91d","naam":"Julian","leeftijd":20,"geslacht":"man","gewicht":80,"doel":"afvallen","ervaringsniveau":"beginner","locatie":"thuis","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"Geen","trainingstype_voorkeur":[],"apparatuur_thuis":["geen"],"favoriete_oefeningen":"Geen","oefeningen_vermijden":"Nee","submittedAt":"2026-07-04T17:56:56.643Z"},{"id":"e5d0225528f9cffc7f76c6e231f20e86","naam":"Julian","leeftijd":20,"geslacht":"man","gewicht":80,"doel":"spiermassa","ervaringsniveau":"beginner","locatie":"thuis","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"laatst door me enkel gegaan","trainingstype_voorkeur":[],"apparatuur_thuis":["geen"],"favoriete_oefeningen":"bench press","oefeningen_vermijden":"deadlift","submittedAt":"2026-07-07T10:41:58.752Z"},{"id":"8a0964b2b6d0cada879fd07034072ae1","naam":"Test Onb M","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-10T18:01:05.630Z"},{"id":"257a5a5ce4e569a15ac240364107a70f","naam":"Test Onb N","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-10T18:09:05.738Z"},{"id":"9d9bb3df2dff171e03ad2c947dd655fd","naam":"Test Onb O","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-10T18:12:03.897Z"},{"id":"f3695ae76eb448a35e0659b00e6e3d55","naam":"Test Onb P","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T11:27:02.781Z"},{"id":"5f83c2105b2288fcac8e82a3a1ae220a","naam":"Test Onb Q","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T12:05:13.579Z"},{"id":"60b74c3dce29ced63bd8f659ba48e1e2","naam":"Test Onb R","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T12:26:17.939Z"},{"id":"026cb83511aa13d81250f5edef3e3b6b","naam":"Test Onb V","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T13:09:49.318Z"},{"id":"097562d4a10020a2b215f55d2141d3b3","naam":"Test Onb W","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T13:11:06.764Z"}];
+      var APPARATUUR_LABELS = { dumbbells: 'Dumbbells', barbell: 'Barbell', weerstandsbanden: 'Weerstandsbanden', pullup_bar: 'Pull-up bar', geen: 'Geen', anders: 'Anders' };
+      function fillFromTrainingIntake(id) {
+        var form = document.getElementById('gen-form-training');
+        if (!form) return;
+        var hidden = form.querySelector('input[name="klant_id"]');
+        form.querySelectorAll('.sb-intake-banner').forEach(function (b) { b.remove(); });
+        form.querySelectorAll('.gen-from-intake').forEach(function (el) { el.classList.remove('gen-from-intake'); });
+        var apparatuurBox = document.getElementById('apparatuur-info');
+        var apparatuurText = document.getElementById('apparatuur-info-text');
+        if (!id) {
+          if (hidden) hidden.value = '';
+          if (apparatuurBox) apparatuurBox.style.display = 'none';
+          if (apparatuurText) apparatuurText.textContent = '';
+          return;
+        }
+        var rec = INTAKES_TRAINING.find(function (x) { return String(x.id) === String(id); });
+        if (!rec) return;
+        if (hidden) hidden.value = rec.id;
+        function setField(name, val) {
+          var el = form.querySelector('[name="' + name + '"]');
+          if (el) el.value = val != null && val !== undefined ? val : '';
+        }
+        setField('naam', rec.naam);
+        setField('leeftijd', rec.leeftijd);
+        setField('geslacht', rec.geslacht);
+        setField('gewicht', rec.gewicht);
+        setField('doel', rec.doel);
+        setField('ervaringsniveau', rec.ervaringsniveau);
+        setField('locatie', rec.locatie);
+        setField('dagen_per_week', rec.dagen_per_week);
+        setField('tijd_per_sessie', rec.tijd_per_sessie);
+        setField('blessures', rec.blessures);
+        setField('vermijden', rec.oefeningen_vermijden);
+        setField('favoriet', rec.favoriete_oefeningen);
+        form.querySelectorAll('input[name="voorkeur"]').forEach(function (cb) {
+          cb.checked = rec.trainingstype_voorkeur.indexOf(cb.value) !== -1;
+        });
+        if (apparatuurBox && apparatuurText) {
+          if (rec.apparatuur_thuis.length) {
+            apparatuurText.textContent = rec.apparatuur_thuis.map(function (v) { return APPARATUUR_LABELS[v] || v; }).join(', ');
+            apparatuurBox.style.display = '';
+          } else {
+            apparatuurText.textContent = '';
+            apparatuurBox.style.display = 'none';
+          }
+        }
+        ['naam','leeftijd','geslacht','gewicht','doel','ervaringsniveau','locatie','dagen_per_week','tijd_per_sessie','blessures','vermijden','favoriet'].forEach(function (n) {
+          var el = form.querySelector('[name="' + n + '"]');
+          if (el) {
+            var lbl = el.closest('label');
+            if (lbl) lbl.classList.add('gen-from-intake');
+          }
+        });
+        var firstSection = form.querySelector('.gen-section');
+        if (firstSection) {
+          var banner = document.createElement('div');
+          banner.className = 'sb-intake-banner';
+          banner.innerHTML = '✓ Klantgegevens geladen van <strong>' + rec.naam.replace(/[<>&"]/g, '') + '</strong>' + (rec.submittedAt ? ' · Intake ingediend op ' + new Date(rec.submittedAt).toLocaleDateString('nl-NL', {day:'2-digit',month:'2-digit',year:'numeric'}) : '');
+          var genRow = firstSection.querySelector('.gen-row');
+          if (genRow) genRow.after(banner); else firstSection.insertBefore(banner, firstSection.firstChild);
+        }
+      }
+      (function () {
+        var hidden = document.querySelector('#gen-form-training input[name="klant_id"]');
+        if (hidden && hidden.value) {
+          var sel = document.getElementById('klant-select-training');
+          if (sel) { sel.value = hidden.value; }
+        }
+      })();
+    </script>
+</div>
+</body>
+</html>

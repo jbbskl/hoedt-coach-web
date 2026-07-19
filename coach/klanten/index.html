@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+  <html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Klanten — Hoedt Coaching</title>
+    <link rel="stylesheet" href="/css/fonts.css">
+  </head>
+  <body style="margin:0;padding:0;background:#f5f0e8;font-family:'DM Sans',sans-serif;">
+    
+<style>
+  .pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;border:1px solid transparent;}
+.pill-rood{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FCEBEB;border:1px solid #A32D2D;color:#791F1F;}
+.pill-oranje{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#854F0B;}
+.pill-paars{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#EEEDFE;border:1px solid #7F77DD;color:#534AB7;}
+.pill-blauw{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #378ADD;color:#185FA5;}
+.pill-blauw-donker{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #185FA5;color:#0F3D6E;}
+.pill-grijs{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#F1EFE8;border:1px solid #888780;color:#444441;}
+.pill-groen-teal{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E1F5EE;border:1px solid #1D9E75;color:#0F6E56;}
+.pill-amber{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#633806;}
+.pill-roze{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FBEAF0;border:1px solid #D4537E;color:#993556;}
+.aa-tab[data-tab="voeding"]{color:#854F0B;border-color:#BA751733;}
+.aa-tab[data-tab="voeding"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active{background:#FAEEDA;color:#854F0B;border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="training"]{color:#534AB7;border-color:#7F77DD33;}
+.aa-tab[data-tab="training"]:hover{border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active{background:#EEEDFE;color:#534AB7;border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active .aa-tab-badge{background:#7F77DD;color:#fff;}
+.aa-tab[data-tab="stappen"]{color:#185FA5;border-color:#378ADD33;}
+.aa-tab[data-tab="stappen"]:hover{border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active{background:#E6F1FB;color:#185FA5;border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active .aa-tab-badge{background:#378ADD;color:#fff;}
+.aa-tab[data-tab="checkins"]{color:#0F3D6E;border-color:#185FA533;}
+.aa-tab[data-tab="checkins"]:hover{border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active{background:#E6F1FB;color:#0F3D6E;border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active .aa-tab-badge{background:#185FA5;color:#fff;}
+.aa-tab[data-tab="login"]{color:#444441;border-color:#88878033;}
+.aa-tab[data-tab="login"]:hover{border-color:#888780;}
+.aa-tab[data-tab="login"].is-active{background:#F1EFE8;color:#444441;border-color:#888780;}
+.aa-tab[data-tab="login"].is-active .aa-tab-badge{background:#888780;color:#fff;}
+.aa-tab[data-tab="fase_aankomend"]{color:#0F6E56;border-color:#1D9E7533;}
+.aa-tab[data-tab="fase_aankomend"]:hover{border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active{background:#E1F5EE;color:#0F6E56;border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active .aa-tab-badge{background:#1D9E75;color:#fff;}
+.aa-tab[data-tab="fase_geblokkeerd"]{color:#791F1F;border-color:#A32D2D33;}
+.aa-tab[data-tab="fase_geblokkeerd"]:hover{border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active{background:#FCEBEB;color:#791F1F;border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active .aa-tab-badge{background:#A32D2D;color:#fff;}
+.aa-tab[data-tab="tussenbericht"]{color:#633806;border-color:#BA751733;}
+.aa-tab[data-tab="tussenbericht"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active{background:#FAEEDA;color:#633806;border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="verlenging"]{color:#993556;border-color:#D4537E33;}
+.aa-tab[data-tab="verlenging"]:hover{border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active{background:#FBEAF0;color:#993556;border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active .aa-tab-badge{background:#D4537E;color:#fff;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:#f5f0e8;display:flex;min-height:100vh;}
+  .coach-sidebar{width:220px;min-height:100vh;background:#0f0f1a;display:flex;flex-direction:column;position:fixed;top:0;left:0;z-index:100;}
+  .sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .logo-text{font-size:17px;color:#c9a84c;font-weight:700;letter-spacing:0.3px;}
+  .logo-sub{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+  .sidebar-nav{padding:12px 0;flex:1;overflow-y:auto;}
+  .nav-label{font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px 4px;}
+  .nav-item{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;}
+  .nav-item:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .nav-item.active{background:rgba(201,168,76,0.15);color:#c9a84c;border-left-color:#c9a84c;font-weight:600;}
+  .nav-icon{font-size:14px;width:16px;text-align:center;flex-shrink:0;}
+  .nav-badge{margin-left:auto;background:#e05454;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;min-width:18px;text-align:center;}
+  .nav-badge-amber{margin-left:auto;background:#d4871a;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;}
+  .nav-sublabel{font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:1.2px;text-transform:uppercase;padding:8px 20px 3px 26px;font-weight:500;}
+  .nav-item.nav-sub-item{padding:7px 20px 7px 32px;font-size:12.5px;color:rgba(255,255,255,0.45);}
+  .nav-item.nav-sub-item.active{background:transparent;color:#c9a84c;border-left:2px solid #c9a84c;}
+  .sb-group-toggle{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);font-size:13px;font-weight:500;background:transparent;border:none;border-left:2px solid transparent;cursor:pointer;width:100%;text-align:left;font-family:inherit;transition:color 0.12s,background 0.12s;}
+  .sb-group-toggle:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .sb-group-toggle.expanded{color:rgba(255,255,255,0.85);}
+  .sb-group-arrow{font-size:10px;color:rgba(255,255,255,0.4);width:10px;display:inline-flex;justify-content:center;transition:transform 0.18s ease,color 0.18s ease;}
+  .sb-group-toggle.expanded .sb-group-arrow{transform:rotate(90deg);color:#c9a84c;}
+  .sb-group-items{display:none;}
+  .sb-group-items.expanded{display:block;}
+  .sidebar-footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,0.06);}
+  .coach-av{width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,0.15);border:1.5px solid #c9a84c;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#c9a84c;flex-shrink:0;}
+
+  .coach-main{margin-left:220px;flex:1;padding:26px 28px;min-width:0;}
+  .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+  .page-title{font-size:24px;color:#1a1a2e;font-weight:700;}
+  .page-date{font-size:12px;color:#6b6b80;margin-top:2px;}
+  .kl-back{display:inline-block;font-size:12px;color:#6b6b80;text-decoration:none;margin-bottom:6px;transition:color 0.12s;}
+  .kl-back:hover{color:#1a1a2e;}
+  .page-actions{display:flex;gap:8px;}
+  .page-action-btn{padding:8px 14px;border-radius:8px;font-size:12px;font-weight:500;background:#0f0f1a;color:#c9a84c;text-decoration:none;border:1px solid #0f0f1a;transition:background 0.12s;}
+  .page-action-btn:hover{background:#1a1a2e;}
+
+  .kl-fase-banner{display:flex;align-items:center;gap:12px;margin-bottom:14px;background:linear-gradient(180deg,#fffdf6 0%,#faf3e0 100%);padding:11px 16px;border-radius:10px;border:1px solid rgba(201,168,76,0.35);}
+  .kl-fase-banner-lbl{font-size:10.5px;color:#8a6a1a;letter-spacing:1px;text-transform:uppercase;font-weight:700;}
+  .kl-fase-banner-naam{font-size:13.5px;color:#1a1a2e;font-weight:700;}
+  .kl-fase-banner-count{font-size:12.5px;color:#6b6b80;}
+  .kl-fase-banner-spacer{flex:1;}
+  .kl-fase-banner-clear{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#8a6a1a;text-decoration:none;padding:5px 10px;border:1px solid rgba(201,168,76,0.4);border-radius:7px;font-weight:600;transition:all 0.12s;}
+  .kl-fase-banner-clear:hover{background:rgba(201,168,76,0.12);border-color:#c9a84c;color:#1a1a2e;}
+  .kl-toolbar{display:flex;align-items:center;gap:12px;margin-bottom:18px;background:white;padding:10px 14px;border-radius:12px;border:1px solid rgba(26,26,46,0.08);flex-wrap:wrap;}
+  .kl-archief-toggle{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:12px;font-weight:600;color:#6b6b80;background:white;text-decoration:none;cursor:pointer;font-family:inherit;}
+  .kl-archief-toggle:hover{border-color:rgba(26,26,46,0.32);color:#1a1a2e;}
+  .kl-archief-toggle.is-on{background:#0f0f1a;color:#c9a84c;border-color:#0f0f1a;}
+  .kl-arch-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;padding:2px 6px;border-radius:4px;background:#e5e5e5;color:#6b6b80;margin-left:4px;}
+  .kl-row-archief .kl-naam{color:rgba(26,26,46,0.65);}
+  .kl-search{flex:1;padding:8px 12px 8px 34px;border:1px solid rgba(26,26,46,0.12);border-radius:8px;font-size:13px;font-family:inherit;color:#1a1a2e;background-color:white;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239b9baa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><path d='m21 21-4.3-4.3'/></svg>");background-repeat:no-repeat;background-position:11px center;}
+  .kl-search:focus{outline:none;border-color:#c9a84c;}
+  .kl-count{font-size:12px;color:#6b6b80;white-space:nowrap;}
+
+  .kl-table-wrap{background:white;border-radius:12px;border:1px solid rgba(26,26,46,0.08);}
+  .kl-table{width:100%;border-collapse:collapse;}
+  .kl-table thead th{font-size:10.5px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.9px;font-weight:600;text-align:left;padding:14px 18px;border-bottom:1px solid rgba(26,26,46,0.08);background:#fafaf8;}
+  .kl-table thead th:first-child{border-top-left-radius:12px;}
+  .kl-table thead th:last-child{border-top-right-radius:12px;}
+  .kl-table tbody td{padding:13px 18px;font-size:13px;color:#1a1a2e;border-bottom:0.5px solid rgba(26,26,46,0.06);vertical-align:middle;}
+  .kl-row{cursor:pointer;}
+  .kl-row:last-child td{border-bottom:none;}
+  .kl-row:hover td{background:#fafaf8;}
+  .kl-naam-cell{display:flex;align-items:center;gap:11px;}
+  .kl-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+  .kl-avatar.avatar-red{background:#fde8e8;color:#c0392b;}
+  .kl-avatar.avatar-amber{background:#fef3e2;color:#a0531a;}
+  .kl-avatar.avatar-blue{background:#e8f0fe;color:#1a5ba0;}
+  .kl-avatar.avatar-green{background:#e8f5ee;color:#1a7a4a;}
+  .kl-avatar.avatar-purple{background:#f0e8fe;color:#5a1aa0;}
+  .kl-naam-text{min-width:0;}
+  .kl-naam{font-weight:600;color:#1a1a2e;font-size:13px;}
+  .kl-onb-badge{display:inline-block;margin-left:6px;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:999px;background:rgba(26,26,46,0.08);color:#6b6b80;letter-spacing:0.2px;vertical-align:middle;}
+  .kl-onb-badge.kl-onb-complete{background:#e5f4eb;color:#1a7a4a;}
+  .kl-test-badge{display:inline-block;margin-left:6px;font-size:9.5px;font-weight:700;letter-spacing:0.6px;padding:2px 8px;border-radius:4px;background:#fef3c7;color:#a16207;vertical-align:middle;text-transform:uppercase;}
+  .kl-tut-badge{display:inline-block;margin-left:4px;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:999px;letter-spacing:0.2px;vertical-align:middle;}
+  .kl-tut-badge.kl-tut-done{background:rgba(201,168,76,0.18);color:#8a6a1a;}
+  .kl-tut-badge.kl-tut-skip{background:rgba(212,135,26,0.14);color:#8a6a1a;}
+  .kl-email{font-size:11.5px;color:#9b9baa;margin-top:1px;}
+  .kl-text{color:#6b6b80;font-size:12.5px;}
+  .kl-weeks{font-size:11px;font-weight:500;padding:3px 8px;border-radius:10px;}
+  .kl-weeks-good{background:rgba(127,78,209,0.12);color:#5b2fa3;border:1px solid rgba(127,78,209,0.22);}
+  .kl-weeks-warning{background:#FAEEDA;color:#633806;border:1px solid #BA7517;}
+  .kl-weeks-expired{background:#FCEBEB;color:#791F1F;border:1px solid #A32D2D;}
+  .kl-pill{font-size:11.5px;font-weight:500;padding:3px 10px;border-radius:20px;}
+  .kl-pill-active{background:#edf8f2;color:#2e9e6b;}
+  .kl-pill-inactive{background:#f0f0ee;color:#9b9baa;}
+  .kl-actions-cell{text-align:right;width:60px;}
+  .kl-options-wrap{position:relative;display:inline-block;}
+  .kl-dots-btn{width:28px;height:28px;border-radius:7px;border:1px solid rgba(26,26,46,0.08);background:white;cursor:pointer;font-size:14px;color:#6b6b80;display:inline-flex;align-items:center;justify-content:center;transition:border-color 0.12s,color 0.12s;font-family:inherit;padding:0;line-height:1;}
+  .kl-dots-btn:hover{border-color:#c9a84c;color:#c9a84c;}
+  .kl-options-menu{display:none;position:absolute;right:0;top:calc(100% + 5px);background:white;border:1px solid rgba(26,26,46,0.12);border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.1);min-width:190px;z-index:50;overflow:hidden;text-align:left;}
+  .kl-options-menu.open{display:block;}
+  .kl-options-menu a{display:block;padding:9px 14px;font-size:12.5px;color:#1a1a2e;text-decoration:none;transition:background 0.1s,color 0.1s;}
+  .kl-options-menu a:hover{background:#fafaf8;color:#c9a84c;}
+  .kl-options-menu a.kl-options-danger{color:#c0392b;border-top:1px solid rgba(26,26,46,0.06);}
+  .kl-options-menu a.kl-options-danger:hover{background:#fdecea;color:#c0392b;}
+  /* Mobile-vriendelijke tap-targets (≥44px). */
+  @media (max-width:760px){.kl-options-menu a{padding:13px 16px;font-size:14px;min-height:44px;display:flex;align-items:center;}.kl-dots-btn{min-width:44px;min-height:44px;}}
+  .kl-empty{padding:48px 24px;text-align:center;color:#9b9baa;font-size:13px;}
+
+  /* ===== Bulk-acties: checkbox-kolom + actie-balk + bericht-modal ===== */
+  .kl-check-cell{width:38px;text-align:center;padding-left:14px;padding-right:0;}
+  .kl-check-cell input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:#c9a84c;margin:0;}
+  .kl-check-cell input[type=checkbox]:disabled{cursor:not-allowed;opacity:0.4;}
+  .kl-bulk-bar{display:none;align-items:center;gap:10px;background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 100%);color:#fffdf6;border:1px solid rgba(201,168,76,0.3);border-radius:12px;padding:12px 16px;margin-bottom:14px;flex-wrap:wrap;box-shadow:0 4px 18px rgba(15,15,26,0.18);}
+  .kl-bulk-bar.open{display:flex;}
+  .kl-bulk-count{font-size:13.5px;font-weight:600;color:#c9a84c;}
+  .kl-bulk-spacer{flex:1;}
+  .kl-bulk-btn{padding:7px 12px;border-radius:7px;font-size:12px;font-weight:600;font-family:inherit;cursor:pointer;border:1px solid rgba(201,168,76,0.4);background:transparent;color:#fffdf6;transition:all 0.12s;}
+  .kl-bulk-btn:hover{background:rgba(201,168,76,0.12);border-color:#c9a84c;}
+  .kl-bulk-btn:disabled{opacity:0.4;cursor:not-allowed;}
+  .kl-bulk-btn--primair{background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);color:#0f0f1a;border-color:#b8932f;}
+  .kl-bulk-btn--primair:hover{box-shadow:0 0 18px rgba(201,168,76,0.4);}
+  .kl-bulk-btn--gevaar{border-color:rgba(224,84,84,0.5);color:#ff9090;}
+  .kl-bulk-btn--gevaar:hover{background:rgba(224,84,84,0.12);border-color:#ff9090;}
+  .kl-bulk-reset{font-size:12px;color:rgba(255,255,255,0.55);text-decoration:underline;background:transparent;border:none;cursor:pointer;font-family:inherit;}
+  .kl-bulk-reset:hover{color:#fffdf6;}
+  @media (max-width:560px){.kl-bulk-bar{flex-direction:column;align-items:stretch;}.kl-bulk-btn{width:100%;min-height:44px;}}
+
+  /* Bulk-bericht modal */
+  .klbm-overlay{position:fixed;inset:0;background:rgba(15,15,26,0.55);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
+  .klbm-overlay.open{display:flex;}
+  .klbm-modal{background:white;border-radius:14px;width:100%;max-width:520px;box-shadow:0 12px 40px rgba(0,0,0,0.18);overflow:hidden;font-family:inherit;}
+  .klbm-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(26,26,46,0.08);}
+  .klbm-head h2{font-size:15px;color:#1a1a2e;font-weight:700;margin:0;}
+  .klbm-close{background:transparent;border:none;font-size:22px;color:#9b9baa;cursor:pointer;line-height:1;padding:0 4px;font-family:inherit;}
+  .klbm-close:hover{color:#1a1a2e;}
+  .klbm-body{padding:16px 20px 20px;display:flex;flex-direction:column;gap:12px;}
+  .klbm-info{font-size:12.5px;color:#6b6b80;line-height:1.45;}
+  .klbm-info code{background:#fafaf8;padding:1px 6px;border-radius:4px;font-family:'SF Mono',Menlo,monospace;font-size:11.5px;color:#8a6a1a;}
+  .klbm-tekst{width:100%;min-height:120px;padding:10px 12px;font-family:inherit;font-size:13.5px;color:#1a1a2e;background:white;border:1px solid rgba(26,26,46,0.14);border-radius:8px;resize:vertical;line-height:1.5;}
+  .klbm-tekst:focus{outline:none;border-color:#c9a84c;box-shadow:0 0 0 3px rgba(201,168,76,0.15);}
+  .klbm-meta{font-size:11.5px;color:#9b9baa;display:flex;justify-content:space-between;}
+  .klbm-meta-err{color:#c0392b;}
+  .klbm-acties{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;}
+  .klbm-acties .kl-bulk-btn{color:#1a1a2e;border-color:rgba(26,26,46,0.18);background:white;min-height:38px;}
+  .klbm-acties .kl-bulk-btn:hover{background:#fafaf8;border-color:#c9a84c;color:#1a1a2e;}
+  .klbm-acties .kl-bulk-btn--primair{color:#0f0f1a;border-color:#b8932f;background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);}
+  .klbm-status{font-size:12px;color:#1a7a4a;font-weight:600;}
+  .klbm-status.err{color:#c0392b;}
+
+  .nk-modal-overlay{position:fixed;inset:0;background:rgba(15,15,26,0.55);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
+  .nk-modal-overlay.open{display:flex;}
+  .nk-modal{background:white;border-radius:14px;width:100%;max-width:440px;box-shadow:0 12px 40px rgba(0,0,0,0.18);overflow:hidden;font-family:inherit;}
+  .nk-modal-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid rgba(26,26,46,0.08);}
+  .nk-modal-header h2{font-size:16px;color:#1a1a2e;font-weight:700;margin:0;}
+  .nk-modal-close{background:transparent;border:none;font-size:24px;color:#9b9baa;cursor:pointer;line-height:1;padding:0 4px;font-family:inherit;}
+  .nk-modal-close:hover{color:#1a1a2e;}
+  .nk-modal-body{padding:18px 22px 22px;display:flex;flex-direction:column;gap:12px;}
+  .nk-modal-body label{display:flex;flex-direction:column;gap:5px;font-size:11.5px;color:#6b6b80;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;}
+  .nk-modal-body input{padding:9px 11px;border:1px solid rgba(26,26,46,0.14);border-radius:8px;font-size:13.5px;font-family:inherit;color:#1a1a2e;background:white;}
+  .nk-modal-body input:focus{outline:none;border-color:#c9a84c;}
+  .nk-error{background:#fdf0f0;color:#a02020;font-size:12.5px;padding:9px 11px;border-radius:8px;display:none;}
+  .nk-error.visible{display:block;}
+  .nk-btn-save{margin-top:6px;padding:11px 16px;background:#0f0f1a;color:#c9a84c;border:1px solid #0f0f1a;border-radius:8px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;transition:background 0.12s;}
+  .nk-btn-save:hover{background:#1a1a2e;}
+  .nk-btn-save:disabled{opacity:0.55;cursor:wait;}
+  .nk-modal-success{padding:22px;display:none;flex-direction:column;gap:14px;}
+  .nk-modal-success.visible{display:flex;}
+  .nk-modal-success h3{font-size:15px;color:#1a7a4a;font-weight:700;margin:0;}
+  .nk-modal-success p{font-size:13px;color:#1a1a2e;margin:0;}
+  .nk-creds{background:#fafaf8;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:6px;font-size:13px;color:#1a1a2e;}
+  .nk-creds code{background:white;border:1px solid rgba(26,26,46,0.08);padding:3px 8px;border-radius:5px;font-family:'SF Mono',Menlo,monospace;font-size:12.5px;color:#0f0f1a;user-select:all;}
+  .nk-creds-hint{font-size:11.5px;color:#9b9baa;margin-top:2px;}
+  .nk-btn-klaar{padding:10px 16px;background:#c9a84c;color:#0f0f1a;border:none;border-radius:8px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;}
+  .nk-btn-klaar:hover{background:#b89539;}
+</style>
+
+<div class="coach-sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">Hoedt Coaching</div>
+      <div class="logo-sub">Coach Dashboard</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-label">Overzicht</div>
+      <a class="nav-item" href="/coach">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>Dashboard
+        
+      </a>
+      <a class="nav-item" href="/coach/analytics">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>Analytics
+      </a>
+      <a class="nav-item" href="/coach/aandacht">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Aandacht nodig
+      </a>
+      <a class="nav-item" href="/coach/taken">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span>Taken
+      </a>
+
+      <div class="nav-group" data-open="true">
+        <a class="nav-group-head active" href="/coach/klanten">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="nav-group-label">Klanten</span>
+          <span class="nav-badge">3</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/intakes">
+            Intakes
+            <span class="nav-badge-amber">8</span>
+          </a>
+          <a class="nav-item nav-sub-item" href="/coach/checkins">
+            Check-ins
+            <span class="nav-badge">11</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav-item" href="/coach/chat">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Chat
+        <span class="nav-badge" id="coachChatNavBadge" style="display:none;"></span>
+      </a>
+
+      <a class="nav-item" href="/coach/eind-vragenlijsten">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>Eind-vragenlijsten
+      </a>
+
+      <a class="nav-item" href="/coach/feedback-stats">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>AI-feedback
+      </a>
+
+      <a class="nav-item" href="/coach/instellingen">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Instellingen
+      </a>
+
+      <div class="nav-label">Schema Builder</div>
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+          <span class="nav-group-label">Voeding</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding?tab=producten">Producten</a>
+        </div>
+      </div>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/training?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
+          <span class="nav-group-label">Training</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="coach-av">DH</div>
+        <div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:500;">Daniel Hoedt</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);">Head Coach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<style>
+  .toast-success{position:fixed;top:20px;right:20px;background:#2e9e6b;color:white;padding:12px 18px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.18);z-index:9999;transition:opacity 0.4s ease,transform 0.3s ease;max-width:340px;}
+  .breadcrumbs{font-size:11.5px;color:#9b9baa;margin-top:3px;}
+  .breadcrumbs a{color:#6b6b80;text-decoration:none;}
+  .breadcrumbs a:hover{color:#c9a84c;}
+  .breadcrumbs .crumb-sep{margin:0 6px;opacity:0.5;}
+  button[type="submit"]:disabled,.sb-btn:disabled{opacity:0.6;cursor:wait !important;}
+  /* Sidebar-iconen: SVG-set op maat (overschrijft de oude emoji font-size regel) */
+  .coach-sidebar .nav-icon{width:16px;height:16px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;}
+  .coach-sidebar .nav-icon svg{width:16px;height:16px;stroke-width:1.9;opacity:0.9;}
+  .coach-sidebar .nav-item.active .nav-icon svg,.coach-sidebar .nav-group-head.active .nav-icon svg{opacity:1;}
+  /* Sidebar accordeon-groepen — data-open attribute drives visibility */
+  .coach-sidebar .nav-group{display:block;}
+  .coach-sidebar .nav-group-head{display:flex;align-items:center;gap:9px;padding:10px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;cursor:pointer;}
+  .coach-sidebar .nav-group-head:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .coach-sidebar .nav-group-head.active{background:rgba(201,168,76,0.08);color:#c9a84c;border-left-color:#c9a84c;}
+  .coach-sidebar .nav-group-label{flex:1;}
+  .coach-sidebar .nav-chevron{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;color:#c9a84c;font-size:18px;line-height:1;font-weight:700;transition:transform 0.2s ease,color 0.15s ease,background 0.15s ease;border-radius:4px;cursor:pointer;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
+  .coach-sidebar .nav-chevron:hover{color:#ffffff;background:rgba(201,168,76,0.18);}
+  .coach-sidebar .nav-group[data-open="true"] > .nav-group-head .nav-chevron{transform:rotate(180deg);color:#ffffff;}
+  .coach-sidebar .nav-group[data-open="false"] .nav-group-body{display:none !important;}
+  @media (max-width:768px){
+    body{display:block !important;}
+    .coach-sidebar{position:static !important;width:100% !important;min-height:0 !important;flex-direction:row !important;overflow-x:auto;padding:8px 12px !important;z-index:10;}
+    .coach-sidebar .sidebar-logo,.coach-sidebar .sidebar-footer,.coach-sidebar .nav-label{display:none;}
+    .coach-sidebar .sidebar-nav{display:flex;flex-direction:row;padding:0;gap:2px;overflow-x:auto;flex:1;}
+    .coach-sidebar .nav-item,.coach-sidebar .nav-sub-item{flex:0 0 auto;white-space:nowrap;padding:8px 14px !important;font-size:12px !important;border-left:none !important;border-bottom:2px solid transparent;}
+    .coach-sidebar .nav-item.active{background:transparent !important;border-bottom-color:#c9a84c !important;}
+    .coach-main{margin-left:0 !important;padding:16px !important;}
+    .main-col,.two-col,.three-col,.kp-grid,.kp-targets-row,.aanp-current-grid,.gen-grid-3,.gen-grid-4,.kl-toolbar,.clients-grid,.sb-dv-layout,.sb-koppel-split{grid-template-columns:1fr !important;display:block !important;}
+    .main-col > *,.two-col > *,.three-col > *,.kp-grid > *,.sb-koppel-split > *{margin-bottom:12px;}
+    .kl-table{display:block;}
+    .kl-table thead{display:none;}
+    .kl-table tbody,.kl-table tr,.kl-table td{display:block;width:100%;}
+    .kl-table tr{border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 14px;margin-bottom:8px;background:white;}
+    .kl-table td{border:none !important;padding:4px 0 !important;}
+    .kl-table td:before{content:attr(data-label);display:inline-block;font-size:10px;text-transform:uppercase;color:#9b9baa;min-width:120px;font-weight:600;}
+    button,.sb-btn,.coc-btn,input[type="submit"]{min-height:40px;}
+    .page-header{flex-direction:column;align-items:flex-start !important;gap:10px;}
+  }
+  @media print{
+    .coach-sidebar,.sb-subtabs,.sb-tabs-nav,button,.sb-btn,.page-actions,.res-actions,.sb-actions-cell,.task-form,.kd-log-form,.task-tabs,.filter-tabs,.sb-cat-tabs,.client-actions,.kl-toolbar,.aanp-actions,.toast-success,.breadcrumbs{display:none !important;}
+    .coach-main{margin-left:0 !important;padding:0 !important;}
+    body{background:white !important;color:black !important;}
+    .card,.sb-card,.kp-card,.kd-section,.res-day-panel,.gen-section,.aanp-panel{box-shadow:none !important;border:1px solid #ddd !important;break-inside:avoid;page-break-inside:avoid;}
+    .res-day-panel{display:block !important;page-break-before:always;}
+    .res-day-panel:first-child{page-break-before:auto;}
+    .res-day-tabs{display:none !important;}
+    a{text-decoration:none;color:black !important;}
+  }
+</style>
+<script>
+  (function(){
+    // Loading states: disable submit buttons during form submission
+    document.addEventListener('submit',function(ev){
+      var f=ev.target;if(!(f instanceof HTMLFormElement))return;
+      var btns=f.querySelectorAll('button[type="submit"],input[type="submit"]');
+      setTimeout(function(){
+        btns.forEach(function(b){
+          if(b.disabled)return;
+          b.dataset.origText=b.textContent;
+          b.disabled=true;
+          if(b.tagName==='BUTTON'&&b.textContent.trim())b.textContent='Opslaan...';
+        });
+      },0);
+      // Re-enable after 20s as safety net
+      setTimeout(function(){
+        btns.forEach(function(b){
+          b.disabled=false;
+          if(b.dataset.origText){b.textContent=b.dataset.origText;}
+        });
+      },20000);
+    });
+    // Flash toast via cookie
+    var m=document.cookie.match(/(?:^|;\s*)flash_success=([^;]+)/);
+    if(m){
+      document.cookie='flash_success=; Path=/; Max-Age=0';
+      var msg=decodeURIComponent(m[1])||'Opgeslagen ✓';
+      var t=document.createElement('div');
+      t.className='toast-success';
+      t.textContent=msg;
+      document.body.appendChild(t);
+      setTimeout(function(){t.style.opacity='0';t.style.transform='translateY(-8px)';},2500);
+      setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},3000);
+    }
+    // Chat-badge: aantal ongelezen klant-berichten, poll elke 15s
+    async function updateCoachChatBadge(){
+      try{
+        var r=await fetch('/api/coach/berichten/overzicht',{credentials:'same-origin'});
+        if(!r.ok)return;
+        var data=await r.json();
+        var totaal=(data.klanten||[]).reduce(function(a,k){return a+(Number(k.ongelezen_klant_antwoord)||0);},0);
+        var badge=document.getElementById('coachChatNavBadge');
+        if(!badge)return;
+        if(totaal>0){badge.style.display='';badge.textContent=String(totaal);}
+        else{badge.style.display='none';}
+      }catch(e){}
+    }
+    if(document.getElementById('coachChatNavBadge')){
+      updateCoachChatBadge();
+      setInterval(function(){if(!document.hidden)updateCoachChatBadge();},15000);
+    }
+    // Sidebar-accordeon: chevron-klik toggelt data-open zonder navigatie
+    document.addEventListener('click',function(ev){
+      var chev=ev.target.closest && ev.target.closest('.coach-sidebar .nav-chevron');
+      if(!chev)return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      var group=chev.closest('.nav-group');
+      if(!group)return;
+      group.setAttribute('data-open', group.getAttribute('data-open') === 'true' ? 'false' : 'true');
+    });
+  })();
+</script>
+
+<div class="coach-main">
+  <div class="page-header">
+    <div>
+      <a class="kl-back" href="/coach">&larr; Dashboard</a>
+      <div class="page-title">Klanten</div>
+      <div class="page-date">11 klanten · zondag 19 juli 2026</div>
+    </div>
+    <div class="page-actions">
+      <button class="page-action-btn" type="button" onclick="openNieuweKlantModal()" style="cursor:pointer;font-family:inherit;">+ Nieuwe klant</button>
+    </div>
+  </div>
+
+  
+
+  <div class="kl-toolbar">
+    <input type="text" id="klant-search" class="kl-search" placeholder="Zoek klant op naam..." oninput="filterKlanten()" />
+    <span class="kl-count" id="kl-count">11 klanten</span>
+    
+    <a class="kl-archief-toggle is-on" href="/coach/klanten?actief=0">Toon actieve</a>
+    <a class="kl-archief-toggle" href="/coach/klanten?test=1">Toon test</a>
+    <a class="kl-archief-toggle" href="/coach/klanten?archief=1">Toon gearchiveerd</a>
+  </div>
+
+  <div class="kl-bulk-bar" id="klBulkBar" role="region" aria-label="Bulk-acties">
+    <span class="kl-bulk-count" id="klBulkCount">0 klanten geselecteerd</span>
+    <div class="kl-bulk-spacer"></div>
+    <button type="button" class="kl-bulk-btn" id="klBulkTestSet" onclick="klBulkTestMarker(true)">Markeer als test</button>
+    <button type="button" class="kl-bulk-btn" id="klBulkTestUnset" onclick="klBulkTestMarker(false)">Verwijder test-marker</button>
+    <button type="button" class="kl-bulk-btn kl-bulk-btn--gevaar" onclick="klBulkArchief()">Archiveer</button>
+    <button type="button" class="kl-bulk-btn kl-bulk-btn--primair" onclick="klBulkOpenBericht()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Stuur bulk-bericht</button>
+    <button type="button" class="kl-bulk-reset" onclick="klBulkReset()">Reset selectie</button>
+  </div>
+
+  <div class="kl-table-wrap">
+    <table class="kl-table">
+      <thead>
+        <tr>
+          <th class="kl-check-cell"><input type="checkbox" id="klMasterCheck" onchange="klMasterToggle(this)" aria-label="Selecteer alle zichtbare klanten" /></th>
+          <th>Naam</th>
+          <th>Laatst actief</th>
+          <th>Weken resterend</th>
+          <th>Voeding</th>
+          <th>Training</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="kl-tbody">
+        
+            <tr class="kl-row" data-name="test onb w" data-email="test.onb.w@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/097562d4a10020a2b215f55d2141d3b3'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="097562d4a10020a2b215f55d2141d3b3" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb W" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-red">TO</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Test Onb W    </div>
+                    <div class="kl-email">test.onb.w@email.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">2 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('097562d4a10020a2b215f55d2141d3b3')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-097562d4a10020a2b215f55d2141d3b3">
+                    <a href="/coach/klanten/097562d4a10020a2b215f55d2141d3b3" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=097562d4a10020a2b215f55d2141d3b3" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="097562d4a10020a2b215f55d2141d3b3" data-klant-naam="Test Onb W" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="097562d4a10020a2b215f55d2141d3b3" data-klant-naam="Test Onb W">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="test onb v" data-email="test.onb.v@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/026cb83511aa13d81250f5edef3e3b6b'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="026cb83511aa13d81250f5edef3e3b6b" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb V" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-amber">TO</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Test Onb V    </div>
+                    <div class="kl-email">test.onb.v@email.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">2 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('026cb83511aa13d81250f5edef3e3b6b')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-026cb83511aa13d81250f5edef3e3b6b">
+                    <a href="/coach/klanten/026cb83511aa13d81250f5edef3e3b6b" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=026cb83511aa13d81250f5edef3e3b6b" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="026cb83511aa13d81250f5edef3e3b6b" data-klant-naam="Test Onb V" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="026cb83511aa13d81250f5edef3e3b6b" data-klant-naam="Test Onb V">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="test onb r" data-email="test.onb.r@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/60b74c3dce29ced63bd8f659ba48e1e2'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="60b74c3dce29ced63bd8f659ba48e1e2" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb R" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-blue">TO</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Test Onb R    </div>
+                    <div class="kl-email">test.onb.r@email.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">2 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('60b74c3dce29ced63bd8f659ba48e1e2')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-60b74c3dce29ced63bd8f659ba48e1e2">
+                    <a href="/coach/klanten/60b74c3dce29ced63bd8f659ba48e1e2" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=60b74c3dce29ced63bd8f659ba48e1e2" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="60b74c3dce29ced63bd8f659ba48e1e2" data-klant-naam="Test Onb R" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="60b74c3dce29ced63bd8f659ba48e1e2" data-klant-naam="Test Onb R">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="test onb q" data-email="test.onb.q@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/5f83c2105b2288fcac8e82a3a1ae220a'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="5f83c2105b2288fcac8e82a3a1ae220a" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb Q" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-green">TO</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Test Onb Q    </div>
+                    <div class="kl-email">test.onb.q@email.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">2 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('5f83c2105b2288fcac8e82a3a1ae220a')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-5f83c2105b2288fcac8e82a3a1ae220a">
+                    <a href="/coach/klanten/5f83c2105b2288fcac8e82a3a1ae220a" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=5f83c2105b2288fcac8e82a3a1ae220a" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="5f83c2105b2288fcac8e82a3a1ae220a" data-klant-naam="Test Onb Q" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="5f83c2105b2288fcac8e82a3a1ae220a" data-klant-naam="Test Onb Q">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="test onb p" data-email="test.onb.p@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/f3695ae76eb448a35e0659b00e6e3d55'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="f3695ae76eb448a35e0659b00e6e3d55" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb P" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-purple">TO</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Test Onb P    </div>
+                    <div class="kl-email">test.onb.p@email.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">2 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('f3695ae76eb448a35e0659b00e6e3d55')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-f3695ae76eb448a35e0659b00e6e3d55">
+                    <a href="/coach/klanten/f3695ae76eb448a35e0659b00e6e3d55" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=f3695ae76eb448a35e0659b00e6e3d55" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="f3695ae76eb448a35e0659b00e6e3d55" data-klant-naam="Test Onb P" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="f3695ae76eb448a35e0659b00e6e3d55" data-klant-naam="Test Onb P">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="test onb o" data-email="test.onb.o@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/9d9bb3df2dff171e03ad2c947dd655fd'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="9d9bb3df2dff171e03ad2c947dd655fd" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb O" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-red">TO</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Test Onb O    </div>
+                    <div class="kl-email">test.onb.o@email.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">9 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">11 weken</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('9d9bb3df2dff171e03ad2c947dd655fd')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-9d9bb3df2dff171e03ad2c947dd655fd">
+                    <a href="/coach/klanten/9d9bb3df2dff171e03ad2c947dd655fd" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=9d9bb3df2dff171e03ad2c947dd655fd" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="9d9bb3df2dff171e03ad2c947dd655fd" data-klant-naam="Test Onb O" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="9d9bb3df2dff171e03ad2c947dd655fd" data-klant-naam="Test Onb O">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="test onb n" data-email="test.onb.n@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/257a5a5ce4e569a15ac240364107a70f'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="257a5a5ce4e569a15ac240364107a70f" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb N" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-amber">TO</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Test Onb N    </div>
+                    <div class="kl-email">test.onb.n@email.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">9 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">11 weken</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('257a5a5ce4e569a15ac240364107a70f')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-257a5a5ce4e569a15ac240364107a70f">
+                    <a href="/coach/klanten/257a5a5ce4e569a15ac240364107a70f" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=257a5a5ce4e569a15ac240364107a70f" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="257a5a5ce4e569a15ac240364107a70f" data-klant-naam="Test Onb N" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="257a5a5ce4e569a15ac240364107a70f" data-klant-naam="Test Onb N">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="test onb m" data-email="test.onb.m@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/8a0964b2b6d0cada879fd07034072ae1'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="8a0964b2b6d0cada879fd07034072ae1" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb M" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-blue">TO</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Test Onb M    </div>
+                    <div class="kl-email">test.onb.m@email.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">9 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">11 weken</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('8a0964b2b6d0cada879fd07034072ae1')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-8a0964b2b6d0cada879fd07034072ae1">
+                    <a href="/coach/klanten/8a0964b2b6d0cada879fd07034072ae1" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=8a0964b2b6d0cada879fd07034072ae1" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="8a0964b2b6d0cada879fd07034072ae1" data-klant-naam="Test Onb M" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="8a0964b2b6d0cada879fd07034072ae1" data-klant-naam="Test Onb M">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="test5" data-email="test5@gmail.com" data-klant-id="1783420162068" onclick="location.href='/coach/klanten/e5d0225528f9cffc7f76c6e231f20e86'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="e5d0225528f9cffc7f76c6e231f20e86" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer test5" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-green">T</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">test5  <span class="kl-onb-badge">Onb: 6/7</span>  </div>
+                    <div class="kl-email">test5@gmail.com</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">12 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">11 weken</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('e5d0225528f9cffc7f76c6e231f20e86')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-e5d0225528f9cffc7f76c6e231f20e86">
+                    <a href="/coach/klanten/e5d0225528f9cffc7f76c6e231f20e86" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=e5d0225528f9cffc7f76c6e231f20e86" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="e5d0225528f9cffc7f76c6e231f20e86" data-klant-naam="test5" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="e5d0225528f9cffc7f76c6e231f20e86" data-klant-naam="test5">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="test a" data-email="test@test.nl" data-klant-id="1782853354864" onclick="location.href='/coach/klanten/78dec9b2e444a4c3984164ec60f3d91d'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="78dec9b2e444a4c3984164ec60f3d91d" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test A" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-purple">TA</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Test A  <span class="kl-onb-badge">Onb: 6/7</span>  </div>
+                    <div class="kl-email">test@test.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">15 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">10 weken</span></td>
+              <td><span class="pill pill-oranje">Actief</span></td>
+              <td><span class="pill pill-paars">Actief</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('78dec9b2e444a4c3984164ec60f3d91d')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-78dec9b2e444a4c3984164ec60f3d91d">
+                    <a href="/coach/klanten/78dec9b2e444a4c3984164ec60f3d91d" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=78dec9b2e444a4c3984164ec60f3d91d" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="78dec9b2e444a4c3984164ec60f3d91d" data-klant-naam="Test A" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="78dec9b2e444a4c3984164ec60f3d91d" data-klant-naam="Test A">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="kl-row" data-name="daniel test" data-email="daniel@test.nl" data-klant-id="seed-daniel-test" onclick="location.href='/coach/klanten/intake_seed_daniel'">
+              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="intake_seed_daniel" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Daniel Test" /></td>
+              <td>
+                <div class="kl-naam-cell">
+                  <div class="kl-avatar avatar-red">DT</div>
+                  <div class="kl-naam-text">
+                    <div class="kl-naam">Daniel Test  <span class="kl-onb-badge">Onb: 6/7</span>  </div>
+                    <div class="kl-email">daniel@test.nl</div>
+                  </div>
+                </div>
+              </td>
+              <td class="kl-text">19 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">10 weken</span></td>
+              <td><span class="pill pill-oranje">Actief</span></td>
+              <td><span class="pill pill-paars">Actief</span></td>
+              <td class="kl-actions-cell">
+                <div class="kl-options-wrap">
+                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('intake_seed_daniel')" aria-label="Acties">⋯</button>
+                  <div class="kl-options-menu" id="kl-options-intake_seed_daniel">
+                    <a href="/coach/klanten/intake_seed_daniel" onclick="event.stopPropagation()">Open klantprofiel</a>
+                    <a href="/coach/chat?klant=intake_seed_daniel" onclick="event.stopPropagation()">Stuur bericht</a>
+                    <a href="#" data-testtoggle-actie data-klant-id="intake_seed_daniel" data-klant-naam="Daniel Test" data-is-test="0">Markeer als test-account</a>
+                    <a href="#" data-archiveer-actie="actief" data-klant-id="intake_seed_daniel" data-klant-naam="Daniel Test">Archiveren</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Bulk-bericht modal -->
+<div class="klbm-overlay" id="klBmModal" role="dialog" aria-modal="true" aria-labelledby="klBmTitle">
+  <div class="klbm-modal">
+    <div class="klbm-head">
+      <h2 id="klBmTitle">Bulk-bericht versturen</h2>
+      <button type="button" class="klbm-close" onclick="klBulkSluitBericht()" aria-label="Sluiten">×</button>
+    </div>
+    <div class="klbm-body">
+      <div class="klbm-info">Verstuurt hetzelfde bericht aan <strong id="klBmAantal">0</strong> klant(en). Gebruik <code>{{voornaam}}</code> om de voornaam in te voegen. Gearchiveerde klanten worden overgeslagen.</div>
+      <textarea class="klbm-tekst" id="klBmTekst" maxlength="500" placeholder="Hey {{voornaam}}, ..."></textarea>
+      <div class="klbm-meta"><span id="klBmLen">0 / 500</span><span id="klBmStatus" class="klbm-status"></span></div>
+      <div class="klbm-acties">
+        <button type="button" class="kl-bulk-btn" onclick="klBulkSluitBericht()">Annuleren</button>
+        <button type="button" class="kl-bulk-btn kl-bulk-btn--primair" id="klBmVerzend" onclick="klBulkVerzendBericht()">Verstuur naar 0 klanten</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nk-modal-overlay" id="nkModal" role="dialog" aria-modal="true" aria-labelledby="nkModalTitle">
+  <div class="nk-modal">
+    <div class="nk-modal-header">
+      <h2 id="nkModalTitle">Nieuwe klant</h2>
+      <button type="button" class="nk-modal-close" onclick="closeNieuweKlantModal()" aria-label="Sluiten">×</button>
+    </div>
+    <div class="nk-modal-body" id="nkForm">
+      <label>Naam<input type="text" id="nkNaam" maxlength="100" autocomplete="off" /></label>
+      <label>E-mailadres<input type="email" id="nkEmail" maxlength="200" autocomplete="off" /></label>
+      <label>Telefoonnummer (optioneel)<input type="tel" id="nkTelefoon" maxlength="30" autocomplete="off" placeholder="06 12345678" /></label>
+      <div style="margin:8px 0 6px;font-size:13px;color:rgba(15,15,26,0.7);font-weight:600;">Aanmaak-mode</div>
+      <label style="display:flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer;margin-bottom:4px;">
+        <input type="radio" name="nkMode" value="direct" checked onchange="onNkModeWissel()" /> Direct aanmaken (handmatig wachtwoord)
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer;margin-bottom:8px;">
+        <input type="radio" name="nkMode" value="betaallink" onchange="onNkModeWissel()" /> Betaallink versturen (Mollie iDEAL)
+      </label>
+      <div style="margin:8px 0 6px;font-size:13px;color:rgba(15,15,26,0.7);font-weight:600;">Traject</div>
+      <label style="display:flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer;margin-bottom:4px;">
+        <input type="radio" name="nkTraject" value="12wk_eenmalig" checked /> 12 weken coaching — €1.210 eenmalig
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer;margin-bottom:8px;">
+        <input type="radio" name="nkTraject" value="12wk_maand" /> 12 weken coaching — 3× €453,75 maandelijks
+      </label>
+      <div class="nk-error" id="nkError"></div>
+      <button type="button" class="nk-btn-save" id="nkSaveBtn" onclick="submitNieuweKlant()">Aanmaken</button>
+    </div>
+    <div class="nk-modal-success" id="nkSuccess">
+      <h3>✓ Klant aangemaakt</h3>
+      <p>Geef deze inloggegevens door (worden niet opnieuw getoond):</p>
+      <div class="nk-creds">
+        <div><strong>E-mail:</strong> <code id="nkSuccessEmail"></code></div>
+        <div><strong>Wachtwoord:</strong> <code id="nkSuccessWw"></code></div>
+        <div class="nk-creds-hint">Klant kan inloggen op /login met bovenstaande gegevens.</div>
+      </div>
+      <button type="button" class="nk-btn-klaar" onclick="window.location.reload();">Klaar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ===== Bulk-selectie + bulk-acties =====
+  // Selectie-state in-memory; geldt voor de huidige page-load. Filter-toggles
+  // halen klanten uit de DOM weg → die deselecteren we automatisch via
+  // klBulkSync zodra de master-checkbox geüpdate wordt of search filtert.
+  const KL_BULK_MAX = 50;
+  function klBulkGeselecteerdeIds() {
+    const out = [];
+    document.querySelectorAll('input[data-klbulk-check]:checked').forEach(function (c) {
+      const id = c.getAttribute('data-klant-id');
+      if (id) out.push(id);
+    });
+    return out;
+  }
+  function klBulkSync() {
+    const ids = klBulkGeselecteerdeIds();
+    const bar = document.getElementById('klBulkBar');
+    const cnt = document.getElementById('klBulkCount');
+    if (bar) bar.classList.toggle('open', ids.length > 0);
+    if (cnt) cnt.textContent = ids.length + ' klant' + (ids.length === 1 ? '' : 'en') + ' geselecteerd';
+    // Test-knoppen: alleen actief als selectie homogeen is
+    const isTestStatus = ids.map(function (id) {
+      const c = document.querySelector('input[data-klbulk-check][data-klant-id="' + id + '"]');
+      return c && c.getAttribute('data-is-test') === '1';
+    });
+    const alleTest = ids.length > 0 && isTestStatus.every(function (v) { return v === true; });
+    const geenTest = ids.length > 0 && isTestStatus.every(function (v) { return v === false; });
+    const tSet = document.getElementById('klBulkTestSet');
+    const tUnset = document.getElementById('klBulkTestUnset');
+    if (tSet) tSet.disabled = !(ids.length > 0 && geenTest);
+    if (tUnset) tUnset.disabled = !(ids.length > 0 && alleTest);
+  }
+  function klMasterToggle(master) {
+    const checked = !!(master && master.checked);
+    document.querySelectorAll('input[data-klbulk-check]:not(:disabled)').forEach(function (c) {
+      const row = c.closest('.kl-row');
+      if (row && row.style.display === 'none') return; // skip rij die door search/filter verborgen is
+      c.checked = checked;
+    });
+    klBulkSync();
+  }
+  function klBulkReset() {
+    document.querySelectorAll('input[data-klbulk-check]:checked').forEach(function (c) { c.checked = false; });
+    const m = document.getElementById('klMasterCheck');
+    if (m) m.checked = false;
+    klBulkSync();
+  }
+  async function klBulkPost(url, body) {
+    const r = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify(body),
+    });
+    let data = null;
+    try { data = await r.json(); } catch (_) {}
+    return { ok: r.ok, data };
+  }
+  async function klBulkTestMarker(waarde) {
+    const ids = klBulkGeselecteerdeIds();
+    if (!ids.length) return;
+    if (ids.length > KL_BULK_MAX) { alert('Max ' + KL_BULK_MAX + ' klanten per actie.'); return; }
+    const res = await klBulkPost('/coach/api/klanten/bulk/test-marker', { klant_ids: ids, waarde: !!waarde });
+    if (!res.ok || !res.data || !res.data.ok) { alert('Bulk-actie mislukt: ' + ((res.data && res.data.fout) || 'onbekende fout')); return; }
+    document.cookie = 'flash_success=' + encodeURIComponent(res.data.verwerkt + ' klanten bijgewerkt (test=' + waarde + ').') + '; Path=/; Max-Age=8; SameSite=Strict';
+    window.location.reload();
+  }
+  async function klBulkArchief() {
+    const ids = klBulkGeselecteerdeIds();
+    if (!ids.length) return;
+    if (ids.length > KL_BULK_MAX) { alert('Max ' + KL_BULK_MAX + ' klanten per actie.'); return; }
+    const ok = await klantConfirmModal('Bulk archiveren?',
+      ids.length + ' klanten worden gearchiveerd. Ze verdwijnen uit je actieve lijst en kunnen niet meer inloggen. Data blijft bewaard — kan later teruggehaald worden.',
+      'Archiveren', true);
+    if (!ok) return;
+    const res = await klBulkPost('/coach/api/klanten/bulk/archief', { klant_ids: ids, waarde: true });
+    if (!res.ok || !res.data || !res.data.ok) { alert('Bulk-archief mislukt: ' + ((res.data && res.data.fout) || 'onbekende fout')); return; }
+    document.cookie = 'flash_success=' + encodeURIComponent(res.data.verwerkt + ' klanten gearchiveerd.') + '; Path=/; Max-Age=8; SameSite=Strict';
+    window.location.reload();
+  }
+  function klBulkOpenBericht() {
+    const ids = klBulkGeselecteerdeIds();
+    if (!ids.length) return;
+    if (ids.length > KL_BULK_MAX) { alert('Max ' + KL_BULK_MAX + ' klanten per actie.'); return; }
+    document.getElementById('klBmAantal').textContent = String(ids.length);
+    document.getElementById('klBmVerzend').textContent = 'Verstuur naar ' + ids.length + ' klant' + (ids.length === 1 ? '' : 'en');
+    document.getElementById('klBmTekst').value = '';
+    document.getElementById('klBmLen').textContent = '0 / 500';
+    document.getElementById('klBmStatus').textContent = '';
+    document.getElementById('klBmStatus').className = 'klbm-status';
+    document.getElementById('klBmModal').classList.add('open');
+    setTimeout(function () { document.getElementById('klBmTekst').focus(); }, 50);
+  }
+  function klBulkSluitBericht() {
+    document.getElementById('klBmModal').classList.remove('open');
+  }
+  document.addEventListener('input', function (e) {
+    if (e.target && e.target.id === 'klBmTekst') {
+      const len = e.target.value.length;
+      const lenEl = document.getElementById('klBmLen');
+      if (lenEl) {
+        lenEl.textContent = len + ' / 500';
+        lenEl.className = len > 500 ? 'klbm-meta-err' : '';
+      }
+    }
+  });
+  async function klBulkVerzendBericht() {
+    const ids = klBulkGeselecteerdeIds();
+    const tekst = (document.getElementById('klBmTekst').value || '').trim();
+    const statusEl = document.getElementById('klBmStatus');
+    statusEl.className = 'klbm-status';
+    statusEl.textContent = '';
+    if (!ids.length) { statusEl.textContent = 'Geen selectie.'; statusEl.className = 'klbm-status err'; return; }
+    if (!tekst) { statusEl.textContent = 'Bericht is leeg.'; statusEl.className = 'klbm-status err'; return; }
+    if (tekst.length > 500) { statusEl.textContent = 'Bericht te lang.'; statusEl.className = 'klbm-status err'; return; }
+    const btn = document.getElementById('klBmVerzend');
+    btn.disabled = true; btn.textContent = 'Verzenden...';
+    const res = await klBulkPost('/coach/api/klanten/bulk/bericht', { klant_ids: ids, bericht_template: tekst });
+    btn.disabled = false;
+    if (!res.ok || !res.data || !res.data.ok) {
+      statusEl.textContent = 'Mislukt: ' + ((res.data && res.data.fout) || 'onbekende fout');
+      statusEl.className = 'klbm-status err';
+      btn.textContent = 'Verstuur naar ' + ids.length + ' klanten';
+      return;
+    }
+    const verwerkt = res.data.verwerkt || 0;
+    const geskipt = (res.data.geskipt || []).length;
+    statusEl.textContent = '✓ ' + verwerkt + ' verzonden' + (geskipt ? ' (' + geskipt + ' overgeslagen)' : '');
+    setTimeout(function () { klBulkSluitBericht(); klBulkReset(); }, 1200);
+  }
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.matches && e.target.matches('input[data-klbulk-check]')) {
+      klBulkSync();
+    }
+  });
+
+  function filterKlanten() {
+    var q = (document.getElementById('klant-search').value || '').toLowerCase();
+    var count = 0;
+    document.querySelectorAll('.kl-row').forEach(function (row) {
+      var name = row.dataset.name || '';
+      var email = row.dataset.email || '';
+      var show = name.indexOf(q) !== -1 || email.indexOf(q) !== -1;
+      row.style.display = show ? '' : 'none';
+      if (show) count++;
+      // Auto-deselect een rij die door de filter verdwijnt, anders zou een
+      // bulk-actie naar verborgen klanten ongewenst zijn.
+      if (!show) {
+        var c = row.querySelector('input[data-klbulk-check]');
+        if (c && c.checked) c.checked = false;
+      }
+    });
+    var el = document.getElementById('kl-count');
+    if (el) el.textContent = count + (count === 1 ? ' klant' : ' klanten');
+    if (typeof klBulkSync === 'function') klBulkSync();
+  }
+  function toggleKlantOptions(id) {
+    var menu = document.getElementById('kl-options-' + id);
+    if (!menu) return;
+    var wasOpen = menu.classList.contains('open');
+    document.querySelectorAll('.kl-options-menu.open').forEach(function (m) { m.classList.remove('open'); });
+    if (!wasOpen) menu.classList.add('open');
+  }
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.kl-options-wrap')) {
+      document.querySelectorAll('.kl-options-menu.open').forEach(function (m) { m.classList.remove('open'); });
+    }
+  });
+
+  function hsKlantIdUitRow(row) {
+    // Healthscores zijn gekeyd op klant-id; de rij draagt die als data-klant-id.
+    // De onclick-href bevat de intake-id (voor navigatie) en matcht dus niet.
+    var kid = row.getAttribute('data-klant-id');
+    if (kid && kid.trim()) return kid.trim();
+    var onclick = row.getAttribute('onclick') || '';
+    var m = onclick.match(/\/coach\/klanten\/([^'"\s]+)/);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+  function hsKleurStijl(score) {
+    var bg = '#22c55e';
+    if (score < 50) bg = '#ef4444';
+    else if (score < 75) bg = '#f97316';
+    return 'display:inline-block;margin-left:8px;font-size:10.5px;font-weight:700;'
+      + 'padding:2px 8px;border-radius:999px;letter-spacing:0.2px;vertical-align:middle;'
+      + 'background:' + bg + ';color:#fff;';
+  }
+  function hsRenderBadge(naamEl, score) {
+    if (!naamEl) return;
+    if (naamEl.querySelector('.kl-hs-badge')) return;
+    if (score < 50) {
+      var warn = document.createElement('span');
+      warn.className = 'kl-hs-warn';
+      warn.textContent = '⚠️ ';
+      warn.style.marginRight = '4px';
+      naamEl.insertBefore(warn, naamEl.firstChild);
+    }
+    var pill = document.createElement('span');
+    pill.className = 'kl-hs-badge';
+    pill.setAttribute('style', hsKleurStijl(score));
+    pill.textContent = String(score);
+    naamEl.appendChild(pill);
+  }
+  function hsLaadScores() {
+    var rijen = document.querySelectorAll('.kl-row');
+    if (!rijen.length) return;
+    fetch('/coach/api/healthscores/all', { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        var scores = data && data.scores;
+        if (!scores) return;
+        rijen.forEach(function (row) {
+          var id = hsKlantIdUitRow(row);
+          if (!id) return;
+          var naamEl = row.querySelector('.kl-naam');
+          if (!naamEl) return;
+          var score = scores[id];
+          if (typeof score !== 'number') return;
+          hsRenderBadge(naamEl, score);
+        });
+      })
+      .catch(function () {});
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hsLaadScores);
+  } else {
+    hsLaadScores();
+  }
+
+  function openNieuweKlantModal() {
+    var modal = document.getElementById('nkModal');
+    var form = document.getElementById('nkForm');
+    var success = document.getElementById('nkSuccess');
+    var err = document.getElementById('nkError');
+    if (!modal) return;
+    document.getElementById('nkNaam').value = '';
+    document.getElementById('nkEmail').value = '';
+    document.getElementById('nkTelefoon').value = '';
+    var directRadio = document.querySelector('input[name="nkMode"][value="direct"]');
+    if (directRadio) directRadio.checked = true;
+    var defaultTraject = document.querySelector('input[name="nkTraject"][value="12wk_eenmalig"]');
+    if (defaultTraject) defaultTraject.checked = true;
+    onNkModeWissel();
+    err.classList.remove('visible');
+    err.textContent = '';
+    form.style.display = '';
+    success.classList.remove('visible');
+    modal.classList.add('open');
+    setTimeout(function () { document.getElementById('nkNaam').focus(); }, 30);
+  }
+  function onNkModeWissel() {
+    var mode = (document.querySelector('input[name="nkMode"]:checked') || {}).value || 'direct';
+    var btn = document.getElementById('nkSaveBtn');
+    if (!btn) return;
+    btn.textContent = (mode === 'betaallink') ? 'Betaallink versturen' : 'Aanmaken';
+  }
+  function closeNieuweKlantModal() {
+    var modal = document.getElementById('nkModal');
+    if (modal) modal.classList.remove('open');
+  }
+  function submitNieuweKlant() {
+    var btn = document.getElementById('nkSaveBtn');
+    var err = document.getElementById('nkError');
+    var naam = (document.getElementById('nkNaam').value || '').trim();
+    var email = (document.getElementById('nkEmail').value || '').trim().toLowerCase();
+    var telefoon = (document.getElementById('nkTelefoon').value || '').trim();
+    err.classList.remove('visible');
+    err.textContent = '';
+    if (!naam) { err.textContent = 'Naam is verplicht.'; err.classList.add('visible'); return; }
+    if (!email) { err.textContent = 'E-mailadres is verplicht.'; err.classList.add('visible'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      err.textContent = 'E-mailadres klopt niet.'; err.classList.add('visible'); return;
+    }
+    var trajectEl = document.querySelector('input[name="nkTraject"]:checked');
+    var traject_id = trajectEl ? trajectEl.value : '';
+    if (!traject_id) {
+      err.textContent = 'Kies een traject.'; err.classList.add('visible'); return;
+    }
+    btn.disabled = true;
+    var origLabel = btn.textContent;
+    btn.textContent = 'Bezig…';
+    var mode = (document.querySelector('input[name="nkMode"]:checked') || {}).value || 'direct';
+    var url = '/coach/klant-aanmaken';
+    var body = { naam: naam, email: email, telefoon: telefoon, traject_id: traject_id };
+    if (mode === 'betaallink') {
+      url = '/coach/api/klant-betaallink';
+      body.pakket_id = traject_id;
+    }
+    fetch(url, {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    }).then(function (r) {
+      return r.json().then(function (data) { return { status: r.status, data: data }; });
+    }).then(function (res) {
+      if (res.status >= 200 && res.status < 300 && res.data && res.data.ok) {
+        if (mode === 'betaallink') {
+          document.getElementById('nkSuccessEmail').textContent = email;
+          document.getElementById('nkSuccessWw').textContent = 'Mail verstuurd met betaallink — wachtwoord komt na betaling.';
+        } else {
+          document.getElementById('nkSuccessEmail').textContent = res.data.klant.email;
+          document.getElementById('nkSuccessWw').textContent = res.data.tijdelijk_wachtwoord || '(door coach gekozen)';
+        }
+        document.getElementById('nkForm').style.display = 'none';
+        document.getElementById('nkSuccess').classList.add('visible');
+        return;
+      }
+      err.textContent = (res.data && res.data.fout) || 'Aanmaken mislukt (status ' + res.status + ').';
+      err.classList.add('visible');
+      btn.disabled = false;
+      btn.textContent = origLabel;
+    }).catch(function () {
+      err.textContent = 'Netwerk-fout. Probeer opnieuw.';
+      err.classList.add('visible');
+      btn.disabled = false;
+      btn.textContent = origLabel;
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var modal = document.getElementById('nkModal');
+      if (modal && modal.classList.contains('open')) closeNieuweKlantModal();
+    }
+  });
+  // Klik op overlay (buiten modal-content) sluit ook
+  var nkOverlay = document.getElementById('nkModal');
+  if (nkOverlay) {
+    nkOverlay.addEventListener('click', function (e) {
+      if (e.target === nkOverlay) closeNieuweKlantModal();
+    });
+  }
+
+  // ===== Archiveer / Herstel klant flow =====
+  // Bij click op een [data-archiveer-actie] link in het ⋯ menu: confirm-modal
+  // tonen, daarna POST naar /coach/api/klant/:id/(archiveer|herstel) en
+  // pagina herladen. Hergebruik tr-exit-modal CSS-pattern.
+  function klantConfirmModal(titel, body, primaryLabel, primaryRood) {
+    return new Promise(function (resolve) {
+      var wrap = document.createElement('div');
+      wrap.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;z-index:1100;padding:18px;';
+      var primaryStyle = primaryRood ? 'background:#ef4444;color:white;' : 'background:#c9a84c;color:#1a1a2e;';
+      wrap.innerHTML = '<div style="background:white;border-radius:14px;padding:24px 22px 18px;max-width:420px;width:100%;box-shadow:0 22px 60px rgba(0,0,0,0.32);font-family:\'DM Sans\',sans-serif;">'
+        + '<div style="font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:8px;">' + titel + '</div>'
+        + '<div style="font-size:13.5px;color:#4a4a5a;line-height:1.5;margin-bottom:18px;white-space:pre-wrap;">' + body + '</div>'
+        + '<div style="display:flex;flex-direction:column;gap:8px;">'
+          + '<button type="button" data-conf="ok" style="height:42px;border-radius:9px;font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;border:none;' + primaryStyle + '">' + primaryLabel + '</button>'
+          + '<button type="button" data-conf="cancel" style="height:42px;border-radius:9px;font-family:inherit;font-size:13.5px;font-weight:700;cursor:pointer;background:white;color:#6b6b80;border:1px solid rgba(26,26,46,0.18);">Annuleer</button>'
+        + '</div></div>';
+      var done = false;
+      function close(val) {
+        if (done) return;
+        done = true;
+        document.removeEventListener('keydown', onKey);
+        try { wrap.remove(); } catch (_) {}
+        resolve(val);
+      }
+      function onKey(e) { if (e.key === 'Escape') close(false); }
+      wrap.addEventListener('click', function (e) {
+        var btn = e.target && e.target.closest && e.target.closest('[data-conf]');
+        if (btn) { close(btn.getAttribute('data-conf') === 'ok'); return; }
+        if (e.target === wrap) close(false);
+      });
+      document.addEventListener('keydown', onKey);
+      document.body.appendChild(wrap);
+    });
+  }
+
+  // Per-element binding op elke archiveer/herstel-link. document-delegation
+  // werkte niet omdat de eerdere inline onclick="event.stopPropagation()" de
+  // bubble naar document blokkeerde. Directe listener vangt het event in de
+  // at-target fase op, dempt zelf de bubble (zodat tr-onclick=row-navigeer
+  // niet vuurt) en triggert de modal-flow.
+  document.querySelectorAll('[data-archiveer-actie]').forEach(function (link) {
+    link.addEventListener('click', async function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var actie = link.getAttribute('data-archiveer-actie');
+      var klantId = link.getAttribute('data-klant-id');
+      var klantNaam = link.getAttribute('data-klant-naam') || 'deze klant';
+      if (!klantId) return;
+      var titel, body, label, isRood, endpoint;
+      if (actie === 'archief') {
+        titel = 'Klant herstellen?';
+        body = klantNaam + ' wordt teruggezet naar actief. De klant kan weer inloggen en verschijnt in je actieve klantenlijst.';
+        label = 'Herstel klant';
+        isRood = false;
+        endpoint = '/coach/api/klant/' + encodeURIComponent(klantId) + '/herstel';
+      } else {
+        titel = 'Klant archiveren?';
+        body = klantNaam + ' wordt gearchiveerd. Alle data (voeding, training, foto\'s, check-ins, chat) blijft bewaard. De klant verdwijnt uit je actieve klantenlijst, kan niet meer inloggen, maar kan later teruggehaald worden.';
+        label = 'Archiveer';
+        isRood = true;
+        endpoint = '/coach/api/klant/' + encodeURIComponent(klantId) + '/archiveer';
+      }
+      var ok = await klantConfirmModal(titel, body, label, isRood);
+      if (!ok) return;
+      try {
+        var r = await fetch(endpoint, { method: 'POST', credentials: 'same-origin' });
+        if (!r.ok) {
+          var err = await r.json().catch(function () { return {}; });
+          throw new Error(err.fout || ('HTTP ' + r.status));
+        }
+        window.location.reload();
+      } catch (err) {
+        alert((actie === 'archief' ? 'Herstel' : 'Archiveer') + ' mislukt: ' + ((err && err.message) || 'onbekende fout'));
+      }
+    });
+  });
+
+  // Toggle test-marker. Direct flippen zonder confirm-dialog (per design).
+  // Bij success: reload zodat de filter-toggles ('Toon actieve' / 'Toon test')
+  // het zichtbaarheid van deze klant opnieuw bepalen.
+  document.querySelectorAll('[data-testtoggle-actie]').forEach(function (link) {
+    link.addEventListener('click', async function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var klantId = link.getAttribute('data-klant-id');
+      if (!klantId) return;
+      try {
+        var r = await fetch('/coach/api/klant/' + encodeURIComponent(klantId) + '/toggle-test', {
+          method: 'POST', credentials: 'same-origin'
+        });
+        if (!r.ok) {
+          var err = await r.json().catch(function () { return {}; });
+          throw new Error(err.fout || ('HTTP ' + r.status));
+        }
+        window.location.reload();
+      } catch (err) {
+        alert('Test-marker omschakelen mislukt: ' + ((err && err.message) || 'onbekende fout'));
+      }
+    });
+  });
+
+  // Verwijder-actie. Hergebruikt klantConfirmModal met rode primary-knop.
+  document.querySelectorAll('[data-verwijder-actie]').forEach(function (link) {
+    link.addEventListener('click', async function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var klantId = link.getAttribute('data-klant-id');
+      var klantNaam = link.getAttribute('data-klant-naam') || 'deze klant';
+      if (!klantId) return;
+      var body = 'Weet je zeker dat je ' + klantNaam + ' permanent wilt verwijderen?\n\n'
+        + 'Alle gegevens (account, intake, schema, check-ins, chat, logs, contract-PDF) worden definitief gewist. '
+        + 'Een backup wordt 30 dagen bewaard in data/backups/deleted/, daarna onomkeerbaar.\n\n'
+        + 'Dit kan niet vanuit de UI ongedaan worden gemaakt.';
+      var ok = await klantConfirmModal('Klant permanent verwijderen?', body, 'Definitief verwijderen', true);
+      if (!ok) return;
+      try {
+        var r = await fetch('/coach/api/klant/' + encodeURIComponent(klantId) + '/permanent', {
+          method: 'DELETE', credentials: 'same-origin'
+        });
+        if (!r.ok) {
+          var err = await r.json().catch(function () { return {}; });
+          throw new Error(err.fout || ('HTTP ' + r.status));
+        }
+        document.cookie = 'flash_success=' + encodeURIComponent('Klant permanent verwijderd.') + '; Path=/; Max-Age=8; SameSite=Strict';
+        window.location.href = '/coach/klanten';
+      } catch (err) {
+        alert('Verwijderen mislukt: ' + ((err && err.message) || 'onbekende fout'));
+      }
+    });
+  });
+</script>
+
+  </body>
+  </html>

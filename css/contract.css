@@ -1,0 +1,42 @@
+/* Contract-pagina — /onboarding/contract */
+.cn-card h1{margin-bottom:8px;}
+.cn-sub{font-size:13.5px;color:rgba(15,15,26,0.65);line-height:1.5;margin-bottom:18px;}
+.cn-meta{font-size:12.5px;color:rgba(15,15,26,0.55);}
+.cn-section{margin-top:22px;padding-top:18px;border-top:1px solid rgba(26,26,46,0.08);}
+.cn-section:first-of-type{border-top:none;padding-top:0;}
+.cn-section-titel{font-size:13.5px;font-weight:700;color:#1a1a2e;letter-spacing:0.3px;margin-bottom:12px;}
+.cn-field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media (max-width:560px){.cn-field-grid{grid-template-columns:1fr;}}
+.cn-field label{display:block;font-size:12px;font-weight:600;color:rgba(15,15,26,0.6);margin-bottom:5px;}
+.cn-field input{width:100%;padding:10px 12px;border:1px solid rgba(26,26,46,0.12);border-radius:8px;font-family:inherit;font-size:14px;color:#1a1a2e;background:#fff;transition:border-color 0.15s,box-shadow 0.15s;}
+.cn-field input:focus{outline:none;border-color:#c9a84c;box-shadow:0 0 0 3px rgba(201,168,76,0.15);}
+.cn-field input.cn-readonly{background:#f5f2ec;color:rgba(15,15,26,0.7);cursor:not-allowed;}
+.cn-contract{font-size:13.5px;line-height:1.65;color:rgba(15,15,26,0.82);}
+.cn-art-titel{font-size:13.5px;font-weight:700;color:#1a1a2e;margin:16px 0 6px;}
+.cn-art-titel:first-child{margin-top:0;}
+.cn-art-body{margin-bottom:8px;}
+.cn-pay-group{display:flex;flex-direction:column;gap:8px;margin:10px 0 14px;}
+.cn-pay-opt{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid rgba(26,26,46,0.12);border-radius:10px;cursor:pointer;transition:border-color 0.15s,background 0.15s;background:#fff;}
+.cn-pay-opt:hover{border-color:rgba(201,168,76,0.5);}
+.cn-pay-opt input[type=radio]{margin-top:3px;accent-color:#c9a84c;flex-shrink:0;}
+.cn-pay-opt:has(input:checked){border-color:#c9a84c;background:rgba(201,168,76,0.06);}
+.cn-pay-opt-body{display:flex;flex-direction:column;gap:2px;}
+.cn-pay-opt-label{font-weight:700;font-size:13.5px;color:#1a1a2e;}
+.cn-pay-opt-desc{font-size:12.5px;color:rgba(15,15,26,0.65);line-height:1.45;}
+.cn-sig-hint{margin-bottom:8px;}
+.cn-sig-wrap{position:relative;border:2px dashed rgba(26,26,46,0.22);border-radius:12px;background:#fff;overflow:hidden;}
+#sigCanvas{display:block;width:100%;height:160px;background:#fff;touch-action:none;cursor:crosshair;}
+.cn-sig-clear{position:absolute;top:8px;right:8px;padding:5px 10px;font-size:11.5px;font-weight:600;border:1px solid rgba(26,26,46,0.15);background:#fff;border-radius:6px;color:rgba(15,15,26,0.55);cursor:pointer;font-family:inherit;}
+.cn-sig-clear:hover{color:#1a1a2e;border-color:rgba(26,26,46,0.3);}
+.cn-akkoord-row{display:flex;gap:10px;align-items:flex-start;margin-top:16px;padding:14px 16px;background:#fdf5e8;border:1px solid #e7cfa1;border-radius:10px;font-size:13px;line-height:1.5;color:#1a1a2e;cursor:pointer;transition:border-color 0.15s;}
+.cn-akkoord-row input[type=checkbox]{margin-top:3px;accent-color:#c9a84c;flex-shrink:0;width:16px;height:16px;}
+.cn-error{margin-top:14px;padding:10px 14px;background:#fdf0f0;border:1px solid #f2c2c2;border-radius:8px;color:#b04040;font-size:13px;}
+.cn-actions{margin-top:18px;}
+/* Per-veld foutmelding (inline, rood) */
+.cn-field-err{margin-top:6px;font-size:12.5px;font-weight:600;color:#b04040;display:flex;align-items:center;gap:5px;}
+.cn-field-err::before{content:'⚠';font-size:13px;}
+.cn-field-err[hidden]{display:none;}
+.cn-field.cn-has-err input,.cn-field.cn-has-err select{border-color:#b04040;box-shadow:0 0 0 3px rgba(176,64,64,0.12);}
+.cn-pay-group.cn-has-err .cn-pay-opt{border-color:#b04040;}
+.cn-sig-wrap.cn-has-err{border-color:#b04040;box-shadow:0 0 0 3px rgba(176,64,64,0.12);}
+.cn-akkoord-row.cn-has-err{border-color:#b04040;background:#fdf0f0;}

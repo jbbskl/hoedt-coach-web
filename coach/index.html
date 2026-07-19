@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+  <html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coach Dashboard — Hoedt Coaching</title>
+    <link rel="stylesheet" href="/css/fonts.css">
+  </head>
+  <body style="margin:0;padding:0;background:#f5f0e8;font-family:'DM Sans',sans-serif;">
+    
+<style>.pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;border:1px solid transparent;}
+.pill-rood{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FCEBEB;border:1px solid #A32D2D;color:#791F1F;}
+.pill-oranje{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#854F0B;}
+.pill-paars{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#EEEDFE;border:1px solid #7F77DD;color:#534AB7;}
+.pill-blauw{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #378ADD;color:#185FA5;}
+.pill-blauw-donker{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #185FA5;color:#0F3D6E;}
+.pill-grijs{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#F1EFE8;border:1px solid #888780;color:#444441;}
+.pill-groen-teal{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E1F5EE;border:1px solid #1D9E75;color:#0F6E56;}
+.pill-amber{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#633806;}
+.pill-roze{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FBEAF0;border:1px solid #D4537E;color:#993556;}
+.aa-tab[data-tab="voeding"]{color:#854F0B;border-color:#BA751733;}
+.aa-tab[data-tab="voeding"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active{background:#FAEEDA;color:#854F0B;border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="training"]{color:#534AB7;border-color:#7F77DD33;}
+.aa-tab[data-tab="training"]:hover{border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active{background:#EEEDFE;color:#534AB7;border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active .aa-tab-badge{background:#7F77DD;color:#fff;}
+.aa-tab[data-tab="stappen"]{color:#185FA5;border-color:#378ADD33;}
+.aa-tab[data-tab="stappen"]:hover{border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active{background:#E6F1FB;color:#185FA5;border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active .aa-tab-badge{background:#378ADD;color:#fff;}
+.aa-tab[data-tab="checkins"]{color:#0F3D6E;border-color:#185FA533;}
+.aa-tab[data-tab="checkins"]:hover{border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active{background:#E6F1FB;color:#0F3D6E;border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active .aa-tab-badge{background:#185FA5;color:#fff;}
+.aa-tab[data-tab="login"]{color:#444441;border-color:#88878033;}
+.aa-tab[data-tab="login"]:hover{border-color:#888780;}
+.aa-tab[data-tab="login"].is-active{background:#F1EFE8;color:#444441;border-color:#888780;}
+.aa-tab[data-tab="login"].is-active .aa-tab-badge{background:#888780;color:#fff;}
+.aa-tab[data-tab="fase_aankomend"]{color:#0F6E56;border-color:#1D9E7533;}
+.aa-tab[data-tab="fase_aankomend"]:hover{border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active{background:#E1F5EE;color:#0F6E56;border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active .aa-tab-badge{background:#1D9E75;color:#fff;}
+.aa-tab[data-tab="fase_geblokkeerd"]{color:#791F1F;border-color:#A32D2D33;}
+.aa-tab[data-tab="fase_geblokkeerd"]:hover{border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active{background:#FCEBEB;color:#791F1F;border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active .aa-tab-badge{background:#A32D2D;color:#fff;}
+.aa-tab[data-tab="tussenbericht"]{color:#633806;border-color:#BA751733;}
+.aa-tab[data-tab="tussenbericht"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active{background:#FAEEDA;color:#633806;border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="verlenging"]{color:#993556;border-color:#D4537E33;}
+.aa-tab[data-tab="verlenging"]:hover{border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active{background:#FBEAF0;color:#993556;border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active .aa-tab-badge{background:#D4537E;color:#fff;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:#f5f0e8;display:flex;min-height:100vh;}
+  .coach-sidebar{width:220px;min-height:100vh;background:linear-gradient(180deg,#0a0a14 0%,#14141f 100%);display:flex;flex-direction:column;position:fixed;top:0;left:0;z-index:100;}
+  .sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .logo-text{font-size:17px;color:#c9a84c;font-weight:700;letter-spacing:0.3px;text-shadow:0 0 12px rgba(201,168,76,0.3);}
+  .logo-sub{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+  .sidebar-nav{padding:12px 0;flex:1;overflow-y:auto;}
+  .nav-label{font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px 4px;}
+  .nav-item{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;}
+  .nav-item:hover{background:rgba(201,168,76,0.05);color:rgba(255,255,255,0.85);}
+  .nav-item.active{background:rgba(201,168,76,0.1);color:#c9a84c;border-left-color:#c9a84c;font-weight:600;}
+  .nav-icon{font-size:14px;width:16px;text-align:center;flex-shrink:0;}
+  .nav-badge{margin-left:auto;background:#e05454;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;min-width:18px;text-align:center;}
+  .nav-badge-amber{margin-left:auto;background:#d4871a;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;}
+  .nav-sublabel{font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:1.2px;text-transform:uppercase;padding:8px 20px 3px 26px;font-weight:500;}
+  .nav-item.nav-sub-item{padding:7px 20px 7px 32px;font-size:12.5px;color:rgba(255,255,255,0.45);}
+  .nav-item.nav-sub-item.active{background:transparent;color:#c9a84c;border-left:2px solid #c9a84c;}
+  .sb-group-toggle{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);font-size:13px;font-weight:500;background:transparent;border:none;border-left:2px solid transparent;cursor:pointer;width:100%;text-align:left;font-family:inherit;transition:color 0.12s,background 0.12s;}
+  .sb-group-toggle:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .sb-group-toggle.expanded{color:rgba(255,255,255,0.85);}
+  .sb-group-arrow{font-size:10px;color:rgba(255,255,255,0.4);width:10px;display:inline-flex;justify-content:center;transition:transform 0.18s ease,color 0.18s ease;}
+  .sb-group-toggle.expanded .sb-group-arrow{transform:rotate(90deg);color:#c9a84c;}
+  .sb-group-items{display:none;}
+  .sb-group-items.expanded{display:block;}
+  .sidebar-footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,0.06);}
+  .coach-av{width:32px;height:32px;border-radius:50%;background:rgba(201,168,76,0.15);border:1.5px solid #c9a84c;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#c9a84c;flex-shrink:0;}
+
+  .coach-main{margin-left:220px;flex:1;padding:26px 28px;min-width:0;}
+  .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+  .page-title{font-size:24px;color:#1a1a2e;font-weight:700;}
+  .page-date{font-size:12px;color:#6b6b80;margin-top:2px;}
+.urgent-strip{background:linear-gradient(95deg,#fdf0f0 0%,#fdf5e8 100%);border:1px solid #e7bfa8;border-left:4px solid #c43838;border-radius:12px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .urgent-title{font-size:13px;font-weight:700;color:#8a2020;letter-spacing:0.2px;flex-shrink:0;}
+  .urgent-clients{display:flex;gap:8px;flex-wrap:wrap;flex:1;}
+  .urgent-client{display:inline-flex;align-items:center;gap:9px;background:white;border:1px solid rgba(196,56,56,0.2);border-radius:999px;padding:4px 6px 4px 12px;}
+  .urgent-client-name{font-size:12.5px;font-weight:600;color:#1a1a2e;}
+  .urgent-open-chat{background:#c43838;color:white;border:none;border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:background 0.12s;}
+  .urgent-open-chat:hover{background:#a02828;}
+  .week-overzicht{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+  @media (max-width:1100px){.week-overzicht{grid-template-columns:repeat(2,1fr);}}
+  .wo-card{background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 50%,#0f0f1a 100%);border-radius:12px;border:1px solid rgba(201,168,76,0.18);padding:10px 14px 11px;position:relative;overflow:hidden;max-height:90px;box-shadow:0 4px 16px rgba(15,15,26,0.18),0 1px 3px rgba(15,15,26,0.1);}
+  .wo-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(201,168,76,0.15),transparent 60%);pointer-events:none;border-radius:12px;z-index:1;}
+  a.wo-link{text-decoration:none;color:inherit;display:block;transition:transform 150ms ease-out,box-shadow 150ms ease-out,border-color 150ms ease-out;}
+  a.wo-link:hover{transform:translateY(-2px);}
+  a.wo-link:hover .wo-card{border-color:rgba(201,168,76,0.45);box-shadow:0 8px 26px rgba(15,15,26,0.28),0 0 24px rgba(201,168,76,0.18);}
+  .wo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:2;}
+  .wo-amber::before{background:#d4871a;box-shadow:0 0 12px rgba(212,135,26,0.6);}
+  .wo-blue::before{background:#3b82f6;box-shadow:0 0 12px rgba(59,130,246,0.6);}
+  .wo-green::before{background:#2e9e6b;box-shadow:0 0 12px rgba(46,158,107,0.6);}
+  .wo-red::before{background:#e05454;box-shadow:0 0 12px rgba(224,84,84,0.6);}
+  .wo-title{font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.9px;font-weight:600;margin-bottom:4px;margin-top:2px;position:relative;z-index:2;}
+  .wo-body{font-size:12.5px;color:#ffffff;line-height:1.3;position:relative;z-index:2;}
+  .wo-body strong{font-weight:700;color:#ffffff;}
+  .wo-pills{display:flex;gap:4px;flex-wrap:nowrap;margin-top:4px;overflow:hidden;position:relative;z-index:2;}
+  .wo-pill{font-size:10.5px;background:rgba(46,158,107,0.22);color:#7be0a8;padding:2px 8px;border-radius:20px;white-space:nowrap;}
+
+  .main-col{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:18px;margin-bottom:18px;align-items:stretch;}
+  .card{background:linear-gradient(180deg,#fffdf6 0%,#faf3e0 100%);border-radius:12px;border:1px solid rgba(201,168,76,0.25);overflow:hidden;box-shadow:0 2px 8px rgba(15,15,26,0.04),0 1px 2px rgba(15,15,26,0.02);}
+  .card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid rgba(26,26,46,0.07);}
+  .card-title{font-size:13.5px;font-weight:600;color:#1a1a2e;display:flex;align-items:center;gap:7px;}
+  .cbadge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;}
+  .cbadge-red{background:#fdf0f0;color:#e05454;} .cbadge-gold{background:rgba(201,168,76,0.12);color:#8a6a1a;} .cbadge-amber{background:#fdf5e8;color:#d4871a;}
+  .card-action{font-size:12px;color:#c9a84c;text-decoration:none;font-weight:500;cursor:pointer;}
+
+  .filter-tabs{display:flex;padding:0 18px;border-bottom:1px solid rgba(26,26,46,0.07);}
+  .ftab{padding:9px 12px;font-size:12px;font-weight:500;color:#6b6b80;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;}
+  .ftab.active{color:#1a1a2e;border-bottom-color:#c9a84c;}
+
+  .client-card{border-bottom:1px solid rgba(26,26,46,0.04);transition:opacity 0.3s;border-left:3px solid transparent;}
+  .client-card:last-child{border-bottom:none;}
+  .client-card[data-prio="1"]{border-left-color:#c43838;}
+  .client-card[data-prio="2"]{border-left-color:#d4871a;}
+  .client-card[data-prio="3"]{border-left-color:rgba(107,107,128,0.25);}
+  .client-card[data-state="done"]{border-left-color:#2e9e6b;}
+  .client-row{display:flex;align-items:center;padding:16px 18px;cursor:pointer;gap:12px;transition:background 150ms ease-out;position:relative;}
+  .client-row *{cursor:inherit;}
+  .client-row .action-btn,.client-row .action-btn *{cursor:pointer;}
+  .client-row:hover{background:#f7f4ee;}
+  .client-expanded{max-height:0;overflow:hidden;transition:max-height 0.32s ease;background:#fafaf8;border-top:1px solid transparent;}
+  .client-card.expanded .client-expanded{max-height:900px;border-top-color:rgba(26,26,46,0.07);}
+  .expanded-inner{padding:16px 18px 18px;}
+  .expanded-title{font-size:10px;color:#6b6b80;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:600;}
+  .expanded-description{font-size:13px;color:#1a1a2e;background:#fdf5e8;border-left:3px solid #d4871a;padding:9px 14px;border-radius:6px;margin-bottom:14px;line-height:1.5;}
+  .expanded-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
+  .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;}
+  .summary-item{min-width:0;}
+  .summary-label{font-size:10px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.8px;font-weight:500;margin-bottom:3px;}
+  .summary-value{font-size:12.5px;color:#1a1a2e;font-weight:500;line-height:1.4;word-wrap:break-word;}
+  .concept-textarea{width:100%;min-height:84px;border:1px solid rgba(26,26,46,0.1);border-radius:8px;padding:10px 12px;font-family:inherit;font-size:12.5px;color:#1a1a2e;resize:vertical;background:white;line-height:1.5;}
+  .concept-actions{display:flex;gap:8px;margin-top:8px;justify-content:flex-end;}
+  .concept-btn{padding:7px 14px;border-radius:7px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid rgba(26,26,46,0.1);background:white;color:#6b6b80;font-family:inherit;transition:all 0.12s;}
+  .concept-btn:hover{border-color:#c9a84c;color:#c9a84c;}
+  .concept-btn-send{background:#0f0f1a;color:#c9a84c;border-color:#0f0f1a;}
+  .concept-btn-send:hover{background:#1a1a2e;color:#c9a84c;border-color:#1a1a2e;}
+  .concept-btn:disabled{opacity:0.7;cursor:default;}
+
+  .options-wrap{position:relative;}
+  .options-menu{display:none;position:fixed;top:0;left:0;background:white;border:1px solid rgba(26,26,46,0.12);border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.1);min-width:200px;z-index:1000;overflow:hidden;}
+  .options-menu.open{display:block;}
+  .options-menu a,.options-menu button{display:block;width:100%;padding:9px 14px;font-size:12.5px;color:#1a1a2e;text-decoration:none;background:none;border:none;text-align:left;cursor:pointer;font-family:inherit;transition:background 0.1s,color 0.1s;}
+  .options-menu a:hover,.options-menu button:hover{background:#fafaf8;color:#c9a84c;}
+  .options-menu button{color:#e05454;border-top:1px solid rgba(26,26,46,0.06);}
+  .options-menu button:hover{background:#fdf0f0;color:#e05454;}
+  .avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+  .avatar-red{background:#fde8e8;color:#c0392b;} .avatar-amber{background:#fef3e2;color:#a0531a;} .avatar-blue{background:#e8f0fe;color:#1a5ba0;} .avatar-green{background:#e8f5ee;color:#1a7a4a;} .avatar-purple{background:#f0e8fe;color:#5a1aa0;}
+  /* Aandacht-nodig kaarten: avatar 48px, info als één doorlopende kolom */
+  .client-row .avatar{width:48px;height:48px;font-size:14px;}
+  .client-row{align-items:flex-start;}
+  .client-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;}
+  .client-name{font-size:14.5px;font-weight:600;color:#1a1a2e;line-height:1.2;}
+  .client-meta{font-size:12px;color:#6b6b80;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .checkin-inline{font-size:11.5px;color:#6b6b80;margin-top:4px;padding:4px 8px;background:rgba(201,168,76,0.08);border-radius:6px;display:inline-block;}
+  .weekly-inline{font-size:11.5px;color:#6b6b80;margin-top:4px;padding:4px 8px;background:rgba(43,108,176,0.08);border-radius:6px;display:inline-block;}
+  .weekly-bijstuur{font-size:11.5px;color:#1a1a2e;margin-top:4px;display:flex;flex-wrap:wrap;align-items:center;gap:5px;}
+  .weekly-bijstuur.muted-line{color:#9b9baa;}
+  .bij-pill{font-size:10.5px;font-weight:600;background:rgba(201,168,76,0.14);color:#8a6a1a;padding:2px 9px;border-radius:999px;}
+  .alert-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px;}
+  .alert-tag{font-size:10.5px;font-weight:500;padding:3px 8px;border-radius:20px;white-space:nowrap;}
+  .tag-red{background:#FCEBEB;color:#791F1F;border:1px solid #A32D2D;} .tag-amber{background:#FAEEDA;color:#633806;border:1px solid #BA7517;} .tag-blue{background:#E6F1FB;color:#185FA5;border:1px solid #378ADD;} .tag-green{background:#E1F5EE;color:#0F6E56;border:1px solid #1D9E75;} .tag-gray{background:#F1EFE8;color:#444441;border:1px solid #888780;}
+  .client-actions{display:flex;gap:5px;flex-shrink:0;}
+  .action-btn{position:relative;z-index:2;width:28px;height:28px;border-radius:7px;border:1px solid rgba(26,26,46,0.1);background:white;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;text-decoration:none;transition:transform 150ms ease-out,border-color 150ms ease-out,background 150ms ease-out,box-shadow 150ms ease-out,color 150ms ease-out;color:#6b6b80;}
+  .action-btn:hover{border-color:#c9a84c;color:#c9a84c;}
+  .action-btn.action-btn-wide{width:auto;min-width:90px;padding:0 16px;font-size:12.5px;font-weight:600;letter-spacing:0.2px;}
+  .action-btn.action-btn-wide:hover{transform:scale(1.02);box-shadow:0 3px 10px rgba(26,26,46,0.08);}
+  .action-btn.action-btn-wide:active{transform:scale(0.98);}
+  .action-btn.action-btn-done{background:#edf8f2;border-color:#bde0cd;color:#2e9e6b;}
+  .action-btn.action-btn-done:hover{background:#dcf0e5;border-color:#2e9e6b;color:#2e9e6b;box-shadow:0 3px 10px rgba(46,158,107,0.15);}
+  .action-btn[data-tooltip]::after,
+  .action-btn[data-tooltip]::before{position:absolute;left:50%;opacity:0;pointer-events:none;transition:opacity 0.15s ease;z-index:100;}
+  .action-btn[data-tooltip]::after{content:attr(data-tooltip);bottom:calc(100% + 8px);transform:translateX(-50%);background:#1a1a2e;color:#fff;font-size:11px;font-weight:500;padding:5px 9px;border-radius:6px;white-space:nowrap;letter-spacing:0.2px;box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+  .action-btn[data-tooltip]::before{content:'';bottom:calc(100% + 3px);transform:translateX(-50%);border:5px solid transparent;border-top-color:#1a1a2e;}
+  .action-btn[data-tooltip]:hover::after,
+  .action-btn[data-tooltip]:hover::before{opacity:1;}
+
+  .task-tabs{display:flex;padding:0 18px;border-bottom:1px solid rgba(26,26,46,0.07);}
+  .task-tab{padding:9px 12px;font-size:12px;font-weight:500;color:#6b6b80;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;}
+  .task-tab.active{color:#1a1a2e;border-bottom-color:#c9a84c;}
+  .task-list{min-height:20px;}
+  .task-empty{padding:22px 18px;font-size:12px;color:#9b9baa;text-align:center;}
+  .task-row{position:relative;border-bottom:0.5px solid #e8e4dc;background:white;border-radius:0;box-shadow:none;}
+  .task-row:last-child{border-bottom:none;}
+  .task-main{display:flex;align-items:center;gap:12px;padding:12px 18px;min-height:52px;}
+  .task-row.confirming .task-main{display:none;}
+  .urgency-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;cursor:pointer;transition:transform 0.15s;position:relative;}
+  .urgency-dot:hover{transform:scale(1.25);}
+  .urgency-red{background:#e05454;}
+  .urgency-orange{background:#d4871a;}
+  .urgency-green{background:#2e9e6b;}
+  .urgency-none{background:transparent;cursor:default;}
+  .urgency-none:hover{transform:none;}
+  .task-row.done .urgency-dot{background:#2e9e6b;}
+  .task-row.done .urgency-dot::after{content:'✓';position:absolute;inset:0;color:white;font-size:7px;text-align:center;line-height:10px;font-weight:700;}
+  .priority-badge{font-size:9.5px;padding:2px 7px;border-radius:20px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;}
+  .priority-hoog{background:#fdf0f0;color:#c43838;}
+  .priority-normaal{background:#f0f0ee;color:#6b6b80;}
+  .priority-laag{background:#ebf4ff;color:#2563a8;}
+  .task-text{font-size:13px;color:#1a1a2e;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}
+  .task-row.done .task-text{text-decoration:line-through;color:#9b9baa;}
+  .task-client-pill{font-size:11px;background:rgba(201,168,76,0.15);color:#8a6a1a;padding:2px 8px;border-radius:20px;font-weight:500;flex-shrink:0;white-space:nowrap;margin-left:8px;}
+  .task-spacer{flex:1;min-width:6px;}
+  .task-date{font-size:11px;color:#6b6b80;flex-shrink:0;white-space:nowrap;}
+  .task-date.overdue{color:#e05454;font-weight:500;}
+  .task-category{font-size:10px;color:#6b6b80;background:#fafaf8;padding:2px 7px;border-radius:5px;border:1px solid rgba(26,26,46,0.08);flex-shrink:0;text-transform:capitalize;}
+  .task-delete{width:26px;height:26px;border-radius:6px;border:none;background:transparent;color:#9b9baa;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.12s,color 0.12s,opacity 0.12s;padding:0;opacity:0;}
+  .task-row:hover .task-delete{opacity:1;}
+  .task-delete:hover{background:#fdf0f0;color:#e05454;}
+  .task-confirm{display:none;align-items:center;gap:8px;padding:0 18px;height:52px;font-size:12px;color:#1a1a2e;background:#fdf0f0;}
+  .task-row.confirming .task-confirm{display:flex;}
+  .task-confirm-text{flex:1;font-weight:500;color:#c43838;}
+  .task-confirm-yes,.task-confirm-no{padding:5px 12px;font-size:11.5px;border-radius:6px;cursor:pointer;border:1px solid;font-family:inherit;font-weight:500;}
+  .task-confirm-yes{background:#e05454;color:white;border-color:#e05454;}
+  .task-confirm-yes:hover{background:#c43838;}
+  .task-confirm-no{background:white;color:#6b6b80;border-color:rgba(26,26,46,0.1);}
+  .task-confirm-no:hover{border-color:#1a1a2e;color:#1a1a2e;}
+
+  .task-form{padding:14px 18px;border-top:1px solid rgba(26,26,46,0.07);background:#fafaf8;display:flex;flex-direction:column;gap:9px;}
+  .task-form-input{padding:7px 10px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-size:12.5px;font-family:inherit;color:#1a1a2e;background:white;width:100%;}
+  .task-form-input:focus{outline:none;border-color:#c9a84c;}
+  .task-form-date{max-width:170px;}
+  .task-form-row{display:flex;gap:6px;align-items:center;position:relative;}
+  .task-form-client{flex:1;}
+  .task-form-client[readonly]{cursor:default;}
+  .task-form-link{background:transparent;border:1px solid rgba(201,168,76,0.4);color:#8a6a1a;font-size:11px;font-weight:500;cursor:pointer;padding:6px 10px;font-family:inherit;border-radius:6px;white-space:nowrap;transition:all 0.12s;}
+  .task-form-link:hover{background:rgba(201,168,76,0.12);border-color:#c9a84c;}
+  .task-form-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;background:white;border:1px solid rgba(26,26,46,0.12);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.1);max-height:180px;overflow-y:auto;z-index:30;}
+  .task-form-dropdown-item{padding:8px 12px;font-size:12px;color:#1a1a2e;cursor:pointer;}
+  .task-form-dropdown-item:hover{background:#fafaf8;color:#c9a84c;}
+  .task-form-dropdown-clear{padding:8px 12px;font-size:11.5px;color:#6b6b80;cursor:pointer;border-top:1px solid rgba(26,26,46,0.06);font-style:italic;}
+  .task-form-dropdown-clear:hover{background:#fdf0f0;color:#e05454;}
+  .task-form-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .task-form-label{font-size:10px;color:#6b6b80;text-transform:uppercase;letter-spacing:0.7px;font-weight:600;min-width:70px;}
+  .task-form-toggle{display:flex;gap:4px;}
+  .task-form-toggle button{padding:5px 10px;font-size:11px;font-weight:500;border-radius:6px;cursor:pointer;border:1px solid rgba(26,26,46,0.12);background:white;color:#6b6b80;font-family:inherit;transition:all 0.12s;}
+  .task-form-toggle button.active{background:#0f0f1a;color:#c9a84c;border-color:#0f0f1a;}
+  .task-form-toggle button:hover{border-color:#c9a84c;}
+  .task-form-actions{display:flex;gap:6px;justify-content:flex-end;margin-top:2px;}
+  .task-form-cancel,.task-form-save{padding:6px 12px;font-size:11.5px;font-weight:500;border-radius:6px;cursor:pointer;font-family:inherit;border:1px solid rgba(26,26,46,0.1);background:white;color:#6b6b80;transition:all 0.12s;}
+  .task-form-cancel:hover{border-color:#e05454;color:#e05454;}
+  .task-form-save{background:#0f0f1a;color:#c9a84c;border-color:#0f0f1a;}
+  .task-form-save:hover{background:#1a1a2e;color:#c9a84c;}
+
+  .tp-header{align-items:flex-start;}
+  .tp-header-left{display:flex;flex-direction:column;gap:2px;min-width:0;}
+  .tp-pct-inline{font-size:13px;color:#c9a84c;font-weight:600;margin-left:4px;}
+  .tp-sub-line{font-size:11.5px;color:#6b6b80;margin-top:4px;}
+  .tp-see-all{font-size:12px;color:#c9a84c;text-decoration:none;font-weight:500;white-space:nowrap;flex-shrink:0;transition:color 0.12s;}
+  .tp-see-all:hover{color:#1a1a2e;}
+  .bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;align-items:start;}
+  @media (max-width:1100px){.bottom-grid{grid-template-columns:1fr;}}
+  .tp-row-flash{background:#d9eee3 !important;transition:background 380ms ease-out;}
+  .tp-count-badge{font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:rgba(26,26,46,0.06);color:#4a4a5a;letter-spacing:0.3px;flex-shrink:0;}
+  .tp-count-badge.tp-count-done{background:#e5f4eb;color:#1a7a4a;}
+  .stale-empty{padding:22px 18px;color:#1a7a4a;background:#edf8f2;margin:12px 18px;border-radius:10px;font-size:13px;text-align:center;font-weight:500;border:1px solid #bde0cd;}
+
+  /* Touch points horizontaal scrollbaar (nieuwe layout) */
+  .tp-hrow{display:flex;gap:10px;overflow-x:auto;padding:10px 16px 14px;scrollbar-width:thin;}
+  .tp-hrow::-webkit-scrollbar{height:6px;}
+  .tp-hrow::-webkit-scrollbar-thumb{background:rgba(26,26,46,0.15);border-radius:3px;}
+  .tp-card{flex-shrink:0;width:140px;background:#fff;border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:12px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:all 0.15s;}
+  .tp-card:hover{border-color:#c9a84c;transform:translateY(-1px);box-shadow:0 4px 12px rgba(201,168,76,0.1);}
+  .tp-card.tp-done{opacity:0.7;background:#edf8f2;border-color:#bde0cd;}
+  .tp-card.tp-done:hover{opacity:0.9;}
+  .tp-avatar-lg{width:44px;height:44px;font-size:15px;}
+  .tp-card-naam{font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+  .coach-toast{position:fixed;right:22px;bottom:22px;padding:11px 16px 11px 14px;border-radius:10px;font-size:13px;font-weight:600;color:white;box-shadow:0 10px 26px rgba(0,0,0,0.18),0 1px 3px rgba(0,0,0,0.08);z-index:9999;opacity:0;transform:translateY(10px) scale(0.96);transition:opacity 200ms ease-out,transform 200ms ease-out;pointer-events:none;max-width:320px;line-height:1.35;}
+  .coach-toast-show{opacity:1;transform:translateY(0) scale(1);}
+  .coach-toast-success{background:linear-gradient(135deg,#2e9e6b 0%,#1a7a4a 100%);}
+  .coach-toast-success::before{content:'✓ ';font-weight:700;}
+  .coach-toast-error{background:linear-gradient(135deg,#c43838 0%,#8a2020 100%);}
+  .coach-toast-error::before{content:'✕ ';font-weight:700;}
+
+  /* Coach chat modal — donker/goud */
+  .cc-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;backdrop-filter:blur(2px);}
+  .cc-overlay.open{display:flex;}
+  .cc-card{background:#0f0f1a;border:1px solid rgba(201,168,76,0.18);border-radius:14px;width:100%;max-width:520px;max-height:86vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);}
+  .cc-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);background:#1a1a2a;}
+  .cc-head-l .cc-title{font-size:16px;font-weight:700;color:#c9a84c;letter-spacing:0.2px;}
+  .cc-head-l .cc-sub{font-size:10.5px;color:rgba(255,255,255,0.4);margin-top:3px;letter-spacing:1.8px;text-transform:uppercase;font-weight:600;}
+  .cc-close{background:transparent;border:none;color:rgba(255,255,255,0.55);font-size:22px;cursor:pointer;padding:4px 10px;line-height:1;font-family:inherit;}
+  .cc-close:hover{color:#c9a84c;}
+  .cc-thread{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:10px;background:#0f0f1a;}
+  .cc-empty{padding:34px 12px;text-align:center;color:rgba(255,255,255,0.4);font-size:12.5px;}
+  .cc-msg{max-width:78%;display:flex;flex-direction:column;gap:3px;}
+  .cc-msg.me{align-self:flex-end;align-items:flex-end;}
+  .cc-msg.them{align-self:flex-start;align-items:flex-start;}
+  .cc-bub{padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.45;white-space:pre-wrap;word-break:break-word;}
+  .cc-msg.them .cc-bub{background:#1a1a2a;color:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.08);border-bottom-left-radius:4px;}
+  .cc-msg.me .cc-bub{background:#c9a84c;color:#0f0f1a;border-bottom-right-radius:4px;font-weight:600;}
+  .cc-time{font-size:10.5px;color:rgba(255,255,255,0.35);}
+  .cc-foot{display:flex;gap:8px;padding:12px 16px;border-top:1px solid rgba(255,255,255,0.06);background:#1a1a2a;}
+  .cc-input{flex:1;padding:10px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:999px;font-size:13.5px;font-family:inherit;background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.92);min-height:40px;resize:none;}
+  .cc-input::placeholder{color:rgba(255,255,255,0.35);}
+  .cc-input:focus{outline:none;border-color:#c9a84c;background:rgba(255,255,255,0.06);}
+  .cc-send{padding:10px 16px;background:#c9a84c;color:#0f0f1a;border:none;border-radius:999px;font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap;transition:background 0.15s;}
+  .cc-send:hover{background:#d4b75c;}
+  .cc-send:disabled{opacity:0.5;cursor:not-allowed;}
+
+  /* Wachtwoord reset modal */
+  .ww-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);display:none;align-items:center;justify-content:center;z-index:210;padding:20px;backdrop-filter:blur(2px);}
+  .ww-overlay.open{display:flex;}
+  .ww-card{background:#0f0f1a;border:1px solid rgba(201,168,76,0.22);border-radius:14px;width:100%;max-width:420px;overflow:hidden;color:rgba(255,255,255,0.9);box-shadow:0 24px 70px rgba(0,0,0,0.6);}
+  .ww-head{padding:18px 22px;border-bottom:1px solid rgba(255,255,255,0.06);background:#1a1a2a;}
+  .ww-title{font-size:16px;font-weight:700;color:#c9a84c;}
+  .ww-sub{font-size:10.5px;color:rgba(255,255,255,0.4);letter-spacing:1.8px;text-transform:uppercase;margin-top:3px;font-weight:600;}
+  .ww-body{padding:22px;text-align:center;}
+  .ww-label{font-size:10.5px;color:rgba(255,255,255,0.5);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:10px;}
+  .ww-pw{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:24px;font-weight:700;color:#c9a84c;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);border-radius:10px;padding:14px 16px;letter-spacing:1px;word-break:break-all;}
+  .ww-info{font-size:12px;color:rgba(255,255,255,0.55);margin-top:14px;line-height:1.5;}
+  .ww-foot{display:flex;gap:8px;padding:14px 20px 20px;}
+  .ww-btn{flex:1;padding:10px 14px;border-radius:9px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;}
+  .ww-btn.primary{background:#c9a84c;color:#0f0f1a;}
+  .ww-btn.primary:hover{background:#d4b75c;}
+  .ww-btn.secondary{background:transparent;color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.15);}
+  .ww-btn.secondary:hover{border-color:#c9a84c;color:#c9a84c;}
+  .ww-copied{font-size:11.5px;color:#2e9e6b;margin-top:10px;display:none;}
+  .ww-copied.show{display:block;}
+
+  /* ============= Nieuwe-klant snel-aanmaak ============= */
+  .page-actions{display:flex;align-items:center;gap:8px;}
+  .coach-newbtn{padding:10px 18px;font-size:13.5px;font-weight:700;background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);color:#0f0f1a;border:none;border-radius:9px;cursor:pointer;font-family:inherit;letter-spacing:0.2px;box-shadow:0 0 24px rgba(201,168,76,0.35),0 4px 16px rgba(184,147,47,0.2);transition:all 0.2s ease;}
+  .coach-newbtn:hover{background:linear-gradient(135deg,#e6c76a 0%,#c9a84c 100%);box-shadow:0 0 32px rgba(201,168,76,0.5),0 6px 20px rgba(184,147,47,0.3);transform:translateY(-1px);}
+  .coach-newbtn:active{transform:translateY(0);}
+  .coach-modal-overlay{position:fixed;inset:0;background:rgba(15,15,26,0.65);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;z-index:220;padding:20px;}
+  .coach-modal-overlay[hidden]{display:none;}
+  .coach-modal-card{background:#1a1a2a;border:1px solid rgba(201,168,76,0.22);border-radius:14px;width:100%;max-width:420px;padding:26px 28px;color:rgba(255,255,255,0.92);box-shadow:0 24px 70px rgba(0,0,0,0.6);}
+  .coach-modal-titel{font-size:18px;font-weight:700;color:#c9a84c;letter-spacing:0.2px;}
+  .coach-modal-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-top:6px;line-height:1.5;}
+  .coach-modal-err{margin-top:14px;font-size:12.5px;color:#ff9999;background:rgba(224,84,84,0.12);border:1px solid rgba(224,84,84,0.35);padding:9px 12px;border-radius:8px;}
+  .coach-modal-label{display:block;font-size:10.5px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.8px;font-weight:600;margin:14px 0 6px;}
+  .coach-modal-input{width:100%;padding:10px 13px;border:1px solid rgba(255,255,255,0.12);border-radius:8px;font-size:14px;font-family:inherit;background:rgba(255,255,255,0.04);color:white;transition:border-color 0.15s,background 0.15s;}
+  .coach-modal-input:focus{outline:none;border-color:#c9a84c;background:rgba(255,255,255,0.06);}
+  .coach-modal-hint{font-size:11px;color:rgba(255,255,255,0.4);margin-top:5px;letter-spacing:0.1px;}
+  .coach-modal-acties{display:flex;gap:8px;margin-top:20px;}
+  .coach-modal-btn{flex:1;padding:11px 14px;border-radius:9px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;letter-spacing:0.2px;}
+  .coach-modal-btn-primary{background:#c9a84c;color:#0f0f1a;}
+  .coach-modal-btn-primary:hover{background:#d4b75c;}
+  .coach-modal-btn-primary:disabled{background:rgba(201,168,76,0.5);cursor:not-allowed;}
+  .coach-modal-btn-ghost{background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.15);}
+  .coach-modal-btn-ghost:hover{border-color:#c9a84c;color:#c9a84c;}
+  /* Toast bovenaan dashboard met inloggegevens (30 sec, overleeft reload). */
+  .coach-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#1a1a2a;border:1px solid rgba(34,197,94,0.45);border-radius:12px;padding:14px 44px 14px 18px;color:rgba(255,255,255,0.92);box-shadow:0 16px 50px rgba(0,0,0,0.55);z-index:215;max-width:520px;width:calc(100% - 32px);font-size:13px;line-height:1.55;}
+  .coach-toast[hidden]{display:none;}
+  .coach-toast strong{color:#22c55e;font-size:13.5px;letter-spacing:0.2px;}
+  .coach-toast code{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);border-radius:5px;padding:1px 6px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:#c9a84c;}
+  .coach-toast-close{position:absolute;top:8px;right:10px;background:transparent;border:none;color:rgba(255,255,255,0.5);font-size:20px;line-height:1;cursor:pointer;padding:4px 8px;}
+  .coach-toast-close:hover{color:#c9a84c;}
+
+  /* === DASHBOARD T2: hero, 2-koloms grid, pipeline, business pulse === */
+  .dash-hero{position:relative;background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 50%,#0f0f1a 100%);border-radius:14px;padding:24px 28px;margin-bottom:16px;overflow:hidden;box-shadow:0 6px 24px rgba(15,15,26,0.2);}
+  .dash-hero::after{content:'';position:absolute;top:-40px;right:-40px;width:280px;height:280px;background:radial-gradient(circle,rgba(217,183,90,0.22) 0%,transparent 70%);pointer-events:none;}
+  .dash-hero-label{font-size:11px;font-weight:700;color:#d9b75a;letter-spacing:0.5px;margin-bottom:8px;position:relative;z-index:2;text-shadow:0 1px 2px rgba(0,0,0,0.4);}
+  .dash-hero-tekst{font-size:16px;line-height:1.5;color:#fff;font-weight:500;position:relative;z-index:2;text-shadow:0 1px 2px rgba(0,0,0,0.4);max-width:780px;}
+  .dash-hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;position:relative;z-index:2;}
+  .dash-hero-badge{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,0.1);color:#fff;border-radius:8px;font-size:12.5px;font-weight:600;text-decoration:none;transition:all 0.15s;border:1px solid rgba(255,255,255,0.08);}
+  .dash-hero-badge:hover{background:rgba(255,255,255,0.18);transform:translateY(-1px);border-color:rgba(217,183,90,0.4);}
+  .dash-hero-dot{width:7px;height:7px;border-radius:50%;background:#ef4444;box-shadow:0 0 0 0 rgba(239,68,68,0.7);animation:dashpulse 1.6s infinite;}
+  @keyframes dashpulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,0.7);}70%{box-shadow:0 0 0 8px rgba(239,68,68,0);}100%{box-shadow:0 0 0 0 rgba(239,68,68,0);}}
+
+  .dash-2col{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px;align-items:start;}
+  @media (max-width:1024px){.dash-2col{grid-template-columns:1fr;}}
+  .dash-aandacht-col{min-width:0;}
+  .dash-vandaag-col{min-width:0;}
+  .dash-vandaag-card{padding:18px 18px 14px;max-height:600px;overflow-y:auto;}
+  .dash-vandaag-title{font-size:16px;font-weight:500;margin-bottom:14px;color:#1a1a2e;}
+  .dash-vandaag-sub{display:flex;flex-direction:column;gap:8px;}
+  .dash-vandaag-sub-head{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;font-weight:700;color:#6b6b80;letter-spacing:0.3px;text-transform:uppercase;}
+  .dash-vandaag-badge{background:rgba(201,168,76,0.18);color:#1a1a2e;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:700;text-transform:none;letter-spacing:0;}
+  .dash-vandaag-leeg{font-size:12.5px;color:#9b9baa;padding:6px 2px;}
+  .dash-vandaag-divider{height:1px;background:rgba(26,26,46,0.08);margin:14px 0;}
+  .dash-vandaag-row{display:flex;align-items:center;gap:10px;padding:8px;border-radius:8px;text-decoration:none;color:inherit;transition:background 0.12s;}
+  .dash-vandaag-row:hover{background:rgba(201,168,76,0.06);}
+  .dash-vandaag-av{width:30px;height:30px;border-radius:50%;background:#c9a84c;color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+  .dash-vandaag-row-info{flex:1;min-width:0;}
+  .dash-vandaag-row-naam{font-size:13px;font-weight:600;color:#1a1a2e;}
+  .dash-vandaag-row-meta{font-size:11.5px;color:#6b6b80;margin-top:1px;}
+  .dash-vandaag-btn-outline{display:block;text-align:center;margin-top:8px;padding:8px 14px;font-size:12.5px;font-weight:600;color:#c9a84c;background:transparent;border:1px solid rgba(201,168,76,0.4);border-radius:8px;text-decoration:none;transition:all 0.12s;}
+  .dash-vandaag-btn-outline:hover{background:rgba(201,168,76,0.08);border-color:#c9a84c;}
+
+  .dash-section-title{font-size:16px;font-weight:500;color:#1a1a2e;margin-bottom:12px;}
+  .dash-pipeline-card{padding:18px;margin-bottom:16px;}
+  .dash-pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  @media (max-width:1024px){.dash-pipeline{grid-template-columns:repeat(2,1fr);}}
+  .dash-pipe{display:flex;flex-direction:column;gap:4px;padding:14px 16px;min-height:90px;border-radius:10px;text-decoration:none;color:#1a1a2e;transition:transform 0.15s,box-shadow 0.15s;}
+  .dash-pipe:hover{transform:scale(1.02);box-shadow:0 4px 14px rgba(15,15,26,0.08);}
+  .dash-pipe-naam{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#6b6b80;}
+  .dash-pipe-getal{font-size:26px;font-weight:700;color:#1a1a2e;line-height:1.1;}
+  .dash-pipe-sub{font-size:11.5px;color:#6b6b80;}
+  .dash-pipe-1{background:rgba(201,168,76,0.08);border:2px solid #d9b75a;}
+  .dash-pipe-2{background:rgba(201,168,76,0.12);border:2px solid #b8932f;}
+  .dash-pipe-3{background:rgba(143,209,106,0.10);border:2px solid #5fa830;}
+  .dash-pipe-4{background:#fffdf6;border:2px solid #c9a84c;}
+  .dash-pipe-5{background:rgba(26,26,46,0.05);border:2px solid rgba(26,26,46,0.2);}
+
+  .dash-pulse-card{padding:18px;margin-bottom:16px;}
+  .dash-pulse{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  @media (max-width:1024px){.dash-pulse{grid-template-columns:repeat(2,1fr);}}
+  .dash-pulse-metric{background:#faf3e0;border-radius:10px;padding:18px;}
+  .dash-pulse-getal{font-size:24px;font-weight:500;color:#1a1a2e;line-height:1.1;}
+  .dash-pulse-getal-sub{font-size:14px;color:#6b6b80;font-weight:500;}
+  .dash-pulse-label{font-size:12.5px;color:#6b6b80;margin-top:4px;font-weight:600;}
+  .dash-pulse-sub{font-size:11.5px;color:#9b9baa;margin-top:6px;}
+  .dash-pulse-sub.pulse-pos{color:#5fa830;}
+  .dash-pulse-sub.pulse-neg{color:#ef4444;}
+
+  /* ===== Mobile breakpoints (<=560px) =====
+     Pipeline en pulse stacken naar 1-koloms zodat de getallen leesbaar
+     blijven op iPhone-formaat. Hero-badge en pipeline-cards krijgen wat
+     ademruimte. Geen functionele wijzigingen, alleen layout. */
+  @media (max-width:560px){
+    .dash-pipeline{grid-template-columns:1fr;}
+    .dash-pulse{grid-template-columns:1fr;}
+    .dash-pipe{min-height:auto;padding:12px 14px;}
+    .dash-pipe-getal{font-size:22px;}
+    .dash-pulse-card,.dash-pipeline-card,.dash-vandaag-card{padding:14px;}
+    .dash-pulse-metric{padding:14px;}
+  }
+  /* Touch-devices: zorg dat alle interactieve elementen ≥44px tap-target zijn. */
+  @media (hover:none) and (pointer:coarse){
+    .dash-hero-badge,.dash-vandaag-btn-outline,.dash-pipe,.dash-vandaag-row{min-height:44px;}
+  }
+</style>
+<div class="ww-overlay" id="wwResetModal">
+  <div class="ww-card">
+    <div class="ww-head">
+      <div class="ww-title" id="wwTitle">Wachtwoord reset</div>
+      <div class="ww-sub">Deel dit tijdelijk met je klant</div>
+    </div>
+    <div class="ww-body">
+      <div class="ww-label">Nieuw wachtwoord</div>
+      <div class="ww-pw" id="wwPw">—</div>
+      <div class="ww-info" id="wwInfo"></div>
+      <div class="ww-copied" id="wwCopied">✓ Gekopieerd naar klembord</div>
+    </div>
+    <div class="ww-foot">
+      <button type="button" class="ww-btn secondary" onclick="document.getElementById('wwResetModal').classList.remove('open')">Sluiten</button>
+      <button type="button" class="ww-btn primary" id="wwCopyBtn">Kopieer</button>
+    </div>
+  </div>
+</div>
+
+<div class="cc-overlay" id="coachChatModal">
+  <div class="cc-card" role="dialog" aria-labelledby="ccKlantNaam">
+    <div class="cc-head">
+      <div class="cc-head-l">
+        <div class="cc-title" id="ccKlantNaam">Klant</div>
+        <div class="cc-sub">Chat · bericht komt in klantdashboard</div>
+      </div>
+      <button type="button" class="cc-close" onclick="closeCoachChat()" aria-label="Sluiten">×</button>
+    </div>
+    <div class="cc-thread" id="ccThread"></div>
+    <div class="cc-foot">
+      <textarea id="ccInput" class="cc-input" placeholder="Typ een bericht…" rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();verstuurCoachBericht();}"></textarea>
+      <button type="button" class="cc-send" id="ccSend" onclick="verstuurCoachBericht()">Verstuur</button>
+    </div>
+  </div>
+</div>
+
+<div class="coach-sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">Hoedt Coaching</div>
+      <div class="logo-sub">Coach Dashboard</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-label">Overzicht</div>
+      <a class="nav-item active" href="/coach">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>Dashboard
+        
+      </a>
+      <a class="nav-item" href="/coach/analytics">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>Analytics
+      </a>
+      <a class="nav-item" href="/coach/aandacht">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Aandacht nodig
+      </a>
+      <a class="nav-item" href="/coach/taken">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span>Taken
+      </a>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/klanten">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="nav-group-label">Klanten</span>
+          <span class="nav-badge">3</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/intakes">
+            Intakes
+            <span class="nav-badge-amber">8</span>
+          </a>
+          <a class="nav-item nav-sub-item" href="/coach/checkins">
+            Check-ins
+            <span class="nav-badge">11</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav-item" href="/coach/chat">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Chat
+        <span class="nav-badge" id="coachChatNavBadge" style="display:none;"></span>
+      </a>
+
+      <a class="nav-item" href="/coach/eind-vragenlijsten">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>Eind-vragenlijsten
+      </a>
+
+      <a class="nav-item" href="/coach/feedback-stats">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>AI-feedback
+      </a>
+
+      <a class="nav-item" href="/coach/instellingen">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Instellingen
+      </a>
+
+      <div class="nav-label">Schema Builder</div>
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+          <span class="nav-group-label">Voeding</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding?tab=producten">Producten</a>
+        </div>
+      </div>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/training?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
+          <span class="nav-group-label">Training</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="coach-av">DH</div>
+        <div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:500;">Daniel Hoedt</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);">Head Coach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<style>
+  .toast-success{position:fixed;top:20px;right:20px;background:#2e9e6b;color:white;padding:12px 18px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.18);z-index:9999;transition:opacity 0.4s ease,transform 0.3s ease;max-width:340px;}
+  .breadcrumbs{font-size:11.5px;color:#9b9baa;margin-top:3px;}
+  .breadcrumbs a{color:#6b6b80;text-decoration:none;}
+  .breadcrumbs a:hover{color:#c9a84c;}
+  .breadcrumbs .crumb-sep{margin:0 6px;opacity:0.5;}
+  button[type="submit"]:disabled,.sb-btn:disabled{opacity:0.6;cursor:wait !important;}
+  /* Sidebar-iconen: SVG-set op maat (overschrijft de oude emoji font-size regel) */
+  .coach-sidebar .nav-icon{width:16px;height:16px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;}
+  .coach-sidebar .nav-icon svg{width:16px;height:16px;stroke-width:1.9;opacity:0.9;}
+  .coach-sidebar .nav-item.active .nav-icon svg,.coach-sidebar .nav-group-head.active .nav-icon svg{opacity:1;}
+  /* Sidebar accordeon-groepen — data-open attribute drives visibility */
+  .coach-sidebar .nav-group{display:block;}
+  .coach-sidebar .nav-group-head{display:flex;align-items:center;gap:9px;padding:10px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;cursor:pointer;}
+  .coach-sidebar .nav-group-head:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .coach-sidebar .nav-group-head.active{background:rgba(201,168,76,0.08);color:#c9a84c;border-left-color:#c9a84c;}
+  .coach-sidebar .nav-group-label{flex:1;}
+  .coach-sidebar .nav-chevron{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;color:#c9a84c;font-size:18px;line-height:1;font-weight:700;transition:transform 0.2s ease,color 0.15s ease,background 0.15s ease;border-radius:4px;cursor:pointer;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
+  .coach-sidebar .nav-chevron:hover{color:#ffffff;background:rgba(201,168,76,0.18);}
+  .coach-sidebar .nav-group[data-open="true"] > .nav-group-head .nav-chevron{transform:rotate(180deg);color:#ffffff;}
+  .coach-sidebar .nav-group[data-open="false"] .nav-group-body{display:none !important;}
+  @media (max-width:768px){
+    body{display:block !important;}
+    .coach-sidebar{position:static !important;width:100% !important;min-height:0 !important;flex-direction:row !important;overflow-x:auto;padding:8px 12px !important;z-index:10;}
+    .coach-sidebar .sidebar-logo,.coach-sidebar .sidebar-footer,.coach-sidebar .nav-label{display:none;}
+    .coach-sidebar .sidebar-nav{display:flex;flex-direction:row;padding:0;gap:2px;overflow-x:auto;flex:1;}
+    .coach-sidebar .nav-item,.coach-sidebar .nav-sub-item{flex:0 0 auto;white-space:nowrap;padding:8px 14px !important;font-size:12px !important;border-left:none !important;border-bottom:2px solid transparent;}
+    .coach-sidebar .nav-item.active{background:transparent !important;border-bottom-color:#c9a84c !important;}
+    .coach-main{margin-left:0 !important;padding:16px !important;}
+    .main-col,.two-col,.three-col,.kp-grid,.kp-targets-row,.aanp-current-grid,.gen-grid-3,.gen-grid-4,.kl-toolbar,.clients-grid,.sb-dv-layout,.sb-koppel-split{grid-template-columns:1fr !important;display:block !important;}
+    .main-col > *,.two-col > *,.three-col > *,.kp-grid > *,.sb-koppel-split > *{margin-bottom:12px;}
+    .kl-table{display:block;}
+    .kl-table thead{display:none;}
+    .kl-table tbody,.kl-table tr,.kl-table td{display:block;width:100%;}
+    .kl-table tr{border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 14px;margin-bottom:8px;background:white;}
+    .kl-table td{border:none !important;padding:4px 0 !important;}
+    .kl-table td:before{content:attr(data-label);display:inline-block;font-size:10px;text-transform:uppercase;color:#9b9baa;min-width:120px;font-weight:600;}
+    button,.sb-btn,.coc-btn,input[type="submit"]{min-height:40px;}
+    .page-header{flex-direction:column;align-items:flex-start !important;gap:10px;}
+  }
+  @media print{
+    .coach-sidebar,.sb-subtabs,.sb-tabs-nav,button,.sb-btn,.page-actions,.res-actions,.sb-actions-cell,.task-form,.kd-log-form,.task-tabs,.filter-tabs,.sb-cat-tabs,.client-actions,.kl-toolbar,.aanp-actions,.toast-success,.breadcrumbs{display:none !important;}
+    .coach-main{margin-left:0 !important;padding:0 !important;}
+    body{background:white !important;color:black !important;}
+    .card,.sb-card,.kp-card,.kd-section,.res-day-panel,.gen-section,.aanp-panel{box-shadow:none !important;border:1px solid #ddd !important;break-inside:avoid;page-break-inside:avoid;}
+    .res-day-panel{display:block !important;page-break-before:always;}
+    .res-day-panel:first-child{page-break-before:auto;}
+    .res-day-tabs{display:none !important;}
+    a{text-decoration:none;color:black !important;}
+  }
+</style>
+<script>
+  (function(){
+    // Loading states: disable submit buttons during form submission
+    document.addEventListener('submit',function(ev){
+      var f=ev.target;if(!(f instanceof HTMLFormElement))return;
+      var btns=f.querySelectorAll('button[type="submit"],input[type="submit"]');
+      setTimeout(function(){
+        btns.forEach(function(b){
+          if(b.disabled)return;
+          b.dataset.origText=b.textContent;
+          b.disabled=true;
+          if(b.tagName==='BUTTON'&&b.textContent.trim())b.textContent='Opslaan...';
+        });
+      },0);
+      // Re-enable after 20s as safety net
+      setTimeout(function(){
+        btns.forEach(function(b){
+          b.disabled=false;
+          if(b.dataset.origText){b.textContent=b.dataset.origText;}
+        });
+      },20000);
+    });
+    // Flash toast via cookie
+    var m=document.cookie.match(/(?:^|;\s*)flash_success=([^;]+)/);
+    if(m){
+      document.cookie='flash_success=; Path=/; Max-Age=0';
+      var msg=decodeURIComponent(m[1])||'Opgeslagen ✓';
+      var t=document.createElement('div');
+      t.className='toast-success';
+      t.textContent=msg;
+      document.body.appendChild(t);
+      setTimeout(function(){t.style.opacity='0';t.style.transform='translateY(-8px)';},2500);
+      setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},3000);
+    }
+    // Chat-badge: aantal ongelezen klant-berichten, poll elke 15s
+    async function updateCoachChatBadge(){
+      try{
+        var r=await fetch('/api/coach/berichten/overzicht',{credentials:'same-origin'});
+        if(!r.ok)return;
+        var data=await r.json();
+        var totaal=(data.klanten||[]).reduce(function(a,k){return a+(Number(k.ongelezen_klant_antwoord)||0);},0);
+        var badge=document.getElementById('coachChatNavBadge');
+        if(!badge)return;
+        if(totaal>0){badge.style.display='';badge.textContent=String(totaal);}
+        else{badge.style.display='none';}
+      }catch(e){}
+    }
+    if(document.getElementById('coachChatNavBadge')){
+      updateCoachChatBadge();
+      setInterval(function(){if(!document.hidden)updateCoachChatBadge();},15000);
+    }
+    // Sidebar-accordeon: chevron-klik toggelt data-open zonder navigatie
+    document.addEventListener('click',function(ev){
+      var chev=ev.target.closest && ev.target.closest('.coach-sidebar .nav-chevron');
+      if(!chev)return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      var group=chev.closest('.nav-group');
+      if(!group)return;
+      group.setAttribute('data-open', group.getAttribute('data-open') === 'true' ? 'false' : 'true');
+    });
+  })();
+</script>
+
+<div class="coach-main">
+  <div class="page-header">
+    <div>
+      <div class="page-title">Dashboard</div>
+      <div class="page-date">zondag 19 juli 2026</div>
+    </div>
+    <div class="page-actions">
+      <button type="button" class="coach-newbtn" id="coachNewKlantBtn" aria-label="Nieuwe klant aanmaken">+ Nieuwe klant</button>
+    </div>
+  </div>
+
+  <!-- Toast voor "klant aangemaakt"-bevestiging (30 sec zichtbaar). -->
+  <div class="coach-toast" id="coachNewKlantToast" hidden>
+    <div class="coach-toast-body" id="coachNewKlantToastBody"></div>
+    <button type="button" class="coach-toast-close" id="coachNewKlantToastClose" aria-label="Sluiten">×</button>
+  </div>
+
+  <!-- Modal: Nieuwe klant aanmaken (snel, zonder intake-flow). -->
+  <div class="coach-modal-overlay" id="coachNewKlantOverlay" hidden>
+    <div class="coach-modal-card" role="dialog" aria-labelledby="coachNewKlantTitel" aria-modal="true">
+      <div class="coach-modal-titel" id="coachNewKlantTitel">Nieuwe klant aanmaken</div>
+      <div class="coach-modal-sub">Snel test-account, zonder intake-flow. Klant doorloopt onboarding zelf bij eerste login.</div>
+      <div class="coach-modal-err" id="coachNewKlantErr" hidden></div>
+      <form id="coachNewKlantForm" novalidate>
+        <label class="coach-modal-label" for="cnkNaam">Naam</label>
+        <input type="text" id="cnkNaam" name="naam" autocomplete="name" required class="coach-modal-input" />
+
+        <label class="coach-modal-label" for="cnkEmail">E-mailadres</label>
+        <input type="email" id="cnkEmail" name="email" autocomplete="off" required class="coach-modal-input" />
+
+        <label class="coach-modal-label" for="cnkWachtwoord">Wachtwoord</label>
+        <input type="text" id="cnkWachtwoord" name="wachtwoord" autocomplete="off" required minlength="6" value="test12345" class="coach-modal-input" />
+        <div class="coach-modal-hint">Minimaal 6 tekens. Default: test12345.</div>
+
+        <div class="coach-modal-label" style="margin-top:10px;">Traject</div>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer;margin:4px 0;">
+          <input type="radio" name="cnkTraject" value="12wk_eenmalig" checked /> 12 weken coaching — €1.210 eenmalig
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer;margin:0 0 8px;">
+          <input type="radio" name="cnkTraject" value="12wk_maand" /> 12 weken coaching — 3× €453,75 maandelijks
+        </label>
+
+        <div class="coach-modal-acties">
+          <button type="button" class="coach-modal-btn coach-modal-btn-ghost" id="coachNewKlantAnnuleer">Annuleren</button>
+          <button type="submit" class="coach-modal-btn coach-modal-btn-primary" id="coachNewKlantSubmit">Aanmaken</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+
+  <!-- SECTIE 2: Hero dag-overzicht balk -->
+  <div class="dash-hero">
+    <div class="dash-hero-label">VANDAAG</div>
+    <div class="dash-hero-tekst">Goedemorgen Daniel. 0 berichten wachten op goedkeuring, 1 intake klaar voor schema, en 2 klanten hebben urgent aandacht nodig.</div>
+    <div class="dash-hero-badges">
+      <a class="dash-hero-badge" href="#aandacht-blok-mount">
+        <span class="dash-hero-dot"></span>
+        Bekijk berichten
+      </a>
+      <a class="dash-hero-badge" href="/coach/intakes">1 intake klaarzetten</a>
+      <a class="dash-hero-badge" href="/coach/aandacht">Naar Aandacht nodig</a>
+    </div>
+  </div>
+
+  <!-- SECTIE 3: 2-koloms grid — Aandacht Nodig (T1) links, Vandaag-blok rechts -->
+  <div class="dash-2col">
+    <div class="dash-aandacht-col" id="aandacht-blok-mount">
+      
+<style>
+  .aabl-card{background:linear-gradient(180deg,#fffdf6 0%,#faf3e0 100%);border:1px solid rgba(201,168,76,0.25);border-radius:14px;box-shadow:0 2px 8px rgba(15,15,26,0.04),0 1px 2px rgba(15,15,26,0.02);overflow:hidden;}
+  .aabl-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 0;flex-wrap:wrap;gap:10px;}
+  .aabl-tabs{display:inline-flex;gap:4px;background:rgba(26,26,46,0.05);padding:4px;border-radius:10px;}
+  .aabl-tab{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;background:transparent;border:none;border-radius:7px;font-family:inherit;font-size:12.5px;font-weight:600;color:#6b6b80;cursor:pointer;transition:background 0.12s,color 0.12s;}
+  .aabl-tab:hover{color:#1a1a2e;}
+  .aabl-tab.aabl-tab-actief{background:#0f0f1a;color:#fffdf6;}
+  .aabl-tab-badge{display:inline-flex;align-items:center;justify-content:center;min-width:18px;padding:1px 7px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:0.2px;}
+  .aabl-tab[data-tab="tab1"] .aabl-tab-badge{background:rgba(224,84,84,0.18);color:#a02828;}
+  .aabl-tab[data-tab="tab2"] .aabl-tab-badge{background:rgba(201,168,76,0.2);color:#8a6a1a;}
+  .aabl-tab[data-tab="tab3"] .aabl-tab-badge{background:rgba(46,158,107,0.18);color:#1a7a4a;}
+  .aabl-tab.aabl-tab-actief[data-tab="tab1"] .aabl-tab-badge{background:rgba(224,84,84,0.35);color:#fff;}
+  .aabl-tab.aabl-tab-actief[data-tab="tab2"] .aabl-tab-badge{background:rgba(201,168,76,0.5);color:#0f0f1a;}
+  .aabl-tab.aabl-tab-actief[data-tab="tab3"] .aabl-tab-badge{background:rgba(46,158,107,0.4);color:#fff;}
+  .aabl-alle-link{font-size:12.5px;color:#c9a84c;text-decoration:none;font-weight:600;}
+  .aabl-alle-link:hover{color:#b8932f;}
+  .aabl-paneel{padding:6px 6px 14px;}
+  .aabl-paneel[hidden]{display:none;}
+  .aabl-leeg{padding:34px 18px;text-align:center;color:#1a7a4a;background:rgba(46,158,107,0.08);border-radius:10px;margin:14px 12px 4px;font-size:13.5px;font-weight:500;}
+  .aabl-rij{border-top:1px solid rgba(26,26,46,0.06);}
+  .aabl-rij:first-child{border-top:none;}
+  .aabl-rij-head{display:flex;align-items:center;gap:12px;padding:12px 18px;width:100%;background:transparent;border:none;text-align:left;cursor:pointer;font-family:inherit;color:inherit;transition:background 0.12s;}
+  .aabl-rij-head:hover{background:rgba(201,168,76,0.06);}
+  .aabl-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;flex-shrink:0;}
+  .aabl-avatar.avatar-red{background:#fde8e8;color:#c0392b;}
+  .aabl-avatar.avatar-amber{background:#fef3e2;color:#a0531a;}
+  .aabl-avatar.avatar-blue{background:#e8f0fe;color:#1a5ba0;}
+  .aabl-avatar.avatar-green{background:#e8f5ee;color:#1a7a4a;}
+  .aabl-avatar.avatar-purple{background:#f0e8fe;color:#5a1aa0;}
+  .aabl-rij-text{flex:1;min-width:0;}
+  .aabl-rij-naam{font-size:13.5px;font-weight:600;color:#1a1a2e;line-height:1.2;}
+  .aabl-rij-meta{font-size:11px;color:#9b9baa;letter-spacing:0.3px;margin-top:2px;}
+  .aabl-rij-sig{font-size:12.5px;color:#3a3a4a;margin-top:4px;line-height:1.35;}
+  .aabl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+  .aabl-dot-rood{background:#e05454;box-shadow:0 0 0 0 rgba(224,84,84,0.55);animation:aablPulse 2s ease-in-out infinite;}
+  .aabl-dot-goud{background:#c9a84c;box-shadow:0 0 0 2px rgba(201,168,76,0.22);}
+  .aabl-dot-goud-pulse{background:#c9a84c;box-shadow:0 0 0 0 rgba(201,168,76,0.55);animation:aablPulseGoud 2.2s ease-in-out infinite;}
+  .aabl-dot-goud-licht{background:rgba(201,168,76,0.55);box-shadow:0 0 0 2px rgba(201,168,76,0.14);}
+  .aabl-dot-stil{background:rgba(26,26,46,0.18);}
+  @keyframes aablPulseGoud{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(201,168,76,0.55);}50%{transform:scale(1.18);box-shadow:0 0 0 6px rgba(201,168,76,0);}}
+  .aabl-dagbadge{display:inline-block;vertical-align:1px;margin-left:7px;font-size:10px;font-weight:500;letter-spacing:0.6px;padding:2px 6px;border-radius:8px;line-height:1.3;text-transform:uppercase;}
+  .aabl-dagbadge-vroeg{background:rgba(217,183,90,0.18);color:#8a6a1c;}
+  .aabl-dagbadge-week1{background:rgba(201,168,76,0.12);color:#b8932f;}
+  .aabl-dagbadge-low{background:rgba(245,240,232,0.8);color:rgba(26,26,46,0.7);}
+  .aabl-dot-groen{background:#5fa830;box-shadow:0 0 0 2px rgba(95,168,48,0.18);}
+  .aabl-rij-afgerond .aabl-rij-naam{color:#2a3a2a;}
+  .aabl-rij-afgerond .aabl-rij-meta{color:#1a7a4a;font-weight:600;}
+  .aabl-bericht-blok-verstuurd{border-style:solid;border-color:rgba(46,158,107,0.4);background:#eef9f1;}
+  .aabl-bericht-dot-groen{background:#5fa830 !important;box-shadow:0 0 8px rgba(46,158,107,0.55);}
+  .aabl-bericht-titel-groen{color:#1a7a4a !important;}
+  .aabl-bericht-verstuurd{font-size:13px;line-height:1.5;color:#1a1a2e;background:#fffdf6;border-radius:8px;padding:9px 11px;border:1px solid rgba(46,158,107,0.18);white-space:pre-wrap;word-break:break-word;}
+  .aabl-bericht-acties-rust{justify-content:flex-end;}
+  @keyframes aablPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(224,84,84,0.55);}50%{transform:scale(1.2);box-shadow:0 0 0 6px rgba(224,84,84,0);}}
+  .aabl-chevron{font-size:18px;color:rgba(26,26,46,0.35);transition:transform 0.18s ease;}
+  .aabl-rij.aabl-open .aabl-chevron{transform:rotate(90deg);}
+  .aabl-rij-body{padding:6px 18px 16px 68px;border-top:1px dashed rgba(201,168,76,0.25);animation:aablSlide 0.28s ease;}
+  @keyframes aablSlide{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
+  .aabl-bullets-titel{font-size:10px;color:#9b9baa;letter-spacing:1px;text-transform:uppercase;font-weight:600;margin:10px 0 6px;}
+  .aabl-bullets{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:5px;}
+  .aabl-bullet{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;line-height:1.4;}
+  .aabl-bullet-leeg{font-style:italic;color:#9b9baa;font-size:12px;}
+  .aabl-bullet-ico{flex-shrink:0;width:18px;text-align:center;}
+  .aabl-bullet-rood{color:#791F1F;}
+  .aabl-bullet-oranje{color:#633806;}
+  .aabl-bullet-groen{color:#0F6E56;}
+  .aabl-bullet-neutraal{color:#3a3a4a;}
+  .aabl-bericht-blok{border:1.5px dashed rgba(201,168,76,0.45);border-radius:11px;padding:12px 14px;background:#fcf7e8;margin:0 0 10px;}
+  .aabl-bericht-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .aabl-bericht-dot{width:7px;height:7px;border-radius:50%;background:#c9a84c;box-shadow:0 0 8px rgba(201,168,76,0.6);}
+  .aabl-bericht-titel{font-size:10.5px;color:#8a6a1a;letter-spacing:0.8px;text-transform:uppercase;font-weight:700;}
+  .aabl-bericht-tekst{width:100%;min-height:62px;border:1px solid rgba(201,168,76,0.35);border-radius:8px;padding:9px 11px;font-family:inherit;font-size:13px;color:#1a1a2e;background:#fffdf6;resize:vertical;line-height:1.45;}
+  .aabl-bericht-tekst:focus{outline:none;border-color:#c9a84c;box-shadow:0 0 0 3px rgba(201,168,76,0.15);}
+  .aabl-bericht-acties{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px;}
+  .aabl-btn{padding:8px 14px;border-radius:8px;font-family:inherit;font-size:12.5px;font-weight:600;border:1px solid transparent;cursor:pointer;transition:all 0.18s ease;}
+  .aabl-btn-primair{background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);color:#0f0f1a;box-shadow:0 0 18px rgba(201,168,76,0.3),0 3px 12px rgba(184,147,47,0.18);}
+  .aabl-btn-primair:hover{box-shadow:0 0 26px rgba(201,168,76,0.45),0 5px 16px rgba(184,147,47,0.25);transform:translateY(-1px);}
+  .aabl-btn-ghost{background:transparent;border-color:rgba(26,26,46,0.18);color:#1a1a2e;}
+  .aabl-btn-ghost:hover{border-color:#c9a84c;color:#c9a84c;}
+  .aabl-btn-stil{background:transparent;border-color:rgba(26,26,46,0.12);color:#9b9baa;}
+  .aabl-btn-stil:hover{border-color:#a02828;color:#a02828;}
+  .aabl-btn:disabled{opacity:0.55;cursor:wait;}
+  .aabl-profiel-link{display:inline-block;font-size:12px;color:#6b6b80;text-decoration:none;margin-top:4px;}
+  .aabl-profiel-link:hover{color:#c9a84c;}
+  .aabl-toast{position:fixed;right:22px;bottom:22px;padding:11px 16px;border-radius:10px;font-size:13px;font-weight:600;color:#fff;background:linear-gradient(135deg,#2e9e6b 0%,#1a7a4a 100%);box-shadow:0 10px 26px rgba(0,0,0,0.18);opacity:0;transform:translateY(10px);transition:opacity 200ms ease,transform 200ms ease;pointer-events:none;z-index:9999;}
+  .aabl-toast.aabl-toast-zicht{opacity:1;transform:translateY(0);}
+  .aabl-toast-err{background:linear-gradient(135deg,#c43838 0%,#8a2020 100%);}
+
+  /* ===== Mobile: approval-knoppen stacken verticaal onder 480px =====
+     Op iPhone-formaat zijn de 3 knoppen (verstuur, ghost, stil) naast elkaar
+     te krap; stack ze full-width zodat tappen makkelijk blijft. */
+  @media (max-width:480px){
+    .aabl-bericht-acties,.aabl-bericht-acties-rust{flex-direction:column;align-items:stretch;}
+    .aabl-bericht-acties .aabl-btn,.aabl-bericht-acties-rust .aabl-btn{width:100%;min-height:44px;}
+  }
+  @media (hover:none) and (pointer:coarse){
+    .aabl-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
+  }
+</style>
+<div class="aabl-card">
+  <div class="aabl-head">
+    <div class="aabl-tabs" role="tablist">
+      <button type="button" class="aabl-tab aabl-tab-actief" data-tab="tab1" onclick="aablZetTab('tab1')">Aandacht nodig <span class="aabl-tab-badge">2</span></button>
+      <button type="button" class="aabl-tab" data-tab="tab2" onclick="aablZetTab('tab2')">Nieuw deze week <span class="aabl-tab-badge">1</span></button>
+      <button type="button" class="aabl-tab" data-tab="tab3" onclick="aablZetTab('tab3')">Afgehandeld vandaag <span class="aabl-tab-badge">0</span></button>
+    </div>
+    <a class="aabl-alle-link" href="/coach/aandacht">Alle ↗</a>
+  </div>
+  <div class="aabl-paneel" data-paneel="tab1">
+    <div class="aabl-rij" data-aabl-rij="seed-daniel-test">
+      <button type="button" class="aabl-rij-head" onclick="aablToggleRij('seed-daniel-test')">
+        <div class="aabl-avatar avatar-blue">DT</div>
+        <div class="aabl-rij-text">
+          <div class="aabl-rij-naam">Daniel Test</div>
+          <div class="aabl-rij-meta">Week 3 · 0 dgn wachtend</div>
+          <div class="aabl-rij-sig">Voeding 7 dagen niet getrackt</div>
+        </div>
+        <span class="aabl-dot aabl-dot-rood" aria-hidden="true"></span>
+        <span class="aabl-chevron" aria-hidden="true">›</span>
+      </button>
+      <div class="aabl-rij-body" hidden>
+        <div class="aabl-bullets-titel">Wat speelt er</div>
+        <ul class="aabl-bullets">
+          
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+                <span class="aabl-bullet-tekst">Voeding 7 dgn gemist</span>
+              </li>
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                <span class="aabl-bullet-tekst">Login 17 dgn geleden</span>
+              </li>
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
+                <span class="aabl-bullet-tekst">Slaap 6.5u gem</span>
+              </li>
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+                <span class="aabl-bullet-tekst">Energie 5.9/10</span>
+              </li>
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico">•</span>
+                <span class="aabl-bullet-tekst">Check-in 17 dgn geleden</span>
+              </li>
+        </ul>
+        <div class="aabl-bericht-blok">
+          <div class="aabl-bericht-head">
+            <span class="aabl-bericht-dot"></span>
+            <span class="aabl-bericht-titel">Voorgesteld bericht · Concept</span>
+          </div>
+          <textarea class="aabl-bericht-tekst" data-aabl-tekst="seed-daniel-test" data-aabl-origineel="Hey Daniel, ik zie dat voeding-tracking 7 dagen mist. Plus slaap dipt mee (gem 6.5u gemu). Slaap en voeding gaan vaak hand in hand, dus laten we beide aanpakken deze week." rows="3">Hey Daniel, ik zie dat voeding-tracking 7 dagen mist. Plus slaap dipt mee (gem 6.5u gemu). Slaap en voeding gaan vaak hand in hand, dus laten we beide aanpakken deze week.</textarea>
+          <div class="aabl-bericht-acties">
+            <button type="button" class="aabl-btn aabl-btn-primair" onclick="aablGoedkeuren('seed-daniel-test','voeding_plus_slaap')">Goedkeuren en versturen</button>
+            <button type="button" class="aabl-btn aabl-btn-ghost" onclick="aablFocusBewerken('seed-daniel-test')">Bewerken</button>
+            <button type="button" class="aabl-btn aabl-btn-stil" onclick="aablNegeren('seed-daniel-test','voeding_plus_slaap')">Negeren</button>
+          </div>
+        </div>
+        <a class="aabl-profiel-link" href="/coach/klant/seed-daniel-test">Open klantprofiel ↗</a>
+      </div>
+    </div>
+    <div class="aabl-rij" data-aabl-rij="1782853354864">
+      <button type="button" class="aabl-rij-head" onclick="aablToggleRij('1782853354864')">
+        <div class="aabl-avatar avatar-amber">TA</div>
+        <div class="aabl-rij-text">
+          <div class="aabl-rij-naam">Test A</div>
+          <div class="aabl-rij-meta">Week 3 · 0 dgn wachtend</div>
+          <div class="aabl-rij-sig">Voeding 7 dagen niet getrackt</div>
+        </div>
+        <span class="aabl-dot aabl-dot-rood" aria-hidden="true"></span>
+        <span class="aabl-chevron" aria-hidden="true">›</span>
+      </button>
+      <div class="aabl-rij-body" hidden>
+        <div class="aabl-bullets-titel">Wat speelt er</div>
+        <ul class="aabl-bullets">
+          
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+                <span class="aabl-bullet-tekst">Voeding 7 dgn gemist</span>
+              </li>
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                <span class="aabl-bullet-tekst">Login 12 dgn geleden</span>
+              </li>
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico">•</span>
+                <span class="aabl-bullet-tekst">Check-in 12 dgn geleden</span>
+              </li>
+        </ul>
+        <div class="aabl-bericht-blok">
+          <div class="aabl-bericht-head">
+            <span class="aabl-bericht-dot"></span>
+            <span class="aabl-bericht-titel">Voorgesteld bericht · Concept</span>
+          </div>
+          <textarea class="aabl-bericht-tekst" data-aabl-tekst="1782853354864" data-aabl-origineel="Hey Test, al 12 dagen niet ingelogd. Alles goed? Laat me weten als je ergens vast zit." rows="3">Hey Test, al 12 dagen niet ingelogd. Alles goed? Laat me weten als je ergens vast zit.</textarea>
+          <div class="aabl-bericht-acties">
+            <button type="button" class="aabl-btn aabl-btn-primair" onclick="aablGoedkeuren('1782853354864','niet_ingelogd')">Goedkeuren en versturen</button>
+            <button type="button" class="aabl-btn aabl-btn-ghost" onclick="aablFocusBewerken('1782853354864')">Bewerken</button>
+            <button type="button" class="aabl-btn aabl-btn-stil" onclick="aablNegeren('1782853354864','niet_ingelogd')">Negeren</button>
+          </div>
+        </div>
+        <a class="aabl-profiel-link" href="/coach/klant/1782853354864">Open klantprofiel ↗</a>
+      </div>
+    </div></div>
+  <div class="aabl-paneel" data-paneel="tab2" hidden>
+    <div class="aabl-rij" data-aabl-rij="1783420162068">
+      <button type="button" class="aabl-rij-head" onclick="aablToggleRij('1783420162068')">
+        <div class="aabl-avatar avatar-purple">T</div>
+        <div class="aabl-rij-text">
+          <div class="aabl-rij-naam">test5<span class="aabl-dagbadge aabl-dagbadge-low">DAG 12</span></div>
+          <div class="aabl-rij-meta">Onboarding · gestart 12 dagen geleden</div>
+          <div class="aabl-rij-sig">Niet ingelogd sinds 12 dagen</div>
+        </div>
+        <span class="aabl-dot aabl-dot-stil" aria-hidden="true"></span>
+        <span class="aabl-chevron" aria-hidden="true">›</span>
+      </button>
+      <div class="aabl-rij-body" hidden>
+        <div class="aabl-bullets-titel">Wat speelt er</div>
+        <ul class="aabl-bullets">
+          
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                <span class="aabl-bullet-tekst">Login 12 dgn geleden</span>
+              </li>
+              <li class="aabl-bullet aabl-bullet-neutraal">
+                <span class="aabl-bullet-ico">•</span>
+                <span class="aabl-bullet-tekst">Check-in 12 dgn geleden</span>
+              </li>
+        </ul>
+        <div class="aabl-bericht-blok">
+          <div class="aabl-bericht-head">
+            <span class="aabl-bericht-dot"></span>
+            <span class="aabl-bericht-titel">Voorgesteld bericht · Concept</span>
+          </div>
+          <textarea class="aabl-bericht-tekst" data-aabl-tekst="1783420162068" data-aabl-origineel="Hey test5, 2 weken in. Tijd voor eerste evaluatie. Hoe ervaar je het tot nu toe? Wat zou je willen aanpassen?" rows="3">Hey test5, 2 weken in. Tijd voor eerste evaluatie. Hoe ervaar je het tot nu toe? Wat zou je willen aanpassen?</textarea>
+          <div class="aabl-bericht-acties">
+            <button type="button" class="aabl-btn aabl-btn-primair" onclick="aablGoedkeuren('1783420162068','nieuw_dag_14')">Goedkeuren en versturen</button>
+            <button type="button" class="aabl-btn aabl-btn-ghost" onclick="aablFocusBewerken('1783420162068')">Bewerken</button>
+            <button type="button" class="aabl-btn aabl-btn-stil" onclick="aablNegeren('1783420162068','nieuw_dag_14')">Negeren</button>
+          </div>
+        </div>
+        <a class="aabl-profiel-link" href="/coach/klant/1783420162068">Open klantprofiel ↗</a>
+      </div>
+    </div></div>
+  <div class="aabl-paneel" data-paneel="tab3" hidden><div class="aabl-leeg">Nog niets afgehandeld vandaag.</div></div>
+</div>
+<script>
+  function aablZetTab(naam) {
+    document.querySelectorAll('.aabl-tab').forEach(function (b) {
+      var on = b.getAttribute('data-tab') === naam;
+      b.classList.toggle('aabl-tab-actief', on);
+    });
+    document.querySelectorAll('.aabl-paneel').forEach(function (p) {
+      p.hidden = p.getAttribute('data-paneel') !== naam;
+    });
+  }
+  function aablToggleRij(klantId) {
+    var rij = document.querySelector('.aabl-rij[data-aabl-rij="' + klantId + '"]');
+    if (!rij) return;
+    var wasOpen = rij.classList.contains('aabl-open');
+    document.querySelectorAll('.aabl-rij.aabl-open').forEach(function (r) {
+      r.classList.remove('aabl-open');
+      var body = r.querySelector('.aabl-rij-body');
+      if (body) body.hidden = true;
+    });
+    if (!wasOpen) {
+      rij.classList.add('aabl-open');
+      var body = rij.querySelector('.aabl-rij-body');
+      if (body) body.hidden = false;
+    }
+  }
+  function aablFocusBewerken(klantId) {
+    var ta = document.querySelector('.aabl-bericht-tekst[data-aabl-tekst="' + klantId + '"]');
+    if (ta) { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
+  }
+  function aablToast(tekst, isErr) {
+    var t = document.createElement('div');
+    t.className = 'aabl-toast' + (isErr ? ' aabl-toast-err' : '');
+    t.textContent = tekst;
+    document.body.appendChild(t);
+    requestAnimationFrame(function () { t.classList.add('aabl-toast-zicht'); });
+    setTimeout(function () {
+      t.classList.remove('aabl-toast-zicht');
+      setTimeout(function () { try { t.remove(); } catch (_) {} }, 240);
+    }, 2400);
+  }
+  function aablRijWeg(klantId, cb) {
+    var rij = document.querySelector('.aabl-rij[data-aabl-rij="' + klantId + '"]');
+    if (rij) { rij.style.transition = 'opacity 0.18s ease'; rij.style.opacity = '0'; setTimeout(function () { try { rij.remove(); } catch (_) {} if (cb) cb(); }, 200); }
+    else if (cb) cb();
+  }
+  async function aablGoedkeuren(klantId, signaalType) {
+    var ta = document.querySelector('.aabl-bericht-tekst[data-aabl-tekst="' + klantId + '"]');
+    var tekst = ta ? ta.value.trim() : '';
+    if (!tekst) { aablToast('Bericht is leeg', true); return; }
+    // Stuur het origineel template-voorstel mee zodat backend edit-detectie
+    // kan vergelijken (gewijzigd = origineel !== definitief).
+    var origineel = ta ? (ta.getAttribute('data-aabl-origineel') || '') : '';
+    var btn = ta && ta.parentElement && ta.parentElement.querySelector('.aabl-btn-primair');
+    if (btn) btn.disabled = true;
+    try {
+      var r = await fetch('/coach/api/aandacht/goedkeuren', {
+        method: 'POST', credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          klantId: klantId, berichtTekst: tekst, signaalType: signaalType,
+          origineel_voorstel: origineel,
+        })
+      });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      aablRijWeg(klantId, function () { aablToast('Bericht verstuurd'); });
+    } catch (e) {
+      if (btn) btn.disabled = false;
+      aablToast('Versturen mislukt', true);
+    }
+  }
+  async function aablNegeren(klantId, signaalType) {
+    try {
+      var r = await fetch('/coach/api/aandacht/negeren', {
+        method: 'POST', credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ klantId: klantId, signaalType: signaalType })
+      });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      aablRijWeg(klantId, function () { aablToast('Genegeerd voor vandaag'); });
+    } catch (e) { aablToast('Negeren mislukt', true); }
+  }
+  async function aablTerugzetten(klantId, signaalType) {
+    var ok = window.confirm('Bericht ongedaan maken? Klant verschijnt weer in Aandacht Nodig.');
+    if (!ok) return;
+    try {
+      var r = await fetch('/coach/api/aandacht/terugzetten', {
+        method: 'POST', credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ klantId: klantId, signaalType: signaalType || 'aandacht' })
+      });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      aablToast('Bericht teruggezet — pagina herladen');
+      setTimeout(function () { window.location.reload(); }, 600);
+    } catch (e) { aablToast('Terugzetten mislukt', true); }
+  }
+  setTimeout(function poll() { window.location.reload(); }, 60000);
+</script>
+    </div>
+    <div class="dash-vandaag-col">
+      <div class="card dash-vandaag-card">
+        <div class="dash-vandaag-title">Vandaag</div>
+
+        <div class="dash-vandaag-sub">
+          <div class="dash-vandaag-sub-head">
+            <span>Intakes</span>
+            <span class="dash-vandaag-badge">1</span>
+          </div>
+          <a class="dash-vandaag-row" href="/coach/klanten/1783420162068">
+                  <div class="dash-vandaag-av">T</div>
+                  <div class="dash-vandaag-row-info">
+                    <div class="dash-vandaag-row-naam">test5</div>
+                    <div class="dash-vandaag-row-meta">ingevuld 1 wk geleden</div>
+                  </div>
+                </a>
+          <a class="dash-vandaag-btn-outline" href="/coach/intakes">1 intake klaarzetten</a>
+        </div>
+
+        <div class="dash-vandaag-divider"></div>
+
+        <div class="dash-vandaag-sub">
+          <div class="dash-vandaag-sub-head">
+            <span>Sales-calls</span>
+            <span class="dash-vandaag-badge" id="salesCountBadge">0</span>
+          </div>
+          <div id="sales-calls-list"><div class="dash-vandaag-leeg">Calls laden…</div></div>
+        </div>
+
+        <div class="dash-vandaag-divider"></div>
+
+        <div class="dash-vandaag-sub">
+          <div class="dash-vandaag-sub-head">
+            <span>Taken</span>
+            <span class="dash-vandaag-badge" id="takenCountBadge">0</span>
+          </div>
+          <div id="taken-vandaag-list"><div class="dash-vandaag-leeg">Taken laden…</div></div>
+          <a class="dash-vandaag-btn-outline" href="/coach/taken">+ Nieuwe taak</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTIE 4: Pipeline-strip -->
+  <div class="card dash-pipeline-card">
+    <div class="dash-section-title">Pipeline</div>
+    <div class="dash-pipeline">
+      <a class="dash-pipe dash-pipe-1" href="/coach/klanten?fase=leads">
+        <div class="dash-pipe-naam">Leads</div>
+        <div class="dash-pipe-getal">8</div>
+        <div class="dash-pipe-sub">intake afwachten</div>
+      </a>
+      <a class="dash-pipe dash-pipe-2" href="/coach/klanten?fase=onboarding">
+        <div class="dash-pipe-naam">Onboarding</div>
+        <div class="dash-pipe-getal">1</div>
+        <div class="dash-pipe-sub">eerste 14 dagen</div>
+      </a>
+      <a class="dash-pipe dash-pipe-3" href="/coach/klanten?fase=actief">
+        <div class="dash-pipe-naam">Actief</div>
+        <div class="dash-pipe-getal">2</div>
+        <div class="dash-pipe-sub">dag 14 t/m 63</div>
+      </a>
+      <a class="dash-pipe dash-pipe-4" href="/coach/klanten?fase=eindronde">
+        <div class="dash-pipe-naam">Eindronde</div>
+        <div class="dash-pipe-getal">0</div>
+        <div class="dash-pipe-sub">vanaf dag 64, verlengingskans</div>
+      </a>
+      <a class="dash-pipe dash-pipe-5" href="/coach/klanten?fase=voltooid">
+        <div class="dash-pipe-naam">Voltooid</div>
+        <div class="dash-pipe-getal">0</div>
+        <div class="dash-pipe-sub">afgelopen 3 maanden</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- SECTIE 5: Business pulse -->
+  <div class="card dash-pulse-card">
+    <div class="dash-section-title">Business pulse</div>
+    <div class="dash-pulse">
+      <div class="dash-pulse-metric">
+        <div class="dash-pulse-getal">0</div>
+        <div class="dash-pulse-label">Nieuwe klanten</div>
+        <div class="dash-pulse-sub pulse-neg">-1 vs vorige week</div>
+      </div>
+      <div class="dash-pulse-metric">
+        <div class="dash-pulse-getal">23%</div>
+        <div class="dash-pulse-label">Adherence</div>
+        <div class="dash-pulse-sub">over actieve klanten na onboarding</div>
+      </div>
+      <div class="dash-pulse-metric">
+        <div class="dash-pulse-getal">—</div>
+        <div class="dash-pulse-label">Omzet deze maand</div>
+        <div class="dash-pulse-sub">geen data gevonden</div>
+      </div>
+      <div class="dash-pulse-metric">
+        <div class="dash-pulse-getal">0 <span class="dash-pulse-getal-sub">van 0</span></div>
+        <div class="dash-pulse-label">Verlengingskans</div>
+        <div class="dash-pulse-sub">deze maand</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTIE 6: Auto-gen status-indicator (subtiele footer-strip) -->
+  <div id="autoGenStatus" class="dash-autogen-strip" style="display:none;">
+    <span class="dash-autogen-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+    <span class="dash-autogen-tekst" id="autoGenTekst">Auto-generatie: status laden…</span>
+    <button type="button" class="dash-autogen-knop" id="autoGenRunBtn" title="Actieplannen handmatig draaien voor alle actieve klanten">Run nu</button>
+  </div>
+  <div id="emailSchedStatus" class="dash-autogen-strip" style="display:none;">
+    <span class="dash-autogen-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+    <span class="dash-autogen-tekst" id="emailSchedTekst">Email-scheduler: status laden…</span>
+    <button type="button" class="dash-autogen-knop" id="emailSchedRunBtn" title="Welkomst-serie + terug-van-weg draaien voor alle klanten">Run nu</button>
+  </div>
+  <div id="backupStatus" class="dash-autogen-strip" style="display:none;">
+    <span class="dash-autogen-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/></svg></span>
+    <span class="dash-autogen-tekst" id="backupTekst">Backup: status laden…</span>
+    <button type="button" class="dash-autogen-knop" id="backupRunBtn" title="Maak nu een tar.gz-backup van alle data-bestanden">Run nu</button>
+  </div>
+  <style>
+    .dash-autogen-strip{display:flex !important;align-items:center;gap:10px;margin-top:8px;padding:8px 14px;background:rgba(15,15,26,0.04);border:1px solid rgba(26,26,46,0.08);border-radius:8px;font-size:12px;color:#6b6b80;}
+    .dash-autogen-ico{font-size:13px;color:#c9a84c;}
+    .dash-autogen-tekst{flex:1;min-width:0;}
+    .dash-autogen-knop{background:transparent;border:1px solid rgba(201,168,76,0.4);color:#8a6a1a;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;cursor:pointer;font-family:inherit;transition:all 0.12s;}
+    .dash-autogen-knop:hover{background:rgba(201,168,76,0.12);border-color:#c9a84c;color:#1a1a2e;}
+    .dash-autogen-knop:disabled{opacity:0.55;cursor:wait;}
+  </style>
+</div>
+<script>
+  (function () {
+    var strip = document.getElementById('autoGenStatus');
+    var lbl = document.getElementById('autoGenTekst');
+    var btn = document.getElementById('autoGenRunBtn');
+    if (!strip || !lbl || !btn) return;
+    function fmtTime(iso) {
+      if (!iso) return '—';
+      try { return new Date(iso).toLocaleString('nl-NL', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }); }
+      catch (_) { return iso; }
+    }
+    function laadState() {
+      fetch('/coach/api/auto-gen/state', { credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) {
+          if (!j || !j.ok) return;
+          strip.style.display = 'flex';
+          var s = j.state || {};
+          var run = s.last_actieplan_run || null;
+          var check = s.last_check || null;
+          var res = s.last_actieplan_result || null;
+          var teksten = [];
+          if (run) teksten.push('Laatste actieplan-run: ' + run);
+          if (res) teksten.push(res.gemaakt + ' nieuw, ' + res.geskipt + ' geskipt');
+          if (!teksten.length) teksten.push('Auto-generatie nog niet gedraaid');
+          if (check) teksten.push('check ' + fmtTime(check));
+          lbl.textContent = 'Auto-generatie · ' + teksten.join(' · ');
+        }).catch(function () { /* stille fail */ });
+    }
+    btn.addEventListener('click', function () {
+      btn.disabled = true;
+      lbl.textContent = 'Auto-generatie · bezig…';
+      fetch('/coach/api/auto-gen/actieplan/all', { method: 'POST', credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) {
+          btn.disabled = false;
+          if (!j || !j.ok) { lbl.textContent = 'Auto-generatie · fout bij draaien'; return; }
+          var s = j.samenvatting || {};
+          lbl.textContent = 'Auto-generatie · klaar (' + (s.gemaakt || 0) + ' nieuw, ' + (s.geskipt || 0) + ' geskipt)';
+        })
+        .catch(function () { btn.disabled = false; lbl.textContent = 'Auto-generatie · netwerkfout'; });
+    });
+    laadState();
+  })();
+  (function () {
+    var strip = document.getElementById('emailSchedStatus');
+    var lbl = document.getElementById('emailSchedTekst');
+    var btn = document.getElementById('emailSchedRunBtn');
+    if (!strip || !lbl || !btn) return;
+    function fmtTime(iso) {
+      if (!iso) return '—';
+      try { return new Date(iso).toLocaleString('nl-NL', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }); }
+      catch (_) { return iso; }
+    }
+    function somResultaat(r) {
+      if (!r) return 0;
+      var n = 0;
+      ['dag1','dag7','dag14','terug_van_weg'].forEach(function (k) { if (r[k] && typeof r[k].verzonden === 'number') n += r[k].verzonden; });
+      return n;
+    }
+    function laadState() {
+      fetch('/coach/api/email-scheduler/state', { credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) {
+          if (!j || !j.ok) return;
+          strip.style.display = 'flex';
+          var s = j.state || {};
+          var run = s.last_email_run || null;
+          var check = s.last_check || null;
+          var res = s.last_email_result || null;
+          var verz = somResultaat(res);
+          var teksten = [];
+          if (run) teksten.push('Laatste run: ' + run);
+          teksten.push(verz + ' verzonden');
+          if (check) teksten.push('check ' + fmtTime(check));
+          if (!run) teksten = ['Email-scheduler nog niet gedraaid'];
+          lbl.textContent = 'Email-scheduler · ' + teksten.join(' · ');
+        }).catch(function () { /* stille fail */ });
+    }
+    btn.addEventListener('click', function () {
+      btn.disabled = true;
+      lbl.textContent = 'Email-scheduler · bezig…';
+      fetch('/coach/api/email-scheduler/all', { method: 'POST', credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) {
+          btn.disabled = false;
+          if (!j || !j.ok) { lbl.textContent = 'Email-scheduler · fout bij draaien'; return; }
+          var verz = somResultaat(j.samenvatting);
+          lbl.textContent = 'Email-scheduler · klaar (' + verz + ' verzonden)';
+        })
+        .catch(function () { btn.disabled = false; lbl.textContent = 'Email-scheduler · netwerkfout'; });
+    });
+    laadState();
+  })();
+  (function () {
+    var strip = document.getElementById('backupStatus');
+    var lbl = document.getElementById('backupTekst');
+    var btn = document.getElementById('backupRunBtn');
+    if (!strip || !lbl || !btn) return;
+    function fmtTime(iso) {
+      if (!iso) return '—';
+      try { return new Date(iso).toLocaleString('nl-NL', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }); }
+      catch (_) { return iso; }
+    }
+    function laadState() {
+      fetch('/coach/api/backup/list', { credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) {
+          if (!j || !j.ok) return;
+          strip.style.display = 'flex';
+          var s = j.state || {};
+          var laatst = s.last_backup_run || null;
+          var check = s.last_check || null;
+          var res = s.last_backup_result || null;
+          var aantal = (j.backups || []).length;
+          var teksten = [];
+          if (laatst) teksten.push('Laatste: ' + fmtTime(laatst));
+          else teksten.push('Backup nog niet gedraaid');
+          teksten.push(aantal + ' bestand' + (aantal === 1 ? '' : 'en'));
+          if (res && res.ok === false) teksten.push('laatste run: fout (' + (res.fout || '?') + ')');
+          if (check) teksten.push('check ' + fmtTime(check));
+          lbl.textContent = 'Backup · ' + teksten.join(' · ');
+        }).catch(function () { /* stille fail */ });
+    }
+    btn.addEventListener('click', function () {
+      btn.disabled = true;
+      lbl.textContent = 'Backup · bezig…';
+      fetch('/coach/api/backup/run', { method: 'POST', credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) {
+          btn.disabled = false;
+          if (!j || !j.ok) { lbl.textContent = 'Backup · fout bij draaien'; return; }
+          var r = j.result || {};
+          lbl.textContent = 'Backup · klaar (' + (r.files || 0) + ' bestanden, ' + (r.bytes || 0) + ' bytes)';
+          laadState();
+        })
+        .catch(function () { btn.disabled = false; lbl.textContent = 'Backup · netwerkfout'; });
+    });
+    laadState();
+  })();
+</script>
+<script>  var AANDACHT_TAB_KEY = 'hoedt.aandacht.tab';
+  function setTab(btn) {
+    btn.closest('.filter-tabs').querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    var filter = btn.dataset.filter || 'all';
+    try { sessionStorage.setItem(AANDACHT_TAB_KEY, filter); } catch (e) {}
+    document.querySelectorAll('.client-card').forEach(function (card) {
+      var isDone = card.dataset.state === 'done';
+      if (filter === 'afgehandeld') { card.style.display = isDone ? '' : 'none'; return; }
+      if (isDone) { card.style.display = 'none'; return; }
+      if (filter === 'all') { card.style.display = ''; return; }
+      var alerts = (card.dataset.alert || '').split(' ').filter(Boolean);
+      card.style.display = alerts.indexOf(filter) !== -1 ? '' : 'none';
+    });
+  }
+  function restoreAandachtTab() {
+    var stored = null;
+    try { stored = sessionStorage.getItem(AANDACHT_TAB_KEY); } catch (e) {}
+    if (!stored || stored === 'all') return; // 'all' is default, niets te doen
+    var btn = document.querySelector('.filter-tabs .ftab[data-filter="' + stored + '"]');
+    if (btn) setTab(btn);
+  }
+  function setFeed(btn) {
+    btn.closest('.feed-tabs').querySelectorAll('.feed-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    var view = btn.dataset.feed;
+    var showIntakes = view === 'alles' || view === 'checkins';
+    var intakesEl = document.getElementById('feed-view-intakes');
+    var emptyEl = document.getElementById('feed-view-empty');
+    if (intakesEl) intakesEl.style.display = showIntakes ? '' : 'none';
+    if (emptyEl) emptyEl.style.display = showIntakes ? 'none' : '';
+  }
+  var TASK_KEY = 'hoedt.tasks';
+  var CLIENT_NAMES = ["Test Onb W","Test Onb V","Test Onb R","Test Onb Q","Test Onb P","Test Onb O","Test Onb N","Test Onb M","Julian","Julian","Daniel Test"];
+  var formState = { priority: 'normaal', category: 'schema', clientName: '' };
+  function loadTasks() {
+    try {
+      var raw = localStorage.getItem(TASK_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) { return []; }
+  }
+  function saveTasks(tasks) {
+    localStorage.setItem(TASK_KEY, JSON.stringify(tasks));
+  }
+  function escapeTaskHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function todayIso() {
+    var n = new Date();
+    var mm = String(n.getMonth() + 1).padStart(2, '0');
+    var dd = String(n.getDate()).padStart(2, '0');
+    return n.getFullYear() + '-' + mm + '-' + dd;
+  }
+  function shiftIso(days) {
+    var n = new Date();
+    n.setDate(n.getDate() + days);
+    var mm = String(n.getMonth() + 1).padStart(2, '0');
+    var dd = String(n.getDate()).padStart(2, '0');
+    return n.getFullYear() + '-' + mm + '-' + dd;
+  }
+  function formatDue(iso) {
+    if (!iso) return 'Geen datum';
+    if (iso === todayIso()) return 'Vandaag';
+    if (iso === shiftIso(-1)) return 'Gisteren';
+    if (iso === shiftIso(1)) return 'Morgen';
+    var d = new Date(iso + 'T00:00:00');
+    return d.toLocaleDateString('nl-NL', { day: '2-digit', month: 'short', year: 'numeric' });
+  }
+  function isOverdue(iso) {
+    if (!iso) return false;
+    return iso < todayIso();
+  }
+  function urgencyClass(iso) {
+    if (!iso) return 'urgency-none';
+    var now = new Date();
+    var start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var due = new Date(iso + 'T00:00:00');
+    var diff = Math.round((due - start) / (24 * 60 * 60 * 1000));
+    if (diff <= 0) return 'urgency-red';
+    if (diff <= 3) return 'urgency-orange';
+    if (diff <= 7) return 'urgency-green';
+    return 'urgency-none';
+  }
+  function capFirst(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
+  function renderTasks() {
+    var tasks = loadTasks();
+    var cmp = function (a, b) {
+      var ad = a.dueDate || '9999-12-31';
+      var bd = b.dueDate || '9999-12-31';
+      return ad < bd ? -1 : ad > bd ? 1 : 0;
+    };
+    var open = tasks.filter(function (t) { return !t.done; }).sort(cmp);
+    var done = tasks.filter(function (t) { return t.done; }).sort(cmp);
+    var rowHtml = function (t) {
+      var overdue = !t.done && isOverdue(t.dueDate);
+      var priority = t.priority || 'normaal';
+      var category = t.category || 'overig';
+      var uCls = t.done ? '' : urgencyClass(t.dueDate);
+      var clientPill = t.clientName
+        ? '<span class="task-client-pill">' + escapeTaskHtml(t.clientName) + '</span>'
+        : '';
+      return '<div class="task-row' + (t.done ? ' done' : '') + '" data-task-id="' + escapeTaskHtml(t.id) + '">'
+        + '<div class="task-main">'
+        + '<div class="urgency-dot ' + uCls + '" onclick="toggleTaskDone(\'' + t.id + '\')"></div>'
+        + '<span class="priority-badge priority-' + escapeTaskHtml(priority) + '">' + escapeTaskHtml(capFirst(priority)) + '</span>'
+        + '<div class="task-text">' + escapeTaskHtml(t.title) + '</div>'
+        + clientPill
+        + '<div class="task-spacer"></div>'
+        + '<div class="task-date' + (overdue ? ' overdue' : '') + '">' + escapeTaskHtml(formatDue(t.dueDate)) + '</div>'
+        + '<div class="task-category">' + escapeTaskHtml(capFirst(category)) + '</div>'
+        + '<button type="button" class="task-delete" onclick="confirmDeleteTask(\'' + t.id + '\')" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button>'
+        + '</div>'
+        + '<div class="task-confirm">'
+        + '<span class="task-confirm-text">Weet je het zeker?</span>'
+        + '<button type="button" class="task-confirm-yes" onclick="doDeleteTask(\'' + t.id + '\')">Ja</button>'
+        + '<button type="button" class="task-confirm-no" onclick="cancelDeleteTask(\'' + t.id + '\')">Annuleer</button>'
+        + '</div>'
+        + '</div>';
+    };
+    // Oude localStorage-tasks DOM is uit dashboard verwijderd — guard tegen
+    // ontbrekende elementen zodat we geen ReferenceError krijgen op load.
+    var openEl = document.getElementById('task-list-open');
+    var doneEl = document.getElementById('task-list-done');
+    if (openEl) openEl.innerHTML = open.length ? open.map(rowHtml).join('') : '<div class="task-empty">Geen open taken.</div>';
+    if (doneEl) doneEl.innerHTML = done.length ? done.map(rowHtml).join('') : '<div class="task-empty">Nog geen taken voltooid.</div>';
+    var oc = document.getElementById('task-count-open'); if (oc) oc.textContent = open.length;
+    var dc = document.getElementById('task-count-done'); if (dc) dc.textContent = done.length;
+    updateWeekOverview();
+  }
+  function confirmDeleteTask(id) {
+    var row = document.querySelector('.task-row[data-task-id="' + id + '"]');
+    if (row) row.classList.add('confirming');
+  }
+  function cancelDeleteTask(id) {
+    var row = document.querySelector('.task-row[data-task-id="' + id + '"]');
+    if (row) row.classList.remove('confirming');
+  }
+  function doDeleteTask(id) {
+    var tasks = loadTasks().filter(function (t) { return t.id !== id; });
+    saveTasks(tasks);
+    renderTasks();
+  }
+  function updateWeekOverview() {
+    var el = document.getElementById('wo-tasks-today');
+    if (!el) return;
+    var today = todayIso();
+    var dueToday = loadTasks().filter(function (t) { return !t.done && t.dueDate === today; }).length;
+    el.textContent = dueToday;
+  }
+  function setTaskTab(btn) {
+    btn.parentNode.querySelectorAll('.task-tab').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var tab = btn.dataset.taskTab;
+    document.getElementById('task-list-open').style.display = tab === 'open' ? '' : 'none';
+    document.getElementById('task-list-done').style.display = tab === 'done' ? '' : 'none';
+  }
+  // showTaskForm linkt nu naar /coach/taken control room (server-side
+  // taken-systeem). Oude localStorage-flow is uitgefaseerd uit dashboard-UI.
+  function showTaskForm() {
+    window.location.href = '/coach/taken';
+  }
+  // === Server-side taken vandaag — mini-versie linkt door naar /coach/taken. ===
+  var DASHBOARD_KLANTEN_MAP = {"1782853354864":"Test A","seed-daniel-test":"Daniel Test","1783420162068":"test5"};
+  function takenCategorieKleurClient(cat){
+    var m = { coaching:'groen-teal', sales:'roze', marketing:'paars', administratie:'grijs' };
+    return 'pill-' + (m[cat] || 'grijs');
+  }
+  function escHtml(s){var d=document.createElement('div');d.textContent=String(s||'');return d.innerHTML;}
+  function kortNaam(naam){
+    if (!naam) return '';
+    var s = String(naam).trim();
+    if (s.length <= 14) return s;
+    var sp = s.indexOf(' ');
+    return sp > 0 && sp <= 14 ? s.slice(0, sp) : s.slice(0, 12) + '…';
+  }
+  async function loadTakenVandaag(){
+    var el = document.getElementById('taken-vandaag-list');
+    if (!el) return;
+    var today = new Date().toISOString().slice(0,10);
+    try {
+      var r = await fetch('/coach/api/taken?to='+today, { credentials:'same-origin' });
+      if (!r.ok) { el.innerHTML = '<div style="color:#9b9baa;font-size:12.5px;">Kon taken niet laden.</div>'; return; }
+      var d = await r.json();
+      // Vandaag + verlopen (datum <= today), zodat overdue-taken niet verdwijnen.
+      var alle = (d.taken || []).filter(function(t){ return t.datum && t.datum <= today; });
+      var open = alle.filter(function(t){ return !t.voltooid; });
+      var badge = document.getElementById('takenCountBadge');
+      if (badge) badge.textContent = open.length;
+      if (!open.length) {
+        el.innerHTML = '<div style="color:#9b9baa;font-size:12.5px;padding:8px 4px;">Geen open taken voor vandaag.</div>';
+        return;
+      }
+      open.sort(function(a,b){
+        var ad = a.datum || '9999-99-99', bd = b.datum || '9999-99-99';
+        if (ad !== bd) return ad < bd ? -1 : 1;
+        var at = a.tijd || '99:99';
+        var bt = b.tijd || '99:99';
+        if (at !== bt) return at < bt ? -1 : 1;
+        return (a.titel||'').localeCompare(b.titel||'', 'nl', { sensitivity:'base' });
+      });
+      var top = open.slice(0, 5);
+      var meer = open.length - top.length;
+      var html = top.map(function(t){
+        var pillCls = takenCategorieKleurClient(t.categorie);
+        var klantNaam = t.klant_id && DASHBOARD_KLANTEN_MAP[t.klant_id] ? kortNaam(DASHBOARD_KLANTEN_MAP[t.klant_id]) : '';
+        var metaPieces = [];
+        if (t.datum && t.datum < today) metaPieces.push('<span style="color:#c0392b;font-weight:600;">verlopen</span>');
+        if (t.tijd) metaPieces.push(escHtml(t.tijd));
+        if (klantNaam) metaPieces.push(escHtml(klantNaam));
+        return ''
+          + '<div class="dashboard-taak-rij" style="display:flex;align-items:center;gap:9px;padding:8px 6px;border-bottom:1px solid rgba(26,26,46,0.05);">'
+          +   '<input type="checkbox" onclick="event.stopPropagation();" onchange="toggleTaakVoltooid(\''+t.id+'\', this.checked)" style="width:16px;height:16px;cursor:pointer;flex-shrink:0;accent-color:#c9a84c;">'
+          +   '<div style="flex:1;min-width:0;">'
+          +     '<div style="font-size:13px;font-weight:600;color:#1a1a2e;">'+escHtml(t.titel)+'</div>'
+          +     '<div style="font-size:11px;color:#9b9baa;margin-top:1px;">'+metaPieces.join(' · ')+'</div>'
+          +   '</div>'
+          +   '<span class="pill '+pillCls+'" style="font-size:10.5px;">'+escHtml(t.categorie)+'</span>'
+          + '</div>';
+      }).join('');
+      if (meer > 0) {
+        html += '<div style="padding:8px 6px;color:#9b9baa;font-size:11.5px;">+'+meer+' meer open</div>';
+      }
+      el.innerHTML = html;
+    } catch (e) {
+      el.innerHTML = '<div style="color:#c0392b;font-size:12px;">Laden mislukt.</div>';
+    }
+  }
+  async function loadSalesCalls(){
+    var el = document.getElementById('sales-calls-list');
+    if (!el) return;
+    var badge = document.getElementById('salesCountBadge');
+    try {
+      var r = await fetch('/coach/api/sales-calls', { credentials:'same-origin' });
+      if (!r.ok) { el.innerHTML = '<div style="color:#9b9baa;font-size:12.5px;">Kon sales-calls niet laden.</div>'; return; }
+      var d = await r.json();
+      if (!d.gekoppeld) {
+        if (badge) badge.textContent = '0';
+        el.innerHTML = '<div class="dash-vandaag-leeg">Calendly niet gekoppeld · <a href="/coach/instellingen" style="color:#c9a84c;">setup</a></div>';
+        return;
+      }
+      var calls = d.calls || [];
+      if (badge) badge.textContent = calls.length;
+      if (!calls.length) {
+        el.innerHTML = '<div class="dash-vandaag-leeg">Geen geplande calls.</div>';
+        return;
+      }
+      var top = calls.slice(0, 5);
+      var meer = calls.length - top.length;
+      var html = top.map(function(c){
+        var wie = c.invitee ? escHtml(c.invitee) : escHtml(c.naam || 'Call');
+        var meta = [];
+        var dt = c.start ? new Date(c.start) : null;
+        if (dt) meta.push(dt.toLocaleDateString('nl-NL',{day:'numeric',month:'short'})+' '+dt.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit'}));
+        if (c.invitee && c.naam) meta.push(escHtml(c.naam));
+        var link = c.locatie || '';
+        var rij = ''
+          + '<div class="dash-vandaag-row">'
+          +   '<div class="dash-vandaag-av">'+escHtml((wie.charAt(0)||'?').toUpperCase())+'</div>'
+          +   '<div class="dash-vandaag-row-info">'
+          +     '<div class="dash-vandaag-row-naam">'+wie+'</div>'
+          +     '<div class="dash-vandaag-row-meta">'+meta.join(' · ')+'</div>'
+          +   '</div>'
+          + '</div>';
+        return link ? '<a href="'+escHtml(link)+'" target="_blank" rel="noopener" style="text-decoration:none;">'+rij+'</a>' : rij;
+      }).join('');
+      if (meer > 0) html += '<div style="padding:8px 6px;color:#9b9baa;font-size:11.5px;">+'+meer+' meer</div>';
+      el.innerHTML = html;
+    } catch (e) {
+      el.innerHTML = '<div style="color:#c0392b;font-size:12px;">Laden mislukt.</div>';
+    }
+  }
+  async function toggleTaakVoltooid(id, voltooid){
+    try {
+      await fetch('/coach/api/taken/'+encodeURIComponent(id), {
+        method:'PATCH', credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ voltooid: !!voltooid })
+      });
+      loadTakenVandaag();
+    } catch (_) {}
+  }
+  function gaNaarTaken(ev){
+    // Hele card klikbaar — alleen niet als klik op interactieve elementen viel.
+    if (ev && ev.target) {
+      var t = ev.target;
+      if (t.closest('a') || t.closest('input') || t.closest('button')) return;
+    }
+    window.location.href = '/coach/taken';
+  }
+  // Trigger op DOMContentLoaded (oude renderTasks() liep ook bij init).
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ loadTakenVandaag(); loadSalesCalls(); });
+  } else {
+    loadTakenVandaag();
+    loadSalesCalls();
+  }
+  window.toggleTaakVoltooid = toggleTaakVoltooid;
+  window.gaNaarTaken = gaNaarTaken;
+  function hideTaskForm() {
+    document.getElementById('task-form').style.display = 'none';
+    document.getElementById('task-form-title').value = '';
+    document.getElementById('task-form-date').value = '';
+    document.getElementById('task-form-client').value = '';
+    formState.priority = 'normaal';
+    formState.category = 'schema';
+    formState.clientName = '';
+    resetToggle('task-form-priority', 'normaal');
+    resetToggle('task-form-category', 'schema');
+    closeClientDropdown();
+  }
+  function resetToggle(groupId, value) {
+    var group = document.getElementById(groupId);
+    if (!group) return;
+    group.querySelectorAll('button').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.value === value);
+    });
+  }
+  function setFormPriority(btn) {
+    btn.parentNode.querySelectorAll('button').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    formState.priority = btn.dataset.value;
+  }
+  function setFormCategory(btn) {
+    btn.parentNode.querySelectorAll('button').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    formState.category = btn.dataset.value;
+  }
+  function openClientDropdown() {
+    var dd = document.getElementById('task-form-client-dropdown');
+    if (!dd) return;
+    if (dd.style.display !== 'none') { closeClientDropdown(); return; }
+    dd.innerHTML = '';
+    if (!CLIENT_NAMES.length) {
+      var empty = document.createElement('div');
+      empty.className = 'task-form-dropdown-item';
+      empty.style.color = '#9b9baa';
+      empty.textContent = 'Geen klanten beschikbaar';
+      dd.appendChild(empty);
+    } else {
+      CLIENT_NAMES.forEach(function (name) {
+        var it = document.createElement('div');
+        it.className = 'task-form-dropdown-item';
+        it.textContent = name;
+        it.onclick = function () { selectClient(name); };
+        dd.appendChild(it);
+      });
+      if (formState.clientName) {
+        var clr = document.createElement('div');
+        clr.className = 'task-form-dropdown-clear';
+        clr.textContent = 'Ontkoppelen';
+        clr.onclick = function () { selectClient(''); };
+        dd.appendChild(clr);
+      }
+    }
+    dd.style.display = '';
+  }
+  function closeClientDropdown() {
+    var dd = document.getElementById('task-form-client-dropdown');
+    if (dd) dd.style.display = 'none';
+  }
+  function selectClient(name) {
+    formState.clientName = name;
+    document.getElementById('task-form-client').value = name || '';
+    closeClientDropdown();
+  }
+  function saveTaskFromForm() {
+    var titleEl = document.getElementById('task-form-title');
+    var dateEl = document.getElementById('task-form-date');
+    var title = titleEl.value.trim();
+    if (!title) { titleEl.focus(); return; }
+    var tasks = loadTasks();
+    tasks.push({
+      id: 't_' + Date.now(),
+      title: title,
+      clientName: formState.clientName || '',
+      dueDate: dateEl.value || '',
+      priority: formState.priority || 'normaal',
+      category: formState.category || 'overig',
+      done: false,
+    });
+    saveTasks(tasks);
+    hideTaskForm();
+    renderTasks();
+  }
+  function toggleTaskDone(id) {
+    var tasks = loadTasks();
+    var t = tasks.find(function (x) { return x.id === id; });
+    if (!t) return;
+    t.done = !t.done;
+    saveTasks(tasks);
+    renderTasks();
+  }
+  renderTasks();
+  restoreAandachtTab();
+
+  // ===== Wachtwoord reset =====
+  async function resetKlantWw(klantId, naam) {
+    if (!confirm('Wachtwoord resetten voor ' + naam + '?\n\nKlant krijgt het nieuwe wachtwoord per email en je ziet het hier ook.')) return;
+    try {
+      var r = await fetch('/api/coach/klant/' + encodeURIComponent(klantId) + '/wachtwoord-reset', {
+        method: 'POST', credentials: 'same-origin'
+      });
+      var d = await r.json();
+      if (!r.ok || !d.ok) { alert(d.fout || 'Reset mislukt.'); return; }
+      document.getElementById('wwTitle').textContent = 'Wachtwoord reset · ' + (d.naam || naam);
+      document.getElementById('wwPw').textContent = d.tijdelijk_wachtwoord;
+      document.getElementById('wwInfo').innerHTML = d.email
+        ? 'Er is ook een mail met dit wachtwoord gestuurd naar <strong style="color:rgba(255,255,255,0.85);">' + d.email + '</strong>.'
+        : 'Er is geen email-adres bekend — deel het wachtwoord handmatig.';
+      document.getElementById('wwCopied').classList.remove('show');
+      document.getElementById('wwResetModal').classList.add('open');
+    } catch (e) { alert('Verbinding mislukt.'); }
+  }
+  document.getElementById('wwCopyBtn').addEventListener('click', function () {
+    var pw = document.getElementById('wwPw').textContent;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(pw).then(function () {
+        document.getElementById('wwCopied').classList.add('show');
+        setTimeout(function(){document.getElementById('wwCopied').classList.remove('show');}, 2500);
+      });
+    }
+  });
+
+  // ===== Coach chat modal =====
+  var CC_KLANT_ID = null;
+  function openCoachChat(klantId, naam) {
+    CC_KLANT_ID = String(klantId);
+    var modal = document.getElementById('coachChatModal');
+    document.getElementById('ccKlantNaam').textContent = naam || 'Klant';
+    document.getElementById('ccThread').innerHTML = '<div class="cc-empty">Laden…</div>';
+    document.getElementById('ccInput').value = '';
+    modal.classList.add('open');
+    laadCoachThread();
+    setTimeout(function(){ document.getElementById('ccInput').focus(); }, 50);
+  }
+  function closeCoachChat() {
+    document.getElementById('coachChatModal').classList.remove('open');
+    CC_KLANT_ID = null;
+  }
+  function escCc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+  function ccFmtTime(iso){
+    var d=new Date(iso);if(isNaN(d))return '';
+    var tt=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
+    var today=new Date().toISOString().slice(0,10);
+    if (d.toISOString().slice(0,10)===today) return tt;
+    var maand=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'][d.getMonth()];
+    return d.getDate()+' '+maand+' · '+tt;
+  }
+  function renderCoachThread(berichten){
+    var el=document.getElementById('ccThread');
+    if(!berichten||!berichten.length){ el.innerHTML='<div class="cc-empty">Nog geen berichten — schrijf als eerste.</div>'; return; }
+    el.innerHTML=berichten.map(function(m){
+      var me=(m.richting==='coach_naar_klant');
+      var label=m.bron==='checkin_week'?' · <em style="color:#9b9baa;">bijstuur</em>':'';
+      return '<div class="cc-msg '+(me?'me':'them')+'"><div class="cc-bub">'+escCc(m.bericht)+'</div><div class="cc-time">'+escCc(ccFmtTime(m.verzonden_op))+label+'</div></div>';
+    }).join('');
+    el.scrollTop=el.scrollHeight;
+  }
+  async function laadCoachThread(){
+    if(!CC_KLANT_ID) return;
+    try {
+      var r=await fetch('/api/coach/berichten/'+encodeURIComponent(CC_KLANT_ID),{credentials:'same-origin'});
+      if(!r.ok){document.getElementById('ccThread').innerHTML='<div class="cc-empty">Kon niet laden.</div>';return;}
+      var d=await r.json();
+      renderCoachThread(d.berichten||[]);
+    } catch(e){ document.getElementById('ccThread').innerHTML='<div class="cc-empty">Verbinding mislukt.</div>'; }
+  }
+  async function verstuurCoachBericht(){
+    if(!CC_KLANT_ID) return;
+    var ip=document.getElementById('ccInput');
+    var tekst=(ip.value||'').trim();
+    if(!tekst) return;
+    var btn=document.getElementById('ccSend');
+    btn.disabled=true;
+    try {
+      var r=await fetch('/api/coach/bericht',{
+        method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',
+        body:JSON.stringify({klant_id:CC_KLANT_ID,bericht:tekst})
+      });
+      if(r.ok){ ip.value=''; laadCoachThread(); }
+      else { alert('Versturen mislukt.'); }
+    } catch(e){ alert('Verbinding mislukt.'); }
+    finally { btn.disabled=false; }
+  }
+
+  function toggleExpand(id) {
+    var card = document.getElementById('client-card-' + id);
+    if (card) card.classList.toggle('expanded');
+  }
+  function hideClientCard(id) {
+    var card = document.getElementById('client-card-' + id);
+    if (!card) return;
+    card.style.transition = 'opacity 0.25s';
+    card.style.opacity = '0';
+    setTimeout(function () { if (card.parentNode) card.parentNode.removeChild(card); }, 260);
+  }
+  function showToast(msg, type) {
+    var el = document.createElement('div');
+    el.className = 'coach-toast coach-toast-' + (type === 'error' ? 'error' : 'success');
+    el.textContent = msg;
+    document.body.appendChild(el);
+    // force reflow om de slide-in animation te triggeren
+    void el.offsetHeight;
+    el.classList.add('coach-toast-show');
+    setTimeout(function () {
+      el.classList.remove('coach-toast-show');
+      setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 250);
+    }, 3000);
+  }
+  function bumpTouchpoint(id, row) {
+    var rowEl = row || document.getElementById('tp-row-' + id);
+    if (!rowEl) return;
+    var parent = rowEl.parentNode;
+    if (!parent) return;
+    // Onthoud originele positie voor rollback bij netwerkfout.
+    var nextSibling = rowEl.nextSibling;
+    // Optimistic UI: kaart direct naar einde van de rij verplaatsen via
+    // appendChild (movet bestaand element). Zo schuiven de overige kaarten
+    // visueel één plek naar voren. FLIP-animatie voor een vloeiende schuif.
+    var oldTop = rowEl.getBoundingClientRect().top;
+    var oldLeft = rowEl.getBoundingClientRect().left;
+    parent.appendChild(rowEl);
+    var newTop = rowEl.getBoundingClientRect().top;
+    var newLeft = rowEl.getBoundingClientRect().left;
+    var dx = oldLeft - newLeft;
+    var dy = oldTop - newTop;
+    if (Math.abs(dx) > 1 || Math.abs(dy) > 1) {
+      rowEl.style.transition = 'none';
+      rowEl.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+      void rowEl.offsetHeight; // force reflow
+      rowEl.style.transition = 'transform 260ms ease-out';
+      rowEl.style.transform = '';
+    }
+    rowEl.classList.add('tp-row-flash');
+    setTimeout(function () { rowEl.classList.remove('tp-row-flash'); }, 380);
+    fetch('/coach/api/client/' + encodeURIComponent(id) + '/touchpoint', { method: 'POST', credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || typeof data.count !== 'number') {
+          // Rollback: zet kaart terug op originele plek.
+          if (nextSibling && nextSibling.parentNode === parent) parent.insertBefore(rowEl, nextSibling);
+          else parent.appendChild(rowEl);
+          showToast('Touchpoint mislukt', 'error');
+          return;
+        }
+        // Server heeft laatste_klik_ts geschreven; teller bijwerken voor
+        // referentie (positie is al door optimistic update bepaald).
+        var c = data.count;
+        var done = c >= 3;
+        var badge = rowEl.querySelector('.tp-count-badge');
+        if (badge) {
+          badge.textContent = done ? '✓ ' + c + '/3' : c + '/3';
+          badge.classList.toggle('tp-count-done', done);
+        }
+        rowEl.dataset.count = String(c);
+        rowEl.classList.toggle('tp-done', done);
+      })
+      .catch(function () {
+        if (nextSibling && nextSibling.parentNode === parent) parent.insertBefore(rowEl, nextSibling);
+        else parent.appendChild(rowEl);
+        showToast('Verbinding mislukt', 'error');
+      });
+  }
+  function snoozeClient(id) {
+    fetch('/coach/api/client/' + encodeURIComponent(id) + '/snooze', { method: 'POST', credentials: 'same-origin' })
+      .then(function (r) {
+        if (r && r.ok) showToast('Gesnoezd tot morgen', 'success');
+        else showToast('Snoozen mislukt', 'error');
+      })
+      .catch(function () { showToast('Verbinding mislukt', 'error'); });
+    hideClientCard(id);
+  }
+  function markClientDone(id) {
+    fetch('/coach/api/client/' + encodeURIComponent(id) + '/done', { method: 'POST', credentials: 'same-origin' })
+      .then(function (r) {
+        if (r && r.ok) showToast('Afgehandeld', 'success');
+        else showToast('Actie mislukt', 'error');
+      })
+      .catch(function () { showToast('Verbinding mislukt', 'error'); });
+    hideClientCard(id);
+  }
+  function closeAllOptionsMenus() {
+    document.querySelectorAll('.options-menu.open').forEach(function (m) {
+      m.classList.remove('open');
+      m.style.top = ''; m.style.left = '';
+    });
+  }
+  function toggleOptions(id, btn) {
+    var menu = document.getElementById('options-' + id);
+    if (!menu) return;
+    var wasOpen = menu.classList.contains('open');
+    closeAllOptionsMenus();
+    if (wasOpen) return;
+    // Tijdelijk zichtbaar maken om de daadwerkelijke menu-afmetingen te meten
+    menu.style.visibility = 'hidden';
+    menu.classList.add('open');
+    var mRect = menu.getBoundingClientRect();
+    var menuW = mRect.width || 200;
+    var menuH = mRect.height || 160;
+    var vw = window.innerWidth || document.documentElement.clientWidth;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var margin = 8;
+    var left, top;
+    if (btn && typeof btn.getBoundingClientRect === 'function') {
+      var r = btn.getBoundingClientRect();
+      left = r.right - menuW;
+      top = r.bottom + 5;
+      if (top + menuH > vh - margin) { top = r.top - menuH - 5; }
+    } else {
+      left = Math.max(margin, (vw - menuW) / 2);
+      top = Math.max(margin, (vh - menuH) / 2);
+    }
+    if (left < margin) left = margin;
+    if (left + menuW > vw - margin) left = vw - menuW - margin;
+    if (top < margin) top = margin;
+    if (top + menuH > vh - margin) top = vh - menuH - margin;
+    menu.style.left = Math.round(left) + 'px';
+    menu.style.top = Math.round(top) + 'px';
+    menu.style.visibility = '';
+  }
+  window.addEventListener('scroll', closeAllOptionsMenus, true);
+  window.addEventListener('resize', closeAllOptionsMenus);
+  function removeClient(id) {
+    closeAllOptionsMenus();
+    hideClientCard(id);
+  }
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.options-wrap') && !e.target.closest('.options-menu')) {
+      closeAllOptionsMenus();
+    }
+    if (!e.target.closest('.task-form-row')) {
+      closeClientDropdown();
+    }
+  });
+  function saveClientMessage(id, btn) {
+    var ta = document.getElementById('concept-' + id);
+    if (!ta) return;
+    var text = ta.value;
+    var original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Opslaan…';
+    fetch('/coach/api/client/' + encodeURIComponent(id) + '/save-message', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text })
+    }).then(function (r) {
+      if (r.ok) { btn.textContent = 'Opgeslagen ✓'; showToast('Bericht opgeslagen', 'success'); }
+      else { btn.textContent = 'Fout bij opslaan'; showToast('Opslaan mislukt', 'error'); }
+    }).catch(function () {
+      btn.textContent = 'Fout bij opslaan';
+      showToast('Verbinding mislukt', 'error');
+    }).finally(function () {
+      setTimeout(function () { btn.disabled = false; btn.textContent = original; }, 1800);
+    });
+  }
+  function sendClientMessage(id, btn) {
+    var ta = document.getElementById('concept-' + id);
+    if (!ta) return;
+    var text = ta.value;
+    if (!text.trim()) { alert('Bericht is leeg.'); return; }
+    if (!confirm('Weet je het zeker? Dit bericht wordt naar de chat van de klant gestuurd.')) return;
+    var original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Verzenden…';
+    fetch('/coach/api/client/' + encodeURIComponent(id) + '/send-message', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text })
+    }).then(function (r) {
+      if (!r.ok) { btn.textContent = 'Fout bij verzenden'; btn.disabled = false; showToast('Versturen mislukt', 'error'); return; }
+      btn.textContent = 'Verzonden ✓';
+      showToast('Bericht verzonden', 'success');
+      var card = document.getElementById('client-card-' + id);
+      if (card) {
+        card.dataset.state = 'done';
+        card.classList.remove('expanded');
+        var activeTab = document.querySelector('.filter-tabs .ftab.active');
+        if (activeTab) setTab(activeTab);
+      }
+    }).catch(function () {
+      btn.textContent = 'Fout bij verzenden';
+      btn.disabled = false;
+      showToast('Verbinding mislukt', 'error');
+    });
+  }
+  // Quick-send vanaf klantrij in Aandacht-blok: gebruik het reeds-voorgestelde
+  // bericht in concept-textarea zonder uitklap of bevestigingspopup.
+  // Spec: klik op rij = directe verzend-actie. Toast meldt succes.
+  function quickSendFromRow(id, rowEl) {
+    var ta = document.getElementById('concept-' + id);
+    if (!ta) { showToast('Geen voorgesteld bericht', 'error'); return; }
+    var text = (ta.value || '').trim();
+    if (!text) { showToast('Bericht is leeg', 'error'); return; }
+    var naam = (rowEl && rowEl.getAttribute('data-naam')) || 'klant';
+    fetch('/coach/api/client/' + encodeURIComponent(id) + '/send-message', {
+      method: 'POST', credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text })
+    }).then(function (r) {
+      if (!r.ok) { showToast('Versturen mislukt', 'error'); return; }
+      showToast('Bericht verstuurd naar ' + naam, 'success');
+      var card = document.getElementById('client-card-' + id);
+      if (card) {
+        card.dataset.state = 'done';
+        card.classList.remove('expanded');
+        var activeTab = document.querySelector('.filter-tabs .ftab.active');
+        if (activeTab) setTab(activeTab);
+      }
+    }).catch(function () { showToast('Verbinding mislukt', 'error'); });
+  }
+
+  // Expose all inline-onclick handlers op window zodat ze bereikbaar zijn
+  // vanuit inline onclick attributes (defensief tegen eventuele scope-issues).
+  window.toggleExpand = toggleExpand;
+  window.snoozeClient = snoozeClient;
+  window.markClientDone = markClientDone;
+  window.toggleOptions = toggleOptions;
+  window.saveClientMessage = saveClientMessage;
+  window.sendClientMessage = sendClientMessage;
+  window.quickSendFromRow = quickSendFromRow;
+  window.showToast = showToast;
+  window.bumpTouchpoint = bumpTouchpoint;
+  window.removeClient = removeClient;
+  window.openCoachChat = openCoachChat;
+  window.closeCoachChat = closeCoachChat;
+  window.verstuurCoachBericht = verstuurCoachBericht;
+  window.resetKlantWw = resetKlantWw;
+  window.setTab = setTab;
+  window.setFeed = setFeed;
+  window.setTaskTab = setTaskTab;
+  window.showTaskForm = showTaskForm;
+  window.hideTaskForm = hideTaskForm;
+  window.openClientDropdown = openClientDropdown;
+  window.setFormPriority = setFormPriority;
+  window.setFormCategory = setFormCategory;
+  window.saveTaskFromForm = saveTaskFromForm;
+  window.toggleTaskDone = toggleTaskDone;
+  window.confirmDeleteTask = confirmDeleteTask;
+  window.cancelDeleteTask = cancelDeleteTask;
+  window.doDeleteTask = doDeleteTask;
+
+  // ============= Nieuwe-klant snel-aanmaak modal =============
+  // Triggered vanaf de "+ Nieuwe klant"-knop in de page-header. Roept de
+  // bestaande POST /coach/klant-aanmaken endpoint aan, toont een 30-sec
+  // toast met inloggegevens, en herlaadt daarna de pagina zodat de nieuwe
+  // klant direct in de lijsten verschijnt.
+  (function () {
+    var openBtn = document.getElementById('coachNewKlantBtn');
+    var overlay = document.getElementById('coachNewKlantOverlay');
+    var form = document.getElementById('coachNewKlantForm');
+    var inputNaam = document.getElementById('cnkNaam');
+    var inputEmail = document.getElementById('cnkEmail');
+    var inputPw = document.getElementById('cnkWachtwoord');
+    var btnSubmit = document.getElementById('coachNewKlantSubmit');
+    var btnCancel = document.getElementById('coachNewKlantAnnuleer');
+    var errBox = document.getElementById('coachNewKlantErr');
+    var toast = document.getElementById('coachNewKlantToast');
+    var toastBody = document.getElementById('coachNewKlantToastBody');
+    var toastClose = document.getElementById('coachNewKlantToastClose');
+    if (!openBtn || !overlay || !form) return;
+
+    var toastTimer = null;
+    var TOAST_KEY = 'hoedt.coach.newklant.toast';
+    function hideToast() {
+      if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
+      toast.hidden = true;
+      try { sessionStorage.removeItem(TOAST_KEY); } catch (e) {}
+    }
+    function showToast(html, expiresAt) {
+      toastBody.innerHTML = html;
+      toast.hidden = false;
+      var ms = Math.max(0, (expiresAt || (Date.now() + 30000)) - Date.now());
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(hideToast, ms);
+    }
+    function persistToast(html, expiresAt) {
+      try { sessionStorage.setItem(TOAST_KEY, JSON.stringify({ html: html, expires: expiresAt })); } catch (e) {}
+    }
+    // Bij page-load: als er een nog niet-verlopen toast in sessionStorage zit
+    // (na een reload), herstel hem. Zo overleven inloggegevens de reload.
+    try {
+      var stored = sessionStorage.getItem(TOAST_KEY);
+      if (stored) {
+        var parsed = JSON.parse(stored);
+        if (parsed && parsed.html && parsed.expires && Date.now() < parsed.expires) {
+          showToast(parsed.html, parsed.expires);
+        } else {
+          sessionStorage.removeItem(TOAST_KEY);
+        }
+      }
+    } catch (e) {}
+    if (toastClose) toastClose.addEventListener('click', hideToast);
+
+    function showErr(msg) { errBox.textContent = msg; errBox.hidden = false; }
+    function clearErr() { errBox.textContent = ''; errBox.hidden = true; }
+    function escAttr(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+    function openModal() {
+      clearErr();
+      // Reset velden: naam + email leeg, wachtwoord-default terug naar "test12345"
+      // zodat coach niet steeds dezelfde tekst hoeft te typen.
+      inputNaam.value = '';
+      inputEmail.value = '';
+      inputPw.value = 'test12345';
+      var defTraj = document.querySelector('input[name="cnkTraject"][value="12wk_eenmalig"]');
+      if (defTraj) defTraj.checked = true;
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Aanmaken';
+      overlay.hidden = false;
+      setTimeout(function () { try { inputNaam.focus(); } catch (e) {} }, 30);
+    }
+    function closeModal() { overlay.hidden = true; }
+
+    openBtn.addEventListener('click', openModal);
+    btnCancel.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !overlay.hidden) closeModal();
+    });
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearErr();
+      var naam = (inputNaam.value || '').trim();
+      var email = (inputEmail.value || '').trim().toLowerCase();
+      var wachtwoord = inputPw.value || '';
+      var trajectEl = document.querySelector('input[name="cnkTraject"]:checked');
+      var traject_id = trajectEl ? trajectEl.value : '';
+      if (!naam) return showErr('Vul een naam in.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showErr('Vul een geldig e-mailadres in.');
+      if (wachtwoord.length < 6) return showErr('Wachtwoord moet minimaal 6 tekens zijn.');
+      if (!traject_id) return showErr('Kies een traject.');
+
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = 'Bezig…';
+      try {
+        var resp = await fetch('/coach/klant-aanmaken', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({ naam: naam, email: email, wachtwoord: wachtwoord, traject_id: traject_id }),
+        });
+        var data = null;
+        try { data = await resp.json(); } catch (_) {}
+        if (!resp.ok || !data || !data.ok) {
+          showErr((data && data.fout) || 'Aanmaken mislukt. Probeer opnieuw.');
+          btnSubmit.disabled = false;
+          btnSubmit.textContent = 'Aanmaken';
+          return;
+        }
+        closeModal();
+        var pwShown = (data.wachtwoord || data.tijdelijk_wachtwoord || wachtwoord);
+        var html = '<strong>Klant aangemaakt</strong><br>' +
+          'Naam: ' + escAttr(naam) + '<br>' +
+          'Email: <code>' + escAttr(email) + '</code><br>' +
+          'Wachtwoord: <code>' + escAttr(pwShown) + '</code>';
+        var expires = Date.now() + 30000;
+        // Persist in sessionStorage zodat de toast de page-reload overleeft.
+        // Anders is de coach z'n inloggegevens kwijt voordat 'ie ze kan kopiëren.
+        persistToast(html, expires);
+        showToast(html, expires);
+        // Reload zodat klantlijsten/teller bijgewerkt zijn. Toast wordt
+        // hersteld uit sessionStorage door de boot-handler hierboven.
+        setTimeout(function () { location.reload(); }, 600);
+      } catch (err) {
+        showErr('Netwerkfout. Probeer opnieuw.');
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = 'Aanmaken';
+      }
+    });
+  })();
+</script>
+
+  </body>
+  </html>

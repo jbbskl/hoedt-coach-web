@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coach Portaal, Hoedt Coaching</title>
+  <link rel="stylesheet" href="/css/fonts.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',sans-serif;background:#0f0f1a;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
+    body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at top, rgba(201,168,76,0.08), transparent 60%);pointer-events:none;}
+    .login-card{background:#1a1a2a;border:1px solid rgba(201,168,76,0.18);border-radius:16px;padding:36px 38px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,0.4);position:relative;}
+    .login-logo{text-align:center;margin-bottom:24px;}
+    .login-logo-mark{width:52px;height:52px;border-radius:50%;background:rgba(201,168,76,0.12);border:1.5px solid #c9a84c;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#c9a84c;letter-spacing:0.5px;margin:0 auto 14px;}
+    .login-title{font-size:22px;font-weight:700;color:#c9a84c;letter-spacing:0.3px;}
+    .login-subtitle{font-size:10.5px;color:rgba(255,255,255,0.45);letter-spacing:2.5px;text-transform:uppercase;margin-top:5px;font-weight:500;}
+    .login-label{display:block;font-size:10.5px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.8px;font-weight:600;margin-bottom:7px;}
+    .login-input-wrap{position:relative;margin-bottom:14px;}
+    .login-input{width:100%;padding:11px 44px 11px 14px;border:1px solid rgba(255,255,255,0.12);border-radius:9px;font-size:14px;font-family:inherit;background:rgba(255,255,255,0.04);color:white;transition:border-color 0.15s,background 0.15s;}
+    .login-input:focus{outline:none;border-color:#c9a84c;background:rgba(255,255,255,0.06);}
+    .login-toggle{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:transparent;border:none;color:rgba(255,255,255,0.45);cursor:pointer;padding:4px 8px;font-size:12px;font-family:inherit;letter-spacing:0.3px;}
+    .login-toggle:hover{color:#c9a84c;}
+    .login-btn{width:100%;padding:12px 16px;font-size:14.5px;font-weight:700;border-radius:9px;background:#c9a84c;color:#0f0f1a;border:none;cursor:pointer;font-family:inherit;letter-spacing:0.2px;transition:background 0.15s,transform 0.1s;margin-top:6px;}
+    .login-btn:hover{background:#d4b75c;}
+    .login-btn:active{transform:translateY(1px);}
+    .login-error{font-size:12.5px;color:#ff9999;background:rgba(224,84,84,0.12);border:1px solid rgba(224,84,84,0.35);padding:9px 12px;border-radius:8px;margin-bottom:12px;}
+    .login-foot{margin-top:16px;text-align:center;font-size:12px;color:rgba(255,255,255,0.45);}
+    .login-foot a{color:#c9a84c;text-decoration:none;font-weight:500;}
+    .login-foot a:hover{text-decoration:underline;}
+    @media (max-width:480px){.login-card{padding:28px 24px;}}
+  </style>
+</head>
+<body>
+  <form method="POST" action="/coach/login" class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-mark">HC</div>
+      <div class="login-title">Hoedt Coaching</div>
+      <div class="login-subtitle">Coach Portaal</div>
+    </div>
+    
+    <label class="login-label" for="email">E-mail</label>
+    <div class="login-input-wrap">
+      <input id="email" type="email" name="email" required autofocus class="login-input" autocomplete="email" value="" />
+    </div>
+    <label class="login-label" for="pw">Wachtwoord</label>
+    <div class="login-input-wrap">
+      <input id="pw" type="password" name="wachtwoord" required class="login-input" autocomplete="current-password" />
+      <button type="button" class="login-toggle" onclick="(function(){var i=document.getElementById('pw');var b=event.currentTarget;i.type=i.type==='password'?'text':'password';b.textContent=i.type==='password'?'Toon':'Verberg';})()">Toon</button>
+    </div>
+    <input type="hidden" name="next" value="/coach" />
+    <button type="submit" class="login-btn">Inloggen</button>
+    <div class="login-foot"><a href="/coach/wachtwoord-vergeten">Wachtwoord vergeten?</a></div>
+  </form>
+</body>
+</html>

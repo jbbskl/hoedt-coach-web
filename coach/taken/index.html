@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="nl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Taken — Hoedt Coaching</title>
+<link rel="stylesheet" href="/css/fonts.css">
+<style>
+  .pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;border:1px solid transparent;}
+.pill-rood{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FCEBEB;border:1px solid #A32D2D;color:#791F1F;}
+.pill-oranje{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#854F0B;}
+.pill-paars{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#EEEDFE;border:1px solid #7F77DD;color:#534AB7;}
+.pill-blauw{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #378ADD;color:#185FA5;}
+.pill-blauw-donker{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #185FA5;color:#0F3D6E;}
+.pill-grijs{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#F1EFE8;border:1px solid #888780;color:#444441;}
+.pill-groen-teal{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E1F5EE;border:1px solid #1D9E75;color:#0F6E56;}
+.pill-amber{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#633806;}
+.pill-roze{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FBEAF0;border:1px solid #D4537E;color:#993556;}
+.aa-tab[data-tab="voeding"]{color:#854F0B;border-color:#BA751733;}
+.aa-tab[data-tab="voeding"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active{background:#FAEEDA;color:#854F0B;border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="training"]{color:#534AB7;border-color:#7F77DD33;}
+.aa-tab[data-tab="training"]:hover{border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active{background:#EEEDFE;color:#534AB7;border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active .aa-tab-badge{background:#7F77DD;color:#fff;}
+.aa-tab[data-tab="stappen"]{color:#185FA5;border-color:#378ADD33;}
+.aa-tab[data-tab="stappen"]:hover{border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active{background:#E6F1FB;color:#185FA5;border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active .aa-tab-badge{background:#378ADD;color:#fff;}
+.aa-tab[data-tab="checkins"]{color:#0F3D6E;border-color:#185FA533;}
+.aa-tab[data-tab="checkins"]:hover{border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active{background:#E6F1FB;color:#0F3D6E;border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active .aa-tab-badge{background:#185FA5;color:#fff;}
+.aa-tab[data-tab="login"]{color:#444441;border-color:#88878033;}
+.aa-tab[data-tab="login"]:hover{border-color:#888780;}
+.aa-tab[data-tab="login"].is-active{background:#F1EFE8;color:#444441;border-color:#888780;}
+.aa-tab[data-tab="login"].is-active .aa-tab-badge{background:#888780;color:#fff;}
+.aa-tab[data-tab="fase_aankomend"]{color:#0F6E56;border-color:#1D9E7533;}
+.aa-tab[data-tab="fase_aankomend"]:hover{border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active{background:#E1F5EE;color:#0F6E56;border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active .aa-tab-badge{background:#1D9E75;color:#fff;}
+.aa-tab[data-tab="fase_geblokkeerd"]{color:#791F1F;border-color:#A32D2D33;}
+.aa-tab[data-tab="fase_geblokkeerd"]:hover{border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active{background:#FCEBEB;color:#791F1F;border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active .aa-tab-badge{background:#A32D2D;color:#fff;}
+.aa-tab[data-tab="tussenbericht"]{color:#633806;border-color:#BA751733;}
+.aa-tab[data-tab="tussenbericht"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active{background:#FAEEDA;color:#633806;border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="verlenging"]{color:#993556;border-color:#D4537E33;}
+.aa-tab[data-tab="verlenging"]:hover{border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active{background:#FBEAF0;color:#993556;border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active .aa-tab-badge{background:#D4537E;color:#fff;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:#f5f0e8;display:flex;min-height:100vh;color:#1a1a2e;}
+  .coach-sidebar{width:220px;min-height:100vh;background:linear-gradient(180deg,#0a0a14 0%,#14141f 100%);display:flex;flex-direction:column;position:fixed;top:0;left:0;z-index:100;}
+  .sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .logo-text{font-size:17px;color:#c9a84c;font-weight:700;letter-spacing:0.3px;text-shadow:0 0 12px rgba(201,168,76,0.3);}
+  .logo-sub{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+  .sidebar-nav{padding:12px 0;flex:1;overflow-y:auto;}
+  .nav-label{font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px 4px;}
+  .nav-item{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;}
+  .nav-item:hover{background:rgba(201,168,76,0.05);color:rgba(255,255,255,0.85);}
+  .nav-item.active{background:rgba(201,168,76,0.1);color:#c9a84c;border-left-color:#c9a84c;font-weight:600;}
+  .nav-icon{font-size:14px;width:16px;text-align:center;flex-shrink:0;}
+  .nav-badge{margin-left:auto;background:#e05454;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;min-width:18px;text-align:center;}
+  .nav-badge-amber{margin-left:auto;background:#d4871a;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;}
+  .nav-item.nav-sub-item{padding:7px 20px 7px 32px;font-size:12.5px;color:rgba(255,255,255,0.45);}
+  .nav-item.nav-sub-item.active{background:transparent;color:#c9a84c;border-left:2px solid #c9a84c;}
+  .nav-group-head{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);font-size:13px;text-decoration:none;cursor:pointer;}
+  .nav-group-head:hover{color:rgba(255,255,255,0.85);}
+  .nav-group-head.active{color:#c9a84c;font-weight:600;}
+  .nav-chevron{margin-left:auto;font-size:11px;transition:transform 0.15s;}
+  .nav-group[data-open="false"] .nav-group-body{display:none;}
+  .nav-group[data-open="false"] .nav-chevron{transform:rotate(-90deg);}
+  .nav-group-label{flex:1;}
+  .coach-main{margin-left:220px;flex:1;padding:26px 28px;min-width:0;}
+  .kd-back{display:inline-block;font-size:12px;color:#6b6b80;text-decoration:none;margin-bottom:10px;}
+  .kd-back:hover{color:#1a1a2e;}
+  .tk-content{max-width:1100px;}
+  .tk-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:14px;flex-wrap:wrap;}
+  .tk-header h1{font-size:26px;font-weight:700;}
+  .tk-new-btn{padding:10px 16px;background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);color:#0f0f1a;border:none;border-radius:9px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:0.2px;box-shadow:0 0 24px rgba(201,168,76,0.35),0 4px 16px rgba(184,147,47,0.2);transition:all 0.2s ease;}
+  .tk-new-btn:hover{background:linear-gradient(135deg,#e6c76a 0%,#c9a84c 100%);box-shadow:0 0 32px rgba(201,168,76,0.5),0 6px 20px rgba(184,147,47,0.3);transform:translateY(-1px);}
+  .tk-counter{font-size:13px;color:#6b6b80;margin-bottom:14px;}
+  .tk-counter strong{color:#1a1a2e;}
+  .tk-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;background:linear-gradient(180deg,#fffdf6 0%,#faf3e0 100%);border:1px solid rgba(201,168,76,0.25);border-radius:10px;padding:10px 14px;align-items:center;box-shadow:0 2px 8px rgba(15,15,26,0.04),0 1px 2px rgba(15,15,26,0.02);}
+  .tk-filter-label{font-size:11.5px;color:#6b6b80;font-weight:600;letter-spacing:0.3px;text-transform:uppercase;}
+  .tk-filter-sel{padding:7px 10px;border:1px solid rgba(26,26,46,0.12);border-radius:7px;font-family:inherit;font-size:13px;background:white;color:#1a1a2e;cursor:pointer;}
+  .tk-section{background:linear-gradient(180deg,#fffdf6 0%,#faf3e0 100%);border:1px solid rgba(201,168,76,0.25);border-radius:12px;padding:14px 16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(15,15,26,0.04),0 1px 2px rgba(15,15,26,0.02);}
+  .tk-section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;cursor:default;}
+  .tk-section.is-collapsible .tk-section-head{cursor:pointer;}
+  .tk-section-h{font-size:15px;font-weight:700;color:#1a1a2e;display:flex;align-items:center;gap:8px;}
+  .tk-section-count{font-size:11.5px;color:#6b6b80;font-weight:600;background:#f5f0e8;border-radius:99px;padding:2px 10px;}
+  .tk-section-count.is-verlopen{background:#FCEBEB;color:#791F1F;}
+  .tk-section-chev{font-size:12px;color:#6b6b80;transition:transform 0.15s;}
+  .tk-section[data-open="false"] .tk-section-body{display:none;}
+  .tk-section[data-open="false"] .tk-section-chev{transform:rotate(-90deg);}
+  .tk-empty{font-size:13px;color:#9b9baa;padding:10px 4px;text-align:left;}
+  .tk-row{display:flex;align-items:center;gap:11px;padding:10px 6px;border-bottom:1px solid rgba(26,26,46,0.06);position:relative;}
+  .tk-row:last-child{border-bottom:none;}
+  .tk-check{width:18px;height:18px;cursor:pointer;flex-shrink:0;accent-color:#c9a84c;}
+  .tk-body{flex:1;min-width:0;}
+  .tk-titel{font-size:14px;font-weight:600;color:#1a1a2e;line-height:1.35;}
+  .tk-titel.is-done{text-decoration:line-through;color:#9b9baa;font-weight:500;}
+  .tk-meta{font-size:11.5px;color:#6b6b80;margin-top:2px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .tk-meta-dot{width:6px;height:6px;border-radius:50%;display:inline-block;}
+  .tk-prio{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px;letter-spacing:0.3px;text-transform:uppercase;}
+  .tk-prio-laag{background:#F1EFE8;color:#888780;border:1px solid #888780;}
+  .tk-prio-midden{background:#FAEEDA;color:#854F0B;border:1px solid #BA7517;}
+  .tk-prio-hoog{background:#FCEBEB;color:#791F1F;border:1px solid #A32D2D;}
+  .tk-klant-tag{font-size:11.5px;color:#8a6a1a;text-decoration:none;font-weight:600;}
+  .tk-klant-tag:hover{color:#6b4f12;text-decoration:underline;}
+  .tk-klant-tag--archief{color:#9b9baa;font-style:italic;font-weight:500;cursor:default;}
+  .tk-row--archief{opacity:0.75;}
+  .tk-row--archief .tk-titel{color:#6b6b80;}
+  .tk-menu{position:relative;}
+  .tk-menu-btn{background:none;border:none;font-size:18px;color:#6b6b80;cursor:pointer;padding:4px 8px;border-radius:6px;}
+  .tk-menu-btn:hover{background:rgba(26,26,46,0.05);}
+  .tk-menu-dd{position:absolute;right:0;top:30px;background:white;border:1px solid rgba(26,26,46,0.12);border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,0.08);min-width:140px;z-index:50;overflow:hidden;}
+  .tk-menu-dd[hidden]{display:none;}
+  .tk-menu-item{display:block;width:100%;padding:9px 14px;background:none;border:none;text-align:left;font-family:inherit;font-size:13px;color:#1a1a2e;cursor:pointer;}
+  .tk-menu-item:hover{background:#f5f0e8;}
+  .tk-menu-item.is-danger{color:#c0392b;}
+  /* Modal */
+  .tk-modal-overlay{position:fixed;inset:0;background:rgba(15,15,26,0.55);display:flex;align-items:center;justify-content:center;z-index:1100;padding:18px;}
+  .tk-modal-overlay[hidden]{display:none;}
+  .tk-modal{background:white;border-radius:14px;max-width:540px;width:100%;padding:22px 24px;font-family:inherit;max-height:90vh;overflow-y:auto;}
+  .tk-modal h3{font-size:17px;font-weight:700;margin-bottom:14px;}
+  .tk-form-row{display:flex;flex-direction:column;gap:5px;margin-bottom:11px;}
+  .tk-form-row label{font-size:11.5px;font-weight:700;color:#6b6b80;letter-spacing:0.3px;}
+  .tk-form-row input,.tk-form-row select,.tk-form-row textarea{padding:9px 12px;border:1px solid rgba(26,26,46,0.14);border-radius:8px;font-family:inherit;font-size:14px;background:white;color:#1a1a2e;}
+  .tk-form-row textarea{resize:vertical;min-height:70px;}
+  .tk-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .tk-modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap;}
+  .tk-btn{padding:10px 16px;border-radius:8px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;border:1px solid transparent;}
+  .tk-btn-primary{background:#0f0f1a;color:#fff;}
+  .tk-btn-secondary{background:white;color:#6b6b80;border-color:rgba(26,26,46,0.18);}
+  .tk-btn-danger{background:white;color:#c0392b;border-color:#e05454;margin-right:auto;}
+  @media(max-width:760px){
+    .coach-main{margin-left:0;padding:18px 14px;}
+    .coach-sidebar{position:relative;width:100%;min-height:auto;}
+    .tk-new-btn,.tk-btn{min-height:44px;}
+    .tk-form-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head><body>
+<div class="coach-sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">Hoedt Coaching</div>
+      <div class="logo-sub">Coach Dashboard</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-label">Overzicht</div>
+      <a class="nav-item" href="/coach">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>Dashboard
+        
+      </a>
+      <a class="nav-item" href="/coach/analytics">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>Analytics
+      </a>
+      <a class="nav-item" href="/coach/aandacht">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Aandacht nodig
+      </a>
+      <a class="nav-item active" href="/coach/taken">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span>Taken
+      </a>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/klanten">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="nav-group-label">Klanten</span>
+          <span class="nav-badge">3</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/intakes">
+            Intakes
+            <span class="nav-badge-amber">8</span>
+          </a>
+          <a class="nav-item nav-sub-item" href="/coach/checkins">
+            Check-ins
+            <span class="nav-badge">11</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav-item" href="/coach/chat">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Chat
+        <span class="nav-badge" id="coachChatNavBadge" style="display:none;"></span>
+      </a>
+
+      <a class="nav-item" href="/coach/eind-vragenlijsten">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>Eind-vragenlijsten
+      </a>
+
+      <a class="nav-item" href="/coach/feedback-stats">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>AI-feedback
+      </a>
+
+      <a class="nav-item" href="/coach/instellingen">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Instellingen
+      </a>
+
+      <div class="nav-label">Schema Builder</div>
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+          <span class="nav-group-label">Voeding</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding?tab=producten">Producten</a>
+        </div>
+      </div>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/training?tab=genereren">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
+          <span class="nav-group-label">Training</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="coach-av">DH</div>
+        <div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:500;">Daniel Hoedt</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);">Head Coach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<style>
+  .toast-success{position:fixed;top:20px;right:20px;background:#2e9e6b;color:white;padding:12px 18px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.18);z-index:9999;transition:opacity 0.4s ease,transform 0.3s ease;max-width:340px;}
+  .breadcrumbs{font-size:11.5px;color:#9b9baa;margin-top:3px;}
+  .breadcrumbs a{color:#6b6b80;text-decoration:none;}
+  .breadcrumbs a:hover{color:#c9a84c;}
+  .breadcrumbs .crumb-sep{margin:0 6px;opacity:0.5;}
+  button[type="submit"]:disabled,.sb-btn:disabled{opacity:0.6;cursor:wait !important;}
+  /* Sidebar-iconen: SVG-set op maat (overschrijft de oude emoji font-size regel) */
+  .coach-sidebar .nav-icon{width:16px;height:16px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;}
+  .coach-sidebar .nav-icon svg{width:16px;height:16px;stroke-width:1.9;opacity:0.9;}
+  .coach-sidebar .nav-item.active .nav-icon svg,.coach-sidebar .nav-group-head.active .nav-icon svg{opacity:1;}
+  /* Sidebar accordeon-groepen — data-open attribute drives visibility */
+  .coach-sidebar .nav-group{display:block;}
+  .coach-sidebar .nav-group-head{display:flex;align-items:center;gap:9px;padding:10px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;cursor:pointer;}
+  .coach-sidebar .nav-group-head:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .coach-sidebar .nav-group-head.active{background:rgba(201,168,76,0.08);color:#c9a84c;border-left-color:#c9a84c;}
+  .coach-sidebar .nav-group-label{flex:1;}
+  .coach-sidebar .nav-chevron{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;color:#c9a84c;font-size:18px;line-height:1;font-weight:700;transition:transform 0.2s ease,color 0.15s ease,background 0.15s ease;border-radius:4px;cursor:pointer;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
+  .coach-sidebar .nav-chevron:hover{color:#ffffff;background:rgba(201,168,76,0.18);}
+  .coach-sidebar .nav-group[data-open="true"] > .nav-group-head .nav-chevron{transform:rotate(180deg);color:#ffffff;}
+  .coach-sidebar .nav-group[data-open="false"] .nav-group-body{display:none !important;}
+  @media (max-width:768px){
+    body{display:block !important;}
+    .coach-sidebar{position:static !important;width:100% !important;min-height:0 !important;flex-direction:row !important;overflow-x:auto;padding:8px 12px !important;z-index:10;}
+    .coach-sidebar .sidebar-logo,.coach-sidebar .sidebar-footer,.coach-sidebar .nav-label{display:none;}
+    .coach-sidebar .sidebar-nav{display:flex;flex-direction:row;padding:0;gap:2px;overflow-x:auto;flex:1;}
+    .coach-sidebar .nav-item,.coach-sidebar .nav-sub-item{flex:0 0 auto;white-space:nowrap;padding:8px 14px !important;font-size:12px !important;border-left:none !important;border-bottom:2px solid transparent;}
+    .coach-sidebar .nav-item.active{background:transparent !important;border-bottom-color:#c9a84c !important;}
+    .coach-main{margin-left:0 !important;padding:16px !important;}
+    .main-col,.two-col,.three-col,.kp-grid,.kp-targets-row,.aanp-current-grid,.gen-grid-3,.gen-grid-4,.kl-toolbar,.clients-grid,.sb-dv-layout,.sb-koppel-split{grid-template-columns:1fr !important;display:block !important;}
+    .main-col > *,.two-col > *,.three-col > *,.kp-grid > *,.sb-koppel-split > *{margin-bottom:12px;}
+    .kl-table{display:block;}
+    .kl-table thead{display:none;}
+    .kl-table tbody,.kl-table tr,.kl-table td{display:block;width:100%;}
+    .kl-table tr{border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 14px;margin-bottom:8px;background:white;}
+    .kl-table td{border:none !important;padding:4px 0 !important;}
+    .kl-table td:before{content:attr(data-label);display:inline-block;font-size:10px;text-transform:uppercase;color:#9b9baa;min-width:120px;font-weight:600;}
+    button,.sb-btn,.coc-btn,input[type="submit"]{min-height:40px;}
+    .page-header{flex-direction:column;align-items:flex-start !important;gap:10px;}
+  }
+  @media print{
+    .coach-sidebar,.sb-subtabs,.sb-tabs-nav,button,.sb-btn,.page-actions,.res-actions,.sb-actions-cell,.task-form,.kd-log-form,.task-tabs,.filter-tabs,.sb-cat-tabs,.client-actions,.kl-toolbar,.aanp-actions,.toast-success,.breadcrumbs{display:none !important;}
+    .coach-main{margin-left:0 !important;padding:0 !important;}
+    body{background:white !important;color:black !important;}
+    .card,.sb-card,.kp-card,.kd-section,.res-day-panel,.gen-section,.aanp-panel{box-shadow:none !important;border:1px solid #ddd !important;break-inside:avoid;page-break-inside:avoid;}
+    .res-day-panel{display:block !important;page-break-before:always;}
+    .res-day-panel:first-child{page-break-before:auto;}
+    .res-day-tabs{display:none !important;}
+    a{text-decoration:none;color:black !important;}
+  }
+</style>
+<script>
+  (function(){
+    // Loading states: disable submit buttons during form submission
+    document.addEventListener('submit',function(ev){
+      var f=ev.target;if(!(f instanceof HTMLFormElement))return;
+      var btns=f.querySelectorAll('button[type="submit"],input[type="submit"]');
+      setTimeout(function(){
+        btns.forEach(function(b){
+          if(b.disabled)return;
+          b.dataset.origText=b.textContent;
+          b.disabled=true;
+          if(b.tagName==='BUTTON'&&b.textContent.trim())b.textContent='Opslaan...';
+        });
+      },0);
+      // Re-enable after 20s as safety net
+      setTimeout(function(){
+        btns.forEach(function(b){
+          b.disabled=false;
+          if(b.dataset.origText){b.textContent=b.dataset.origText;}
+        });
+      },20000);
+    });
+    // Flash toast via cookie
+    var m=document.cookie.match(/(?:^|;\s*)flash_success=([^;]+)/);
+    if(m){
+      document.cookie='flash_success=; Path=/; Max-Age=0';
+      var msg=decodeURIComponent(m[1])||'Opgeslagen ✓';
+      var t=document.createElement('div');
+      t.className='toast-success';
+      t.textContent=msg;
+      document.body.appendChild(t);
+      setTimeout(function(){t.style.opacity='0';t.style.transform='translateY(-8px)';},2500);
+      setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},3000);
+    }
+    // Chat-badge: aantal ongelezen klant-berichten, poll elke 15s
+    async function updateCoachChatBadge(){
+      try{
+        var r=await fetch('/api/coach/berichten/overzicht',{credentials:'same-origin'});
+        if(!r.ok)return;
+        var data=await r.json();
+        var totaal=(data.klanten||[]).reduce(function(a,k){return a+(Number(k.ongelezen_klant_antwoord)||0);},0);
+        var badge=document.getElementById('coachChatNavBadge');
+        if(!badge)return;
+        if(totaal>0){badge.style.display='';badge.textContent=String(totaal);}
+        else{badge.style.display='none';}
+      }catch(e){}
+    }
+    if(document.getElementById('coachChatNavBadge')){
+      updateCoachChatBadge();
+      setInterval(function(){if(!document.hidden)updateCoachChatBadge();},15000);
+    }
+    // Sidebar-accordeon: chevron-klik toggelt data-open zonder navigatie
+    document.addEventListener('click',function(ev){
+      var chev=ev.target.closest && ev.target.closest('.coach-sidebar .nav-chevron');
+      if(!chev)return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      var group=chev.closest('.nav-group');
+      if(!group)return;
+      group.setAttribute('data-open', group.getAttribute('data-open') === 'true' ? 'false' : 'true');
+    });
+  })();
+</script>
+<div class="coach-main">
+  <div class="tk-content">
+    <a class="kd-back" href="/coach">&larr; Dashboard</a>
+    <div class="tk-header">
+      <h1>Taken</h1>
+      <button type="button" class="tk-new-btn" onclick="openNieuweTaak()">+ Nieuwe taak</button>
+    </div>
+    <div class="tk-counter" id="tkCounter">Taken laden…</div>
+    <div class="tk-filters">
+      <span class="tk-filter-label">Filter</span>
+      <select class="tk-filter-sel" id="tkFilterKlant" onchange="renderAll()">
+        <option value="">Alle klanten</option>
+      </select>
+      <select class="tk-filter-sel" id="tkFilterPrio" onchange="renderAll()">
+        <option value="">Alle prioriteiten</option>
+        <option value="hoog">Hoog</option>
+        <option value="midden">Midden</option>
+        <option value="laag">Laag</option>
+      </select>
+      <select class="tk-filter-sel" id="tkFilterCat" onchange="renderAll()">
+        <option value="">Alle categorieën</option>
+        <option value="coaching">Coaching</option>
+        <option value="sales">Sales</option>
+        <option value="marketing">Marketing</option>
+        <option value="administratie">Administratie</option>
+      </select>
+    </div>
+
+    <div class="tk-section" data-open="true" id="secVerlopen" hidden>
+      <div class="tk-section-head">
+        <div class="tk-section-h">Verlopen <span class="tk-section-count is-verlopen" id="cntVerlopen">0</span></div>
+      </div>
+      <div class="tk-section-body" id="lstVerlopen"><div class="tk-empty">Geen verlopen taken.</div></div>
+    </div>
+
+    <div class="tk-section" data-open="true">
+      <div class="tk-section-head">
+        <div class="tk-section-h">Vandaag <span class="tk-section-count" id="cntVandaag">0</span></div>
+      </div>
+      <div class="tk-section-body" id="lstVandaag"><div class="tk-empty">Laden…</div></div>
+    </div>
+
+    <div class="tk-section" data-open="true">
+      <div class="tk-section-head">
+        <div class="tk-section-h">Deze week <span class="tk-section-count" id="cntWeek">0</span></div>
+      </div>
+      <div class="tk-section-body" id="lstWeek"><div class="tk-empty">Laden…</div></div>
+    </div>
+
+    <div class="tk-section" data-open="true">
+      <div class="tk-section-head">
+        <div class="tk-section-h">Later <span class="tk-section-count" id="cntLater">0</span></div>
+      </div>
+      <div class="tk-section-body" id="lstLater"><div class="tk-empty">Laden…</div></div>
+    </div>
+
+    <div class="tk-section is-collapsible" data-open="false" id="secAfgerond">
+      <div class="tk-section-head" onclick="toggleAfgerond()">
+        <div class="tk-section-h">Afgerond <span class="tk-section-count" id="cntAfgerond">0</span></div>
+        <span class="tk-section-chev">▾</span>
+      </div>
+      <div class="tk-section-body" id="lstAfgerond"><div class="tk-empty">Laden…</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal nieuwe/bewerk taak -->
+<div class="tk-modal-overlay" id="tkModal" hidden>
+  <div class="tk-modal">
+    <h3 id="tkModalH">Nieuwe taak</h3>
+    <div class="tk-form-row"><label>Titel *</label><input type="text" id="tkTitel" maxlength="200"></div>
+    <div class="tk-form-row"><label>Beschrijving (optioneel)</label><textarea id="tkBeschrijving" maxlength="1000" rows="3"></textarea></div>
+    <div class="tk-form-grid">
+      <div class="tk-form-row"><label>Datum *</label><input type="date" id="tkDatum"></div>
+      <div class="tk-form-row"><label>Tijd *</label><input type="time" id="tkTijd"></div>
+    </div>
+    <div class="tk-form-grid">
+      <div class="tk-form-row"><label>Categorie</label>
+        <select id="tkCategorie">
+          <option value="coaching">Coaching</option>
+          <option value="sales">Sales</option>
+          <option value="marketing">Marketing</option>
+          <option value="administratie" selected>Administratie</option>
+        </select>
+      </div>
+      <div class="tk-form-row"><label>Prioriteit</label>
+        <select id="tkPrioriteit">
+          <option value="laag">Laag</option>
+          <option value="midden" selected>Midden</option>
+          <option value="hoog">Hoog</option>
+        </select>
+      </div>
+    </div>
+    <div class="tk-form-grid">
+      <div class="tk-form-row"><label>Klant koppelen (optioneel)</label>
+        <select id="tkKlant"><option value="">— geen —</option></select>
+      </div>
+      <div class="tk-form-row"><label>Duur in min (optioneel)</label><input type="number" id="tkDuur" min="5" max="600" step="5" placeholder="60"></div>
+    </div>
+    <div class="tk-modal-actions">
+      <button type="button" class="tk-btn tk-btn-danger" id="tkDelBtn" style="display:none;" onclick="verwijderTaak()">Verwijderen</button>
+      <button type="button" class="tk-btn tk-btn-secondary" onclick="sluitModal()">Annuleer</button>
+      <button type="button" class="tk-btn tk-btn-primary" onclick="opslaanTaak()">Opslaan</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var KLANT_OPTS = [{"id":"seed-daniel-test","naam":"Daniel Test"},{"id":"1782853354864","naam":"Test A"},{"id":"1783420162068","naam":"test5"}];
+  var KLANT_ARCHIEF = [];
+  var KLANT_NAAM = {};
+  var KLANT_GEARCHIVEERD = {};
+  KLANT_OPTS.forEach(function(k){ KLANT_NAAM[k.id] = k.naam; });
+  KLANT_ARCHIEF.forEach(function(k){ KLANT_NAAM[k.id] = k.naam; KLANT_GEARCHIVEERD[k.id] = true; });
+  var STATE = { taken: [], edit: null, openMenuId: null };
+
+  function esc(s){ var d = document.createElement('div'); d.textContent = String(s == null ? '' : s); return d.innerHTML; }
+  function isoVan(d){ return d.toISOString().slice(0,10); }
+  function todayIso(){ return isoVan(new Date()); }
+  function plusDagen(iso, n){ var d = new Date(iso+'T00:00:00'); d.setDate(d.getDate()+n); return isoVan(d); }
+  function dagMaandStr(iso){
+    if (!iso) return '';
+    var d = new Date(iso+'T00:00:00');
+    var mnd = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'][d.getMonth()];
+    return d.getDate() + ' ' + mnd;
+  }
+  function sorteerOpDatumTijd(a, b){
+    var ad = (a.datum || '9999-99-99');
+    var bd = (b.datum || '9999-99-99');
+    if (ad !== bd) return ad < bd ? -1 : 1;
+    var at = a.tijd || '99:99';
+    var bt = b.tijd || '99:99';
+    if (at !== bt) return at < bt ? -1 : 1;
+    return (a.titel || '').localeCompare(b.titel || '', 'nl', { sensitivity:'base' });
+  }
+
+  function vulKlantFilter(){
+    var sel = document.getElementById('tkFilterKlant');
+    sel.innerHTML = '<option value="">Alle klanten</option>' + KLANT_OPTS.map(function(k){
+      return '<option value="'+esc(k.id)+'">'+esc(k.naam)+'</option>';
+    }).join('');
+  }
+
+  function passFilter(t){
+    var k = document.getElementById('tkFilterKlant').value;
+    var p = document.getElementById('tkFilterPrio').value;
+    var c = document.getElementById('tkFilterCat').value;
+    if (k && t.klant_id !== k) return false;
+    if (p && t.prioriteit !== p) return false;
+    if (c && t.categorie !== c) return false;
+    return true;
+  }
+
+  function renderRij(t){
+    var titelCls = t.voltooid ? 'tk-titel is-done' : 'tk-titel';
+    var klantNaam = t.klant_id && KLANT_NAAM[t.klant_id] ? KLANT_NAAM[t.klant_id] : '';
+    var klantArchief = !!(t.klant_id && KLANT_GEARCHIVEERD[t.klant_id]);
+    var deadline = dagMaandStr(t.datum) + (t.tijd ? ' · ' + esc(t.tijd) : '');
+    var prioCls = 'tk-prio tk-prio-' + (t.prioriteit || 'midden');
+    var prioLabel = (t.prioriteit || 'midden').charAt(0).toUpperCase() + (t.prioriteit || 'midden').slice(1);
+    var menuOpen = STATE.openMenuId === t.id;
+    var klantTag = klantNaam
+      ? (klantArchief
+          ? '<span class="tk-klant-tag tk-klant-tag--archief" title="Klant gearchiveerd">· '+esc(klantNaam)+' (gearchiveerd)</span>'
+          : '<a class="tk-klant-tag" href="/coach/klant/'+esc(t.klant_id)+'" onclick="event.stopPropagation();">· '+esc(klantNaam)+'</a>')
+      : '';
+    return ''
+      + '<div class="tk-row'+(klantArchief?' tk-row--archief':'')+'" data-id="'+esc(t.id)+'">'
+      +   '<input type="checkbox" class="tk-check" '+(t.voltooid?'checked':'')+' onchange="toggleVoltooid(\''+esc(t.id)+'\', this.checked)">'
+      +   '<div class="tk-body" onclick="opentaak(\''+esc(t.id)+'\')" style="cursor:pointer;">'
+      +     '<div class="'+titelCls+'">'+esc(t.titel)+'</div>'
+      +     '<div class="tk-meta">'
+      +       '<span>'+deadline+'</span>'
+      +       klantTag
+      +       '<span class="'+prioCls+'">'+esc(prioLabel)+'</span>'
+      +     '</div>'
+      +   '</div>'
+      +   '<div class="tk-menu">'
+      +     '<button type="button" class="tk-menu-btn" onclick="toggleMenu(\''+esc(t.id)+'\', event)">⋯</button>'
+      +     '<div class="tk-menu-dd" '+(menuOpen?'':'hidden')+'>'
+      +       '<button type="button" class="tk-menu-item" onclick="opentaak(\''+esc(t.id)+'\')">Bewerken</button>'
+      +       '<button type="button" class="tk-menu-item is-danger" onclick="verwijderViaMenu(\''+esc(t.id)+'\')">Verwijderen</button>'
+      +     '</div>'
+      +   '</div>'
+      + '</div>';
+  }
+
+  function renderSectie(elId, items, leegTekst){
+    var el = document.getElementById(elId);
+    if (!items.length) { el.innerHTML = '<div class="tk-empty">'+esc(leegTekst)+'</div>'; return; }
+    el.innerHTML = items.map(renderRij).join('');
+  }
+
+  function renderAll(){
+    var open = STATE.taken.filter(function(t){ return !t.voltooid && passFilter(t); });
+    var done = STATE.taken.filter(function(t){ return t.voltooid && passFilter(t); });
+    var t = todayIso();
+    var grensWeek = plusDagen(t, 7);
+    var dGrensAfgerond = plusDagen(t, -30);
+
+    var verlopen = open.filter(function(x){ return x.datum && x.datum < t; }).sort(sorteerOpDatumTijd);
+    var vandaag = open.filter(function(x){ return x.datum === t; }).sort(sorteerOpDatumTijd);
+    var week = open.filter(function(x){ return x.datum > t && x.datum < grensWeek; }).sort(sorteerOpDatumTijd);
+    var later = open.filter(function(x){ return x.datum >= grensWeek; }).sort(sorteerOpDatumTijd);
+    var afgerond = done.filter(function(x){ return (x.voltooid_op || '').slice(0,10) >= dGrensAfgerond; })
+      .sort(function(a,b){ return (b.voltooid_op || '').localeCompare(a.voltooid_op || ''); });
+
+    var allesLeegLabel = open.length === 0
+      ? 'Geen open taken, ga lekker iets leuks doen 🌿'
+      : 'Geen taken voor vandaag.';
+    renderSectie('lstVerlopen', verlopen, 'Geen verlopen taken.');
+    renderSectie('lstVandaag', vandaag, allesLeegLabel);
+    renderSectie('lstWeek', week, 'Geen taken deze week.');
+    renderSectie('lstLater', later, 'Geen taken in de toekomst.');
+    renderSectie('lstAfgerond', afgerond, 'Geen taken afgerond in de afgelopen 30 dagen.');
+
+    var secVerlopen = document.getElementById('secVerlopen');
+    if (secVerlopen) secVerlopen.hidden = verlopen.length === 0;
+    document.getElementById('cntVerlopen').textContent = verlopen.length;
+    document.getElementById('cntVandaag').textContent = vandaag.length;
+    document.getElementById('cntWeek').textContent = week.length;
+    document.getElementById('cntLater').textContent = later.length;
+    document.getElementById('cntAfgerond').textContent = afgerond.length;
+
+    var totaalOpen = open.length;
+    document.getElementById('tkCounter').innerHTML =
+      '<strong>' + totaalOpen + '</strong> open · '
+      + (verlopen.length ? '<strong style="color:#c0392b;">' + verlopen.length + '</strong> verlopen · ' : '')
+      + '<strong>' + vandaag.length + '</strong> vandaag · '
+      + '<strong>' + week.length + '</strong> deze week';
+  }
+
+  async function laad(){
+    try {
+      var r = await fetch('/coach/api/taken', { credentials:'same-origin' });
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      var d = await r.json();
+      STATE.taken = d.taken || [];
+      renderAll();
+    } catch (e) {
+      document.getElementById('tkCounter').textContent = 'Taken laden mislukt: ' + e.message;
+    }
+  }
+
+  window.toggleAfgerond = function(){
+    var sec = document.getElementById('secAfgerond');
+    sec.dataset.open = sec.dataset.open === 'true' ? 'false' : 'true';
+  };
+
+  window.toggleMenu = function(id, ev){
+    if (ev) ev.stopPropagation();
+    STATE.openMenuId = STATE.openMenuId === id ? null : id;
+    renderAll();
+  };
+
+  document.addEventListener('click', function(e){
+    if (!e.target.closest('.tk-menu')) {
+      if (STATE.openMenuId) { STATE.openMenuId = null; renderAll(); }
+    }
+  });
+
+  window.toggleVoltooid = async function(id, voltooid){
+    try {
+      var r = await fetch('/coach/api/taken/'+encodeURIComponent(id), {
+        method:'PATCH', credentials:'same-origin',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ voltooid: !!voltooid })
+      });
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      var idx = STATE.taken.findIndex(function(t){ return t.id === id; });
+      if (idx >= 0) {
+        STATE.taken[idx].voltooid = !!voltooid;
+        STATE.taken[idx].voltooid_op = voltooid ? new Date().toISOString() : null;
+      }
+      renderAll();
+    } catch (e) { alert('Bijwerken mislukt: ' + e.message); }
+  };
+
+  function vulKlantenInModal(selectedId){
+    var sel = document.getElementById('tkKlant');
+    sel.innerHTML = '<option value="">— geen —</option>' + KLANT_OPTS.map(function(k){
+      return '<option value="'+esc(k.id)+'"'+(k.id===selectedId?' selected':'')+'>'+esc(k.naam)+'</option>';
+    }).join('');
+  }
+
+  window.opentaak = function(id){
+    var t = STATE.taken.find(function(x){ return x.id === id; });
+    if (!t) return;
+    STATE.edit = t;
+    document.getElementById('tkModalH').textContent = 'Taak bewerken';
+    document.getElementById('tkTitel').value = t.titel || '';
+    document.getElementById('tkBeschrijving').value = t.beschrijving || '';
+    document.getElementById('tkCategorie').value = t.categorie || 'administratie';
+    document.getElementById('tkPrioriteit').value = t.prioriteit || 'midden';
+    document.getElementById('tkDatum').value = t.datum || '';
+    document.getElementById('tkTijd').value = t.tijd || '';
+    document.getElementById('tkDuur').value = t.duur_minuten || '';
+    vulKlantenInModal(t.klant_id || '');
+    document.getElementById('tkDelBtn').style.display = '';
+    document.getElementById('tkModal').hidden = false;
+    STATE.openMenuId = null;
+  };
+
+  window.openNieuweTaak = function(){
+    STATE.edit = null;
+    document.getElementById('tkModalH').textContent = 'Nieuwe taak';
+    document.getElementById('tkTitel').value = '';
+    document.getElementById('tkBeschrijving').value = '';
+    document.getElementById('tkCategorie').value = 'administratie';
+    document.getElementById('tkPrioriteit').value = 'midden';
+    document.getElementById('tkDatum').value = todayIso();
+    document.getElementById('tkTijd').value = '';
+    document.getElementById('tkDuur').value = '';
+    vulKlantenInModal('');
+    document.getElementById('tkDelBtn').style.display = 'none';
+    document.getElementById('tkModal').hidden = false;
+    setTimeout(function(){ document.getElementById('tkTitel').focus(); }, 30);
+  };
+  window.sluitModal = function(){ document.getElementById('tkModal').hidden = true; };
+
+  window.opslaanTaak = async function(){
+    var body = {
+      titel: document.getElementById('tkTitel').value.trim(),
+      beschrijving: document.getElementById('tkBeschrijving').value,
+      categorie: document.getElementById('tkCategorie').value,
+      prioriteit: document.getElementById('tkPrioriteit').value,
+      datum: document.getElementById('tkDatum').value,
+      tijd: document.getElementById('tkTijd').value || null,
+      duur_minuten: document.getElementById('tkDuur').value ? Number(document.getElementById('tkDuur').value) : null,
+      klant_id: document.getElementById('tkKlant').value || null,
+    };
+    if (!body.titel) { alert('Titel verplicht.'); return; }
+    if (!body.datum) { alert('Datum verplicht.'); return; }
+    if (!body.tijd) { alert('Tijd verplicht.'); return; }
+    var url = STATE.edit ? '/coach/api/taken/'+encodeURIComponent(STATE.edit.id) : '/coach/api/taken';
+    var method = STATE.edit ? 'PATCH' : 'POST';
+    try {
+      var r = await fetch(url, { method: method, credentials:'same-origin', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+      if (!r.ok) {
+        var det = await r.json().catch(function(){ return {}; });
+        throw new Error(det.fout || ('HTTP '+r.status));
+      }
+      sluitModal();
+      laad();
+    } catch (e) { alert('Opslaan mislukt: ' + e.message); }
+  };
+
+  window.verwijderTaak = async function(){
+    if (!STATE.edit) return;
+    if (!confirm('Taak verwijderen?')) return;
+    try {
+      var r = await fetch('/coach/api/taken/'+encodeURIComponent(STATE.edit.id), { method:'DELETE', credentials:'same-origin' });
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      sluitModal();
+      laad();
+    } catch (e) { alert('Verwijderen mislukt: ' + e.message); }
+  };
+
+  window.verwijderViaMenu = async function(id){
+    if (!confirm('Taak verwijderen?')) return;
+    try {
+      var r = await fetch('/coach/api/taken/'+encodeURIComponent(id), { method:'DELETE', credentials:'same-origin' });
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      STATE.openMenuId = null;
+      laad();
+    } catch (e) { alert('Verwijderen mislukt: ' + e.message); }
+  };
+
+  vulKlantFilter();
+  laad();
+</script>
+</body></html>

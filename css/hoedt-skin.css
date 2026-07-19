@@ -1,0 +1,113 @@
+/* hoedt-skin.css — pack-look bridge over the legacy dashboard markup.
+   Restyles the shared containers to the ios-pack visual language (clean white
+   cards, rounded-square icon tiles, gold-gradient buttons, glass tab bar)
+   without touching markup or JS. Gold stays primary. Loaded last in <head>
+   so it wins over the inline <style> on equal specificity. */
+
+/* ---- Cards: clean white on the warm bg, 16px radius, soft neutral shadow.
+   :not(.fase-card) leaves the intentionally-dark phase card alone. ---- */
+.card:not(.fase-card){
+  background:#ffffff;
+  border:1px solid #efe9db;
+  box-shadow:0 2px 8px rgba(26,26,46,.06);
+}
+.card{border-radius:16px;}
+.card:not(.fase-card):hover{box-shadow:0 4px 16px rgba(26,26,46,.08);}
+.card-header{border-bottom:1px solid #f2ede2;}
+.mcard{
+  border-radius:16px;
+  border:1px solid #efe9db;
+  box-shadow:0 2px 8px rgba(26,26,46,.06);
+}
+.mcard:hover{box-shadow:0 4px 16px rgba(26,26,46,.08);}
+
+/* ---- Meal rows: 16px radius + rounded-square gold icon tile (pack look) ---- */
+.vo3-card{
+  border-radius:16px;
+  border:1px solid #efe9db;
+  box-shadow:0 1px 4px rgba(26,26,46,.05);
+}
+.vo3-card:hover{box-shadow:0 3px 12px rgba(26,26,46,.08);}
+.vo3-card-icon{
+  border-radius:11px;
+  border-color:rgba(201,168,76,.35);
+}
+
+/* ---- Buttons: pack gold gradient + soft lift ---- */
+.btn-gold{
+  background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(184,147,47,.28);
+}
+.btn-gold:hover{background:linear-gradient(135deg,#e0c06a 0%,#c49b34 100%);}
+
+/* ---- Section title: tighter tracking like the pack ---- */
+.page-title{letter-spacing:-.3px;}
+
+/* ---- Vandaag (Home) — pack tiles ---- */
+.db-tile-lbl{font-size:12px;color:#6b7280;font-weight:600;}
+.db-tile-big{font-size:26px;font-weight:700;line-height:1.1;margin-top:4px;color:#1a1a2e;}
+.db-tile-delta{font-size:12px;font-weight:600;margin-top:2px;color:#9ca3af;}
+.db-tile-naam{font-size:18px;font-weight:700;line-height:1.2;margin-top:6px;color:#1a1a2e;}
+.db-tile-sub{font-size:12px;color:#6b7280;margin-top:2px;}
+body.dark .db-tile-big,body.dark .db-tile-naam{color:#e8e8ef;}
+
+/* ---- Header bell + avatar (pack) ---- */
+.app-topbar-bell{flex:0 0 auto;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border:none;border-radius:999px;background:rgba(201,168,76,.14);color:#a07d1f;cursor:pointer;}
+body.dark .app-topbar-bell{background:rgba(201,168,76,.2);color:#c9a84c;}
+#avBtnTop{width:40px;height:40px;min-width:40px;max-width:40px;min-height:40px;max-height:40px;background:rgba(201,168,76,.14);border:1.5px solid #c9a84c;color:#a07d1f;font-size:14px;}
+
+/* training-pulse binnen de pack-tab */
+.bc-tab .nav-pulse{position:absolute;top:7px;right:26px;margin:0;}
+
+/* ---- Voeding: dagtotaal naar warme kaart bovenaan, dark totaal weg ---- */
+#voDagTot{display:none;}
+.vo-maaltijden-lbl{font-size:13px;font-weight:700;color:#6b7280;margin:4px 2px 8px;letter-spacing:.02em;}
+#voTopHint{margin-top:6px;}
+
+/* ---- Training (Hevy day-list): pack cards + green primary action ----
+   Cards match the other screens (16px radius, warm border, soft shadow).
+   "Training starten" becomes green (action), scoped so the brighter lime
+   "Verder gaan" resume button keeps its distinct gradient. ---- */
+.hv-card{border-radius:16px;padding:14px 16px;border:1px solid #efe9db;box-shadow:0 2px 8px rgba(26,26,46,.06);margin-bottom:12px;}
+.hv-card.is-bezig{border:1.5px solid #c9a84c;border-left:3px solid #c9a84c;}
+.hv-card-title{font-size:16px;}
+.hv-btn-gold{border-radius:12px;padding:12px 14px;}
+.hv-btn-gold:not(.hv-btn-doorgaan){background:#16a34a;color:#fff;box-shadow:0 2px 8px rgba(22,163,74,.24);}
+.hv-btn-gold:not(.hv-btn-doorgaan):hover{background:#15913f;}
+.hv-btn-gold:not(.hv-btn-doorgaan):disabled{background:#a7d9ba;box-shadow:none;}
+
+/* ---- Voortgang: Krachtontwikkeling als horizontale balken (per oefening) ---- */
+.pg-kracht-bars{display:flex;flex-direction:column;gap:15px;margin-top:2px;}
+.pg-kbar-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px;}
+.pg-kbar-naam{font-size:13.5px;font-weight:600;color:#1a1a2e;}
+.pg-kbar-val{font-size:13px;font-weight:700;color:#1a1a2e;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.pg-kbar-gain{font-weight:700;}
+.pg-kbar-track{height:10px;border-radius:6px;background:rgba(26,26,46,0.06);overflow:hidden;}
+.pg-kbar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#d9b75a,#c9a84c);}
+body.dark .pg-kbar-naam,body.dark .pg-kbar-val{color:#e8e8ef;}
+
+/* ---- Chat: send is an action → green (demo composer uses --bc-primary) ---- */
+#chatSend{background:#16a34a;color:#fff;box-shadow:0 2px 8px rgba(22,163,74,.24);}
+#chatSend:hover{background:#15913f;}
+
+/* Chat fills the space between header and tab bar — no page scroll when empty.
+   Only the message list scrolls internally once there are many messages.
+   (was 100dvh-140px, ~18px too tall → forced a page scroll). */
+.chat-wrap{height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 160px);min-height:240px;}
+/* NB: training day-list height + workout set-table fit live in the inline
+   <style> at the end of dashboard.html — that block loads AFTER this file, so
+   overriding those .hv-*/#trCard rules from here would lose the cascade. */
+
+/* ---- Floating tab bar: pack liquid-glass sheen (opaque dark, no blur) ---- */
+@media (max-width:640px){
+  .coach-sidebar{
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.14);
+    background:linear-gradient(180deg,#12121e 0%,#0c0c16 100%);
+    box-shadow:
+      0 8px 28px rgba(15,15,26,.34),
+      inset 0 1px 0 rgba(255,255,255,.32),
+      inset 0 -3px 8px -4px rgba(0,0,0,.45);
+  }
+}
