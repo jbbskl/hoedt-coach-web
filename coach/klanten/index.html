@@ -255,11 +255,11 @@
         <div class="nav-group-body">
           <a class="nav-item nav-sub-item" href="/coach/intakes">
             Intakes
-            <span class="nav-badge-amber">8</span>
+            
           </a>
           <a class="nav-item nav-sub-item" href="/coach/checkins">
             Check-ins
-            <span class="nav-badge">11</span>
+            <span class="nav-badge">3</span>
           </a>
         </div>
       </div>
@@ -283,24 +283,24 @@
 
       <div class="nav-label">Schema Builder</div>
       <div class="nav-group" data-open="false">
-        <a class="nav-group-head" href="/coach/schema-builder/voeding?tab=genereren">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding/">
           <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
           <span class="nav-group-label">Voeding</span>
           <span class="nav-chevron" aria-hidden="true">▾</span>
         </a>
         <div class="nav-group-body">
-          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding?tab=producten">Producten</a>
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding-producten/">Producten</a>
         </div>
       </div>
 
       <div class="nav-group" data-open="false">
-        <a class="nav-group-head" href="/coach/schema-builder/training?tab=genereren">
+        <a class="nav-group-head" href="/coach/schema-builder/training/">
           <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
           <span class="nav-group-label">Training</span>
           <span class="nav-chevron" aria-hidden="true">▾</span>
         </a>
         <div class="nav-group-body">
-          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a>
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training-oefeningen/">Oefeningen</a>
         </div>
       </div>
     </nav>
@@ -435,7 +435,7 @@
     <div>
       <a class="kl-back" href="/coach">&larr; Dashboard</a>
       <div class="page-title">Klanten</div>
-      <div class="page-date">11 klanten · zondag 19 juli 2026</div>
+      <div class="page-date">3 klanten · dinsdag 21 juli 2026</div>
     </div>
     <div class="page-actions">
       <button class="page-action-btn" type="button" onclick="openNieuweKlantModal()" style="cursor:pointer;font-family:inherit;">+ Nieuwe klant</button>
@@ -446,7 +446,7 @@
 
   <div class="kl-toolbar">
     <input type="text" id="klant-search" class="kl-search" placeholder="Zoek klant op naam..." oninput="filterKlanten()" />
-    <span class="kl-count" id="kl-count">11 klanten</span>
+    <span class="kl-count" id="kl-count">3 klanten</span>
     
     <a class="kl-archief-toggle is-on" href="/coach/klanten?actief=0">Toon actieve</a>
     <a class="kl-archief-toggle" href="/coach/klanten?test=1">Toon test</a>
@@ -478,235 +478,19 @@
       </thead>
       <tbody id="kl-tbody">
         
-            <tr class="kl-row" data-name="test onb w" data-email="test.onb.w@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/097562d4a10020a2b215f55d2141d3b3'">
-              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="097562d4a10020a2b215f55d2141d3b3" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb W" /></td>
-              <td>
-                <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-red">TO</div>
-                  <div class="kl-naam-text">
-                    <div class="kl-naam">Test Onb W    </div>
-                    <div class="kl-email">test.onb.w@email.nl</div>
-                  </div>
-                </div>
-              </td>
-              <td class="kl-text">2 dagen geleden</td>
-              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td class="kl-actions-cell">
-                <div class="kl-options-wrap">
-                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('097562d4a10020a2b215f55d2141d3b3')" aria-label="Acties">⋯</button>
-                  <div class="kl-options-menu" id="kl-options-097562d4a10020a2b215f55d2141d3b3">
-                    <a href="/coach/klanten/097562d4a10020a2b215f55d2141d3b3" onclick="event.stopPropagation()">Open klantprofiel</a>
-                    <a href="/coach/chat?klant=097562d4a10020a2b215f55d2141d3b3" onclick="event.stopPropagation()">Stuur bericht</a>
-                    <a href="#" data-testtoggle-actie data-klant-id="097562d4a10020a2b215f55d2141d3b3" data-klant-naam="Test Onb W" data-is-test="0">Markeer als test-account</a>
-                    <a href="#" data-archiveer-actie="actief" data-klant-id="097562d4a10020a2b215f55d2141d3b3" data-klant-naam="Test Onb W">Archiveren</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr class="kl-row" data-name="test onb v" data-email="test.onb.v@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/026cb83511aa13d81250f5edef3e3b6b'">
-              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="026cb83511aa13d81250f5edef3e3b6b" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb V" /></td>
-              <td>
-                <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-amber">TO</div>
-                  <div class="kl-naam-text">
-                    <div class="kl-naam">Test Onb V    </div>
-                    <div class="kl-email">test.onb.v@email.nl</div>
-                  </div>
-                </div>
-              </td>
-              <td class="kl-text">2 dagen geleden</td>
-              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td class="kl-actions-cell">
-                <div class="kl-options-wrap">
-                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('026cb83511aa13d81250f5edef3e3b6b')" aria-label="Acties">⋯</button>
-                  <div class="kl-options-menu" id="kl-options-026cb83511aa13d81250f5edef3e3b6b">
-                    <a href="/coach/klanten/026cb83511aa13d81250f5edef3e3b6b" onclick="event.stopPropagation()">Open klantprofiel</a>
-                    <a href="/coach/chat?klant=026cb83511aa13d81250f5edef3e3b6b" onclick="event.stopPropagation()">Stuur bericht</a>
-                    <a href="#" data-testtoggle-actie data-klant-id="026cb83511aa13d81250f5edef3e3b6b" data-klant-naam="Test Onb V" data-is-test="0">Markeer als test-account</a>
-                    <a href="#" data-archiveer-actie="actief" data-klant-id="026cb83511aa13d81250f5edef3e3b6b" data-klant-naam="Test Onb V">Archiveren</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr class="kl-row" data-name="test onb r" data-email="test.onb.r@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/60b74c3dce29ced63bd8f659ba48e1e2'">
-              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="60b74c3dce29ced63bd8f659ba48e1e2" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb R" /></td>
-              <td>
-                <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-blue">TO</div>
-                  <div class="kl-naam-text">
-                    <div class="kl-naam">Test Onb R    </div>
-                    <div class="kl-email">test.onb.r@email.nl</div>
-                  </div>
-                </div>
-              </td>
-              <td class="kl-text">2 dagen geleden</td>
-              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td class="kl-actions-cell">
-                <div class="kl-options-wrap">
-                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('60b74c3dce29ced63bd8f659ba48e1e2')" aria-label="Acties">⋯</button>
-                  <div class="kl-options-menu" id="kl-options-60b74c3dce29ced63bd8f659ba48e1e2">
-                    <a href="/coach/klanten/60b74c3dce29ced63bd8f659ba48e1e2" onclick="event.stopPropagation()">Open klantprofiel</a>
-                    <a href="/coach/chat?klant=60b74c3dce29ced63bd8f659ba48e1e2" onclick="event.stopPropagation()">Stuur bericht</a>
-                    <a href="#" data-testtoggle-actie data-klant-id="60b74c3dce29ced63bd8f659ba48e1e2" data-klant-naam="Test Onb R" data-is-test="0">Markeer als test-account</a>
-                    <a href="#" data-archiveer-actie="actief" data-klant-id="60b74c3dce29ced63bd8f659ba48e1e2" data-klant-naam="Test Onb R">Archiveren</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr class="kl-row" data-name="test onb q" data-email="test.onb.q@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/5f83c2105b2288fcac8e82a3a1ae220a'">
-              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="5f83c2105b2288fcac8e82a3a1ae220a" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb Q" /></td>
-              <td>
-                <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-green">TO</div>
-                  <div class="kl-naam-text">
-                    <div class="kl-naam">Test Onb Q    </div>
-                    <div class="kl-email">test.onb.q@email.nl</div>
-                  </div>
-                </div>
-              </td>
-              <td class="kl-text">2 dagen geleden</td>
-              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td class="kl-actions-cell">
-                <div class="kl-options-wrap">
-                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('5f83c2105b2288fcac8e82a3a1ae220a')" aria-label="Acties">⋯</button>
-                  <div class="kl-options-menu" id="kl-options-5f83c2105b2288fcac8e82a3a1ae220a">
-                    <a href="/coach/klanten/5f83c2105b2288fcac8e82a3a1ae220a" onclick="event.stopPropagation()">Open klantprofiel</a>
-                    <a href="/coach/chat?klant=5f83c2105b2288fcac8e82a3a1ae220a" onclick="event.stopPropagation()">Stuur bericht</a>
-                    <a href="#" data-testtoggle-actie data-klant-id="5f83c2105b2288fcac8e82a3a1ae220a" data-klant-naam="Test Onb Q" data-is-test="0">Markeer als test-account</a>
-                    <a href="#" data-archiveer-actie="actief" data-klant-id="5f83c2105b2288fcac8e82a3a1ae220a" data-klant-naam="Test Onb Q">Archiveren</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr class="kl-row" data-name="test onb p" data-email="test.onb.p@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/f3695ae76eb448a35e0659b00e6e3d55'">
-              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="f3695ae76eb448a35e0659b00e6e3d55" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb P" /></td>
-              <td>
-                <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-purple">TO</div>
-                  <div class="kl-naam-text">
-                    <div class="kl-naam">Test Onb P    </div>
-                    <div class="kl-email">test.onb.p@email.nl</div>
-                  </div>
-                </div>
-              </td>
-              <td class="kl-text">2 dagen geleden</td>
-              <td><span class="kl-weeks kl-weeks-good">12 weken</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td class="kl-actions-cell">
-                <div class="kl-options-wrap">
-                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('f3695ae76eb448a35e0659b00e6e3d55')" aria-label="Acties">⋯</button>
-                  <div class="kl-options-menu" id="kl-options-f3695ae76eb448a35e0659b00e6e3d55">
-                    <a href="/coach/klanten/f3695ae76eb448a35e0659b00e6e3d55" onclick="event.stopPropagation()">Open klantprofiel</a>
-                    <a href="/coach/chat?klant=f3695ae76eb448a35e0659b00e6e3d55" onclick="event.stopPropagation()">Stuur bericht</a>
-                    <a href="#" data-testtoggle-actie data-klant-id="f3695ae76eb448a35e0659b00e6e3d55" data-klant-naam="Test Onb P" data-is-test="0">Markeer als test-account</a>
-                    <a href="#" data-archiveer-actie="actief" data-klant-id="f3695ae76eb448a35e0659b00e6e3d55" data-klant-naam="Test Onb P">Archiveren</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr class="kl-row" data-name="test onb o" data-email="test.onb.o@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/9d9bb3df2dff171e03ad2c947dd655fd'">
-              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="9d9bb3df2dff171e03ad2c947dd655fd" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb O" /></td>
-              <td>
-                <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-red">TO</div>
-                  <div class="kl-naam-text">
-                    <div class="kl-naam">Test Onb O    </div>
-                    <div class="kl-email">test.onb.o@email.nl</div>
-                  </div>
-                </div>
-              </td>
-              <td class="kl-text">9 dagen geleden</td>
-              <td><span class="kl-weeks kl-weeks-good">11 weken</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td class="kl-actions-cell">
-                <div class="kl-options-wrap">
-                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('9d9bb3df2dff171e03ad2c947dd655fd')" aria-label="Acties">⋯</button>
-                  <div class="kl-options-menu" id="kl-options-9d9bb3df2dff171e03ad2c947dd655fd">
-                    <a href="/coach/klanten/9d9bb3df2dff171e03ad2c947dd655fd" onclick="event.stopPropagation()">Open klantprofiel</a>
-                    <a href="/coach/chat?klant=9d9bb3df2dff171e03ad2c947dd655fd" onclick="event.stopPropagation()">Stuur bericht</a>
-                    <a href="#" data-testtoggle-actie data-klant-id="9d9bb3df2dff171e03ad2c947dd655fd" data-klant-naam="Test Onb O" data-is-test="0">Markeer als test-account</a>
-                    <a href="#" data-archiveer-actie="actief" data-klant-id="9d9bb3df2dff171e03ad2c947dd655fd" data-klant-naam="Test Onb O">Archiveren</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr class="kl-row" data-name="test onb n" data-email="test.onb.n@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/257a5a5ce4e569a15ac240364107a70f'">
-              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="257a5a5ce4e569a15ac240364107a70f" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb N" /></td>
-              <td>
-                <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-amber">TO</div>
-                  <div class="kl-naam-text">
-                    <div class="kl-naam">Test Onb N    </div>
-                    <div class="kl-email">test.onb.n@email.nl</div>
-                  </div>
-                </div>
-              </td>
-              <td class="kl-text">9 dagen geleden</td>
-              <td><span class="kl-weeks kl-weeks-good">11 weken</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td class="kl-actions-cell">
-                <div class="kl-options-wrap">
-                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('257a5a5ce4e569a15ac240364107a70f')" aria-label="Acties">⋯</button>
-                  <div class="kl-options-menu" id="kl-options-257a5a5ce4e569a15ac240364107a70f">
-                    <a href="/coach/klanten/257a5a5ce4e569a15ac240364107a70f" onclick="event.stopPropagation()">Open klantprofiel</a>
-                    <a href="/coach/chat?klant=257a5a5ce4e569a15ac240364107a70f" onclick="event.stopPropagation()">Stuur bericht</a>
-                    <a href="#" data-testtoggle-actie data-klant-id="257a5a5ce4e569a15ac240364107a70f" data-klant-naam="Test Onb N" data-is-test="0">Markeer als test-account</a>
-                    <a href="#" data-archiveer-actie="actief" data-klant-id="257a5a5ce4e569a15ac240364107a70f" data-klant-naam="Test Onb N">Archiveren</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr class="kl-row" data-name="test onb m" data-email="test.onb.m@email.nl" data-klant-id="" onclick="location.href='/coach/klanten/8a0964b2b6d0cada879fd07034072ae1'">
-              <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="8a0964b2b6d0cada879fd07034072ae1" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test Onb M" /></td>
-              <td>
-                <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-blue">TO</div>
-                  <div class="kl-naam-text">
-                    <div class="kl-naam">Test Onb M    </div>
-                    <div class="kl-email">test.onb.m@email.nl</div>
-                  </div>
-                </div>
-              </td>
-              <td class="kl-text">9 dagen geleden</td>
-              <td><span class="kl-weeks kl-weeks-good">11 weken</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td><span class="pill pill-grijs">Niet ingesteld</span></td>
-              <td class="kl-actions-cell">
-                <div class="kl-options-wrap">
-                  <button type="button" class="kl-dots-btn" onclick="event.stopPropagation();toggleKlantOptions('8a0964b2b6d0cada879fd07034072ae1')" aria-label="Acties">⋯</button>
-                  <div class="kl-options-menu" id="kl-options-8a0964b2b6d0cada879fd07034072ae1">
-                    <a href="/coach/klanten/8a0964b2b6d0cada879fd07034072ae1" onclick="event.stopPropagation()">Open klantprofiel</a>
-                    <a href="/coach/chat?klant=8a0964b2b6d0cada879fd07034072ae1" onclick="event.stopPropagation()">Stuur bericht</a>
-                    <a href="#" data-testtoggle-actie data-klant-id="8a0964b2b6d0cada879fd07034072ae1" data-klant-naam="Test Onb M" data-is-test="0">Markeer als test-account</a>
-                    <a href="#" data-archiveer-actie="actief" data-klant-id="8a0964b2b6d0cada879fd07034072ae1" data-klant-naam="Test Onb M">Archiveren</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
             <tr class="kl-row" data-name="test5" data-email="test5@gmail.com" data-klant-id="1783420162068" onclick="location.href='/coach/klanten/e5d0225528f9cffc7f76c6e231f20e86'">
               <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="e5d0225528f9cffc7f76c6e231f20e86" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer test5" /></td>
               <td>
                 <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-green">T</div>
+                  <div class="kl-avatar avatar-red">T</div>
                   <div class="kl-naam-text">
                     <div class="kl-naam">test5  <span class="kl-onb-badge">Onb: 6/7</span>  </div>
                     <div class="kl-email">test5@gmail.com</div>
                   </div>
                 </div>
               </td>
-              <td class="kl-text">12 dagen geleden</td>
-              <td><span class="kl-weeks kl-weeks-good">11 weken</span></td>
+              <td class="kl-text">14 dagen geleden</td>
+              <td><span class="kl-weeks kl-weeks-good">10 weken</span></td>
               <td><span class="pill pill-grijs">Niet ingesteld</span></td>
               <td><span class="pill pill-grijs">Niet ingesteld</span></td>
               <td class="kl-actions-cell">
@@ -725,14 +509,14 @@
               <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="78dec9b2e444a4c3984164ec60f3d91d" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Test A" /></td>
               <td>
                 <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-purple">TA</div>
+                  <div class="kl-avatar avatar-amber">TA</div>
                   <div class="kl-naam-text">
                     <div class="kl-naam">Test A  <span class="kl-onb-badge">Onb: 6/7</span>  </div>
                     <div class="kl-email">test@test.nl</div>
                   </div>
                 </div>
               </td>
-              <td class="kl-text">15 dagen geleden</td>
+              <td class="kl-text">17 dagen geleden</td>
               <td><span class="kl-weeks kl-weeks-good">10 weken</span></td>
               <td><span class="pill pill-oranje">Actief</span></td>
               <td><span class="pill pill-paars">Actief</span></td>
@@ -752,14 +536,14 @@
               <td class="kl-check-cell"><input type="checkbox" data-klbulk-check data-klant-id="intake_seed_daniel" data-is-test="0" onclick="event.stopPropagation()" aria-label="Selecteer Daniel Test" /></td>
               <td>
                 <div class="kl-naam-cell">
-                  <div class="kl-avatar avatar-red">DT</div>
+                  <div class="kl-avatar avatar-blue">DT</div>
                   <div class="kl-naam-text">
                     <div class="kl-naam">Daniel Test  <span class="kl-onb-badge">Onb: 6/7</span>  </div>
                     <div class="kl-email">daniel@test.nl</div>
                   </div>
                 </div>
               </td>
-              <td class="kl-text">19 dagen geleden</td>
+              <td class="kl-text">21 dagen geleden</td>
               <td><span class="kl-weeks kl-weeks-good">10 weken</span></td>
               <td><span class="pill pill-oranje">Actief</span></td>
               <td><span class="pill pill-paars">Actief</span></td>

@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test A — Hoedt Coaching</title>
+  <link rel="stylesheet" href="/css/fonts.css">
+  <style>.pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;border:1px solid transparent;}
+.pill-rood{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FCEBEB;border:1px solid #A32D2D;color:#791F1F;}
+.pill-oranje{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#854F0B;}
+.pill-paars{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#EEEDFE;border:1px solid #7F77DD;color:#534AB7;}
+.pill-blauw{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #378ADD;color:#185FA5;}
+.pill-blauw-donker{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E6F1FB;border:1px solid #185FA5;color:#0F3D6E;}
+.pill-grijs{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#F1EFE8;border:1px solid #888780;color:#444441;}
+.pill-groen-teal{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#E1F5EE;border:1px solid #1D9E75;color:#0F6E56;}
+.pill-amber{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FAEEDA;border:1px solid #BA7517;color:#633806;}
+.pill-roze{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11.5px;font-weight:700;letter-spacing:0.2px;line-height:1.5;background:#FBEAF0;border:1px solid #D4537E;color:#993556;}
+.aa-tab[data-tab="voeding"]{color:#854F0B;border-color:#BA751733;}
+.aa-tab[data-tab="voeding"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active{background:#FAEEDA;color:#854F0B;border-color:#BA7517;}
+.aa-tab[data-tab="voeding"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="training"]{color:#534AB7;border-color:#7F77DD33;}
+.aa-tab[data-tab="training"]:hover{border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active{background:#EEEDFE;color:#534AB7;border-color:#7F77DD;}
+.aa-tab[data-tab="training"].is-active .aa-tab-badge{background:#7F77DD;color:#fff;}
+.aa-tab[data-tab="stappen"]{color:#185FA5;border-color:#378ADD33;}
+.aa-tab[data-tab="stappen"]:hover{border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active{background:#E6F1FB;color:#185FA5;border-color:#378ADD;}
+.aa-tab[data-tab="stappen"].is-active .aa-tab-badge{background:#378ADD;color:#fff;}
+.aa-tab[data-tab="checkins"]{color:#0F3D6E;border-color:#185FA533;}
+.aa-tab[data-tab="checkins"]:hover{border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active{background:#E6F1FB;color:#0F3D6E;border-color:#185FA5;}
+.aa-tab[data-tab="checkins"].is-active .aa-tab-badge{background:#185FA5;color:#fff;}
+.aa-tab[data-tab="login"]{color:#444441;border-color:#88878033;}
+.aa-tab[data-tab="login"]:hover{border-color:#888780;}
+.aa-tab[data-tab="login"].is-active{background:#F1EFE8;color:#444441;border-color:#888780;}
+.aa-tab[data-tab="login"].is-active .aa-tab-badge{background:#888780;color:#fff;}
+.aa-tab[data-tab="fase_aankomend"]{color:#0F6E56;border-color:#1D9E7533;}
+.aa-tab[data-tab="fase_aankomend"]:hover{border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active{background:#E1F5EE;color:#0F6E56;border-color:#1D9E75;}
+.aa-tab[data-tab="fase_aankomend"].is-active .aa-tab-badge{background:#1D9E75;color:#fff;}
+.aa-tab[data-tab="fase_geblokkeerd"]{color:#791F1F;border-color:#A32D2D33;}
+.aa-tab[data-tab="fase_geblokkeerd"]:hover{border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active{background:#FCEBEB;color:#791F1F;border-color:#A32D2D;}
+.aa-tab[data-tab="fase_geblokkeerd"].is-active .aa-tab-badge{background:#A32D2D;color:#fff;}
+.aa-tab[data-tab="tussenbericht"]{color:#633806;border-color:#BA751733;}
+.aa-tab[data-tab="tussenbericht"]:hover{border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active{background:#FAEEDA;color:#633806;border-color:#BA7517;}
+.aa-tab[data-tab="tussenbericht"].is-active .aa-tab-badge{background:#BA7517;color:#fff;}
+.aa-tab[data-tab="verlenging"]{color:#993556;border-color:#D4537E33;}
+.aa-tab[data-tab="verlenging"]:hover{border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active{background:#FBEAF0;color:#993556;border-color:#D4537E;}
+.aa-tab[data-tab="verlenging"].is-active .aa-tab-badge{background:#D4537E;color:#fff;}</style>
+</head>
+<body style="margin:0;padding:0;background:#f5f0e8;font-family:'DM Sans',sans-serif;">
+  
+<style>
+  body{font-family:'DM Sans',sans-serif;background:#f5f0e8;display:flex;min-height:100vh;color:#1a1a2e;margin:0;}
+  *{box-sizing:border-box;}
+  .coach-sidebar{width:220px;min-height:100vh;background:linear-gradient(180deg,#0a0a14 0%,#14141f 100%);display:flex;flex-direction:column;position:fixed;top:0;left:0;z-index:100;}
+  .sidebar-logo{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .logo-text{font-size:17px;color:#c9a84c;font-weight:700;letter-spacing:0.3px;text-shadow:0 0 12px rgba(201,168,76,0.3);}
+  .logo-sub{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+  .sidebar-nav{padding:12px 0;flex:1;overflow-y:auto;}
+  .nav-label{font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px 4px;}
+  .nav-item{display:flex;align-items:center;gap:9px;padding:8px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;}
+  .nav-item:hover{background:rgba(201,168,76,0.05);color:rgba(255,255,255,0.85);}
+  .nav-item.active{background:rgba(201,168,76,0.1);color:#c9a84c;border-left-color:#c9a84c;font-weight:600;}
+  .nav-icon{font-size:14px;width:16px;text-align:center;flex-shrink:0;}
+  .nav-badge{margin-left:auto;background:#e05454;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;min-width:18px;text-align:center;}
+  .coach-main{margin-left:220px;flex:1;padding:24px 28px;min-width:0;}
+
+  .kd-a3-back{display:inline-block;font-size:12px;color:#6b6b80;text-decoration:none;margin-bottom:10px;transition:color 0.12s;}
+  .kd-a3-back:hover{color:#1a1a2e;}
+
+  .kd-header-card{background:linear-gradient(180deg,#fffdf6 0%,#faf3e0 100%);border:1px solid rgba(201,168,76,0.25);border-radius:14px;box-shadow:0 2px 8px rgba(15,15,26,0.04),0 1px 2px rgba(15,15,26,0.02);padding:18px 22px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .kd-header-l{display:flex;align-items:center;gap:14px;flex:1;min-width:0;}
+  .kd-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#e6c76a 0%,#a8821f 100%);color:#0f0f1a;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 16px rgba(201,168,76,0.25);}
+  .kd-header-naam-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .kd-header-naam{font-size:21px;font-weight:500;color:#1a1a2e;line-height:1.2;}
+  .kd-adher{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);color:#fff;font-size:12px;font-weight:600;letter-spacing:0.2px;box-shadow:0 0 14px rgba(201,168,76,0.3);}
+  .kd-header-meta{font-size:12px;color:rgba(15,15,26,0.55);margin-top:4px;}
+  .kd-header-r{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .kd-knop{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:9px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;border:1px solid rgba(26,26,46,0.18);background:transparent;color:#1a1a2e;transition:all 0.18s ease;}
+  .kd-knop:hover{border-color:#c9a84c;color:#c9a84c;}
+  .kd-knop-primair{background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);color:#0f0f1a;border-color:#b8932f;box-shadow:0 0 18px rgba(201,168,76,0.3),0 3px 12px rgba(184,147,47,0.18);position:relative;}
+  .kd-knop-primair:hover{box-shadow:0 0 26px rgba(201,168,76,0.45),0 5px 16px rgba(184,147,47,0.25);transform:translateY(-1px);color:#0f0f1a;border-color:#a8821f;}
+  .kd-knop-primair.kd-knop-dim{background:rgba(201,168,76,0.18);color:#8a6a1a;border-color:rgba(201,168,76,0.35);box-shadow:none;}
+  .kd-knop-dot{position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:#e05454;box-shadow:0 0 0 0 rgba(224,84,84,0.55);animation:kdPulse 2s ease-in-out infinite;}
+  @keyframes kdPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(224,84,84,0.55);}50%{transform:scale(1.2);box-shadow:0 0 0 6px rgba(224,84,84,0);}}
+
+  .kd-signaal-strip{background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 50%,#0f0f1a 100%);border:1px solid rgba(201,168,76,0.18);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;margin-bottom:16px;position:relative;overflow:hidden;box-shadow:0 4px 16px rgba(15,15,26,0.15);}
+  .kd-signaal-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(201,168,76,0.15),transparent 60%);pointer-events:none;z-index:0;}
+  .kd-signaal-strip > *{position:relative;z-index:1;}
+  .kd-signaal-dot{width:10px;height:10px;border-radius:50%;background:#e05454;flex-shrink:0;box-shadow:0 0 0 0 rgba(224,84,84,0.55);animation:kdPulse 2s ease-in-out infinite;}
+  .kd-signaal-tekst{flex:1;font-size:13px;color:#fff;line-height:1.45;}
+  .kd-signaal-open{padding:7px 12px;border-radius:8px;font-family:inherit;font-size:12px;font-weight:600;background:rgba(201,168,76,0.18);color:#c9a84c;border:1px solid rgba(201,168,76,0.32);cursor:pointer;transition:all 0.18s ease;}
+  .kd-signaal-open:hover{background:rgba(201,168,76,0.3);color:#fff;}
+
+  .kd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
+  @media (max-width:1024px){.kd-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.kd-grid{grid-template-columns:1fr;}}
+  .kd-tegel{display:block;position:relative;background:linear-gradient(180deg,#fffdf6 0%,#faf3e0 100%);border:1px solid rgba(201,168,76,0.25);border-radius:10px;padding:14px 16px 14px 19px;text-decoration:none;color:inherit;overflow:hidden;cursor:pointer;transition:transform 0.18s ease,box-shadow 0.18s ease,border-color 0.18s ease;box-shadow:0 2px 8px rgba(15,15,26,0.04),0 1px 2px rgba(15,15,26,0.02);}
+  .kd-tegel:hover{transform:scale(1.02);box-shadow:0 6px 16px rgba(15,15,26,0.1),0 1px 3px rgba(15,15,26,0.05);border-color:rgba(201,168,76,0.45);}
+  /* Toetsenbord-navigatie: 2px goud-outline zodat focus altijd zichtbaar is.
+     outline-offset 2 voorkomt overlap met de border. */
+  .kd-tegel:focus{outline:2px solid #c9a84c;outline-offset:2px;}
+  .kd-tegel:focus:not(:focus-visible){outline:none;}
+  .kd-tegel:focus-visible{outline:2px solid #c9a84c;outline-offset:2px;}
+  /* Klik-feedback: kort scale-omlaag-pulsje voor mousedown-bevestiging. */
+  .kd-tegel:active{transform:scale(0.98);transition:transform 0.08s ease;}
+  /* Hover-hint "→ Bekijk details" rechtsboven; subtiel, alleen op hover/focus.
+     Position absolute zodat hij niet meeschuift wanneer de tegel scaled. */
+  .kd-tegel-hint{position:absolute;top:8px;right:36px;font-size:10.5px;color:#8a6a1a;font-weight:600;letter-spacing:0.2px;opacity:0;transform:translateX(4px);transition:opacity 0.18s ease,transform 0.18s ease;pointer-events:none;white-space:nowrap;}
+  .kd-tegel:hover .kd-tegel-hint,.kd-tegel:focus-visible .kd-tegel-hint{opacity:1;transform:translateX(0);}
+  .kd-tegel-balk{position:absolute;left:0;top:0;bottom:0;width:3px;}
+  /* Urgentie-pulse-glow op rood/oranje balk. Subtiel: opacity 0.7 → 1 in 2s loop
+     plus zachte box-shadow naar buiten. Groen en grijs blijven statisch. */
+  .kd-tegel--rood .kd-tegel-balk,.kd-tegel--oranje .kd-tegel-balk{animation:kdTegelPulse 2s ease-in-out infinite;}
+  @keyframes kdTegelPulse{0%,100%{opacity:1;box-shadow:0 0 6px rgba(224,84,84,0.0);}50%{opacity:0.7;box-shadow:0 0 8px rgba(224,84,84,0.45);}}
+  .kd-tegel--oranje .kd-tegel-balk{animation-name:kdTegelPulseOranje;}
+  @keyframes kdTegelPulseOranje{0%,100%{opacity:1;box-shadow:0 0 6px rgba(201,168,76,0.0);}50%{opacity:0.75;box-shadow:0 0 8px rgba(201,168,76,0.5);}}
+  .kd-tegel--rood .kd-tegel-balk{background:#e05454;}
+  .kd-tegel--oranje .kd-tegel-balk{background:#c9a84c;}
+  .kd-tegel--groen .kd-tegel-balk{background:#5fa830;}
+  .kd-tegel--grijs .kd-tegel-balk{background:rgba(26,26,46,0.2);}
+
+  /* Banner voor nieuwe klant: alle 8 tegels grijs → uitleg dat data pas
+     binnenkomt na eerste check-ins. Cream bg + goud streep, compact font. */
+  .kd-tegels-banner{display:flex;align-items:center;gap:9px;background:linear-gradient(180deg,#fffdf6 0%,#faf3e0 100%);border:1px solid rgba(201,168,76,0.25);border-left:4px solid #c9a84c;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:12.5px;color:#1a1a2e;line-height:1.4;}
+  .kd-tegels-banner-ico{color:#c9a84c;font-size:14px;flex-shrink:0;}
+  .kd-tegel-ico{position:absolute;top:11px;right:12px;font-size:16px;line-height:1;opacity:0.85;}
+  .kd-tegel--rood .kd-tegel-ico{filter:drop-shadow(0 0 4px rgba(224,84,84,0.4));}
+  .kd-tegel--oranje .kd-tegel-ico{filter:drop-shadow(0 0 4px rgba(201,168,76,0.4));}
+  .kd-tegel-label{font-size:11px;color:#9b9baa;text-transform:uppercase;letter-spacing:0.9px;font-weight:600;margin-bottom:5px;}
+  .kd-tegel-waarde{font-size:20px;font-weight:500;color:#1a1a2e;line-height:1.1;margin-bottom:3px;}
+  .kd-tegel-sub{font-size:12px;color:#6b6b80;margin-bottom:9px;line-height:1.3;}
+  .kd-tegel-onder{margin-top:auto;}
+  .kd-streepjes{display:flex;gap:3px;align-items:center;}
+  .kd-streep{flex:1;height:5px;border-radius:2px;background:rgba(26,26,46,0.08);}
+  .kd-streep-groen{background:#5fa830;}
+  .kd-streep-rood{background:#e05454;}
+  .kd-streep-goud{background:#c9a84c;}
+  .kd-streep-grijs{background:rgba(26,26,46,0.12);}
+  .kd-trend{font-size:11px;color:#6b6b80;font-style:italic;}
+  .kd-trend-rood{color:#791F1F;}
+  .kd-trend-oranje{color:#633806;}
+  .kd-trend-groen{color:#0F6E56;}
+  .kd-trend-stil{color:#9b9baa;}
+
+  .kd-onder-mount{}
+  .kd-archief-banner{background:#fdf5e8;border:1px solid #e7cfa1;border-left:4px solid #d4871a;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:#8a6a1a;font-weight:600;}
+</style>
+<div class="coach-sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-text">Hoedt Coaching</div>
+      <div class="logo-sub">Coach Dashboard</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-label">Overzicht</div>
+      <a class="nav-item" href="/coach">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>Dashboard
+        
+      </a>
+      <a class="nav-item" href="/coach/analytics">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>Analytics
+      </a>
+      <a class="nav-item" href="/coach/aandacht">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Aandacht nodig
+      </a>
+      <a class="nav-item" href="/coach/taken">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span>Taken
+      </a>
+
+      <div class="nav-group" data-open="true">
+        <a class="nav-group-head active" href="/coach/klanten">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="nav-group-label">Klanten</span>
+          <span class="nav-badge">3</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/intakes">
+            Intakes
+            
+          </a>
+          <a class="nav-item nav-sub-item" href="/coach/checkins">
+            Check-ins
+            <span class="nav-badge">3</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav-item" href="/coach/chat">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>Chat
+        <span class="nav-badge" id="coachChatNavBadge" style="display:none;"></span>
+      </a>
+
+      <a class="nav-item" href="/coach/eind-vragenlijsten">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>Eind-vragenlijsten
+      </a>
+
+      <a class="nav-item" href="/coach/feedback-stats">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>AI-feedback
+      </a>
+
+      <a class="nav-item" href="/coach/instellingen">
+        <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Instellingen
+      </a>
+
+      <div class="nav-label">Schema Builder</div>
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding/">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+          <span class="nav-group-label">Voeding</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding-producten/">Producten</a>
+        </div>
+      </div>
+
+      <div class="nav-group" data-open="false">
+        <a class="nav-group-head" href="/coach/schema-builder/training/">
+          <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
+          <span class="nav-group-label">Training</span>
+          <span class="nav-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-group-body">
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training-oefeningen/">Oefeningen</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div class="coach-av">DH</div>
+        <div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);font-weight:500;">Daniel Hoedt</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.3);">Head Coach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<style>
+  .toast-success{position:fixed;top:20px;right:20px;background:#2e9e6b;color:white;padding:12px 18px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.18);z-index:9999;transition:opacity 0.4s ease,transform 0.3s ease;max-width:340px;}
+  .breadcrumbs{font-size:11.5px;color:#9b9baa;margin-top:3px;}
+  .breadcrumbs a{color:#6b6b80;text-decoration:none;}
+  .breadcrumbs a:hover{color:#c9a84c;}
+  .breadcrumbs .crumb-sep{margin:0 6px;opacity:0.5;}
+  button[type="submit"]:disabled,.sb-btn:disabled{opacity:0.6;cursor:wait !important;}
+  /* Sidebar-iconen: SVG-set op maat (overschrijft de oude emoji font-size regel) */
+  .coach-sidebar .nav-icon{width:16px;height:16px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;}
+  .coach-sidebar .nav-icon svg{width:16px;height:16px;stroke-width:1.9;opacity:0.9;}
+  .coach-sidebar .nav-item.active .nav-icon svg,.coach-sidebar .nav-group-head.active .nav-icon svg{opacity:1;}
+  /* Sidebar accordeon-groepen — data-open attribute drives visibility */
+  .coach-sidebar .nav-group{display:block;}
+  .coach-sidebar .nav-group-head{display:flex;align-items:center;gap:9px;padding:10px 20px;color:rgba(255,255,255,0.5);border-left:2px solid transparent;font-size:13px;text-decoration:none;transition:all 0.12s;cursor:pointer;}
+  .coach-sidebar .nav-group-head:hover{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
+  .coach-sidebar .nav-group-head.active{background:rgba(201,168,76,0.08);color:#c9a84c;border-left-color:#c9a84c;}
+  .coach-sidebar .nav-group-label{flex:1;}
+  .coach-sidebar .nav-chevron{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;color:#c9a84c;font-size:18px;line-height:1;font-weight:700;transition:transform 0.2s ease,color 0.15s ease,background 0.15s ease;border-radius:4px;cursor:pointer;text-shadow:0 1px 2px rgba(0,0,0,0.25);}
+  .coach-sidebar .nav-chevron:hover{color:#ffffff;background:rgba(201,168,76,0.18);}
+  .coach-sidebar .nav-group[data-open="true"] > .nav-group-head .nav-chevron{transform:rotate(180deg);color:#ffffff;}
+  .coach-sidebar .nav-group[data-open="false"] .nav-group-body{display:none !important;}
+  @media (max-width:768px){
+    body{display:block !important;}
+    .coach-sidebar{position:static !important;width:100% !important;min-height:0 !important;flex-direction:row !important;overflow-x:auto;padding:8px 12px !important;z-index:10;}
+    .coach-sidebar .sidebar-logo,.coach-sidebar .sidebar-footer,.coach-sidebar .nav-label{display:none;}
+    .coach-sidebar .sidebar-nav{display:flex;flex-direction:row;padding:0;gap:2px;overflow-x:auto;flex:1;}
+    .coach-sidebar .nav-item,.coach-sidebar .nav-sub-item{flex:0 0 auto;white-space:nowrap;padding:8px 14px !important;font-size:12px !important;border-left:none !important;border-bottom:2px solid transparent;}
+    .coach-sidebar .nav-item.active{background:transparent !important;border-bottom-color:#c9a84c !important;}
+    .coach-main{margin-left:0 !important;padding:16px !important;}
+    .main-col,.two-col,.three-col,.kp-grid,.kp-targets-row,.aanp-current-grid,.gen-grid-3,.gen-grid-4,.kl-toolbar,.clients-grid,.sb-dv-layout,.sb-koppel-split{grid-template-columns:1fr !important;display:block !important;}
+    .main-col > *,.two-col > *,.three-col > *,.kp-grid > *,.sb-koppel-split > *{margin-bottom:12px;}
+    .kl-table{display:block;}
+    .kl-table thead{display:none;}
+    .kl-table tbody,.kl-table tr,.kl-table td{display:block;width:100%;}
+    .kl-table tr{border:1px solid rgba(26,26,46,0.08);border-radius:10px;padding:10px 14px;margin-bottom:8px;background:white;}
+    .kl-table td{border:none !important;padding:4px 0 !important;}
+    .kl-table td:before{content:attr(data-label);display:inline-block;font-size:10px;text-transform:uppercase;color:#9b9baa;min-width:120px;font-weight:600;}
+    button,.sb-btn,.coc-btn,input[type="submit"]{min-height:40px;}
+    .page-header{flex-direction:column;align-items:flex-start !important;gap:10px;}
+  }
+  @media print{
+    .coach-sidebar,.sb-subtabs,.sb-tabs-nav,button,.sb-btn,.page-actions,.res-actions,.sb-actions-cell,.task-form,.kd-log-form,.task-tabs,.filter-tabs,.sb-cat-tabs,.client-actions,.kl-toolbar,.aanp-actions,.toast-success,.breadcrumbs{display:none !important;}
+    .coach-main{margin-left:0 !important;padding:0 !important;}
+    body{background:white !important;color:black !important;}
+    .card,.sb-card,.kp-card,.kd-section,.res-day-panel,.gen-section,.aanp-panel{box-shadow:none !important;border:1px solid #ddd !important;break-inside:avoid;page-break-inside:avoid;}
+    .res-day-panel{display:block !important;page-break-before:always;}
+    .res-day-panel:first-child{page-break-before:auto;}
+    .res-day-tabs{display:none !important;}
+    a{text-decoration:none;color:black !important;}
+  }
+</style>
+<script>
+  (function(){
+    // Loading states: disable submit buttons during form submission
+    document.addEventListener('submit',function(ev){
+      var f=ev.target;if(!(f instanceof HTMLFormElement))return;
+      var btns=f.querySelectorAll('button[type="submit"],input[type="submit"]');
+      setTimeout(function(){
+        btns.forEach(function(b){
+          if(b.disabled)return;
+          b.dataset.origText=b.textContent;
+          b.disabled=true;
+          if(b.tagName==='BUTTON'&&b.textContent.trim())b.textContent='Opslaan...';
+        });
+      },0);
+      // Re-enable after 20s as safety net
+      setTimeout(function(){
+        btns.forEach(function(b){
+          b.disabled=false;
+          if(b.dataset.origText){b.textContent=b.dataset.origText;}
+        });
+      },20000);
+    });
+    // Flash toast via cookie
+    var m=document.cookie.match(/(?:^|;\s*)flash_success=([^;]+)/);
+    if(m){
+      document.cookie='flash_success=; Path=/; Max-Age=0';
+      var msg=decodeURIComponent(m[1])||'Opgeslagen ✓';
+      var t=document.createElement('div');
+      t.className='toast-success';
+      t.textContent=msg;
+      document.body.appendChild(t);
+      setTimeout(function(){t.style.opacity='0';t.style.transform='translateY(-8px)';},2500);
+      setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},3000);
+    }
+    // Chat-badge: aantal ongelezen klant-berichten, poll elke 15s
+    async function updateCoachChatBadge(){
+      try{
+        var r=await fetch('/api/coach/berichten/overzicht',{credentials:'same-origin'});
+        if(!r.ok)return;
+        var data=await r.json();
+        var totaal=(data.klanten||[]).reduce(function(a,k){return a+(Number(k.ongelezen_klant_antwoord)||0);},0);
+        var badge=document.getElementById('coachChatNavBadge');
+        if(!badge)return;
+        if(totaal>0){badge.style.display='';badge.textContent=String(totaal);}
+        else{badge.style.display='none';}
+      }catch(e){}
+    }
+    if(document.getElementById('coachChatNavBadge')){
+      updateCoachChatBadge();
+      setInterval(function(){if(!document.hidden)updateCoachChatBadge();},15000);
+    }
+    // Sidebar-accordeon: chevron-klik toggelt data-open zonder navigatie
+    document.addEventListener('click',function(ev){
+      var chev=ev.target.closest && ev.target.closest('.coach-sidebar .nav-chevron');
+      if(!chev)return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      var group=chev.closest('.nav-group');
+      if(!group)return;
+      group.setAttribute('data-open', group.getAttribute('data-open') === 'true' ? 'false' : 'true');
+    });
+  })();
+</script>
+<div class="coach-main">
+  <a class="kd-a3-back" href="/coach/klanten">← Klanten</a>
+  
+
+  <div class="kd-header-card">
+    <div class="kd-header-l">
+      <div class="kd-avatar">TA</div>
+      <div>
+        <div class="kd-header-naam-row">
+          <span class="kd-header-naam">Test A</span>
+          <span class="kd-adher">Adherence 40%</span>
+        </div>
+        <div class="kd-header-meta">Fase 1 · Week 4 van 12 · 2 wk geleden actief</div>
+      </div>
+    </div>
+    <div class="kd-header-r">
+      <button type="button" class="kd-knop" onclick="kdOpenModal('kd-modal-info')">ⓘ Info</button>
+      <button type="button" class="kd-knop" onclick="kdOpenModal('kd-modal-timeline')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M9 2h6"/></svg> Timeline</button>
+      <button type="button" class="kd-knop kd-knop-primair" onclick="kdOpenModal('kd-modal-voorstel')">
+        <span class="kd-knop-dot" aria-hidden="true"></span>
+        Voorgesteld bericht
+      </button>
+    </div>
+  </div>
+
+  
+    <div class="kd-signaal-strip">
+      <span class="kd-signaal-dot" aria-hidden="true"></span>
+      <div class="kd-signaal-tekst">Voeding 7 dagen niet getrackt · Voeding 7 dgn gemist · Login 14 dgn geleden</div>
+      <button type="button" class="kd-signaal-open" onclick="kdOpenModal('kd-modal-voorstel')">Open voorstel</button>
+    </div>
+  
+
+  <div class="kd-grid">
+    <a class="kd-tegel kd-tegel--rood" href="/coach/klant/1782853354864/detail/voeding" aria-label="Open details voor VOEDING">
+      <div class="kd-tegel-balk"></div>
+      <div class="kd-tegel-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></div>
+      <span class="kd-tegel-hint" aria-hidden="true">→ Bekijk details</span>
+      <div class="kd-tegel-label">VOEDING</div>
+      <div class="kd-tegel-waarde">0%</div>
+      <div class="kd-tegel-sub">0/7 dagen getrackt</div>
+      <div class="kd-tegel-onder"><div class="kd-streepjes"><span class="kd-streep kd-streep-rood"></span><span class="kd-streep kd-streep-rood"></span><span class="kd-streep kd-streep-rood"></span><span class="kd-streep kd-streep-rood"></span><span class="kd-streep kd-streep-rood"></span><span class="kd-streep kd-streep-rood"></span><span class="kd-streep kd-streep-rood"></span></div></div>
+    </a>
+    <a class="kd-tegel kd-tegel--grijs" href="/coach/klant/1782853354864/detail/training" aria-label="Open details voor TRAINING">
+      <div class="kd-tegel-balk"></div>
+      <div class="kd-tegel-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></div>
+      <span class="kd-tegel-hint" aria-hidden="true">→ Bekijk details</span>
+      <div class="kd-tegel-label">TRAINING</div>
+      <div class="kd-tegel-waarde">0/—</div>
+      <div class="kd-tegel-sub">deze week</div>
+      <div class="kd-tegel-onder"><div class="kd-streepjes"><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span></div></div>
+    </a>
+    <a class="kd-tegel kd-tegel--grijs" href="/coach/klant/1782853354864/detail/stappen" aria-label="Open details voor STAPPEN">
+      <div class="kd-tegel-balk"></div>
+      <div class="kd-tegel-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/></svg></div>
+      <span class="kd-tegel-hint" aria-hidden="true">→ Bekijk details</span>
+      <div class="kd-tegel-label">STAPPEN</div>
+      <div class="kd-tegel-waarde">—</div>
+      <div class="kd-tegel-sub">doel 7500</div>
+      <div class="kd-tegel-onder"><div class="kd-streepjes"><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span></div></div>
+    </a>
+    <a class="kd-tegel kd-tegel--grijs" href="/coach/klant/1782853354864/detail/slaap" aria-label="Open details voor SLAAP">
+      <div class="kd-tegel-balk"></div>
+      <div class="kd-tegel-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></div>
+      <span class="kd-tegel-hint" aria-hidden="true">→ Bekijk details</span>
+      <div class="kd-tegel-label">SLAAP</div>
+      <div class="kd-tegel-waarde">—</div>
+      <div class="kd-tegel-sub">op koers</div>
+      <div class="kd-tegel-onder"><div class="kd-trend kd-trend-grijs">—</div></div>
+    </a>
+    <a class="kd-tegel kd-tegel--grijs" href="/coach/klant/1782853354864/detail/gewicht" aria-label="Open details voor GEWICHT">
+      <div class="kd-tegel-balk"></div>
+      <div class="kd-tegel-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 3a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2Z"/><path d="M12 7v14"/><path d="M5 21h14"/><path d="m5 7 3 7H2l3-7Z"/><path d="m19 7 3 7h-6l3-7Z"/><path d="M5 7h14"/></svg></div>
+      <span class="kd-tegel-hint" aria-hidden="true">→ Bekijk details</span>
+      <div class="kd-tegel-label">GEWICHT</div>
+      <div class="kd-tegel-waarde">—</div>
+      <div class="kd-tegel-sub">—</div>
+      <div class="kd-tegel-onder"><div class="kd-trend kd-trend-stil">laatste 6 metingen</div></div>
+    </a>
+    <a class="kd-tegel kd-tegel--grijs" href="/coach/klant/1782853354864/detail/energie" aria-label="Open details voor ENERGIE">
+      <div class="kd-tegel-balk"></div>
+      <div class="kd-tegel-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <span class="kd-tegel-hint" aria-hidden="true">→ Bekijk details</span>
+      <div class="kd-tegel-label">ENERGIE</div>
+      <div class="kd-tegel-waarde">—</div>
+      <div class="kd-tegel-sub">—</div>
+      <div class="kd-tegel-onder"><div class="kd-streepjes"><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span></div></div>
+    </a>
+    <a class="kd-tegel kd-tegel--groen" href="/coach/klant/1782853354864/detail/checkin" aria-label="Open details voor CHECK-IN">
+      <div class="kd-tegel-balk"></div>
+      <div class="kd-tegel-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></div>
+      <span class="kd-tegel-hint" aria-hidden="true">→ Bekijk details</span>
+      <div class="kd-tegel-label">CHECK-IN</div>
+      <div class="kd-tegel-waarde">14 dgn geleden</div>
+      <div class="kd-tegel-sub">op tijd</div>
+      <div class="kd-tegel-onder"><div class="kd-streepjes"><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span></div></div>
+    </a>
+    <a class="kd-tegel kd-tegel--rood" href="/coach/klant/1782853354864/detail/login" aria-label="Open details voor LOGIN">
+      <div class="kd-tegel-balk"></div>
+      <div class="kd-tegel-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <span class="kd-tegel-hint" aria-hidden="true">→ Bekijk details</span>
+      <div class="kd-tegel-label">LOGIN</div>
+      <div class="kd-tegel-waarde">0/7</div>
+      <div class="kd-tegel-sub">14 dgn niet ingelogd</div>
+      <div class="kd-tegel-onder"><div class="kd-streepjes"><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span><span class="kd-streep kd-streep-grijs"></span></div></div>
+    </a></div>
+
+  <!-- Mount-point voor T2 (actieplan-kader + notities-kader). Niet aanraken
+       in T1; T2 vervangt deze div met eigen render. -->
+  <div id="kd-a3-onder-mount" class="kd-onder-mount"><style>
+  /* === T2: Actieplan + Notities grid === */
+  .kd-onder-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  @media (max-width:1023px){.kd-onder-grid{grid-template-columns:1fr;}}
+
+  .kd-card{background:#fffdf6;border-radius:14px;padding:18px 20px;box-shadow:0 2px 8px rgba(15,15,26,0.04),0 1px 2px rgba(15,15,26,0.02);}
+  .kd-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:10px;flex-wrap:wrap;}
+  .kd-card-titel{font-size:14px;font-weight:700;color:#1a1a2e;display:flex;align-items:center;gap:9px;}
+  .kd-concept-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,0.14);color:#8a6a1a;font-size:10px;font-weight:700;padding:3px 9px;border-radius:999px;text-transform:uppercase;letter-spacing:0.6px;}
+  .kd-concept-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:#c9a84c;box-shadow:0 0 6px rgba(201,168,76,0.55);}
+  .kd-alle-link{font-size:12px;color:#8a6a1a;text-decoration:none;font-weight:600;}
+  .kd-alle-link:hover{color:#6b4f12;}
+
+  .kd-actieplan{border:1.5px dashed rgba(201,168,76,0.55);background:linear-gradient(180deg,#fffdf6 0%,#fbf3df 100%);}
+  .kd-actieplan ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;}
+  .kd-actieplan li{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.45;color:#1a1a2e;}
+  .kd-actieplan li::before{content:'•';color:#c9a84c;font-weight:700;flex-shrink:0;width:10px;}
+  .kd-actieplan .kd-textarea{width:100%;min-height:140px;border:1px solid rgba(201,168,76,0.4);border-radius:8px;padding:10px 12px;font-family:inherit;font-size:13px;color:#1a1a2e;background:#fffdf6;line-height:1.5;resize:vertical;}
+  .kd-actieplan .kd-textarea:focus{outline:none;border-color:#c9a84c;box-shadow:0 0 0 3px rgba(201,168,76,0.15);}
+
+  .kd-notities{border:1px solid rgba(201,168,76,0.28);}
+  .kd-notitie-blok{background:#fbf3df;border-left:3px solid #c9a84c;border-radius:8px;padding:11px 14px;}
+  .kd-notitie-meta{font-size:10.5px;color:#8a6a1a;text-transform:uppercase;letter-spacing:0.7px;font-weight:700;margin-bottom:5px;}
+  .kd-notitie-tekst{font-size:13px;color:#1a1a2e;line-height:1.55;font-style:italic;white-space:pre-wrap;}
+  .kd-notities .kd-textarea{width:100%;min-height:90px;border:1px solid rgba(201,168,76,0.4);border-radius:8px;padding:10px 12px;font-family:inherit;font-size:13px;color:#1a1a2e;background:#fffdf6;line-height:1.5;resize:vertical;}
+  .kd-notities .kd-textarea:focus{outline:none;border-color:#c9a84c;box-shadow:0 0 0 3px rgba(201,168,76,0.15);}
+
+  .kd-leeg-blok{color:#9b9baa;font-size:12.5px;font-style:italic;padding:18px 4px;}
+
+  .kd-actie-rij{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+  .kd-btn{padding:8px 14px;border-radius:8px;font-family:inherit;font-size:12.5px;font-weight:600;border:1px solid transparent;cursor:pointer;transition:all 0.18s ease;}
+  .kd-btn-primair{background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);color:#0f0f1a;box-shadow:0 0 18px rgba(201,168,76,0.3),0 3px 12px rgba(184,147,47,0.18);}
+  .kd-btn-primair:hover{box-shadow:0 0 26px rgba(201,168,76,0.45),0 5px 16px rgba(184,147,47,0.25);transform:translateY(-1px);}
+  .kd-btn-ghost-goud{background:transparent;border-color:rgba(201,168,76,0.55);color:#8a6a1a;}
+  .kd-btn-ghost-goud:hover{background:rgba(201,168,76,0.08);border-color:#c9a84c;}
+  .kd-btn-ghost{background:transparent;border-color:rgba(26,26,46,0.18);color:#1a1a2e;}
+  .kd-btn-ghost:hover{border-color:#c9a84c;color:#c9a84c;}
+  .kd-btn-stil{background:transparent;border-color:rgba(26,26,46,0.12);color:#9b9baa;}
+  .kd-btn-stil:hover{border-color:#a02828;color:#a02828;}
+  .kd-btn:disabled{opacity:0.55;cursor:wait;}
+  .kd-mini-status{font-size:11.5px;color:#1a7a4a;font-weight:600;align-self:center;}
+  .kd-mini-status.kd-mini-err{color:#a02828;}
+
+  /* === T2: Modal-systeem === */
+  .kd-modal-overlay{position:fixed;inset:0;background:rgba(15,15,26,0.55);display:flex;align-items:center;justify-content:center;z-index:9000;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.18s ease;}
+  .kd-modal-overlay.kd-modal-open{opacity:1;pointer-events:auto;}
+  .kd-modal-content{background:#fffdf6;border-radius:16px;width:100%;max-width:540px;max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.35);transform:translateY(20px);transition:transform 0.22s ease;}
+  .kd-modal-overlay.kd-modal-open .kd-modal-content{transform:translateY(0);}
+  .kd-modal-content.kd-modal-wide{max-width:780px;}
+  .kd-modal-head{background:linear-gradient(135deg,#0a0a14 0%,#1a1a2e 100%);color:#fffdf6;padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+  .kd-modal-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;flex-shrink:0;}
+  .kd-modal-avatar.avatar-red{background:#fde8e8;color:#c0392b;}
+  .kd-modal-avatar.avatar-amber{background:#fef3e2;color:#a0531a;}
+  .kd-modal-avatar.avatar-blue{background:#e8f0fe;color:#1a5ba0;}
+  .kd-modal-avatar.avatar-green{background:#e8f5ee;color:#1a7a4a;}
+  .kd-modal-avatar.avatar-purple{background:#f0e8fe;color:#5a1aa0;}
+  .kd-modal-titel{flex:1;min-width:0;}
+  .kd-modal-titel-h{font-size:15px;font-weight:700;line-height:1.25;}
+  .kd-modal-titel-sub{font-size:11.5px;color:rgba(255,255,255,0.6);margin-top:2px;}
+  .kd-modal-acties{display:flex;gap:6px;flex-shrink:0;}
+  .kd-modal-actie{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#fffdf6;font-family:inherit;font-size:12px;font-weight:600;padding:6px 10px;border-radius:7px;cursor:pointer;transition:background 0.12s;}
+  .kd-modal-actie:hover{background:rgba(255,255,255,0.16);}
+  .kd-modal-sluit{background:transparent;border:none;color:rgba(255,255,255,0.7);font-size:22px;cursor:pointer;line-height:1;padding:4px 6px;flex-shrink:0;font-family:inherit;}
+  .kd-modal-sluit:hover{color:#fffdf6;}
+  .kd-modal-body{padding:18px 20px;overflow-y:auto;flex:1;}
+  .kd-modal-foot{padding:12px 20px;border-top:1px solid rgba(26,26,46,0.08);background:#faf6e8;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-shrink:0;}
+
+  /* === T2: Info modal blokken === */
+  .kd-info-blok{margin-bottom:18px;}
+  .kd-info-blok:last-child{margin-bottom:0;}
+  .kd-info-blok-titel{font-size:10.5px;color:#8a6a1a;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:9px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .kd-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px 18px;}
+  .kd-info-rij{min-width:0;}
+  .kd-info-rij-full{grid-column:1 / -1;}
+  .kd-info-label{font-size:10.5px;color:#9b9baa;font-weight:500;margin-bottom:2px;}
+  .kd-info-val{font-size:13px;color:#1a1a2e;font-weight:500;line-height:1.45;word-break:break-word;}
+  .kd-info-val a{color:#8a6a1a;text-decoration:none;font-weight:600;}
+  .kd-info-val a:hover{color:#6b4f12;text-decoration:underline;}
+  .kd-info-pills{display:flex;flex-wrap:wrap;gap:6px;}
+  .kd-info-pill{display:inline-flex;align-items:center;background:rgba(201,168,76,0.12);color:#8a6a1a;font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid rgba(201,168,76,0.3);}
+
+  /* === T2: Timeline modal === */
+  .kd-tl-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+  .kd-tl-pill{background:rgba(26,26,46,0.05);border:1px solid rgba(26,26,46,0.1);color:#3a3a4a;font-family:inherit;font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;cursor:pointer;transition:all 0.12s;}
+  .kd-tl-pill:hover{border-color:#c9a84c;color:#8a6a1a;}
+  .kd-tl-pill.kd-tl-pill-actief{background:#0f0f1a;color:#c9a84c;border-color:#0f0f1a;}
+  .kd-tl-dag{margin-bottom:14px;}
+  .kd-tl-dag:last-child{margin-bottom:0;}
+  .kd-tl-dag-kop{font-size:10.5px;color:#9b9baa;text-transform:uppercase;letter-spacing:1.2px;font-weight:700;margin-bottom:8px;padding-bottom:5px;border-bottom:1px dashed rgba(26,26,46,0.08);}
+  .kd-tl-event{display:flex;gap:11px;padding:9px 4px;align-items:flex-start;}
+  .kd-tl-event-icoon{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;background:rgba(26,26,46,0.06);}
+  .kd-tl-event-icoon.kd-tl-i-checkin{background:rgba(43,108,176,0.14);color:#1a5ba0;}
+  .kd-tl-event-icoon.kd-tl-i-bericht{background:rgba(201,168,76,0.16);color:#8a6a1a;}
+  .kd-tl-event-icoon.kd-tl-i-notitie{background:rgba(138,61,191,0.14);color:#5a1aa0;}
+  .kd-tl-event-icoon.kd-tl-i-training{background:rgba(139,92,246,0.14);color:#5b21b6;}
+  .kd-tl-event-icoon.kd-tl-i-voeding{background:rgba(34,197,94,0.14);color:#1a7a4a;}
+  .kd-tl-event-icoon.kd-tl-i-schema{background:rgba(249,115,22,0.14);color:#9a3412;}
+  .kd-tl-event-icoon.kd-tl-i-mijlpaal{background:rgba(224,84,84,0.14);color:#a02828;}
+  .kd-tl-event-body{flex:1;min-width:0;}
+  .kd-tl-event-titel{font-size:13px;font-weight:600;color:#1a1a2e;line-height:1.35;}
+  .kd-tl-event-meta{font-size:11.5px;color:#9b9baa;margin-top:2px;}
+  .kd-tl-event-detail{font-size:12.5px;color:#3a3a4a;line-height:1.45;margin-top:4px;white-space:pre-wrap;word-break:break-word;}
+  .kd-tl-meer{text-align:center;padding:12px 0 4px;font-size:12.5px;color:#8a6a1a;background:transparent;border:none;cursor:pointer;font-family:inherit;font-weight:600;width:100%;}
+  .kd-tl-meer:hover{color:#6b4f12;}
+  .kd-tl-leeg{padding:30px 12px;text-align:center;color:#9b9baa;font-size:12.5px;font-style:italic;}
+
+  /* === T2: Voorgesteld bericht modal === */
+  .kd-vb-context{margin-bottom:14px;}
+  .kd-vb-context-titel{font-size:10.5px;color:#8a6a1a;text-transform:uppercase;letter-spacing:0.9px;font-weight:700;margin-bottom:7px;}
+  .kd-vb-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px;}
+  .kd-vb-bullet{font-size:12.5px;color:#3a3a4a;line-height:1.4;padding-left:14px;position:relative;}
+  .kd-vb-bullet::before{content:'·';position:absolute;left:0;top:0;font-weight:700;color:#c9a84c;}
+  .kd-vb-blok{border:1.5px dashed rgba(201,168,76,0.55);border-radius:11px;padding:12px 14px;background:#fbf3df;}
+  .kd-vb-blok-titel{font-size:10.5px;color:#8a6a1a;text-transform:uppercase;letter-spacing:0.9px;font-weight:700;margin-bottom:7px;}
+  .kd-vb-tekst{width:100%;min-height:90px;border:1px solid rgba(201,168,76,0.4);border-radius:8px;padding:9px 11px;font-family:inherit;font-size:13px;color:#1a1a2e;background:#fffdf6;line-height:1.5;resize:vertical;}
+  .kd-vb-tekst:focus{outline:none;border-color:#c9a84c;box-shadow:0 0 0 3px rgba(201,168,76,0.15);}
+
+  /* === T2: Voorgesteld-bericht header-knop (T1 hangt knop in eigen header,
+        T2 levert alleen de visuele stijl voor de goud-gradient + pulse-dot) === */
+  .kd-vb-trigger{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#d9b75a 0%,#b8932f 100%);color:#0f0f1a;font-family:inherit;font-size:12.5px;font-weight:700;padding:8px 14px;border:none;border-radius:9px;cursor:pointer;box-shadow:0 0 18px rgba(201,168,76,0.3),0 3px 12px rgba(184,147,47,0.18);transition:all 0.18s ease;}
+  .kd-vb-trigger:hover{box-shadow:0 0 28px rgba(201,168,76,0.45),0 5px 16px rgba(184,147,47,0.25);transform:translateY(-1px);}
+  .kd-vb-trigger:disabled{opacity:0.5;cursor:not-allowed;box-shadow:none;transform:none;}
+  .kd-vb-pulse{width:8px;height:8px;border-radius:50%;background:#c43838;box-shadow:0 0 0 0 rgba(196,56,56,0.55);animation:kdPulse 1.6s ease-in-out infinite;flex-shrink:0;}
+  @keyframes kdPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(196,56,56,0.55);}50%{transform:scale(1.25);box-shadow:0 0 0 6px rgba(196,56,56,0);}}
+
+  .kd-toast{position:fixed;right:22px;bottom:22px;padding:11px 16px;border-radius:10px;font-size:13px;font-weight:600;color:#fff;background:linear-gradient(135deg,#2e9e6b 0%,#1a7a4a 100%);box-shadow:0 10px 26px rgba(0,0,0,0.18);opacity:0;transform:translateY(10px);transition:opacity 200ms ease,transform 200ms ease;pointer-events:none;z-index:9999;}
+  .kd-toast.kd-toast-zicht{opacity:1;transform:translateY(0);}
+  .kd-toast-err{background:linear-gradient(135deg,#c43838 0%,#8a2020 100%);}
+
+  /* === T1-skeleton (placeholder tot T1 zijn eigen header + 8 tegels rendert).
+        T1 vervangt deze stijlen door definitieve versies. === */
+  .kd-page-header{background:#fffdf6;border-radius:14px;padding:18px 20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(15,15,26,0.04),0 1px 2px rgba(15,15,26,0.02);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .kd-page-header h1{font-size:20px;font-weight:700;color:#1a1a2e;margin:0;flex:1;}
+  .kd-tegels-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px;}
+  @media (max-width:1023px){.kd-tegels-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:560px){.kd-tegels-grid{grid-template-columns:1fr;}}
+  .kd-tegel-placeholder{background:#fffdf6;border:1px dashed rgba(26,26,46,0.12);border-radius:12px;padding:18px 16px;min-height:80px;display:flex;align-items:center;justify-content:center;color:#9b9baa;font-size:12px;font-style:italic;}
+
+  /* ===== Mobile breakpoints: modals + actie-rijen =====
+     Modals krijgen volle viewport-breedte minus 16px gutter (overlay padding
+     reduceren) op kleine schermen. Knoppen in actie-rijen stacken verticaal
+     onder 480px voor leesbaarheid en grotere tap-target. */
+  @media (max-width:560px){
+    .kd-page-header{padding:14px 16px;gap:10px;}
+    .kd-page-header h1{font-size:17px;}
+    .kd-modal-overlay{padding:8px;}
+    .kd-modal-content,.kd-modal-content.kd-modal-wide{max-width:100%;max-height:94vh;border-radius:12px;}
+    .kd-modal-head{padding:12px 14px;}
+    .kd-card{padding:14px 16px;}
+  }
+  @media (max-width:480px){
+    .kd-actie-rij{flex-direction:column;align-items:stretch;}
+    .kd-actie-rij .kd-btn{width:100%;min-height:44px;}
+  }
+  @media (hover:none) and (pointer:coarse){
+    .kd-btn,.kd-vb-trigger{min-height:44px;}
+  }
+</style>
+    <div class="kd-onder-grid">
+      <div class="kd-card kd-actieplan" data-kd-ap-card>
+        <div class="kd-card-head">
+          <div class="kd-card-titel">
+            Actieplan deze week
+            <span class="kd-concept-pill">Concept</span>
+          </div>
+        </div>
+        <div data-kd-ap-view>
+          <div style="white-space:pre-wrap;font-size:13px;line-height:1.5;color:#1a1a2e;">Week-actieplan voor Test (fase 1)
+
+• Focus deze week: voeding-tracking consistenter maken.
+• Eiwit-anker (kwark-snack 16:00) elke werkdag. Zet dit als vast slot in je agenda.
+• Eén ding inplannen waar je naar uitkijkt deze week (training of maaltijd). Zo bekrachtig je je basis-routine.</div>
+        </div>
+        <textarea data-kd-ap-edit class="kd-textarea" hidden>Week-actieplan voor Test (fase 1)
+
+• Focus deze week: voeding-tracking consistenter maken.
+• Eiwit-anker (kwark-snack 16:00) elke werkdag. Zet dit als vast slot in je agenda.
+• Eén ding inplannen waar je naar uitkijkt deze week (training of maaltijd). Zo bekrachtig je je basis-routine.</textarea>
+        <div class="kd-actie-rij" data-kd-ap-actie>
+          <button type="button" class="kd-btn kd-btn-primair" data-kd-ap-goedkeur>Goedkeuren</button>
+          <button type="button" class="kd-btn kd-btn-ghost" data-kd-ap-bewerk>Bewerken</button>
+          <button type="button" class="kd-btn kd-btn-stil" data-kd-ap-annuleer hidden>Annuleer</button>
+          <span class="kd-mini-status" data-kd-ap-status></span>
+        </div>
+      </div>
+
+      <div class="kd-card kd-notities" data-kd-nt-card>
+        <div class="kd-card-head">
+          <div class="kd-card-titel">
+            Notities
+            
+          </div>
+          <a class="kd-alle-link" href="#" data-kd-nt-alle>Alle ↗</a>
+        </div>
+        <div data-kd-nt-view>
+          <div class="kd-notitie-blok">
+            <div class="kd-notitie-meta">handmatig · 08 jul 2026</div>
+            <div class="kd-notitie-tekst">Test: voeding-tracking valt door op weekenddagen. Plan-iets-vooraf-strategie bespreken in eerstvolgende check-in.</div>
+          </div>
+        </div>
+        <textarea data-kd-nt-edit class="kd-textarea" hidden>Test: voeding-tracking valt door op weekenddagen. Plan-iets-vooraf-strategie bespreken in eerstvolgende check-in.</textarea>
+        <div class="kd-actie-rij" data-kd-nt-actie>
+          <button type="button" class="kd-btn kd-btn-ghost-goud" data-kd-nt-bewaar>Opnieuw bewaren</button>
+          <button type="button" class="kd-btn kd-btn-ghost" data-kd-nt-bewerk>Bewerk</button>
+          <button type="button" class="kd-btn kd-btn-stil" data-kd-nt-annuleer hidden>Annuleer</button>
+          <span class="kd-mini-status" data-kd-nt-status></span>
+        </div>
+      </div>
+    </div>
+    <script>window.KD_KLANT_ID = "1782853354864"; window.KD_NOTITIE_ID = "n_1783514955153_hyen"; window.KD_NOTITIE_DATUM = "2026-07-08";</script>
+  </div>
+</div>
+<script>
+  function kdOpenModal(id) {
+    var el = document.getElementById(id);
+    if (el) { el.hidden = false; }
+  }
+  function kdSluitModal(id) {
+    var el = document.getElementById(id);
+    if (el) { el.hidden = true; }
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.kd-modal[hidden=false],.kd-modal:not([hidden])').forEach(function (m) { m.hidden = true; });
+    }
+  });
+</script>
+    <div class="kd-modal-overlay" id="kd-modal-info" data-kd-modal="info" role="dialog" aria-modal="true" aria-labelledby="kdInfoTitel" hidden>
+      <div class="kd-modal-content">
+        <div class="kd-modal-head">
+          <div class="kd-modal-avatar avatar-red">TA</div>
+          <div class="kd-modal-titel">
+            <div class="kd-modal-titel-h" id="kdInfoTitel">Info · Test A</div>
+            <div class="kd-modal-titel-sub">Persoonlijk, doel & traject</div>
+          </div>
+          <button type="button" class="kd-modal-sluit" data-kd-modal-sluit aria-label="Sluiten">×</button>
+        </div>
+        <div class="kd-modal-body">
+          <div class="kd-info-blok">
+            <div class="kd-info-blok-titel">Persoonlijk</div>
+            <div class="kd-info-grid">
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Naam</div>
+      <div class="kd-info-val">Test A</div>
+    </div>
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Leeftijd</div>
+      <div class="kd-info-val">20 jaar</div>
+    </div>
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Email</div>
+      <div class="kd-info-val"><a href="mailto:test@test.nl">test@test.nl</a></div>
+    </div>
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Telefoon</div>
+      <div class="kd-info-val"><a href="tel:0657728845">0657728845</a></div>
+    </div>
+            </div>
+          </div>
+          <div class="kd-info-blok">
+            <div class="kd-info-blok-titel">Doel &amp; uitgangswaarden</div>
+            <div class="kd-info-grid">
+              
+    <div class="kd-info-rij kd-info-rij-full">
+      <div class="kd-info-label">Hoofddoel</div>
+      <div class="kd-info-val">20 kg afvallen en fittter zijn</div>
+    </div>
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Startgewicht</div>
+      <div class="kd-info-val">80 kg</div>
+    </div>
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Huidig gewicht</div>
+      <div class="kd-info-val"><span style="color:#9b9baa;font-style:italic;">—</span></div>
+    </div>
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Stappen-doel</div>
+      <div class="kd-info-val">7500/dag</div>
+    </div>
+            </div>
+          </div>
+          <div class="kd-info-blok">
+            <div class="kd-info-blok-titel">Traject</div>
+            <div class="kd-info-grid">
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Pakket</div>
+      <div class="kd-info-val"><span style="color:#9b9baa;font-style:italic;">—</span></div>
+    </div>
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Startdatum</div>
+      <div class="kd-info-val">30 jun 2026</div>
+    </div>
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Einddatum</div>
+      <div class="kd-info-val"><span style="color:#9b9baa;font-style:italic;">—</span></div>
+    </div>
+              
+    <div class="kd-info-rij">
+      <div class="kd-info-label">Fase / Week</div>
+      <div class="kd-info-val">Fase 1 · Week 4</div>
+    </div>
+              
+    <div class="kd-info-rij kd-info-rij-full">
+      <div class="kd-info-label">Contract</div>
+      <div class="kd-info-val"><a href="/coach/1782853354864/contract" target="_blank" rel="noopener">PDF openen ↗</a></div>
+    </div>
+            </div>
+          </div>
+          <div class="kd-info-blok">
+            <div class="kd-info-blok-titel">
+              Supplementen
+              <a class="kd-alle-link" href="/coach/klanten/1782853354864?tab=supplementen">Aanpassen ↗</a>
+            </div>
+            <div class="kd-info-val" style="color:#9b9baa;font-style:italic;font-size:12.5px;">Geen supplementen ingesteld.</div>
+          </div>
+          <div class="kd-info-blok">
+            <div class="kd-info-blok-titel">Intake</div>
+            <a class="kd-btn kd-btn-ghost-goud" href="/coach/klanten/1782853354864?tab=intake" style="text-decoration:none;display:inline-block;">Volledig intake openen ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="kd-modal-overlay" id="kd-modal-timeline" data-kd-modal="timeline" role="dialog" aria-modal="true" aria-labelledby="kdTlTitel" hidden>
+      <div class="kd-modal-content kd-modal-wide">
+        <div class="kd-modal-head">
+          <div class="kd-modal-avatar avatar-red">TA</div>
+          <div class="kd-modal-titel">
+            <div class="kd-modal-titel-h" id="kdTlTitel">Timeline · Test A</div>
+            <div class="kd-modal-titel-sub">Laatste 30 dagen · 12 events</div>
+          </div>
+          <div class="kd-modal-acties">
+            <a class="kd-modal-actie" href="/coach/klanten/1782853354864" style="text-decoration:none;">Terug naar klant</a>
+            <button type="button" class="kd-modal-actie" data-kd-tl-notitie>+ Notitie</button>
+          </div>
+          <button type="button" class="kd-modal-sluit" data-kd-modal-sluit aria-label="Sluiten">×</button>
+        </div>
+        <div class="kd-modal-body">
+          <div class="kd-tl-filters">
+            <button type="button" class="kd-tl-pill kd-tl-pill-actief" data-kd-tl-filter="alle">Alle</button><button type="button" class="kd-tl-pill" data-kd-tl-filter="checkin">Check-ins</button><button type="button" class="kd-tl-pill" data-kd-tl-filter="bericht">Berichten</button><button type="button" class="kd-tl-pill" data-kd-tl-filter="notitie">Notities</button><button type="button" class="kd-tl-pill" data-kd-tl-filter="training">Training</button><button type="button" class="kd-tl-pill" data-kd-tl-filter="voeding">Voeding</button><button type="button" class="kd-tl-pill" data-kd-tl-filter="schema">Schema&#39;s</button><button type="button" class="kd-tl-pill" data-kd-tl-filter="mijlpaal">Mijlpalen</button>
+          </div>
+          <div data-kd-tl-feed>
+        <div class="kd-tl-dag">
+          <div class="kd-tl-dag-kop">WOENSDAG 08 JUL</div>
+          
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="notitie">
+        <div class="kd-tl-event-icoon kd-tl-i-notitie">📝</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Notitie bewaard</div>
+          <div class="kd-tl-event-meta">12:49 · handmatig</div>
+          <div class="kd-tl-event-detail">Test: voeding-tracking valt door op weekenddagen. Plan-iets-vooraf-strategie bespreken in eerstvolgende check-in.</div>
+        </div>
+      </div>
+        </div>
+        <div class="kd-tl-dag">
+          <div class="kd-tl-dag-kop">DINSDAG 07 JUL</div>
+          
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="training">
+        <div class="kd-tl-event-icoon kd-tl-i-training">🏋️</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Training gelogd</div>
+          <div class="kd-tl-event-meta">18:00 · Klant</div>
+          <div class="kd-tl-event-detail">2026-07-07_push-a</div>
+        </div>
+      </div>
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="bericht">
+        <div class="kd-tl-event-icoon kd-tl-i-bericht">💬</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Klant → coach</div>
+          <div class="kd-tl-event-meta">10:21 · chat</div>
+          <div class="kd-tl-event-detail">Hey</div>
+        </div>
+      </div>
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="bericht">
+        <div class="kd-tl-event-icoon kd-tl-i-bericht">💬</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Coach → klant</div>
+          <div class="kd-tl-event-meta">09:34 · chat</div>
+          <div class="kd-tl-event-detail">E2E-testbericht 1783123200000</div>
+        </div>
+      </div>
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="checkin">
+        <div class="kd-tl-event-icoon kd-tl-i-checkin">✓</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Dagelijkse check-in</div>
+          <div class="kd-tl-event-meta">00:00 · Klant</div>
+          <div class="kd-tl-event-detail">Energie: goed/10</div>
+        </div>
+      </div>
+        </div>
+        <div class="kd-tl-dag">
+          <div class="kd-tl-dag-kop">ZONDAG 05 JUL</div>
+          
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="voeding">
+        <div class="kd-tl-event-icoon kd-tl-i-voeding">🥗</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Voeding-dag getrackt</div>
+          <div class="kd-tl-event-meta">18:00 · Klant</div>
+          <div class="kd-tl-event-detail">2026-07-05</div>
+        </div>
+      </div>
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="bericht">
+        <div class="kd-tl-event-icoon kd-tl-i-bericht">💬</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Coach → klant</div>
+          <div class="kd-tl-event-meta">12:13 · chat</div>
+          <div class="kd-tl-event-detail">E2E-testbericht 1783123200000</div>
+        </div>
+      </div>
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="bericht">
+        <div class="kd-tl-event-icoon kd-tl-i-bericht">💬</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Klant → coach</div>
+          <div class="kd-tl-event-meta">11:47 · chat</div>
+          <div class="kd-tl-event-detail">Hey</div>
+        </div>
+      </div>
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="bericht">
+        <div class="kd-tl-event-icoon kd-tl-i-bericht">💬</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Coach → klant</div>
+          <div class="kd-tl-event-meta">08:22 · chat</div>
+          <div class="kd-tl-event-detail">E2E-testbericht 1783123200000</div>
+        </div>
+      </div>
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="checkin">
+        <div class="kd-tl-event-icoon kd-tl-i-checkin">✓</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Dagelijkse check-in</div>
+          <div class="kd-tl-event-meta">00:00 · Klant</div>
+          <div class="kd-tl-event-detail">Energie: goed/10</div>
+        </div>
+      </div>
+        </div>
+        <div class="kd-tl-dag">
+          <div class="kd-tl-dag-kop">ZATERDAG 04 JUL</div>
+          
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="bericht">
+        <div class="kd-tl-event-icoon kd-tl-i-bericht">💬</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Coach → klant</div>
+          <div class="kd-tl-event-meta">11:40 · chat</div>
+          <div class="kd-tl-event-detail">E2E-testbericht 1783123200000</div>
+        </div>
+      </div>
+      <div class="kd-tl-event" data-kd-tl-event data-tl-cat="bericht">
+        <div class="kd-tl-event-icoon kd-tl-i-bericht">💬</div>
+        <div class="kd-tl-event-body">
+          <div class="kd-tl-event-titel">Coach → klant</div>
+          <div class="kd-tl-event-meta">11:39 · chat</div>
+          <div class="kd-tl-event-detail">E2E-testbericht 1783123200000</div>
+        </div>
+      </div>
+        </div></div>
+          <button type="button" class="kd-tl-meer" data-kd-tl-meer>Toon meer (laatste 60 dagen) ↓</button>
+        </div>
+      </div>
+    </div>
+  
+    <style>
+      /* Rich bullet-stijlen: overrulen het generieke ::before '·' uit
+         KLANT_DETAIL_ONDER_CSS zodat de nieuwe layout met tegel-icoon + status-
+         kleur + "Open tegel ↗"-link netjes side-by-side rendert. Inline geplaatst
+         om merge-conflict met parallelle terminals in views/css/coach-klant-detail.js
+         te vermijden. */
+      .kd-vb-bullets .kd-vb-bullet{display:flex;align-items:flex-start;gap:9px;padding-left:0;font-size:12.5px;line-height:1.4;}
+      .kd-vb-bullets .kd-vb-bullet::before{content:none;}
+      .kd-vb-bullet-ico{flex-shrink:0;width:20px;text-align:center;line-height:1.2;font-size:14px;}
+      .kd-vb-bullet-tekst{flex:1;min-width:0;}
+      .kd-vb-bullet-link{font-size:11px;color:#c9a84c;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;margin-left:auto;}
+      .kd-vb-bullet-link:hover{text-decoration:underline;}
+      .kd-vb-bullet--rood .kd-vb-bullet-tekst{color:#791F1F;}
+      .kd-vb-bullet--oranje .kd-vb-bullet-tekst{color:#633806;}
+      .kd-vb-bullet--groen .kd-vb-bullet-tekst,.kd-vb-bullet--groen .kd-vb-bullet-ico{color:#0F6E56;}
+      .kd-vb-bullet--neutraal .kd-vb-bullet-tekst{color:#3a3a4a;}
+    </style>
+    <div class="kd-modal-overlay" id="kd-modal-voorstel" data-kd-modal="bericht" role="dialog" aria-modal="true" aria-labelledby="kdVbTitel" hidden>
+      <div class="kd-modal-content">
+        <div class="kd-modal-head">
+          <div class="kd-modal-avatar avatar-red">TA</div>
+          <div class="kd-modal-titel">
+            <div class="kd-modal-titel-h" id="kdVbTitel">Voorgesteld bericht · Concept</div>
+            <div class="kd-modal-titel-sub">Test A</div>
+          </div>
+          <button type="button" class="kd-modal-sluit" data-kd-modal-sluit aria-label="Sluiten">×</button>
+        </div>
+        <div class="kd-modal-body">
+          
+            <div class="kd-vb-context">
+              <div class="kd-vb-context-titel">Wat speelt er</div>
+              <ul class="kd-vb-bullets">
+                <li class="kd-vb-bullet kd-vb-bullet--rood">
+                        <span class="kd-vb-bullet-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
+                        <span class="kd-vb-bullet-tekst">Voeding 7 dagen niet getrackt</span>
+                        <a class="kd-vb-bullet-link" href="/coach/klant/1782853354864/detail/voeding">Open tegel ↗</a>
+                      </li><li class="kd-vb-bullet kd-vb-bullet--rood">
+                        <span class="kd-vb-bullet-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                        <span class="kd-vb-bullet-tekst">Niet ingelogd sinds 14 dagen</span>
+                        <a class="kd-vb-bullet-link" href="/coach/klant/1782853354864/detail/login">Open tegel ↗</a>
+                      </li>
+              </ul>
+            </div>
+          <div class="kd-vb-blok">
+            <div class="kd-vb-blok-titel">Bericht</div>
+            <textarea class="kd-vb-tekst" data-kd-vb-tekst data-kd-vb-origineel="Hey Test, al 14 dagen niet ingelogd. Alles goed? Laat me weten als je ergens vast zit." rows="4">Hey Test, al 14 dagen niet ingelogd. Alles goed? Laat me weten als je ergens vast zit.</textarea>
+          </div>
+        </div>
+        <div class="kd-modal-foot">
+          <span class="kd-mini-status" data-kd-vb-status></span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="kd-btn kd-btn-stil" data-kd-vb-negeer data-kd-signaal="niet_ingelogd">Negeren</button>
+            <button type="button" class="kd-btn kd-btn-ghost" data-kd-vb-bewerk>Bewerken</button>
+            <button type="button" class="kd-btn kd-btn-primair" data-kd-vb-goedkeur data-kd-signaal="niet_ingelogd">Goedkeuren en versturen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script>
+(function () {
+  var KID = String(window.KD_KLANT_ID || '');
+
+  function toast(msg, err) {
+    var t = document.createElement('div');
+    t.className = 'kd-toast' + (err ? ' kd-toast-err' : '');
+    t.textContent = msg;
+    document.body.appendChild(t);
+    requestAnimationFrame(function () { t.classList.add('kd-toast-zicht'); });
+    setTimeout(function () {
+      t.classList.remove('kd-toast-zicht');
+      setTimeout(function () { try { t.remove(); } catch (_) {} }, 240);
+    }, 2400);
+  }
+
+  function vindModal(naamOfId) {
+    if (!naamOfId) return null;
+    var v = String(naamOfId);
+    return document.getElementById(v)
+        || document.querySelector('.kd-modal-overlay[data-kd-modal="' + v + '"]')
+        || document.getElementById('kd-modal-' + v)
+        || (v === 'bericht' ? document.getElementById('kd-modal-voorstel') : null);
+  }
+  function openModal(naamOfId) {
+    var openNu = document.querySelector('.kd-modal-overlay.kd-modal-open');
+    if (openNu) { openNu.classList.remove('kd-modal-open'); openNu.hidden = true; }
+    var m = vindModal(naamOfId);
+    if (!m) return;
+    m.hidden = false;
+    requestAnimationFrame(function () { m.classList.add('kd-modal-open'); });
+    document.body.style.overflow = 'hidden';
+  }
+  function sluitModal(m) {
+    if (typeof m === 'string') m = vindModal(m);
+    if (!m) m = document.querySelector('.kd-modal-overlay.kd-modal-open');
+    if (m) { m.classList.remove('kd-modal-open'); setTimeout(function () { m.hidden = true; }, 200); }
+    document.body.style.overflow = '';
+  }
+  window.kdOpenModal = openModal;
+  window.kdSluitModal = sluitModal;
+
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('[data-kd-open-modal]');
+    if (trigger) {
+      e.preventDefault();
+      openModal(trigger.getAttribute('data-kd-open-modal'));
+      return;
+    }
+    var sluit = e.target.closest('[data-kd-modal-sluit]');
+    if (sluit) {
+      var m = sluit.closest('.kd-modal-overlay');
+      sluitModal(m);
+      return;
+    }
+    var overlay = e.target.classList && e.target.classList.contains('kd-modal-overlay') ? e.target : null;
+    if (overlay && overlay.classList.contains('kd-modal-open')) {
+      sluitModal(overlay);
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var open = document.querySelector('.kd-modal-overlay.kd-modal-open');
+      if (open) sluitModal(open);
+    }
+  });
+
+  // ===== Actieplan flow =====
+  function apEls() {
+    return {
+      card: document.querySelector('[data-kd-ap-card]'),
+      view: document.querySelector('[data-kd-ap-view]'),
+      edit: document.querySelector('[data-kd-ap-edit]'),
+      goedkeur: document.querySelector('[data-kd-ap-goedkeur]'),
+      bewerk: document.querySelector('[data-kd-ap-bewerk]'),
+      annuleer: document.querySelector('[data-kd-ap-annuleer]'),
+      status: document.querySelector('[data-kd-ap-status]'),
+    };
+  }
+  function apToonBewerken() {
+    var e = apEls();
+    if (!e.edit) return;
+    e.edit.hidden = false;
+    if (e.view) e.view.hidden = true;
+    if (e.annuleer) e.annuleer.hidden = false;
+    if (e.bewerk) e.bewerk.textContent = 'Opslaan';
+    e.edit.focus();
+  }
+  function apToonView() {
+    var e = apEls();
+    if (!e.edit) return;
+    e.edit.hidden = true;
+    if (e.view) e.view.hidden = false;
+    if (e.annuleer) e.annuleer.hidden = true;
+    if (e.bewerk) e.bewerk.textContent = 'Bewerken';
+  }
+  function apStatusZet(msg, err) {
+    var e = apEls();
+    if (!e.status) return;
+    e.status.textContent = msg || '';
+    e.status.classList.toggle('kd-mini-err', !!err);
+  }
+  async function apOpslaan(extraPad) {
+    var e = apEls();
+    if (!e.edit) return;
+    var tekst = (e.edit.value || '').trim();
+    if (!tekst) { apStatusZet('Tekst is leeg', true); return; }
+    apStatusZet('Opslaan…');
+    try {
+      var r = await fetch('/coach/api/klant/' + encodeURIComponent(KID) + '/actieplan/' + extraPad, {
+        method: 'POST', credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tekst: tekst })
+      });
+      var j = await r.json().catch(function () { return {}; });
+      if (!r.ok || !j.ok) throw new Error((j && j.fout) || 'HTTP ' + r.status);
+      apStatusZet('✓ ' + (extraPad === 'goedkeuren' ? 'Goedgekeurd' : 'Bewaard'));
+      setTimeout(function () { location.reload(); }, 700);
+    } catch (err) {
+      apStatusZet('Mislukt: ' + (err.message || ''), true);
+    }
+  }
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-kd-ap-bewerk]')) {
+      var btn = e.target.closest('[data-kd-ap-bewerk]');
+      if (btn.textContent.trim().toLowerCase().startsWith('opsl')) { apOpslaan('bewaren'); }
+      else { apToonBewerken(); }
+    }
+    if (e.target.closest('[data-kd-ap-annuleer]')) { apToonView(); apStatusZet(''); }
+    if (e.target.closest('[data-kd-ap-goedkeur]')) { apOpslaan('goedkeuren'); }
+  });
+
+  // ===== Notitie flow =====
+  function ntEls() {
+    return {
+      card: document.querySelector('[data-kd-nt-card]'),
+      view: document.querySelector('[data-kd-nt-view]'),
+      edit: document.querySelector('[data-kd-nt-edit]'),
+      bewaar: document.querySelector('[data-kd-nt-bewaar]'),
+      bewerk: document.querySelector('[data-kd-nt-bewerk]'),
+      annuleer: document.querySelector('[data-kd-nt-annuleer]'),
+      status: document.querySelector('[data-kd-nt-status]'),
+    };
+  }
+  function ntToonBewerken() {
+    var e = ntEls();
+    if (!e.edit) return;
+    e.edit.hidden = false;
+    if (e.view) e.view.hidden = true;
+    if (e.annuleer) e.annuleer.hidden = false;
+    if (e.bewerk) e.bewerk.textContent = 'Opslaan';
+    e.edit.focus();
+  }
+  function ntToonView() {
+    var e = ntEls();
+    if (!e.edit) return;
+    e.edit.hidden = true;
+    if (e.view) e.view.hidden = false;
+    if (e.annuleer) e.annuleer.hidden = true;
+    if (e.bewerk) e.bewerk.textContent = 'Bewerk';
+  }
+  function ntStatusZet(msg, err) {
+    var e = ntEls();
+    if (!e.status) return;
+    e.status.textContent = msg || '';
+    e.status.classList.toggle('kd-mini-err', !!err);
+  }
+  async function ntPost(pad, payload) {
+    var r = await fetch('/coach/api/klant/' + encodeURIComponent(KID) + '/notitie/' + pad, {
+      method: 'POST', credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    var j = await r.json().catch(function () { return {}; });
+    if (!r.ok || !j.ok) throw new Error((j && j.fout) || 'HTTP ' + r.status);
+    return j;
+  }
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-kd-nt-bewerk]')) {
+      var btn = e.target.closest('[data-kd-nt-bewerk]');
+      if (btn.textContent.trim().toLowerCase().startsWith('opsl')) {
+        var els = ntEls();
+        var tekst = (els.edit.value || '').trim();
+        if (!tekst) { ntStatusZet('Tekst is leeg', true); return; }
+        ntStatusZet('Opslaan…');
+        ntPost('bewerken', { notitie_id: window.KD_NOTITIE_ID || '', tekst: tekst })
+          .then(function () { ntStatusZet('✓ Opgeslagen'); setTimeout(function () { location.reload(); }, 700); })
+          .catch(function (err) { ntStatusZet('Mislukt: ' + err.message, true); });
+      } else {
+        ntToonBewerken();
+      }
+    }
+    if (e.target.closest('[data-kd-nt-annuleer]')) { ntToonView(); ntStatusZet(''); }
+    if (e.target.closest('[data-kd-nt-bewaar]')) {
+      var els = ntEls();
+      var tekst = (els.edit.value || '').trim();
+      if (!tekst) { ntStatusZet('Tekst is leeg', true); return; }
+      ntStatusZet('Bewaren…');
+      ntPost('bewaren', { datum: window.KD_NOTITIE_DATUM || '', tekst: tekst })
+        .then(function () { ntStatusZet('✓ Bewaard'); setTimeout(function () { location.reload(); }, 700); })
+        .catch(function (err) { ntStatusZet('Mislukt: ' + err.message, true); });
+    }
+    if (e.target.closest('[data-kd-nt-alle]')) {
+      e.preventDefault();
+      openModal('timeline');
+      setTimeout(function () {
+        var pill = document.querySelector('[data-kd-tl-filter="notitie"]');
+        if (pill) pill.click();
+      }, 60);
+    }
+  });
+
+  // ===== Timeline filter + + Notitie shortcut =====
+  document.addEventListener('click', function (e) {
+    var pill = e.target.closest('[data-kd-tl-filter]');
+    if (pill) {
+      document.querySelectorAll('[data-kd-tl-filter]').forEach(function (p) { p.classList.remove('kd-tl-pill-actief'); });
+      pill.classList.add('kd-tl-pill-actief');
+      var cat = pill.getAttribute('data-kd-tl-filter');
+      document.querySelectorAll('[data-kd-tl-event]').forEach(function (ev) {
+        var c = ev.getAttribute('data-tl-cat') || 'overig';
+        ev.style.display = (cat === 'alle' || c === cat) ? '' : 'none';
+      });
+      // Verberg lege dag-headers
+      document.querySelectorAll('.kd-tl-dag').forEach(function (d) {
+        var heeft = Array.prototype.some.call(d.querySelectorAll('[data-kd-tl-event]'), function (e) { return e.style.display !== 'none'; });
+        d.style.display = heeft ? '' : 'none';
+      });
+      return;
+    }
+    if (e.target.closest('[data-kd-tl-meer]')) {
+      var btn = e.target.closest('[data-kd-tl-meer]');
+      btn.disabled = true; btn.textContent = 'Laden…';
+      fetch('/coach/api/klant/' + encodeURIComponent(KID) + '/timeline?dagen=60')
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (!j || !j.ok) throw new Error('niet beschikbaar');
+          var feed = document.querySelector('[data-kd-tl-feed]');
+          if (feed && j.html) feed.innerHTML = j.html;
+          btn.style.display = 'none';
+        })
+        .catch(function () { btn.disabled = false; btn.textContent = 'Toon meer (laatste 60 dagen) ↓'; toast('Kon niet laden', true); });
+      return;
+    }
+    if (e.target.closest('[data-kd-tl-notitie]')) {
+      sluitModal();
+      var card = document.querySelector('[data-kd-nt-card]');
+      if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(function(){ var b = card.querySelector('[data-kd-nt-bewerk]'); if (b) b.click(); }, 350); }
+    }
+  });
+
+  // ===== Voorgesteld-bericht flow =====
+  function vbStatusZet(msg, err) {
+    var s = document.querySelector('[data-kd-vb-status]');
+    if (!s) return;
+    s.textContent = msg || '';
+    s.classList.toggle('kd-mini-err', !!err);
+  }
+  document.addEventListener('click', async function (e) {
+    if (e.target.closest('[data-kd-vb-bewerk]')) {
+      var ta = document.querySelector('[data-kd-vb-tekst]');
+      if (ta) { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
+      return;
+    }
+    if (e.target.closest('[data-kd-vb-goedkeur]')) {
+      var btn = e.target.closest('[data-kd-vb-goedkeur]');
+      var ta = document.querySelector('[data-kd-vb-tekst]');
+      var tekst = ta ? (ta.value || '').trim() : '';
+      if (!tekst) { vbStatusZet('Bericht is leeg', true); return; }
+      // Stuur origineel template-voorstel mee voor edit-detectie backend.
+      var origineel = ta ? (ta.getAttribute('data-kd-vb-origineel') || '') : '';
+      var sig = btn.getAttribute('data-kd-signaal') || 'aandacht';
+      btn.disabled = true; vbStatusZet('Versturen…');
+      try {
+        var r = await fetch('/coach/api/aandacht/goedkeuren', {
+          method: 'POST', credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            klantId: KID, berichtTekst: tekst, signaalType: sig,
+            origineel_voorstel: origineel,
+          })
+        });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        toast('Bericht verstuurd');
+        sluitModal();
+        var trig = document.querySelector('[data-kd-open-modal="bericht"]');
+        if (trig) trig.disabled = true;
+      } catch (err) { vbStatusZet('Mislukt', true); btn.disabled = false; }
+    }
+    if (e.target.closest('[data-kd-vb-negeer]')) {
+      var btn = e.target.closest('[data-kd-vb-negeer]');
+      var sig = btn.getAttribute('data-kd-signaal') || 'aandacht';
+      btn.disabled = true; vbStatusZet('Verwerken…');
+      try {
+        var r = await fetch('/coach/api/aandacht/negeren', {
+          method: 'POST', credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ klantId: KID, signaalType: sig })
+        });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        toast('Genegeerd voor vandaag');
+        sluitModal();
+        var trig = document.querySelector('[data-kd-open-modal="bericht"]');
+        if (trig) trig.disabled = true;
+      } catch (err) { vbStatusZet('Mislukt', true); btn.disabled = false; }
+    }
+  });
+})();
+</script>
+  <script src="/js/klantschema-klaarzetten.js" defer></script>
+  <script src="/js/klantschema-verwijderen.js" defer></script>
+  <script src="/js/coach-voeding-dag-modal.js" defer></script>
+  <script src="/js/coach-voeding-genereer.js" defer></script>
+  <script src="/js/coach-training-wissel.js" defer></script>
+</body>
+</html>

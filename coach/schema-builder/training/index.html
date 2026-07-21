@@ -500,11 +500,11 @@
         <div class="nav-group-body">
           <a class="nav-item nav-sub-item" href="/coach/intakes">
             Intakes
-            <span class="nav-badge-amber">8</span>
+            
           </a>
           <a class="nav-item nav-sub-item" href="/coach/checkins">
             Check-ins
-            <span class="nav-badge">11</span>
+            <span class="nav-badge">3</span>
           </a>
         </div>
       </div>
@@ -528,24 +528,24 @@
 
       <div class="nav-label">Schema Builder</div>
       <div class="nav-group" data-open="false">
-        <a class="nav-group-head" href="/coach/schema-builder/voeding?tab=genereren">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding/">
           <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
           <span class="nav-group-label">Voeding</span>
           <span class="nav-chevron" aria-hidden="true">▾</span>
         </a>
         <div class="nav-group-body">
-          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding?tab=producten">Producten</a>
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding-producten/">Producten</a>
         </div>
       </div>
 
       <div class="nav-group" data-open="true">
-        <a class="nav-group-head active" href="/coach/schema-builder/training?tab=genereren">
+        <a class="nav-group-head active" href="/coach/schema-builder/training/">
           <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
           <span class="nav-group-label">Training</span>
           <span class="nav-chevron" aria-hidden="true">▾</span>
         </a>
         <div class="nav-group-body">
-          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a>
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/training-oefeningen/">Oefeningen</a>
         </div>
       </div>
     </nav>
@@ -681,14 +681,14 @@
       <div class="page-date">AI-gegenereerde trainingsschema’s gebaseerd op klantprofiel.</div>
     </div>
   </div>
-  <div class="sb-subtabs"><a class="sb-subtab active" href="/coach/schema-builder/training?tab=genereren">Schema genereren</a><a class="sb-subtab" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a></div>
+  <div class="sb-subtabs"><a class="sb-subtab active" href="/coach/schema-builder/training/">Schema genereren</a><a class="sb-subtab" href="/coach/schema-builder/training-oefeningen/">Oefeningen</a></div>
     <form method="POST" action="/coach/schema-builder/training/genereer" class="gen-form" id="gen-form-training">
       <section class="gen-section">
         <h2 class="gen-section-title">1. Klantprofiel</h2>
         <div class="gen-row">
           <label>Selecteer klant
             <select name="klant_id_select" id="klant-select-training" onchange="fillFromTrainingIntake(this.value)">
-              <option value="">— vul handmatig in —</option><option value="intake_seed_daniel">Daniel Test — 88kg — 10 kg afvallen en weer energie…</option><option value="78dec9b2e444a4c3984164ec60f3d91d">Julian — 80kg — 20 kg afvallen en fittter zijn</option><option value="e5d0225528f9cffc7f76c6e231f20e86">Julian — 80kg — Een gespierd lichaam</option><option value="8a0964b2b6d0cada879fd07034072ae1">Test Onb M — —</option><option value="257a5a5ce4e569a15ac240364107a70f">Test Onb N — —</option><option value="9d9bb3df2dff171e03ad2c947dd655fd">Test Onb O — —</option><option value="f3695ae76eb448a35e0659b00e6e3d55">Test Onb P — —</option><option value="5f83c2105b2288fcac8e82a3a1ae220a">Test Onb Q — —</option><option value="60b74c3dce29ced63bd8f659ba48e1e2">Test Onb R — —</option><option value="026cb83511aa13d81250f5edef3e3b6b">Test Onb V — —</option><option value="097562d4a10020a2b215f55d2141d3b3">Test Onb W — —</option>
+              <option value="">— vul handmatig in —</option><option value="intake_seed_daniel">Daniel Test — 88kg — 10 kg afvallen en weer energie…</option><option value="78dec9b2e444a4c3984164ec60f3d91d">Julian — 80kg — 20 kg afvallen en fittter zijn</option><option value="e5d0225528f9cffc7f76c6e231f20e86">Julian — 80kg — Een gespierd lichaam</option>
             </select>
           </label>
         </div>
@@ -764,7 +764,7 @@
       <button type="submit" class="gen-btn">Genereer Trainingsschema met AI ✦</button>
     </form>
     <script>
-      var INTAKES_TRAINING = [{"id":"intake_seed_daniel","naam":"Daniel Test","leeftijd":37,"geslacht":"man","gewicht":88,"doel":"afvallen","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"Lichte knieklacht rechts, verder geen actieve blessures.","trainingstype_voorkeur":[],"apparatuur_thuis":["dumbbells","barbell","weerstandsbanden","pullup_bar","geen"],"favoriete_oefeningen":"Bankdrukken, squatten, pull-ups","oefeningen_vermijden":"Zware kniebelastende oefeningen","submittedAt":"2026-06-30T21:04:02.778Z"},{"id":"78dec9b2e444a4c3984164ec60f3d91d","naam":"Julian","leeftijd":20,"geslacht":"man","gewicht":80,"doel":"afvallen","ervaringsniveau":"beginner","locatie":"thuis","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"Geen","trainingstype_voorkeur":[],"apparatuur_thuis":["geen"],"favoriete_oefeningen":"Geen","oefeningen_vermijden":"Nee","submittedAt":"2026-07-04T17:56:56.643Z"},{"id":"e5d0225528f9cffc7f76c6e231f20e86","naam":"Julian","leeftijd":20,"geslacht":"man","gewicht":80,"doel":"spiermassa","ervaringsniveau":"beginner","locatie":"thuis","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"laatst door me enkel gegaan","trainingstype_voorkeur":[],"apparatuur_thuis":["geen"],"favoriete_oefeningen":"bench press","oefeningen_vermijden":"deadlift","submittedAt":"2026-07-07T10:41:58.752Z"},{"id":"8a0964b2b6d0cada879fd07034072ae1","naam":"Test Onb M","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-10T18:01:05.630Z"},{"id":"257a5a5ce4e569a15ac240364107a70f","naam":"Test Onb N","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-10T18:09:05.738Z"},{"id":"9d9bb3df2dff171e03ad2c947dd655fd","naam":"Test Onb O","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-10T18:12:03.897Z"},{"id":"f3695ae76eb448a35e0659b00e6e3d55","naam":"Test Onb P","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T11:27:02.781Z"},{"id":"5f83c2105b2288fcac8e82a3a1ae220a","naam":"Test Onb Q","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T12:05:13.579Z"},{"id":"60b74c3dce29ced63bd8f659ba48e1e2","naam":"Test Onb R","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T12:26:17.939Z"},{"id":"026cb83511aa13d81250f5edef3e3b6b","naam":"Test Onb V","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T13:09:49.318Z"},{"id":"097562d4a10020a2b215f55d2141d3b3","naam":"Test Onb W","leeftijd":"","geslacht":"man","gewicht":"","doel":"spiermassa","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"","trainingstype_voorkeur":[],"apparatuur_thuis":[],"favoriete_oefeningen":"","oefeningen_vermijden":"","submittedAt":"2026-07-17T13:11:06.764Z"}];
+      var INTAKES_TRAINING = [{"id":"intake_seed_daniel","naam":"Daniel Test","leeftijd":37,"geslacht":"man","gewicht":88,"doel":"afvallen","ervaringsniveau":"gevorderd_beginner","locatie":"gym","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"Lichte knieklacht rechts, verder geen actieve blessures.","trainingstype_voorkeur":[],"apparatuur_thuis":["dumbbells","barbell","weerstandsbanden","pullup_bar","geen"],"favoriete_oefeningen":"Bankdrukken, squatten, pull-ups","oefeningen_vermijden":"Zware kniebelastende oefeningen","submittedAt":"2026-06-30T21:04:02.778Z"},{"id":"78dec9b2e444a4c3984164ec60f3d91d","naam":"Julian","leeftijd":20,"geslacht":"man","gewicht":80,"doel":"afvallen","ervaringsniveau":"beginner","locatie":"thuis","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"Geen","trainingstype_voorkeur":[],"apparatuur_thuis":["geen"],"favoriete_oefeningen":"Geen","oefeningen_vermijden":"Nee","submittedAt":"2026-07-04T17:56:56.643Z"},{"id":"e5d0225528f9cffc7f76c6e231f20e86","naam":"Julian","leeftijd":20,"geslacht":"man","gewicht":80,"doel":"spiermassa","ervaringsniveau":"beginner","locatie":"thuis","dagen_per_week":"3","tijd_per_sessie":"60","blessures":"laatst door me enkel gegaan","trainingstype_voorkeur":[],"apparatuur_thuis":["geen"],"favoriete_oefeningen":"bench press","oefeningen_vermijden":"deadlift","submittedAt":"2026-07-07T10:41:58.752Z"}];
       var APPARATUUR_LABELS = { dumbbells: 'Dumbbells', barbell: 'Barbell', weerstandsbanden: 'Weerstandsbanden', pullup_bar: 'Pull-up bar', geen: 'Geen', anders: 'Anders' };
       function fillFromTrainingIntake(id) {
         var form = document.getElementById('gen-form-training');

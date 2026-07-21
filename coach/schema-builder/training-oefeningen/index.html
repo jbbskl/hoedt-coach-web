@@ -500,11 +500,11 @@
         <div class="nav-group-body">
           <a class="nav-item nav-sub-item" href="/coach/intakes">
             Intakes
-            <span class="nav-badge-amber">8</span>
+            
           </a>
           <a class="nav-item nav-sub-item" href="/coach/checkins">
             Check-ins
-            <span class="nav-badge">11</span>
+            <span class="nav-badge">3</span>
           </a>
         </div>
       </div>
@@ -528,24 +528,24 @@
 
       <div class="nav-label">Schema Builder</div>
       <div class="nav-group" data-open="false">
-        <a class="nav-group-head" href="/coach/schema-builder/voeding?tab=genereren">
+        <a class="nav-group-head" href="/coach/schema-builder/voeding/">
           <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"/><path d="M10 2c1 .5 2 2 2 5"/></svg></span>
           <span class="nav-group-label">Voeding</span>
           <span class="nav-chevron" aria-hidden="true">▾</span>
         </a>
         <div class="nav-group-body">
-          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding?tab=producten">Producten</a>
+          <a class="nav-item nav-sub-item" href="/coach/schema-builder/voeding-producten/">Producten</a>
         </div>
       </div>
 
       <div class="nav-group" data-open="true">
-        <a class="nav-group-head" href="/coach/schema-builder/training?tab=genereren">
+        <a class="nav-group-head" href="/coach/schema-builder/training/">
           <span class="nav-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
           <span class="nav-group-label">Training</span>
           <span class="nav-chevron" aria-hidden="true">▾</span>
         </a>
         <div class="nav-group-body">
-          <a class="nav-item nav-sub-item active" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a>
+          <a class="nav-item nav-sub-item active" href="/coach/schema-builder/training-oefeningen/">Oefeningen</a>
         </div>
       </div>
     </nav>
@@ -681,7 +681,7 @@
       <div class="page-date">AI-gegenereerde trainingsschema’s gebaseerd op klantprofiel.</div>
     </div>
   </div>
-  <div class="sb-subtabs"><a class="sb-subtab" href="/coach/schema-builder/training?tab=genereren">Schema genereren</a><a class="sb-subtab active" href="/coach/schema-builder/training?tab=oefeningen">Oefeningen</a></div>
+  <div class="sb-subtabs"><a class="sb-subtab" href="/coach/schema-builder/training/">Schema genereren</a><a class="sb-subtab active" href="/coach/schema-builder/training-oefeningen/">Oefeningen</a></div>
     <div class="sb-toolbar">
       <input type="text" id="oef-search" class="sb-search" placeholder="Zoek oefening..." oninput="filterOef()" />
       <select id="oef-equip" onchange="filterOef()" class="sb-select">
@@ -692,7 +692,7 @@
         <option value="alles">Alle types</option>
         <option value="compound">Compound</option><option value="isolatie">Isolatie</option>
       </select>
-      <a class="sb-btn sb-btn-primary" href="/coach/schema-builder/training?tab=oefeningen&add=1">+ Oefening toevoegen</a>
+      <a class="sb-btn sb-btn-primary" href="/coach/schema-builder/training-oefeningen/&add=1">+ Oefening toevoegen</a>
     </div>
     <div class="sb-cat-tabs"><button type="button" class="sb-cat-tab active" data-spier="alles" onclick="filterOef(this,'spier')">Alles</button><button type="button" class="sb-cat-tab" data-spier="borst" onclick="filterOef(this,'spier')">Borst</button><button type="button" class="sb-cat-tab" data-spier="rug" onclick="filterOef(this,'spier')">Rug</button><button type="button" class="sb-cat-tab" data-spier="schouders" onclick="filterOef(this,'spier')">Schouders</button><button type="button" class="sb-cat-tab" data-spier="biceps" onclick="filterOef(this,'spier')">Biceps</button><button type="button" class="sb-cat-tab" data-spier="triceps" onclick="filterOef(this,'spier')">Triceps</button><button type="button" class="sb-cat-tab" data-spier="benen" onclick="filterOef(this,'spier')">Benen</button><button type="button" class="sb-cat-tab" data-spier="billen" onclick="filterOef(this,'spier')">Billen</button><button type="button" class="sb-cat-tab" data-spier="core" onclick="filterOef(this,'spier')">Core</button><button type="button" class="sb-cat-tab" data-spier="cardio" onclick="filterOef(this,'spier')">Cardio</button></div>
     
@@ -706,7 +706,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_1" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_1" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_1/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="compound" data-name="squat">
@@ -716,7 +716,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_2" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_2" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_2/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="deadlift">
@@ -726,7 +726,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_3" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_3" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_3/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="compound" data-name="overhead press">
@@ -736,7 +736,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_4" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_4" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_4/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="seated cable row">
@@ -746,7 +746,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_5" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_5" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_5/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="lat pulldown">
@@ -756,7 +756,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_6" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_6" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_6/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="compound" data-name="leg press">
@@ -766,7 +766,7 @@
       <td>Compound</td>
       <td>+5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_7" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_7" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_7/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="compound" data-name="romanian deadlift">
@@ -776,7 +776,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_8" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_8" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_8/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="isolatie" data-name="lateral raise">
@@ -786,7 +786,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_9" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_9" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_9/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="biceps" data-equip="gym" data-type="isolatie" data-name="bicep curl">
@@ -796,7 +796,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_10" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_10" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_10/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="triceps" data-equip="gym" data-type="isolatie" data-name="tricep pushdown">
@@ -806,7 +806,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_11" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_11" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_11/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="isolatie" data-name="leg curl">
@@ -816,7 +816,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_12" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_12" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_12/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="isolatie" data-name="face pull">
@@ -826,7 +826,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_13" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_13" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_13/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="thuis" data-type="compound" data-name="push-up">
@@ -836,7 +836,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_14" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_14" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_14/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="compound" data-name="squat lichaamsgewicht">
@@ -846,7 +846,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_15" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_15" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_15/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="billen" data-equip="thuis" data-type="isolatie" data-name="glute bridge">
@@ -856,7 +856,7 @@
       <td>Isolatie</td>
       <td>+1 rep</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_16" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_16" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_16/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="thuis" data-type="isolatie" data-name="plank">
@@ -866,7 +866,7 @@
       <td>Isolatie</td>
       <td>+1 rep</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_17" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_17" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_17/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="compound" data-name="reverse lunge">
@@ -876,7 +876,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_18" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_18" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_18/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="billen" data-equip="thuis" data-type="compound" data-name="hip thrust">
@@ -886,7 +886,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_19" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_19" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_19/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="thuis" data-type="isolatie" data-name="mountain climber">
@@ -896,7 +896,7 @@
       <td>Isolatie</td>
       <td>+1 rep</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_20" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_20" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_20/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="" data-type="kracht" data-name="bench press">
@@ -906,7 +906,7 @@
       <td>Kracht</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_test_bench" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_test_bench" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_test_bench/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="" data-type="kracht" data-name="back squat">
@@ -916,7 +916,7 @@
       <td>Kracht</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_test_squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_test_squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_test_squat/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="" data-type="kracht" data-name="deadlift">
@@ -926,7 +926,7 @@
       <td>Kracht</td>
       <td>+5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_test_dead" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_test_dead" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_test_dead/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="" data-type="kracht" data-name="barbell row">
@@ -936,7 +936,7 @@
       <td>Kracht</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_test_row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_test_row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_test_row/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="" data-type="kracht" data-name="overhead press">
@@ -946,7 +946,7 @@
       <td>Kracht</td>
       <td>+1.25kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_test_ohp" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_test_ohp" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_test_ohp/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="" data-type="kracht" data-name="walking lunges">
@@ -956,7 +956,7 @@
       <td>Kracht</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=o_test_lunge" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=o_test_lunge" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/o_test_lunge/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="gym" data-type="compound" data-name="bench press">
@@ -966,7 +966,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=bench-press-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=bench-press-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/bench-press-barbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="gym" data-type="compound" data-name="incline bench press">
@@ -976,7 +976,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=incline-bench-press-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=incline-bench-press-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/incline-bench-press-barbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="gym" data-type="compound" data-name="decline bench press">
@@ -986,7 +986,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=decline-bench-press-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=decline-bench-press-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/decline-bench-press-barbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="thuis" data-type="compound" data-name="dumbbell bench press">
@@ -996,7 +996,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=bench-press-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=bench-press-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/bench-press-dumbbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="thuis" data-type="compound" data-name="incline dumbbell press">
@@ -1006,7 +1006,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=incline-bench-press-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=incline-bench-press-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/incline-bench-press-dumbbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="thuis" data-type="isolatie" data-name="dumbbell fly">
@@ -1016,7 +1016,7 @@
       <td>Isolatie</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=dumbbell-fly" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=dumbbell-fly" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/dumbbell-fly/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="thuis" data-type="isolatie" data-name="incline dumbbell fly">
@@ -1026,7 +1026,7 @@
       <td>Isolatie</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=incline-dumbbell-fly" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=incline-dumbbell-fly" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/incline-dumbbell-fly/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="gym" data-type="isolatie" data-name="cable fly">
@@ -1036,7 +1036,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=cable-fly" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=cable-fly" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/cable-fly/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="gym" data-type="compound" data-name="chest press machine">
@@ -1046,7 +1046,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=chest-press-machine" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=chest-press-machine" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/chest-press-machine/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="gym" data-type="isolatie" data-name="pec deck">
@@ -1056,7 +1056,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=pec-deck" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=pec-deck" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/pec-deck/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="thuis" data-type="compound" data-name="push-up">
@@ -1066,7 +1066,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=push-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=push-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/push-up/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="triceps" data-equip="thuis" data-type="compound" data-name="diamond push-up">
@@ -1076,7 +1076,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=diamond-push-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=diamond-push-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/diamond-push-up/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="borst" data-equip="thuis" data-type="compound" data-name="dips">
@@ -1086,7 +1086,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=dips" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=dips" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/dips/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="deadlift">
@@ -1096,7 +1096,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=deadlift-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=deadlift-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/deadlift-barbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="trap bar deadlift">
@@ -1106,7 +1106,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=trap-bar-deadlift" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=trap-bar-deadlift" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/trap-bar-deadlift/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="rack pull">
@@ -1116,7 +1116,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=rack-pull" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=rack-pull" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/rack-pull/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="thuis" data-type="compound" data-name="pull-up">
@@ -1126,7 +1126,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=pull-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=pull-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/pull-up/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="thuis" data-type="compound" data-name="chin-up">
@@ -1136,7 +1136,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=chin-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=chin-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/chin-up/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="thuis" data-type="compound" data-name="inverted row">
@@ -1146,7 +1146,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=inverted-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=inverted-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/inverted-row/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="lat pulldown">
@@ -1156,7 +1156,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=lat-pulldown" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=lat-pulldown" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/lat-pulldown/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="seated cable row">
@@ -1166,7 +1166,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=seated-cable-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=seated-cable-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/seated-cable-row/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="barbell row">
@@ -1176,7 +1176,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=barbell-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=barbell-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/barbell-row/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="pendlay row">
@@ -1186,7 +1186,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=pendlay-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=pendlay-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/pendlay-row/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="chest-supported row">
@@ -1196,7 +1196,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=chest-supported-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=chest-supported-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/chest-supported-row/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="thuis" data-type="compound" data-name="single-arm dumbbell row">
@@ -1206,7 +1206,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=single-arm-dumbbell-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=single-arm-dumbbell-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/single-arm-dumbbell-row/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="t-bar row">
@@ -1216,7 +1216,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=t-bar-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=t-bar-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/t-bar-row/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="rug" data-equip="gym" data-type="compound" data-name="machine row">
@@ -1226,7 +1226,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=machine-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=machine-row" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/machine-row/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="compound" data-name="overhead press">
@@ -1236,7 +1236,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=overhead-press-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=overhead-press-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/overhead-press-barbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="thuis" data-type="compound" data-name="dumbbell shoulder press">
@@ -1246,7 +1246,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=shoulder-press-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=shoulder-press-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/shoulder-press-dumbbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="compound" data-name="machine shoulder press">
@@ -1256,7 +1256,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=machine-shoulder-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=machine-shoulder-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/machine-shoulder-press/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="compound" data-name="landmine press">
@@ -1266,7 +1266,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=landmine-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=landmine-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/landmine-press/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="thuis" data-type="compound" data-name="arnold press">
@@ -1276,7 +1276,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=arnold-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=arnold-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/arnold-press/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="thuis" data-type="isolatie" data-name="lateral raise">
@@ -1286,7 +1286,7 @@
       <td>Isolatie</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=lateral-raise-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=lateral-raise-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/lateral-raise-dumbbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="isolatie" data-name="cable lateral raise">
@@ -1296,7 +1296,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=cable-lateral-raise" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=cable-lateral-raise" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/cable-lateral-raise/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="thuis" data-type="isolatie" data-name="rear delt fly">
@@ -1306,7 +1306,7 @@
       <td>Isolatie</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=rear-delt-fly-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=rear-delt-fly-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/rear-delt-fly-dumbbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="isolatie" data-name="cable rear delt fly">
@@ -1316,7 +1316,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=cable-rear-delt-fly" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=cable-rear-delt-fly" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/cable-rear-delt-fly/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="isolatie" data-name="reverse pec deck">
@@ -1326,7 +1326,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=reverse-pec-deck" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=reverse-pec-deck" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/reverse-pec-deck/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="schouders" data-equip="gym" data-type="isolatie" data-name="face pull">
@@ -1336,7 +1336,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=face-pull" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=face-pull" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/face-pull/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="compound" data-name="back squat">
@@ -1346,7 +1346,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=back-squat-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=back-squat-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/back-squat-barbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="compound" data-name="front squat">
@@ -1356,7 +1356,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=front-squat-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=front-squat-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/front-squat-barbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="compound" data-name="goblet squat">
@@ -1366,7 +1366,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=goblet-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=goblet-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/goblet-squat/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="compound" data-name="leg press">
@@ -1376,7 +1376,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=leg-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=leg-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/leg-press/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="compound" data-name="hack squat">
@@ -1386,7 +1386,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=hack-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=hack-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/hack-squat/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="compound" data-name="bulgarian split squat">
@@ -1396,7 +1396,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=bulgarian-split-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=bulgarian-split-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/bulgarian-split-squat/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="compound" data-name="walking lunge">
@@ -1406,7 +1406,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=walking-lunge" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=walking-lunge" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/walking-lunge/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="compound" data-name="step-up">
@@ -1416,7 +1416,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=step-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=step-up" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/step-up/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="isolatie" data-name="leg extension">
@@ -1426,7 +1426,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=leg-extension" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=leg-extension" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/leg-extension/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="isolatie" data-name="sissy squat">
@@ -1436,7 +1436,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=sissy-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=sissy-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/sissy-squat/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="compound" data-name="pistol squat">
@@ -1446,7 +1446,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=pistol-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=pistol-squat" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/pistol-squat/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="compound" data-name="romanian deadlift">
@@ -1456,7 +1456,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=romanian-deadlift-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=romanian-deadlift-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/romanian-deadlift-barbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="compound" data-name="romanian deadlift (dumbbell)">
@@ -1466,7 +1466,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=romanian-deadlift-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=romanian-deadlift-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/romanian-deadlift-dumbbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="isolatie" data-name="lying leg curl">
@@ -1476,7 +1476,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=leg-curl-lying" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=leg-curl-lying" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/leg-curl-lying/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="isolatie" data-name="seated leg curl">
@@ -1486,7 +1486,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=leg-curl-seated" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=leg-curl-seated" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/leg-curl-seated/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="isolatie" data-name="nordic curl">
@@ -1496,7 +1496,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=nordic-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=nordic-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/nordic-curl/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="compound" data-name="good morning">
@@ -1506,7 +1506,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=good-morning" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=good-morning" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/good-morning/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="billen" data-equip="gym" data-type="compound" data-name="hip thrust">
@@ -1516,7 +1516,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=hip-thrust-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=hip-thrust-barbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/hip-thrust-barbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="billen" data-equip="thuis" data-type="compound" data-name="hip thrust (dumbbell)">
@@ -1526,7 +1526,7 @@
       <td>Compound</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=hip-thrust-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=hip-thrust-dumbbell" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/hip-thrust-dumbbell/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="billen" data-equip="thuis" data-type="compound" data-name="glute bridge">
@@ -1536,7 +1536,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=glute-bridge" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=glute-bridge" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/glute-bridge/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="billen" data-equip="gym" data-type="isolatie" data-name="cable kickback">
@@ -1546,7 +1546,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=cable-kickback" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=cable-kickback" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/cable-kickback/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="billen" data-equip="gym" data-type="compound" data-name="cable pull-through">
@@ -1556,7 +1556,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=cable-pull-through" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=cable-pull-through" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/cable-pull-through/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="billen" data-equip="gym" data-type="isolatie" data-name="hip abduction machine">
@@ -1566,7 +1566,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=hip-abduction-machine" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=hip-abduction-machine" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/hip-abduction-machine/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="biceps" data-equip="gym" data-type="isolatie" data-name="barbell curl">
@@ -1576,7 +1576,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=barbell-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=barbell-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/barbell-curl/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="biceps" data-equip="gym" data-type="isolatie" data-name="ez-bar curl">
@@ -1586,7 +1586,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=ez-bar-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=ez-bar-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/ez-bar-curl/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="biceps" data-equip="thuis" data-type="isolatie" data-name="dumbbell curl">
@@ -1596,7 +1596,7 @@
       <td>Isolatie</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=dumbbell-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=dumbbell-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/dumbbell-curl/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="biceps" data-equip="thuis" data-type="isolatie" data-name="hammer curl">
@@ -1606,7 +1606,7 @@
       <td>Isolatie</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=hammer-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=hammer-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/hammer-curl/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="biceps" data-equip="gym" data-type="isolatie" data-name="preacher curl">
@@ -1616,7 +1616,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=preacher-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=preacher-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/preacher-curl/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="biceps" data-equip="gym" data-type="isolatie" data-name="cable curl">
@@ -1626,7 +1626,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=cable-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=cable-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/cable-curl/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="biceps" data-equip="thuis" data-type="isolatie" data-name="incline dumbbell curl">
@@ -1636,7 +1636,7 @@
       <td>Isolatie</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=incline-dumbbell-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=incline-dumbbell-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/incline-dumbbell-curl/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="biceps" data-equip="thuis" data-type="isolatie" data-name="concentration curl">
@@ -1646,7 +1646,7 @@
       <td>Isolatie</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=concentration-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=concentration-curl" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/concentration-curl/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="triceps" data-equip="gym" data-type="isolatie" data-name="tricep pushdown">
@@ -1656,7 +1656,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=tricep-pushdown" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=tricep-pushdown" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/tricep-pushdown/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="triceps" data-equip="gym" data-type="isolatie" data-name="cable rope extension">
@@ -1666,7 +1666,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=cable-rope-extension" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=cable-rope-extension" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/cable-rope-extension/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="triceps" data-equip="gym" data-type="isolatie" data-name="overhead tricep extension">
@@ -1676,7 +1676,7 @@
       <td>Isolatie</td>
       <td>+2kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=overhead-tricep-extension" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=overhead-tricep-extension" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/overhead-tricep-extension/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="triceps" data-equip="gym" data-type="isolatie" data-name="skull crusher">
@@ -1686,7 +1686,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=skull-crusher" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=skull-crusher" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/skull-crusher/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="triceps" data-equip="gym" data-type="compound" data-name="close-grip bench press">
@@ -1696,7 +1696,7 @@
       <td>Compound</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=close-grip-bench-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=close-grip-bench-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/close-grip-bench-press/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="triceps" data-equip="thuis" data-type="compound" data-name="tricep dip">
@@ -1706,7 +1706,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=tricep-dip" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=tricep-dip" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/tricep-dip/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="triceps" data-equip="thuis" data-type="compound" data-name="bench dip">
@@ -1716,7 +1716,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=bench-dip" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=bench-dip" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/bench-dip/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="isolatie" data-name="standing calf raise">
@@ -1726,7 +1726,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=standing-calf-raise" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=standing-calf-raise" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/standing-calf-raise/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="gym" data-type="isolatie" data-name="seated calf raise">
@@ -1736,7 +1736,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=seated-calf-raise" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=seated-calf-raise" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/seated-calf-raise/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="benen" data-equip="thuis" data-type="isolatie" data-name="calf raise (bodyweight)">
@@ -1746,7 +1746,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=calf-raise-bodyweight" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=calf-raise-bodyweight" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/calf-raise-bodyweight/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="thuis" data-type="isolatie" data-name="plank">
@@ -1756,7 +1756,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=plank" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=plank" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/plank/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="thuis" data-type="isolatie" data-name="side plank">
@@ -1766,7 +1766,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=side-plank" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=side-plank" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/side-plank/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="thuis" data-type="isolatie" data-name="hanging leg raise">
@@ -1776,7 +1776,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=hanging-leg-raise" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=hanging-leg-raise" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/hanging-leg-raise/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="gym" data-type="isolatie" data-name="cable crunch">
@@ -1786,7 +1786,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=cable-crunch" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=cable-crunch" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/cable-crunch/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="gym" data-type="isolatie" data-name="pallof press">
@@ -1796,7 +1796,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=pallof-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=pallof-press" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/pallof-press/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="thuis" data-type="compound" data-name="ab wheel rollout">
@@ -1806,7 +1806,7 @@
       <td>Compound</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=ab-wheel-rollout" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=ab-wheel-rollout" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/ab-wheel-rollout/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="thuis" data-type="isolatie" data-name="dead bug">
@@ -1816,7 +1816,7 @@
       <td>Isolatie</td>
       <td>+1kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=dead-bug" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=dead-bug" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/dead-bug/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr><tr class="sb-oef-row" data-spier="core" data-equip="gym" data-type="isolatie" data-name="cable woodchopper">
@@ -1826,7 +1826,7 @@
       <td>Isolatie</td>
       <td>+2.5kg</td>
       <td class="sb-actions-cell">
-        <a class="sb-icon-btn" href="/coach/schema-builder/training?tab=oefeningen&edit=cable-woodchopper" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
+        <a class="sb-icon-btn" href="/coach/schema-builder/training-oefeningen/&edit=cable-woodchopper" title="Bewerken"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></a>
         <form method="POST" action="/coach/schema-builder/oefeningen/cable-woodchopper/delete" style="display:inline" onsubmit="return confirm('Oefening verwijderen?');"><button type="submit" class="sb-icon-btn" title="Verwijderen"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></svg></button></form>
       </td>
     </tr></tbody>
