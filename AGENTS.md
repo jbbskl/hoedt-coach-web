@@ -1,7 +1,7 @@
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **coach-web** (291 symbols, 349 relationships, 2 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **hoedt-coach-web** (328 symbols, 381 relationships, 2 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 
@@ -24,10 +24,10 @@ This project is indexed by GitNexus as **coach-web** (291 symbols, 349 relations
 
 | Resource | Use for |
 |----------|---------|
-| `gitnexus://repo/coach-web/context` | Codebase overview, check index freshness |
-| `gitnexus://repo/coach-web/clusters` | All functional areas |
-| `gitnexus://repo/coach-web/processes` | All execution flows |
-| `gitnexus://repo/coach-web/process/{name}` | Step-by-step execution trace |
+| `gitnexus://repo/hoedt-coach-web/context` | Codebase overview, check index freshness |
+| `gitnexus://repo/hoedt-coach-web/clusters` | All functional areas |
+| `gitnexus://repo/hoedt-coach-web/processes` | All execution flows |
+| `gitnexus://repo/hoedt-coach-web/process/{name}` | Step-by-step execution trace |
 
 ## CLI
 
